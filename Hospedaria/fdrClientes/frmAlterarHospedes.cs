@@ -14,6 +14,7 @@ namespace Hospedaria.fdrClientes
     public partial class frmAlterarHospedes : Form
     {
         private ConnectionClass db = new ConnectionClass();
+        public Form RefToMain { get; set; }
         private static int selectedrow;
         public frmAlterarHospedes()
         {

@@ -86,6 +86,12 @@
     </Compile>
     <Compile Include="fdrClientes\ValidaCNPJ.cs" />
     <Compile Include="fdrClientes\ValidaCPF.cs" />
+    <Compile Include="fdrVendas\frmVendas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fdrVendas\frmVendas.Designer.cs">
+      <DependentUpon>frmVendas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,7 +137,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="fdrFinanceiro\" />
-    <Folder Include="fdrMovimentação\" />
     <Folder Include="fdrQuartos\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

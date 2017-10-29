@@ -36,6 +36,7 @@
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administraçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.financeiroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btVenda = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -110,11 +111,23 @@
             this.financeiroToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
             this.financeiroToolStripMenuItem.Text = "Financeiro";
             // 
+            // btVenda
+            // 
+            this.btVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btVenda.Location = new System.Drawing.Point(422, 223);
+            this.btVenda.Name = "btVenda";
+            this.btVenda.Size = new System.Drawing.Size(150, 150);
+            this.btVenda.TabIndex = 5;
+            this.btVenda.Text = "Venda";
+            this.btVenda.UseVisualStyleBackColor = true;
+            this.btVenda.Click += new System.EventHandler(this.btVenda_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(611, 404);
+            this.Controls.Add(this.btVenda);
             this.Controls.Add(this.btFinances);
             this.Controls.Add(this.btMove);
             this.Controls.Add(this.btrooms);
@@ -140,6 +153,7 @@
         private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem administraçãoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem financeiroToolStripMenuItem;
+        private System.Windows.Forms.Button btVenda;
     }
 }
 

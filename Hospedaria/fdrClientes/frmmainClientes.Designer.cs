@@ -63,6 +63,7 @@
             this.Controls.Add(this.BtClientes);
             this.Name = "frmmainClientes";
             this.Text = "cadastro";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmmainClientes_FormClosing);
             this.ResumeLayout(false);
 
         }
