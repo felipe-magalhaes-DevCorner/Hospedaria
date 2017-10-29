@@ -26,7 +26,7 @@ namespace Hospedaria.fdrClientes
 
             //---------------------- PEGA DADOS CLIENTE SELECIONADO NA COMBOBOX----------------------
             //string nameControl = cbNomeAlt.Text;
-            string query = "select * from clientes where clientes.idclientes = '"+ selectedrow + "'"; //<<<<<<<<QUERY
+            string query = "select * from clientes where clientes.nome = '"+ cbNomeAlt.Text.Trim() + "'"; //<<<<<<<<QUERY
             db.SqlConnection();
             db.SqlQuery(query);
             
@@ -53,6 +53,7 @@ namespace Hospedaria.fdrClientes
             string query = "select clientes.nome, clientes.idclientes from clientes order by clientes.nome";
             db.SqlConnection();
             db.SqlQuery(query);
+            
 
             //POPULA LEITOR DADOS (VARIOS DADOS)DE SQL, LEITOR DE TABELA DIGAMOS ASSIM
             SqlDataReader _dr = db.QueryReader();
@@ -69,12 +70,7 @@ namespace Hospedaria.fdrClientes
 
             }
             db.closeConnection();
-
             cbNomeAlt.SelectedIndex = 0;
-            
-            
-
-
         }
 
         private void btExcluir_Click(object sender, EventArgs e)
