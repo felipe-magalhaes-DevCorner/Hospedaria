@@ -19,8 +19,19 @@ namespace Hospedaria.fdrClientes
 
         private void button1_Click(object sender, EventArgs e)
         {
-            clienteSQL cd = new clienteSQL();
-            cd.cadastraCliente(mskCPF.Text.Trim(), txtName.Text.Trim(), mskTelefone.Text.Trim(), mskCelular.Text.Trim(), txtEmail.Text.Trim().ToLower());
+            
+            if (fdrClientes.ValidaCPF.IsCpf(mskCPF.Text))
+            {
+                clienteSQL cd = new clienteSQL();
+                cd.cadastraCliente(mskCPF.Text.Trim(), txtName.Text.Trim(), mskTelefone.Text.Trim(), mskCelular.Text.Trim(), txtEmail.Text.Trim().ToLower(), txtCidade.Text.Trim());
+                MessageBox.Show("Cliente cadastrado com sucesso!");
+
+            }
+            else
+            {
+                MessageBox.Show("O CPF informado é inválido!");
+            }
+            
 
 
 

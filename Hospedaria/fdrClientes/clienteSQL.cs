@@ -8,11 +8,12 @@ namespace Hospedaria.fdrClientes
 {
     class clienteSQL
     {
-        public void cadastraCliente(string pCPF, string pNOME, string pTELEFONE, string pCELULAR, string pEMAIL)
+        public void cadastraCliente(string pCPF, string pNOME, string pTELEFONE, string pCELULAR, string pEMAIL, string pCIDADE)
         {
             ConnectionClass db = new ConnectionClass();
+
             db.SqlConnection();
-            db.SqlQuery("INSERT INTO CLIENTES VALUES ('" + pCPF + "', '" + pNOME + "', '" + pTELEFONE + "', '" +pCELULAR+ "', '" + pEMAIL + "' )");
+            db.SqlQuery("INSERT INTO CLIENTES VALUES ('" + pCPF + "', '" + pNOME + "', '" + pTELEFONE + "', '" +pCELULAR+ "', '" + pEMAIL + "', '"+pCIDADE+"' )");
             db.NonQueryEx();
         }
         public void alteraCliente(string pCPF, string pNOME, string pTELEFONE, string pCELULAR, string pEMAIL)

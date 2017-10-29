@@ -84,6 +84,8 @@
     <Compile Include="fdrClientes\frmmainClientes.Designer.cs">
       <DependentUpon>frmmainClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="fdrClientes\ValidaCNPJ.cs" />
+    <Compile Include="fdrClientes\ValidaCPF.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
