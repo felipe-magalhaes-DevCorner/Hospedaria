@@ -21,9 +21,13 @@ namespace Hospedaria
 
         private void BtClientes_Click(object sender, EventArgs e)
         {
-            Clientes.frmmainClientes objCadastroc = new Clientes.frmmainClientes();
+            //cria um objeto contendo o form
+            Clientes.frmmainClientes objCadastroc = new Clientes.frmmainClientes(); 
+            //variavel no formulario frmmainClientes, referencio o form principal para ser chamado mais tarde no form frmmainClientes
             objCadastroc.RefToMenu = this;
+            //esconde esse form
             this.Hide();
+            //abre form cadastro de clientes
             objCadastroc.ShowDialog();
 
 
@@ -31,7 +35,13 @@ namespace Hospedaria
 
         private void btVenda_Click(object sender, EventArgs e)
         {
-            fdrVendas.frmVendas objVenda = new fdrVendas.frmVendas();            
+            //cria um objeto contendo o form
+            fdrVendas.frmVendas objVenda = new fdrVendas.frmVendas();
+            //variavel no formulario frmmainClientes, referencio o form principal para ser chamado mais tarde no form frmmainClientes
+            objVenda.RefToMenu = this;
+            //esconde esse form
+            this.Hide();
+            //abre form venda de clientes
             objVenda.ShowDialog();
             
         }

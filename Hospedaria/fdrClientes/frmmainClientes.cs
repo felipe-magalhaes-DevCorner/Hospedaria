@@ -20,8 +20,7 @@ namespace Hospedaria.Clientes
 
         private void BtClientes_Click(object sender, EventArgs e)
         {
-            fdrClientes.frmCadastroClientes objCadastro = new fdrClientes.frmCadastroClientes();
-            objCadastro.RefToMain = this;
+            fdrClientes.frmCadastroClientes objCadastro = new fdrClientes.frmCadastroClientes();            
             this.Hide();
             objCadastro.ShowDialog();
             
@@ -29,8 +28,7 @@ namespace Hospedaria.Clientes
 
         private void button1_Click(object sender, EventArgs e)
         {
-            fdrClientes.frmAlterarHospedes objAltera = new fdrClientes.frmAlterarHospedes();
-            objAltera.RefToMain = this;
+            fdrClientes.frmAlterarHospedes objAltera = new fdrClientes.frmAlterarHospedes();            
             this.Hide();
             objAltera.ShowDialog();
 

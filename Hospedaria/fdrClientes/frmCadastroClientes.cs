@@ -12,7 +12,7 @@ namespace Hospedaria.fdrClientes
 {
     public partial class frmCadastroClientes : Form
     {
-        public Form RefToMain { get; set; }
+        
         public frmCadastroClientes()
         {
             InitializeComponent();
