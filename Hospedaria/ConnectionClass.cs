@@ -41,22 +41,22 @@ namespace Hospedaria
             _conn.Open();
             _datareader = _cmd.ExecuteReader();
             
-            //_conn.Dispose();
-            return _datareader;
             
+            return _datareader;
+
             
 
+
+
         }
-        public void NonQueryEx()
+        public void QueryRun()
         {
             _conn.Open();
             _cmd.ExecuteNonQuery();
-            _conn.Close();
-            _conn.Dispose();
+
         }
         public void closeConnection()
         {
-
             _conn.Close();
             _conn.Dispose();
         }

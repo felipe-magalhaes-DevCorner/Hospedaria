@@ -14,6 +14,7 @@ namespace Hospedaria.fdrClientes
     public partial class frmAlterarHospedes : Form
     {
         private ConnectionClass db = new ConnectionClass();
+        private static int selectedrow;
         public frmAlterarHospedes()
         {
             InitializeComponent();
@@ -21,44 +22,50 @@ namespace Hospedaria.fdrClientes
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string nameControl = cbNomeAlt.Text;
-            string query = "select * from clientes where clientes.nome = '"+ nameControl+ "'";
+
+            //---------------------- PEGA DADOS CLIENTE SELECIONADO NA COMBOBOX----------------------
+            //string nameControl = cbNomeAlt.Text;
+            string query = "select * from clientes where clientes.idclientes = '"+ selectedrow + "'"; //<<<<<<<<QUERY
             db.SqlConnection();
             db.SqlQuery(query);
-            //db.NonQueryEx();
-
             
-                
             using (SqlDataReader _dr = db.QueryReader())
             {
                 if (_dr.Read())
                 {
+                    //selectedrow = Convert.ToInt32(_dr["idCLIENTES"].ToString().Trim());
                     mskCPF.Text = _dr["CPF"].ToString();
                     mskCelular.Text = _dr["CELULAR"].ToString();
                     mskTelefone.Text = _dr["TELEFONE"].ToString();
                     txtCidade.Text = _dr["CIDADE"].ToString();
                     txtEMAIL.Text = _dr["EMAIL"].ToString();
-
-
                 }
             }
+            
             db.closeConnection();
-
-
         }
 
         private void frmAlterarHospedes_Load(object sender, EventArgs e)
         {
-            
-            string query = "select clientes.nome from clientes order by clientes.nome";
+            bool RunOnce = true;
+            //---------------------- POPULA COMBOBOX NOME----------------------
+            string query = "select clientes.nome, clientes.idclientes from clientes order by clientes.nome";
             db.SqlConnection();
             db.SqlQuery(query);
-            //db.NonQueryEx();
-            
+
+            //POPULA LEITOR DADOS (VARIOS DADOS)DE SQL, LEITOR DE TABELA DIGAMOS ASSIM
             SqlDataReader _dr = db.QueryReader();
             while (_dr.Read())
             {
+                if (RunOnce)
+                {
+                    selectedrow = Convert.ToInt32(_dr["idCLIENTES"]);
+                    RunOnce = false;
+                }
+
                 cbNomeAlt.Items.Add(_dr["NOME"].ToString().Trim());
+                
+
             }
             db.closeConnection();
 
@@ -72,15 +79,37 @@ namespace Hospedaria.fdrClientes
         private void btExcluir_Click(object sender, EventArgs e)
         {
             //---------------------- DELETE CLIENTE----------------------
-            string query = "delete from clientes where clientes.nome = '"+cbNomeAlt.Text+"' and clientes.cpf = '"+mskCPF.Text+"'";
+            string query = "delete from clientes where clientes.idCLIENTES = '" + selectedrow + "'";
             db.SqlConnection();
             db.SqlQuery(query);
+            db.QueryRun();
             db.closeConnection();
         }
 
         private void btEditar_Click(object sender, EventArgs e)
         {
+            string query = "update clientes set  where clientes.idCLIENTES = '" + selectedrow + "'";
+            db.SqlConnection();
+            db.SqlQuery(query);
+            db.closeConnection();
 
+        }
+        public sealed class RunOnceAction
+        {
+            private readonly Action F;
+            private bool hasRun;
+
+            public RunOnceAction(Action f)
+            {
+                F = f;
+            }
+
+            public void run()
+            {
+                if (hasRun) return;
+                F();
+                hasRun = true;
+            }
         }
     }
 }

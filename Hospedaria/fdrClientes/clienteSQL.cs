@@ -14,7 +14,7 @@ namespace Hospedaria.fdrClientes
 
             db.SqlConnection();
             db.SqlQuery("INSERT INTO CLIENTES VALUES ('" + pCPF + "', '" + pNOME + "', '" + pTELEFONE + "', '" +pCELULAR+ "', '" + pEMAIL + "', '"+pCIDADE+"' )");
-            db.NonQueryEx();
+            db.QueryRun();
         }
         public void alteraCliente(string pCPF, string pNOME, string pTELEFONE, string pCELULAR, string pEMAIL)
         {
