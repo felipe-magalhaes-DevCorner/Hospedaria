@@ -167,6 +167,7 @@
             this.btEditar.TabIndex = 26;
             this.btEditar.Text = "Editar";
             this.btEditar.UseVisualStyleBackColor = true;
+            this.btEditar.Click += new System.EventHandler(this.btEditar_Click);
             // 
             // btExcluir
             // 

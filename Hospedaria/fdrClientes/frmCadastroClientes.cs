@@ -18,13 +18,38 @@ namespace Hospedaria.fdrClientes
         }
 
         private void button1_Click(object sender, EventArgs e)
+        /////botao GRAVAR----------------------------------------------------------------------------------------
         {
-            
+            //botao salvar
+            //---------------------- VERIFICA SE CAMPO CPF É VALIDO(OU EM BRANCO)----------------------
             if (fdrClientes.ValidaCPF.IsCpf(mskCPF.Text))
             {
-                clienteSQL cd = new clienteSQL();
-                cd.cadastraCliente(mskCPF.Text.Trim(), txtName.Text.Trim(), mskTelefone.Text.Trim(), mskCelular.Text.Trim(), txtEmail.Text.Trim().ToLower(), txtCidade.Text.Trim());
-                MessageBox.Show("Cliente cadastrado com sucesso!");
+
+                //---------------------- VERIFICA SE CAMPO NOME ESTA EM BRANCO----------------------
+                if (txtName.Text != "")
+                {
+                    if (txtCidade.Text != "")
+                    {
+                        //---------------------- VERIFICA SE CAMPO CIDADE ESTA EM BRANCO----------------------
+                        clienteSQL cd = new clienteSQL();
+
+                        //---------------------- CHAMA CLASSE(METODO) DE CADASTRAR CLIENTES----------------------
+                        cd.cadastraCliente(mskCPF.Text.Trim(), txtName.Text.Trim(), mskTelefone.Text.Trim(), mskCelular.Text.Trim(), txtEmail.Text.Trim().ToLower(), txtCidade.Text.Trim());
+                        MessageBox.Show("Cliente cadastrado com sucesso!");
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("O campo Cidade é obrigatorio");
+                    }
+
+
+                }
+                else
+                {
+                    MessageBox.Show("O campo Nome é obrigatorio");
+                }
+
 
             }
             else
@@ -37,19 +62,5 @@ namespace Hospedaria.fdrClientes
 
         }
 
-        private void InsertClient()
-        {
-
-            ConnectionClass db = new ConnectionClass();
-            db.SqlConnection();
-            db.SqlQuery("INSERT INTO CLIENTES VALUES ('" + mskCPF.Text.Trim() + "', '" + txtName.Text.Trim() + "', '" + mskTelefone.Text + "', '" + mskCelular.Text + "', '" + txtEmail.Text.Trim() + "' )");
-            db.NonQueryEx();
-
-        }
-
-        void CheckifNull(string pifNull)
-        {
-
-        }
     }
 }

@@ -42,6 +42,7 @@ namespace Hospedaria.fdrClientes
 
                 }
             }
+            db.closeConnection();
 
 
         }
@@ -70,10 +71,16 @@ namespace Hospedaria.fdrClientes
 
         private void btExcluir_Click(object sender, EventArgs e)
         {
+            //---------------------- DELETE CLIENTE----------------------
             string query = "delete from clientes where clientes.nome = '"+cbNomeAlt.Text+"' and clientes.cpf = '"+mskCPF.Text+"'";
             db.SqlConnection();
             db.SqlQuery(query);
             db.closeConnection();
+        }
+
+        private void btEditar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
