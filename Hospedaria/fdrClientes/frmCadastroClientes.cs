@@ -19,11 +19,23 @@ namespace Hospedaria.fdrClientes
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ConnectionClass db = new ConnectionClass();
-            db.SQLiteConnection();
-            db.sqliteQuery();
-            db.NonQueryEx();
+            clienteSQL cd = new clienteSQL();
+            cd.cadastraCliente(mskCPF.Text.Trim(), txtName.Text.Trim(), mskTelefone.Text.Trim(), mskCelular.Text.Trim(), txtEmail.Text.Trim().ToLower());
+
+
+
         }
+
+        private void InsertClient()
+        {
+
+            ConnectionClass db = new ConnectionClass();
+            db.SqlConnection();
+            db.SqlQuery("INSERT INTO CLIENTES VALUES ('" + mskCPF.Text.Trim() + "', '" + txtName.Text.Trim() + "', '" + mskTelefone.Text + "', '" + mskCelular.Text + "', '" + txtEmail.Text.Trim() + "' )");
+            db.NonQueryEx();
+
+        }
+
         void CheckifNull(string pifNull)
         {
 

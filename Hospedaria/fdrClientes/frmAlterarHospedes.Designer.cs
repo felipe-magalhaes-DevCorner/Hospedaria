@@ -28,38 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
+            this.txtEMAIL = new System.Windows.Forms.TextBox();
+            this.mskCelular = new System.Windows.Forms.MaskedTextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.mskTelefone = new System.Windows.Forms.MaskedTextBox();
+            this.txtCidade = new System.Windows.Forms.TextBox();
+            this.mskCPF = new System.Windows.Forms.MaskedTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lbCPF = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbNomeAlt = new System.Windows.Forms.ComboBox();
             this.btEditar = new System.Windows.Forms.Button();
             this.btExcluir = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox2
+            // txtEMAIL
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(93, 185);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(272, 26);
-            this.textBox2.TabIndex = 24;
+            this.txtEMAIL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEMAIL.Location = new System.Drawing.Point(93, 185);
+            this.txtEMAIL.Name = "txtEMAIL";
+            this.txtEMAIL.Size = new System.Drawing.Size(272, 26);
+            this.txtEMAIL.TabIndex = 24;
             // 
-            // maskedTextBox3
+            // mskCelular
             // 
-            this.maskedTextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox3.Location = new System.Drawing.Point(93, 112);
-            this.maskedTextBox3.Mask = "(99) 99999-9999";
-            this.maskedTextBox3.Name = "maskedTextBox3";
-            this.maskedTextBox3.Size = new System.Drawing.Size(140, 26);
-            this.maskedTextBox3.TabIndex = 23;
+            this.mskCelular.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mskCelular.Location = new System.Drawing.Point(93, 112);
+            this.mskCelular.Mask = "(99) 99999-9999";
+            this.mskCelular.Name = "mskCelular";
+            this.mskCelular.Size = new System.Drawing.Size(140, 26);
+            this.mskCelular.TabIndex = 23;
             // 
             // label5
             // 
@@ -71,31 +71,32 @@
             this.label5.TabIndex = 22;
             this.label5.Text = "Celular: ";
             // 
-            // maskedTextBox2
+            // mskTelefone
             // 
-            this.maskedTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox2.Location = new System.Drawing.Point(93, 80);
-            this.maskedTextBox2.Mask = "(99) 9999-9999";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(140, 26);
-            this.maskedTextBox2.TabIndex = 21;
+            this.mskTelefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mskTelefone.Location = new System.Drawing.Point(93, 80);
+            this.mskTelefone.Mask = "(99) 9999-9999";
+            this.mskTelefone.Name = "mskTelefone";
+            this.mskTelefone.Size = new System.Drawing.Size(140, 26);
+            this.mskTelefone.TabIndex = 21;
             // 
-            // textBox3
+            // txtCidade
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(93, 150);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(272, 26);
-            this.textBox3.TabIndex = 20;
+            this.txtCidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCidade.Location = new System.Drawing.Point(93, 150);
+            this.txtCidade.Name = "txtCidade";
+            this.txtCidade.Size = new System.Drawing.Size(272, 26);
+            this.txtCidade.TabIndex = 20;
             // 
-            // maskedTextBox1
+            // mskCPF
             // 
-            this.maskedTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox1.Location = new System.Drawing.Point(93, 45);
-            this.maskedTextBox1.Mask = "999.999.999-99";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(140, 26);
-            this.maskedTextBox1.TabIndex = 19;
+            this.mskCPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mskCPF.Location = new System.Drawing.Point(93, 45);
+            this.mskCPF.Mask = "999.999.999-99";
+            this.mskCPF.Name = "mskCPF";
+            this.mskCPF.ReadOnly = true;
+            this.mskCPF.Size = new System.Drawing.Size(140, 26);
+            this.mskCPF.TabIndex = 19;
             // 
             // label4
             // 
@@ -147,14 +148,15 @@
             this.label1.TabIndex = 13;
             this.label1.Text = "Nome: ";
             // 
-            // comboBox1
+            // cbNomeAlt
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(93, 6);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(434, 28);
-            this.comboBox1.TabIndex = 25;
+            this.cbNomeAlt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbNomeAlt.FormattingEnabled = true;
+            this.cbNomeAlt.Location = new System.Drawing.Point(93, 6);
+            this.cbNomeAlt.Name = "cbNomeAlt";
+            this.cbNomeAlt.Size = new System.Drawing.Size(434, 28);
+            this.cbNomeAlt.TabIndex = 25;
+            this.cbNomeAlt.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // btEditar
             // 
@@ -175,6 +177,7 @@
             this.btExcluir.TabIndex = 27;
             this.btExcluir.Text = "Excluir";
             this.btExcluir.UseVisualStyleBackColor = true;
+            this.btExcluir.Click += new System.EventHandler(this.btExcluir_Click);
             // 
             // frmAlterarHospedes
             // 
@@ -183,13 +186,13 @@
             this.ClientSize = new System.Drawing.Size(542, 335);
             this.Controls.Add(this.btExcluir);
             this.Controls.Add(this.btEditar);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.maskedTextBox3);
+            this.Controls.Add(this.cbNomeAlt);
+            this.Controls.Add(this.txtEMAIL);
+            this.Controls.Add(this.mskCelular);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.maskedTextBox2);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.maskedTextBox1);
+            this.Controls.Add(this.mskTelefone);
+            this.Controls.Add(this.txtCidade);
+            this.Controls.Add(this.mskCPF);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
@@ -197,6 +200,7 @@
             this.Controls.Add(this.label1);
             this.Name = "frmAlterarHospedes";
             this.Text = "frmAlterarHospedes";
+            this.Load += new System.EventHandler(this.frmAlterarHospedes_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -204,18 +208,18 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox3;
+        private System.Windows.Forms.TextBox txtEMAIL;
+        private System.Windows.Forms.MaskedTextBox mskCelular;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox mskTelefone;
+        private System.Windows.Forms.TextBox txtCidade;
+        private System.Windows.Forms.MaskedTextBox mskCPF;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lbCPF;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbNomeAlt;
         private System.Windows.Forms.Button btEditar;
         private System.Windows.Forms.Button btExcluir;
     }

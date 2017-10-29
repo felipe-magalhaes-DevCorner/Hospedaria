@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConnectionClass.cs" />
+    <Compile Include="fdrClientes\clienteSQL.cs" />
     <Compile Include="fdrClientes\frmAlterarHospedes.cs">
       <SubType>Form</SubType>
     </Compile>
