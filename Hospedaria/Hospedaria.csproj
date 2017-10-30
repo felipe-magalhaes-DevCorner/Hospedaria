@@ -148,7 +148,9 @@
     <None Include="Resources\green_circle.png" />
     <None Include="Resources\orange_circle.png" />
     <None Include="Resources\red_circle.png" />
-    <Content Include="SQL Script\SQL DATABASE.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SQL Script\SQL DATABASE2.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.105.2\build\net451\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.105.2\build\net451\System.Data.SQLite.Core.targets')" />
