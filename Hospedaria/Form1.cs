@@ -61,61 +61,277 @@ namespace Hospedaria
             SqlDataReader _dr = db.QueryReader();
             while (_dr.Read())
             {
-
-                switch (Convert.ToInt32(_dr["idCONDICAO"]))
+                if (Convert.ToInt32(_dr["idCONDICAO"]) == 1)
                 {
-                    case 1:
-                        {
-
-                        }
-                        break;
-                    case 2:
-                        {
-
-                        }
-                        break;
-                    case 3:
-                        {
-                            switch (Convert.ToInt32(_dr["idHOSPEDAGEM"]))
+                    switch (Convert.ToInt32(_dr["idHOSPEDAGEM"]))
+                    {
+                        case 1:
                             {
-                                case 1:
-                                    {
-                                        suitePresidenciaslToolStripMenuItem.Checked = true;
-                                    }
-                                    break;
-                                case 2:
-                                    {
-                                        suiteMasterToolStripMenuItem.Checked = true;
-                                    }
-                                    break;
-                                case 3:
-                                    {
-                                        suiteJaguaçãoToolStripMenuItem.Checked = true;
-                                    }
-                                    break;
-                                case 4:
-                                    {
-                                        quartoBobDylanToolStripMenuItem.Checked = true;
-                                    }
-                                    break;
-                                case 5:
-                                    {
-                                        quartoJanesToolStripMenuItem.Checked = true;
-                                    }
-                                    break;
+                                suitePresidenciaslToolStripMenuItem.Checked = false;
+                                pbFloyd.Image = Hospedaria.Properties.Resources.green_circle;
+                                pbFloyd.SizeMode = PictureBoxSizeMode.StretchImage;
+                                label10.Text = "Livre";
                             }
-
-                        }
-                        break;
-
+                            break;
+                        case 2:
+                            {
+                                suiteMasterToolStripMenuItem.Checked = false;
+                                pbStones.Image = Hospedaria.Properties.Resources.green_circle;
+                                pbStones.SizeMode = PictureBoxSizeMode.StretchImage;
+                                label9.Text = "Livre";
+                            }
+                            break;
+                        case 3:
+                            {
+                                suiteJaguaçãoToolStripMenuItem.Checked = false;
+                                pbDave.Image = Hospedaria.Properties.Resources.green_circle;
+                                pbDave.SizeMode = PictureBoxSizeMode.StretchImage;
+                                label8.Text = "Livre";
+                            }
+                            break;
+                        case 4:
+                            {
+                                quartoBobDylanToolStripMenuItem.Checked = false;
+                                pbDylan.Image = Hospedaria.Properties.Resources.green_circle;
+                                pbDylan.SizeMode = PictureBoxSizeMode.StretchImage;
+                                label7.Text = "Livre";
+                            }
+                            break;
+                        case 5:
+                            {
+                                quartoJanesToolStripMenuItem.Checked = false;
+                                pbJanes.Image = Hospedaria.Properties.Resources.green_circle;
+                                pbJanes.SizeMode = PictureBoxSizeMode.StretchImage;
+                                label6.Text = "Livre";
+                            }
+                            break;
+                    }
 
                 }
+                else if (Convert.ToInt32(_dr["idCONDICAO"]) == 2)
+                {
+                    switch (Convert.ToInt32(_dr["idHOSPEDAGEM"]))
+                    {
+                        case 1:
+                            {
+                                suitePresidenciaslToolStripMenuItem.Checked = false;
+                                pbFloyd.Image = Hospedaria.Properties.Resources.red_circle;
+                                pbFloyd.SizeMode = PictureBoxSizeMode.StretchImage;
+                                label10.Text = "Ocupado";
+
+                            }
+                            break;
+                        case 2:
+                            {
+                                suiteMasterToolStripMenuItem.Checked = false;
+                                pbStones.Image = Hospedaria.Properties.Resources.red_circle;
+                                pbStones.SizeMode = PictureBoxSizeMode.StretchImage;
+                                label9.Text = "Ocupado";
+                            }
+                            break;
+                        case 3:
+                            {
+                                suiteJaguaçãoToolStripMenuItem.Checked = false;
+                                pbDave.Image = Hospedaria.Properties.Resources.red_circle;
+                                pbDave.SizeMode = PictureBoxSizeMode.StretchImage;
+                                label8.Text = "Ocupado";
+                            }
+                            break;
+                        case 4:
+                            {
+                                quartoBobDylanToolStripMenuItem.Checked = false;
+                                pbDylan.Image = Hospedaria.Properties.Resources.red_circle;
+                                pbDylan.SizeMode = PictureBoxSizeMode.StretchImage;
+                                label7.Text = "Ocupado";
+                            }
+                            break;
+                        case 5:
+                            {
+                                quartoJanesToolStripMenuItem.Checked = false;
+                                pbJanes.Image = Hospedaria.Properties.Resources.red_circle;
+                                pbJanes.SizeMode = PictureBoxSizeMode.StretchImage;
+                                label6.Text = "Ocupado";
+                            }
+                            break;
+                    }
+
+                }
+                else
+                {
+                    switch (Convert.ToInt32(_dr["idHOSPEDAGEM"]))
+                    {
+                        case 1:
+                            {
+                                suitePresidenciaslToolStripMenuItem.Checked = true;
+                                pbFloyd.Image = Hospedaria.Properties.Resources.orange_circle;
+                                pbFloyd.SizeMode = PictureBoxSizeMode.StretchImage;
+                                label10.Text = "Manutenção";
+
+                            }
+                            break;
+                        case 2:
+                            {
+                                suiteMasterToolStripMenuItem.Checked = true;
+                                pbStones.Image = Hospedaria.Properties.Resources.orange_circle;
+                                pbStones.SizeMode = PictureBoxSizeMode.StretchImage;
+                                label9.Text = "Manutenção";
+                            }
+                            break;
+                        case 3:
+                            {
+                                suiteJaguaçãoToolStripMenuItem.Checked = true;
+                                pbDave.Image = Hospedaria.Properties.Resources.orange_circle;
+                                pbDave.SizeMode = PictureBoxSizeMode.StretchImage;
+                                label8.Text = "Manutenção";
+                            }
+                            break;
+                        case 4:
+                            {
+                                quartoBobDylanToolStripMenuItem.Checked = true;
+                                pbDylan.Image = Hospedaria.Properties.Resources.orange_circle;
+                                pbDylan.SizeMode = PictureBoxSizeMode.StretchImage;
+                                label7.Text = "Manutenção";
+                            }
+                            break;
+                        case 5:
+                            {
+                                quartoJanesToolStripMenuItem.Checked = true;
+                                pbJanes.Image = Hospedaria.Properties.Resources.orange_circle;
+                                pbJanes.SizeMode = PictureBoxSizeMode.StretchImage;
+                                label6.Text = "Manutenção";
+                            }
+                            break;
+                    }
+
+                }
+                
 
 
 
 
 
             }
+        }
+
+        private void suitePresidenciaslToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
+        {
+            if (suitePresidenciaslToolStripMenuItem.Checked == true)
+            {
+                string query = "update hospedagem set idcondicao = 3 where idhospedagem = 1 "; //<<<<<<<<QUERY
+                db.SqlConnection();
+                db.SqlQuery(query);
+                db.QueryRun();
+                db.closeConnection();
+
+            }
+            else
+            {
+                string query = "update hospedagem set idcondicao = '1' where idhospedagem = 1"; //<<<<<<<<QUERY
+                db.SqlConnection();
+                db.SqlQuery(query);
+                db.QueryRun();
+                db.closeConnection();
+
+            }
+            CheckStatus();
+
+
+        }
+
+        private void suiteMasterToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
+        {
+            if (suiteMasterToolStripMenuItem.Checked == true)
+            {
+                string query = "update hospedagem set idcondicao = 3 where idhospedagem = 2 "; //<<<<<<<<QUERY
+                db.SqlConnection();
+                db.SqlQuery(query);
+                db.QueryRun();
+                db.closeConnection();
+
+            }
+            else
+            {
+                string query = "update hospedagem set idcondicao = '1' where idhospedagem = 2"; //<<<<<<<<QUERY
+                db.SqlConnection();
+                db.SqlQuery(query);
+                db.QueryRun();
+                db.closeConnection();
+
+            }
+            CheckStatus();
+        }
+
+        private void suiteJaguaçãoToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
+        {
+            if (suiteJaguaçãoToolStripMenuItem.Checked == true)
+            {
+                string query = "update hospedagem set idcondicao = 3 where idhospedagem = 3 "; //<<<<<<<<QUERY
+                db.SqlConnection();
+                db.SqlQuery(query);
+                db.QueryRun();
+                db.closeConnection();
+
+            }
+            else
+            {
+                string query = "update hospedagem set idcondicao = '1' where idhospedagem = 3"; //<<<<<<<<QUERY
+                db.SqlConnection();
+                db.SqlQuery(query);
+                db.QueryRun();
+                db.closeConnection();
+
+            }
+            CheckStatus();
+        }
+
+        private void quartoBobDylanToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
+        {
+            if (quartoBobDylanToolStripMenuItem.Checked == true)
+            {
+                string query = "update hospedagem set idcondicao = '1' where idhospedagem = 4 "; //<<<<<<<<QUERY
+                db.SqlConnection();
+                db.SqlQuery(query);
+                db.QueryRun();
+                db.closeConnection();
+                
+
+            }
+            else
+            {
+                string query = "update hospedagem set idcondicao = '3' where idhospedagem = 4"; //<<<<<<<<QUERY
+                db.SqlConnection();
+                db.SqlQuery(query);
+                db.QueryRun();
+                db.closeConnection();
+                CheckStatus();
+
+            }
+            CheckStatus();
+        }
+
+        private void quartoJanesToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
+        {
+            if (quartoJanesToolStripMenuItem.Checked == true)
+            {
+                string query = "update hospedagem set idcondicao = '3' where idhospedagem = 5 "; //<<<<<<<<QUERY
+                db.SqlConnection();
+                db.SqlQuery(query);
+                db.QueryRun();
+                db.closeConnection();
+                
+
+            }
+            else
+            {
+                string query = "update hospedagem set idcondicao = '1' where idhospedagem = 5"; //<<<<<<<<QUERY
+                db.SqlConnection();
+                db.SqlQuery(query);
+                db.QueryRun();
+                db.closeConnection();
+                
+
+            }
+            CheckStatus();
         }
     }
 }
