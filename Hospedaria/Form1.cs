@@ -1,17 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Hospedaria
 {
-    
+
     public partial class Form1 : Form
     {
         private ConnectionClass db = new ConnectionClass();
@@ -213,101 +206,13 @@ namespace Hospedaria
             }
         }
 
-        private void suitePresidenciaslToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
-        {
-            if (suitePresidenciaslToolStripMenuItem.Checked == true)
-            {
-                string query = "update hospedagem set idcondicao = 3 where idhospedagem = 1 "; //<<<<<<<<QUERY
-                db.SqlConnection();
-                db.SqlQuery(query);
-                db.QueryRun();
-                db.closeConnection();
+        
 
-            }
-            else
-            {
-                string query = "update hospedagem set idcondicao = '1' where idhospedagem = 1"; //<<<<<<<<QUERY
-                db.SqlConnection();
-                db.SqlQuery(query);
-                db.QueryRun();
-                db.closeConnection();
+        
 
-            }
-            CheckStatus();
+        
 
-
-        }
-
-        private void suiteMasterToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
-        {
-            if (suiteMasterToolStripMenuItem.Checked == true)
-            {
-                string query = "update hospedagem set idcondicao = 3 where idhospedagem = 2 "; //<<<<<<<<QUERY
-                db.SqlConnection();
-                db.SqlQuery(query);
-                db.QueryRun();
-                db.closeConnection();
-
-            }
-            else
-            {
-                string query = "update hospedagem set idcondicao = '1' where idhospedagem = 2"; //<<<<<<<<QUERY
-                db.SqlConnection();
-                db.SqlQuery(query);
-                db.QueryRun();
-                db.closeConnection();
-
-            }
-            CheckStatus();
-        }
-
-        private void suiteJaguaçãoToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
-        {
-            if (suiteJaguaçãoToolStripMenuItem.Checked == true)
-            {
-                string query = "update hospedagem set idcondicao = 3 where idhospedagem = 3 "; //<<<<<<<<QUERY
-                db.SqlConnection();
-                db.SqlQuery(query);
-                db.QueryRun();
-                db.closeConnection();
-
-            }
-            else
-            {
-                string query = "update hospedagem set idcondicao = '1' where idhospedagem = 3"; //<<<<<<<<QUERY
-                db.SqlConnection();
-                db.SqlQuery(query);
-                db.QueryRun();
-                db.closeConnection();
-
-            }
-            CheckStatus();
-        }
-
-        private void quartoBobDylanToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
-        {
-            if (quartoBobDylanToolStripMenuItem.Checked == true)
-            {
-                string query = "update hospedagem set idcondicao = '1' where idhospedagem = 4 "; //<<<<<<<<QUERY
-                db.SqlConnection();
-                db.SqlQuery(query);
-                db.QueryRun();
-                db.closeConnection();
-                
-
-            }
-            else
-            {
-                string query = "update hospedagem set idcondicao = '3' where idhospedagem = 4"; //<<<<<<<<QUERY
-                db.SqlConnection();
-                db.SqlQuery(query);
-                db.QueryRun();
-                db.closeConnection();
-                CheckStatus();
-
-            }
-            CheckStatus();
-        }
+        
 
         private void quartoJanesToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
         {
