@@ -168,7 +168,7 @@
             this.suitePresidenciaslToolStripMenuItem.Name = "suitePresidenciaslToolStripMenuItem";
             this.suitePresidenciaslToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.suitePresidenciaslToolStripMenuItem.Text = "Suite Pink Floyd";
-            
+            this.suitePresidenciaslToolStripMenuItem.CheckedChanged += new System.EventHandler(this.suitePresidenciaslToolStripMenuItem_CheckedChanged);
             // 
             // suiteMasterToolStripMenuItem
             // 
@@ -176,7 +176,7 @@
             this.suiteMasterToolStripMenuItem.Name = "suiteMasterToolStripMenuItem";
             this.suiteMasterToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.suiteMasterToolStripMenuItem.Text = "Suite Rolling Stones";
-            
+            this.suiteMasterToolStripMenuItem.CheckedChanged += new System.EventHandler(this.suiteMasterToolStripMenuItem_CheckedChanged);
             // 
             // suiteJaguaçãoToolStripMenuItem
             // 
@@ -184,7 +184,7 @@
             this.suiteJaguaçãoToolStripMenuItem.Name = "suiteJaguaçãoToolStripMenuItem";
             this.suiteJaguaçãoToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.suiteJaguaçãoToolStripMenuItem.Text = "Suite Dave Grohl";
-            
+            this.suiteJaguaçãoToolStripMenuItem.CheckedChanged += new System.EventHandler(this.suiteJaguaçãoToolStripMenuItem_CheckedChanged);
             // 
             // quartoBobDylanToolStripMenuItem
             // 
@@ -192,7 +192,7 @@
             this.quartoBobDylanToolStripMenuItem.Name = "quartoBobDylanToolStripMenuItem";
             this.quartoBobDylanToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.quartoBobDylanToolStripMenuItem.Text = "Quarto Bob Dylan";
-            
+            this.quartoBobDylanToolStripMenuItem.CheckedChanged += new System.EventHandler(this.quartoBobDylanToolStripMenuItem_CheckedChanged);
             // 
             // quartoJanesToolStripMenuItem
             // 
@@ -200,7 +200,7 @@
             this.quartoJanesToolStripMenuItem.Name = "quartoJanesToolStripMenuItem";
             this.quartoJanesToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.quartoJanesToolStripMenuItem.Text = "Quarto Janes";
-            //this.quartoJanesToolStripMenuItem.CheckedChanged += new System.EventHandler(this.quartoJanesToolStripMenuItem_CheckedChanged);
+            this.quartoJanesToolStripMenuItem.CheckedChanged += new System.EventHandler(this.quartoJanesToolStripMenuItem_CheckedChanged);
             // 
             // btVenda
             // 
