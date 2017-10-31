@@ -18,7 +18,7 @@ namespace Hospedaria
         private DataTable _dt;
         public void SqlConnection()
         {
-            _conn = new SqlConnection("Data Source=ANDROIDK1;Initial Catalog=hospedaria;Persist Security Info=True;User ID=sa;Password=root");
+            _conn = new SqlConnection("Data Source=localhost\\SQLEXPRESS;Initial Catalog=hospedaria;Integrated Security=True");
             
 
         }
