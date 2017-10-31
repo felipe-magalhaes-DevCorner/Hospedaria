@@ -54,9 +54,12 @@ namespace Hospedaria
             SqlDataReader _dr = db.QueryReader();
             while (_dr.Read())
             {
-                if (Convert.ToInt32(_dr["idCONDICAO"]) == 1)
-                {
-                    switch (Convert.ToInt32(_dr["idHOSPEDAGEM"]))
+                int idHOSPEDAGM = Convert.ToInt32(_dr["idHOSPEDAGEM"]);
+                int idCONDICAO = Convert.ToInt32(_dr["idCONDICAO"]);
+                if (idCONDICAO == 1)
+
+                {                    
+                    switch (idHOSPEDAGM)
                     {
                         case 1:
                             {
@@ -64,6 +67,8 @@ namespace Hospedaria
                                 pbFloyd.Image = Hospedaria.Properties.Resources.green_circle;
                                 pbFloyd.SizeMode = PictureBoxSizeMode.StretchImage;
                                 label10.Text = "Livre";
+                                db.SqlQuery("update hospedagem set idcondicao = '"+ idCONDICAO + "' where idhospedagem = '"+idHOSPEDAGM+"'");
+                                db.QueryRun();
                             }
                             break;
                         case 2:
@@ -72,6 +77,8 @@ namespace Hospedaria
                                 pbStones.Image = Hospedaria.Properties.Resources.green_circle;
                                 pbStones.SizeMode = PictureBoxSizeMode.StretchImage;
                                 label9.Text = "Livre";
+                                db.SqlQuery("update hospedagem set idcondicao = '"+ idCONDICAO + "' where idhospedagem = '"+idHOSPEDAGM+"'");
+                                db.QueryRun();
                             }
                             break;
                         case 3:
@@ -80,6 +87,8 @@ namespace Hospedaria
                                 pbDave.Image = Hospedaria.Properties.Resources.green_circle;
                                 pbDave.SizeMode = PictureBoxSizeMode.StretchImage;
                                 label8.Text = "Livre";
+                                db.SqlQuery("update hospedagem set idcondicao = '"+ idCONDICAO + "' where idhospedagem = '"+idHOSPEDAGM+"'");
+                                db.QueryRun();
                             }
                             break;
                         case 4:
@@ -88,6 +97,8 @@ namespace Hospedaria
                                 pbDylan.Image = Hospedaria.Properties.Resources.green_circle;
                                 pbDylan.SizeMode = PictureBoxSizeMode.StretchImage;
                                 label7.Text = "Livre";
+                                db.SqlQuery("update hospedagem set idcondicao = '"+ idCONDICAO + "' where idhospedagem = '"+idHOSPEDAGM+"'");
+                                db.QueryRun();
                             }
                             break;
                         case 5:
@@ -96,6 +107,8 @@ namespace Hospedaria
                                 pbJanes.Image = Hospedaria.Properties.Resources.green_circle;
                                 pbJanes.SizeMode = PictureBoxSizeMode.StretchImage;
                                 label6.Text = "Livre";
+                                db.SqlQuery("update hospedagem set idcondicao = '"+ idCONDICAO + "' where idhospedagem = '"+idHOSPEDAGM+"'");
+                                db.QueryRun();
                             }
                             break;
                     }
@@ -111,6 +124,8 @@ namespace Hospedaria
                                 pbFloyd.Image = Hospedaria.Properties.Resources.red_circle;
                                 pbFloyd.SizeMode = PictureBoxSizeMode.StretchImage;
                                 label10.Text = "Ocupado";
+                                db.SqlQuery("update hospedagem set idcondicao = '"+ idCONDICAO + "' where idhospedagem = '"+idHOSPEDAGM+"'");
+                                db.QueryRun();
 
                             }
                             break;
