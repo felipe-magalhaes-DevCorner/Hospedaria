@@ -15,7 +15,7 @@ namespace Hospedaria.fdrClientes
             int soma;
             int resto;
             cpf = cpf.Trim();
-            cpf = cpf.Replace(".", "").Replace("-", "");
+            cpf = cpf.Replace(".", "").Replace("-", "").Replace(",", "");
             if (cpf.Length != 11)
                 return false;
             tempCpf = cpf.Substring(0, 9);
