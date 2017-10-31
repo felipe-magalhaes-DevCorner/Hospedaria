@@ -200,7 +200,7 @@
             this.quartoJanesToolStripMenuItem.Name = "quartoJanesToolStripMenuItem";
             this.quartoJanesToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.quartoJanesToolStripMenuItem.Text = "Quarto Janes";
-            this.quartoJanesToolStripMenuItem.CheckedChanged += new System.EventHandler(this.quartoJanesToolStripMenuItem_CheckedChanged);
+            //this.quartoJanesToolStripMenuItem.CheckedChanged += new System.EventHandler(this.quartoJanesToolStripMenuItem_CheckedChanged);
             // 
             // btVenda
             // 

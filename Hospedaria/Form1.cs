@@ -214,29 +214,29 @@ namespace Hospedaria
 
         
 
-        private void quartoJanesToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
-        {
-            if (quartoJanesToolStripMenuItem.Checked == true)
-            {
-                string query = "update hospedagem set idcondicao = '3' where idhospedagem = 5 "; //<<<<<<<<QUERY
-                db.SqlConnection();
-                db.SqlQuery(query);
-                db.QueryRun();
-                db.closeConnection();
+        //private void quartoJanesToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    if (quartoJanesToolStripMenuItem.Checked == true)
+        //    {
+        //        string query = "update hospedagem set idcondicao = '3' where idhospedagem = 5 "; //<<<<<<<<QUERY
+        //        db.SqlConnection();
+        //        db.SqlQuery(query);
+        //        db.QueryRun();
+        //        db.closeConnection();
                 
 
-            }
-            else
-            {
-                string query = "update hospedagem set idcondicao = '1' where idhospedagem = 5"; //<<<<<<<<QUERY
-                db.SqlConnection();
-                db.SqlQuery(query);
-                db.QueryRun();
-                db.closeConnection();
+        //    }
+        //    else
+        //    {
+        //        string query = "update hospedagem set idcondicao = '1' where idhospedagem = 5"; //<<<<<<<<QUERY
+        //        db.SqlConnection();
+        //        db.SqlQuery(query);
+        //        db.QueryRun();
+        //        db.closeConnection();
                 
 
-            }
-            CheckStatus();
-        }
+        //    }
+        //    CheckStatus();
+        //}
     }
 }
