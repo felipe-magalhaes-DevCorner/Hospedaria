@@ -34,7 +34,7 @@ namespace Hospedaria.fdrClientes
             {
                 if (_dr.Read())
                 {
-                    //selectedrow = Convert.ToInt32(_dr["idCLIENTES"].ToString().Trim());
+                    selectedrow = Convert.ToInt32(_dr["idCLIENTES"].ToString().Trim());
                     mskCPF.Text = _dr["CPF"].ToString();
                     mskCelular.Text = _dr["CELULAR"].ToString();
                     mskTelefone.Text = _dr["TELEFONE"].ToString();

@@ -385,6 +385,11 @@ namespace Hospedaria
             CheckStatus();
         }
 
+        private void btMove_Click(object sender, EventArgs e)
+        {
+
+        }
+
 
 
 

@@ -86,8 +86,9 @@
             this.btMove.Name = "btMove";
             this.btMove.Size = new System.Drawing.Size(150, 150);
             this.btMove.TabIndex = 2;
-            this.btMove.Text = "Unidades";
+            this.btMove.Text = "Movimentação";
             this.btMove.UseVisualStyleBackColor = true;
+            this.btMove.Click += new System.EventHandler(this.btMove_Click);
             // 
             // menuStrip1
             // 
@@ -120,7 +121,7 @@
             // usuariosToolStripMenuItem
             // 
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             // 
             // financeiroToolStripMenuItem1
@@ -129,7 +130,7 @@
             this.relatorioDiarioToolStripMenuItem,
             this.relatorioMensalToolStripMenuItem});
             this.financeiroToolStripMenuItem1.Name = "financeiroToolStripMenuItem1";
-            this.financeiroToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.financeiroToolStripMenuItem1.Size = new System.Drawing.Size(141, 22);
             this.financeiroToolStripMenuItem1.Text = "Financeiro";
             // 
             // relatorioDiarioToolStripMenuItem
@@ -147,7 +148,7 @@
             // estoqueToolStripMenuItem
             // 
             this.estoqueToolStripMenuItem.Name = "estoqueToolStripMenuItem";
-            this.estoqueToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.estoqueToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.estoqueToolStripMenuItem.Text = "Estoque";
             // 
             // manutençãoToolStripMenuItem
@@ -159,7 +160,7 @@
             this.quartoBobDylanToolStripMenuItem,
             this.quartoJanesToolStripMenuItem});
             this.manutençãoToolStripMenuItem.Name = "manutençãoToolStripMenuItem";
-            this.manutençãoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.manutençãoToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.manutençãoToolStripMenuItem.Text = "Manutenção";
             // 
             // suitePresidenciaslToolStripMenuItem
