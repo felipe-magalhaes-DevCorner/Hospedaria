@@ -19,7 +19,7 @@ namespace Hospedaria
         public void SqlConnection()
         {
             _conn = new SqlConnection("Data Source=localhost\\SQLEXPRESS;Initial Catalog=hospedaria;Integrated Security=True");
-            
+            _conn.Open();
 
         }
         public void SqlQuery(string pQueryText)
@@ -28,7 +28,7 @@ namespace Hospedaria
         }
         public DataTable QueryDT()
         {
-            _conn.Open();
+            
             _datadapter = new SqlDataAdapter(_cmd);
             _dt = new DataTable();
             _datadapter.Fill(_dt);
@@ -38,7 +38,7 @@ namespace Hospedaria
         }
         public SqlDataReader QueryReader()
         {
-            _conn.Open();
+            
             _datareader = _cmd.ExecuteReader();
             
             
@@ -51,7 +51,7 @@ namespace Hospedaria
         }
         public void QueryRun()
         {
-            _conn.Open();
+            
             _cmd.ExecuteNonQuery();
 
         }

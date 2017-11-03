@@ -35,6 +35,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.datepicker2 = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // cbNomeRes
@@ -49,11 +51,12 @@
             // 
             // datepicker1
             // 
+            this.datepicker1.CustomFormat = "MM/dd/yyyy hh:mm:ss";
             this.datepicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.datepicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.datepicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.datepicker1.Location = new System.Drawing.Point(111, 107);
             this.datepicker1.Name = "datepicker1";
-            this.datepicker1.Size = new System.Drawing.Size(121, 26);
+            this.datepicker1.Size = new System.Drawing.Size(196, 26);
             this.datepicker1.TabIndex = 3;
             // 
             // cbQuarto
@@ -108,11 +111,33 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(-2, 148);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(93, 20);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Data Saida:";
+            // 
+            // datepicker2
+            // 
+            this.datepicker2.CustomFormat = "MM/dd/yyyy hh:mm:ss";
+            this.datepicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.datepicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.datepicker2.Location = new System.Drawing.Point(111, 143);
+            this.datepicker2.Name = "datepicker2";
+            this.datepicker2.Size = new System.Drawing.Size(196, 26);
+            this.datepicker2.TabIndex = 11;
+            // 
             // frmReservas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(501, 288);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.datepicker2);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -136,5 +161,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DateTimePicker datepicker2;
     }
 }

@@ -387,7 +387,8 @@ namespace Hospedaria
 
         private void btMove_Click(object sender, EventArgs e)
         {
-
+            fdrQuartos.frmUnidadesmain frmUnidadesmain = new fdrQuartos.frmUnidadesmain();
+            frmUnidadesmain.ShowDialog();
         }
 
 
