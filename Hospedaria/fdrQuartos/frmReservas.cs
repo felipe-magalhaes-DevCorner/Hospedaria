@@ -29,6 +29,8 @@ namespace Hospedaria.fdrQuartos
             popComboBoxes();
             datepicker1.Format = DateTimePickerFormat.Custom;
             datepicker1.CustomFormat = "MM/dd/yyyy hh:mm:ss";
+            datepicker1.Value = Convert.ToDateTime(DateTime.Now.AddDays(1).ToLocalTime().ToString("MM/dd/yyyy 14:00:00"));
+            datepicker2.Value = Convert.ToDateTime(DateTime.Now.AddDays(2).ToLocalTime().ToString("MM/dd/yyyy 11:59:00"));
         }
         
 
@@ -94,7 +96,7 @@ namespace Hospedaria.fdrQuartos
             while (_dr.Read())
             {
      
-                    if (datepicker1.Value.ToLocalTime() > DateTime.Now.ToLocalTime())
+                    if (datepicker1.Value.ToLocalTime() >= DateTime.Now.ToLocalTime())
                     {
                         dateReserva = Convert.ToDateTime(_dr["datareserva"].ToString()).ToLocalTime();
                         datePrevistaSaida = Convert.ToDateTime(_dr["datasaida"].ToString()).ToLocalTime();
@@ -137,10 +139,60 @@ namespace Hospedaria.fdrQuartos
             db.closeConnection();
             return true;
         }
-
+        
         private void button2_Click(object sender, EventArgs e)
         {
-            Inserecadastro();
+            List<string> _listaClientes = new List<string>();
+            db.SqlConnection();
+            string query = "SELECT CLIENTES.NOME FROM CLIENTES";
+            db.SqlQuery(query);
+            SqlDataReader _dr = db.QueryReader();
+            while (_dr.Read())
+            {
+                _listaClientes.Add(_dr["NOME"].ToString().Trim());
+            }
+            if (cbNomeRes.Text != "")
+            {
+                if (_listaClientes.Contains(cbNomeRes.Text.Trim()))
+                {
+                    if (cbQuarto.Text.Trim() != "")
+                    {
+                        Inserecadastro();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Escolha um quarto!");
+                    }
+                }
+                else
+                {
+                    DialogResult dialogResult = MessageBox.Show("Cliente nao cadastrado, gostaria de cadastrar agora?", "Some Title", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        //do something
+                        fdrClientes.frmCadastroClientes frmCadastroClientes = new fdrClientes.frmCadastroClientes();
+                        frmCadastroClientes.ShowDialog();
+                    }
+                    else if (dialogResult == DialogResult.No)
+                    {
+                        //do something else
+                    }
+
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Insira o nome do cliente!");
+            }
+            
+            
+
+
+            
+            
+
+            
 
         }
 
@@ -156,6 +208,7 @@ namespace Hospedaria.fdrQuartos
                     db.SqlQuery(query);
                     db.QueryRun();
                     db.closeConnection();
+                    MessageBox.Show("Reserva Efetuada!");
 
                 }
                 else
@@ -173,6 +226,10 @@ namespace Hospedaria.fdrQuartos
                     }
                 }
 
+            }
+            else
+            {
+                MessageBox.Show("Nao cadastrou!");
             }
             
         }

@@ -18,8 +18,10 @@ namespace Hospedaria
         private DataTable _dt;
         public void SqlConnection()
         {
+            //_conn = new SqlConnection("Data Source = ANDROIDK1; Initial Catalog = Hospedaria; Persist Security Info = True; User ID = sa; Password = root");
             _conn = new SqlConnection("Data Source=localhost\\SQLEXPRESS;Initial Catalog=hospedaria;Integrated Security=True");
-            _conn.Open();
+            
+                        _conn.Open();
 
         }
         public void SqlQuery(string pQueryText)
