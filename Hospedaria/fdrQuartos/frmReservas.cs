@@ -15,14 +15,21 @@ namespace Hospedaria.fdrQuartos
     {
         private ConnectionClass db = new ConnectionClass();
         private static int selectedrow;
-        private static int selectedrowhospedagem;
-        private static int selectedrowpensao;
+        private static int selectedrowhospedagem;       
         List<string> listNames = new List<string>();
+        DateTime someDate = new DateTime(); //or an array of dates, then run a loop
         public frmReservas()
         {
             InitializeComponent();
-            
+
+
+
+
+
         }
+        
+
+
 
         private void frmReservas_Load(object sender, EventArgs e)
         {
@@ -121,13 +128,8 @@ namespace Hospedaria.fdrQuartos
                         return false;
                         
                     }
-
-                    
-
-                
-                
-
             }
+            db.closeConnection();
             if (termina)
             {
                 return true;
@@ -136,8 +138,8 @@ namespace Hospedaria.fdrQuartos
             {
                 return false;
             }
-            db.closeConnection();
-            return true;
+            
+            
         }
         
         private void button2_Click(object sender, EventArgs e)
@@ -251,6 +253,25 @@ namespace Hospedaria.fdrQuartos
 
         private void cbQuarto_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //db.SqlConnection();
+            //string query = "select reservas.datareserva, reservas.datasaida from reservas where idquarto = '" + selectedrowhospedagem + "'";
+            //db.SqlQuery(query);
+            //SqlDataReader _dr = db.QueryReader();
+            //while (_dr.Read())
+            //{
+            //    //selectedrowhospedagem = Convert.ToInt32(_dr["idhospedagem"]);
+
+            //}
+            ////monthCalendar1.Select
+            //db.closeConnection();
+
+
+
+
+
+
+
+
             db.SqlConnection();
             string query = ("select hospedagem.idhospedagem from hospedagem where hospedagem.NOME = '" + cbQuarto.Text + "'");
             db.SqlQuery(query);
@@ -262,5 +283,21 @@ namespace Hospedaria.fdrQuartos
 
             db.closeConnection();
         }
+
+        private void monthCalendar1_DateSelected_1(object sender, DateRangeEventArgs e)
+        {
+            //someDate = Convert.ToDateTime(DateTime.Now.AddDays(5).ToShortDateString());
+            //if (monthCalendar1.SelectionStart.ToString("MM-dd-yyyy") == someDate.ToString("MM-dd-yyyy"))
+            //{
+            //    monthCalendar1.BackColor = Color.Purple;
+            //}
+            //else
+            //{
+            //    monthCalendar1.BackColor = SystemColors.Control;
+            //}
+
+
+        }
+
     }
 }

@@ -41,6 +41,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="ObjectListView, Version=2.9.1.1072, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4, processorArchitecture=MSIL">
+      <HintPath>..\packages\ObjectListView.Official.2.9.1\lib\net20\ObjectListView.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -86,6 +89,12 @@
     </Compile>
     <Compile Include="fdrClientes\ValidaCNPJ.cs" />
     <Compile Include="fdrClientes\ValidaCPF.cs" />
+    <Compile Include="fdrQuartos\frmAlteraReserva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fdrQuartos\frmAlteraReserva.Designer.cs">
+      <DependentUpon>frmAlteraReserva.cs</DependentUpon>
+    </Compile>
     <Compile Include="fdrQuartos\frmReservas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fdrClientes\frmmainClientes.resx">
       <DependentUpon>frmmainClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fdrQuartos\frmAlteraReserva.resx">
+      <DependentUpon>frmAlteraReserva.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fdrQuartos\frmReservas.resx">
       <DependentUpon>frmReservas.cs</DependentUpon>
