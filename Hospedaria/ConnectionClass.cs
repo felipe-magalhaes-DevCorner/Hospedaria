@@ -18,19 +18,23 @@ namespace Hospedaria
         private DataTable _dt;
         public void SqlConnection()
         {
+            /////------------------------- AKI DIZEMOS AONDE ESTA O SQL-------------------------------
             //_conn = new SqlConnection("Data Source = ANDROIDK1; Initial Catalog = Hospedaria; Persist Security Info = True; User ID = sa; Password = root");
             _conn = new SqlConnection("Data Source=localhost\\SQLEXPRESS;Initial Catalog=hospedaria;Integrated Security=True");
-            
-                        _conn.Open();
+            /////------------------------- ABRO A CONEXAO-------------------------------
+            _conn.Open();
 
         }
         public void SqlQuery(string pQueryText)
+            ////
         {
+            /////------------------------- DOU COLAR NA QUERO NO SQL E DIGO AONDE COLAR-------------------------------
             _cmd = new SqlCommand(pQueryText, _conn);
         }
         public DataTable QueryDT()
         {
             
+            /////------------------------- ME RETORNA UMA TABELA COM O RESULTADO-------------------------------
             _datadapter = new SqlDataAdapter(_cmd);
             _dt = new DataTable();
             _datadapter.Fill(_dt);
@@ -40,7 +44,8 @@ namespace Hospedaria
         }
         public SqlDataReader QueryReader()
         {
-            
+            /////------------------------- EXECUTA A QUERY E -------------------------------
+            /////------------------------- ME RETORNA UM LEITOR, PARA LER AS CELULAS DO RESULTADO DA QUERY-------------------------------
             _datareader = _cmd.ExecuteReader();
             
             
@@ -53,12 +58,13 @@ namespace Hospedaria
         }
         public void QueryRun()
         {
-            
+            /////------------------------- EXECUTA A QUERY(COMANDOS ---INSERT / UPDATE AKI-------------------------------
             _cmd.ExecuteNonQuery();
 
         }
         public void closeConnection()
         {
+            /////------------------------- FECHO A CONEXAO-------------------------------
             _conn.Close();
             _conn.Dispose();
         }
