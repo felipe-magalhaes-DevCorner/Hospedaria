@@ -13,7 +13,9 @@ namespace Hospedaria.fdrClientes
 {
     public partial class frmAlterarHospedes : Form
     {
+        //---------------------------------DEFINE O OBJETO DA CONEXAO SQL
         private ConnectionClass db = new ConnectionClass();
+
         
         private static int selectedrow;
         public frmAlterarHospedes()
@@ -34,6 +36,12 @@ namespace Hospedaria.fdrClientes
             {
                 if (_dr.Read())
                 {
+                    //---------------------------------GRAVA O QUE FOR LIDO POR LINHA DE RESPOSTA DO SQL NAS VARIAVEIS DO C#
+                    //---------------------------------GRAVA O QUE FOR LIDO POR LINHA DE RESPOSTA DO SQL NAS VARIAVEIS DO C#
+                    //---------------------------------GRAVA O QUE FOR LIDO POR LINHA DE RESPOSTA DO SQL NAS VARIAVEIS DO C#
+                    //---------------------------------GRAVA O QUE FOR LIDO POR LINHA DE RESPOSTA DO SQL NAS VARIAVEIS DO C#
+                    //---------------------------------GRAVA O QUE FOR LIDO POR LINHA DE RESPOSTA DO SQL NAS VARIAVEIS DO C#
+                    //---------------------------------GRAVA O QUE FOR LIDO POR LINHA DE RESPOSTA DO SQL NAS VARIAVEIS DO C#
                     selectedrow = Convert.ToInt32(_dr["idCLIENTES"].ToString().Trim());
                     mskCPF.Text = _dr["CPF"].ToString();
                     mskCelular.Text = _dr["CELULAR"].ToString();
@@ -43,7 +51,7 @@ namespace Hospedaria.fdrClientes
                 }
             }
             
-            db.closeConnection();
+            db.closeConnection();//FECHA CONEXCAO
         }
 
         private void frmAlterarHospedes_Load(object sender, EventArgs e)

@@ -41,21 +41,21 @@ namespace Hospedaria.fdrClientes
                     }
                     else
                     {
-                        MessageBox.Show("O campo Cidade é obrigatorio");
+                        MessageBox.Show("O campo Cidade é obrigatorio");//CIDADE EM BRANCO
                     }
 
 
                 }
                 else
                 {
-                    MessageBox.Show("O campo Nome é obrigatorio");
+                    MessageBox.Show("O campo Nome é obrigatorio");//NOME EM BRANCO
                 }
 
 
             }
             else
             {
-                MessageBox.Show("O CPF informado é inválido!");
+                MessageBox.Show("O CPF informado é inválido!");//CPF INVALIDO
             }
             
 
@@ -63,5 +63,9 @@ namespace Hospedaria.fdrClientes
 
         }
 
+        private void frmCadastroClientes_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

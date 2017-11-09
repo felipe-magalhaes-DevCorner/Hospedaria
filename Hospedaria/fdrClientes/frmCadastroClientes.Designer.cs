@@ -185,6 +185,7 @@
             this.Controls.Add(this.label1);
             this.Name = "frmCadastroClientes";
             this.Text = "frmCadastroClientes";
+            this.Load += new System.EventHandler(this.frmCadastroClientes_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
