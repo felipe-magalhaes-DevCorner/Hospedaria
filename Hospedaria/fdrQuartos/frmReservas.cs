@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
+using System.Threading;
 
 namespace Hospedaria.fdrQuartos
 {
@@ -95,7 +97,8 @@ namespace Hospedaria.fdrQuartos
             db.SqlConnection();
             string query = query = "select reservas.idhospedagem, reservas.datareserva, reservas.datasaida from reservas where reservas.idhospedagem = '"+selectedrowhospedagem+"'";
             db.SqlQuery(query);
-            DateTime date = DateTime.Now.ToLocalTime();
+            DateTime date = DateTime.Now;
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("pt-BR");
             DateTime datePrevistaSaida;
             DateTime dateReserva;
             bool termina = true;
@@ -103,7 +106,7 @@ namespace Hospedaria.fdrQuartos
             while (_dr.Read())
             {
      
-                    if (datepicker1.Value.ToLocalTime() >= DateTime.Now.ToLocalTime())
+                    if (datepicker1.Value >= DateTime.Now)
                     {
                         dateReserva = Convert.ToDateTime(_dr["datareserva"].ToString()).ToLocalTime();
                         datePrevistaSaida = Convert.ToDateTime(_dr["datasaida"].ToString()).ToLocalTime();
