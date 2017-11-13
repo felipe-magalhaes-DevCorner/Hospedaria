@@ -60,6 +60,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.lbLogged = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFloyd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStones)).BeginInit();
@@ -121,8 +122,9 @@
             // usuariosToolStripMenuItem
             // 
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
+            this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
             // financeiroToolStripMenuItem1
             // 
@@ -344,11 +346,20 @@
             this.label10.TabIndex = 16;
             this.label10.Text = "label10";
             // 
+            // lbLogged
+            // 
+            this.lbLogged.AutoSize = true;
+            this.lbLogged.Location = new System.Drawing.Point(452, 359);
+            this.lbLogged.Name = "lbLogged";
+            this.lbLogged.Size = new System.Drawing.Size(0, 13);
+            this.lbLogged.TabIndex = 21;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(579, 404);
+            this.Controls.Add(this.lbLogged);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label8);
@@ -390,14 +401,9 @@
         private System.Windows.Forms.Button btMove;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem financeiroToolStripMenuItem;
         private System.Windows.Forms.Button btVenda;
-        private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem financeiroToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem relatorioDiarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem relatorioMensalToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem estoqueToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem manutençãoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem suitePresidenciaslToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem suiteMasterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem suiteJaguaçãoToolStripMenuItem;
@@ -418,6 +424,12 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
+        public System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem financeiroToolStripMenuItem1;
+        public System.Windows.Forms.ToolStripMenuItem estoqueToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem financeiroToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem manutençãoToolStripMenuItem;
+        private System.Windows.Forms.Label lbLogged;
     }
 }
 

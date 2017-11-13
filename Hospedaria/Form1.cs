@@ -1,23 +1,103 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace Hospedaria
 {
-
     public partial class Form1 : Form
     {
         private ConnectionClass db = new ConnectionClass();
-
+        //private bool RunOnce = true;
+        static bool RunOnce = true;
+        static string loggedname;
+        
+        public static int powerLvl;
         public Form1()
         {
+
+            Thread t = new Thread(new ThreadStart(splash));
+            t.Start();
+            Thread.Sleep(1000);
+            t.Abort();
+
+
+            if (RunOnce == true)
+            {
+                this.Hide();
+                RunOnce = false;
+                fdrLogin.frmLogin objLogin = new fdrLogin.frmLogin();
+                objLogin.getform = this;
+                this.Hide();
+                //objLogin.Show();
+                //objLogin.Activate();
+                objLogin.ShowDialog();
+                //Application.Run(objLogin);
+
+
+                powerLvl = objLogin.powerlevel;
+                loggedname = objLogin.LoggedName;
+
+            }
+
+
             InitializeComponent();
+
+            PowerLevel(powerLvl);
+            lbLogged.Text = "Bem Vindo " + loggedname + "";
+
+
+
+
+            this.BringToFront();
+
+        }
+        private void PowerLevel(int _powerLvl)
+        {
+            switch (_powerLvl)
+            {
+
+                case 1:
+                    {
+                        financeiroToolStripMenuItem1.Visible = true;
+                    }
+                    break;
+                case 2:
+                    {
+
+
+
+                    }
+                    break;
+                case 3:
+                    {
+                        financeiroToolStripMenuItem1.Visible = false;
+                        usuariosToolStripMenuItem.Visible = false;
+
+                    }
+                    break;
+                case 4:
+                    {
+                        financeiroToolStripMenuItem1.Visible = false;
+                        usuariosToolStripMenuItem.Visible = false;
+                        manutençãoToolStripMenuItem.Visible = false;
+
+
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+        public void splash()
+        {
+            Application.Run(new frmSplash());
         }
 
         private void BtClientes_Click(object sender, EventArgs e)
         {
             //cria um objeto contendo o form
-            Clientes.frmmainClientes objCadastroc = new Clientes.frmmainClientes(); 
+            Clientes.frmmainClientes objCadastroc = new Clientes.frmmainClientes();
             //variavel no formulario frmmainClientes, referencio o form principal para ser chamado mais tarde no form frmmainClientes
             objCadastroc.RefToMenu = this;
             //esconde esse form
@@ -38,7 +118,7 @@ namespace Hospedaria
             this.Hide();
             //abre form venda de clientes
             objVenda.ShowDialog();
-            
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -64,7 +144,7 @@ namespace Hospedaria
                                 pbFloyd.Image = Hospedaria.Properties.Resources.green_circle;
                                 pbFloyd.SizeMode = PictureBoxSizeMode.StretchImage;
                                 label10.Text = "Livre";
-                                
+
                             }
                             break;
                         case 2:
@@ -134,7 +214,7 @@ namespace Hospedaria
                 int idCONDICAO = Convert.ToInt32(_dr["idCONDICAO"]);
                 if (idCONDICAO == 1)
 
-                {                    
+                {
                     switch (idHOSPEDAGM)
                     {
                         case 1:
@@ -143,7 +223,7 @@ namespace Hospedaria
                                 pbFloyd.Image = Hospedaria.Properties.Resources.green_circle;
                                 pbFloyd.SizeMode = PictureBoxSizeMode.StretchImage;
                                 label10.Text = "Livre";
-                                
+
                             }
                             break;
                         case 2:
@@ -152,7 +232,7 @@ namespace Hospedaria
                                 pbStones.Image = Hospedaria.Properties.Resources.green_circle;
                                 pbStones.SizeMode = PictureBoxSizeMode.StretchImage;
                                 label9.Text = "Livre";
-                                
+
                             }
                             break;
                         case 3:
@@ -161,7 +241,7 @@ namespace Hospedaria
                                 pbDave.Image = Hospedaria.Properties.Resources.green_circle;
                                 pbDave.SizeMode = PictureBoxSizeMode.StretchImage;
                                 label8.Text = "Livre";
-                                
+
                             }
                             break;
                         case 4:
@@ -170,7 +250,7 @@ namespace Hospedaria
                                 pbDylan.Image = Hospedaria.Properties.Resources.green_circle;
                                 pbDylan.SizeMode = PictureBoxSizeMode.StretchImage;
                                 label7.Text = "Livre";
-                                
+
                             }
                             break;
                         case 5:
@@ -283,7 +363,7 @@ namespace Hospedaria
                             break;
                     }
 
-                }             
+                }
 
 
 
@@ -302,8 +382,8 @@ namespace Hospedaria
             {
                 db.SqlQuery("update hospedagem set idcondicao = '1' where idhospedagem = '1'");
             }
-            
-            
+
+
             db.QueryRun();
             db.closeConnection();
             CheckStatus();
@@ -389,6 +469,16 @@ namespace Hospedaria
         {
             fdrQuartos.frmUnidadesmain frmUnidadesmain = new fdrQuartos.frmUnidadesmain();
             frmUnidadesmain.ShowDialog();
+        }
+
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fdrLogin.frmUsuarios objUsu = new fdrLogin.frmUsuarios();
+            objUsu.getform = this;
+            this.Hide();
+            objUsu.ShowDialog();
+            
+                   
         }
 
 

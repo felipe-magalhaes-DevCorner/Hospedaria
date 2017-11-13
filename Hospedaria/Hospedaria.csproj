@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConnectionClass.cs" />
+    <Compile Include="controllers.cs" />
     <Compile Include="fdrClientes\clienteSQL.cs" />
     <Compile Include="fdrClientes\frmAlterarHospedes.cs">
       <SubType>Form</SubType>
@@ -89,6 +90,18 @@
     </Compile>
     <Compile Include="fdrClientes\ValidaCNPJ.cs" />
     <Compile Include="fdrClientes\ValidaCPF.cs" />
+    <Compile Include="fdrLogin\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fdrLogin\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fdrLogin\frmUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fdrLogin\frmUsuarios.Designer.cs">
+      <DependentUpon>frmUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="fdrQuartos\frmAlteraReserva.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +132,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSplash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSplash.Designer.cs">
+      <DependentUpon>frmSplash.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="fdrClientes\frmAlterarHospedes.resx">
@@ -129,6 +148,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fdrClientes\frmmainClientes.resx">
       <DependentUpon>frmmainClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fdrLogin\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fdrLogin\frmUsuarios.resx">
+      <DependentUpon>frmUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fdrQuartos\frmAlteraReserva.resx">
       <DependentUpon>frmAlteraReserva.cs</DependentUpon>
@@ -144,6 +169,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSplash.resx">
+      <DependentUpon>frmSplash.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
