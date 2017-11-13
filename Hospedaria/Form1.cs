@@ -57,30 +57,42 @@ namespace Hospedaria
             switch (_powerLvl)
             {
 
+                case 0:
+                    {
+                        financeiroToolStripMenuItem1.Visible = false;
+                        usuariosToolStripMenuItem.Visible = false;
+                        manutençãoToolStripMenuItem.Visible = false;
+
+                    }
+                    break;
+
                 case 1:
                     {
-                        financeiroToolStripMenuItem1.Visible = true;
+                        financeiroToolStripMenuItem1.Visible = false;
+                        usuariosToolStripMenuItem.Visible = false;
+                        manutençãoToolStripMenuItem.Visible = false;
+                        estoqueToolStripMenuItem.Visible = false;
+                        
                     }
                     break;
                 case 2:
                     {
-
-
+                        
+                        usuariosToolStripMenuItem.Visible = false;
+                        financeiroToolStripMenuItem1.Visible = false;
+                        estoqueToolStripMenuItem.Visible = false;
 
                     }
                     break;
                 case 3:
                     {
-                        financeiroToolStripMenuItem1.Visible = false;
-                        usuariosToolStripMenuItem.Visible = false;
+                        
 
                     }
                     break;
                 case 4:
                     {
-                        financeiroToolStripMenuItem1.Visible = false;
-                        usuariosToolStripMenuItem.Visible = false;
-                        manutençãoToolStripMenuItem.Visible = false;
+                        
 
 
                     }

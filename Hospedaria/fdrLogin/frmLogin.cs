@@ -34,7 +34,8 @@ namespace Hospedaria.fdrLogin
            //garante q caso o nome do usuario mude uma nova quantidade de logins comeca
             loginName = txtUsername.Text;///continua linha de cima
             db.SqlConnection();
-            string query = "SELECT * FROM USUARIOS WHERE USUARIOS.login = '" + txtUsername.Text + "'";
+            string query = "select USUARIOS.NOME, USUARIOS.LOGIN, USUARIOS.SENHA,USUARIOS.BAN,USUARIOS.logged, CATEGORIAUSU.powerlevel from USUARIOS inner join CATEGORIAUSU on CATEGORIAUSU.idCATEGORIAUSU = USUARIOS.idCATEGORIAUSU where USUARIOS.login = '" + txtUsername.Text + "'";
+
             db.SqlQuery(query);             
             SqlDataReader _dr = db.QueryReader();
             while (_dr.Read())
@@ -46,7 +47,7 @@ namespace Hospedaria.fdrLogin
                     {
                         loginName = _dr["LOGIN"].ToString();
                         LoggedName = _dr["NOME"].ToString();
-                        powerlevel = (Convert.ToInt32(_dr["idCATEGORIAusu"]));
+                        powerlevel = (Convert.ToInt32(_dr["powerlevel"]));
 
                         this.Close();
                         AuxCountLogin = 0;
