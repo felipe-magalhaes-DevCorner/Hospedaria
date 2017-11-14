@@ -42,6 +42,8 @@
             this.btEditar = new System.Windows.Forms.Button();
             this.btExcluir = new System.Windows.Forms.Button();
             this.cbCPF = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtEMAIL
@@ -144,7 +146,7 @@
             this.cbNomeAlt.FormattingEnabled = true;
             this.cbNomeAlt.Location = new System.Drawing.Point(93, 6);
             this.cbNomeAlt.Name = "cbNomeAlt";
-            this.cbNomeAlt.Size = new System.Drawing.Size(434, 28);
+            this.cbNomeAlt.Size = new System.Drawing.Size(400, 28);
             this.cbNomeAlt.TabIndex = 1;
             this.cbNomeAlt.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -180,11 +182,32 @@
             this.cbCPF.TabIndex = 1;
             this.cbCPF.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(500, 6);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(30, 28);
+            this.button1.TabIndex = 23;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(425, 93);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(35, 13);
+            this.label6.TabIndex = 24;
+            this.label6.Text = "label6";
+            // 
             // frmAlterarHospedes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(542, 335);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.cbCPF);
             this.Controls.Add(this.btExcluir);
             this.Controls.Add(this.btEditar);
@@ -200,7 +223,9 @@
             this.Controls.Add(this.lbCPF);
             this.Controls.Add(this.label1);
             this.Name = "frmAlterarHospedes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAlterarHospedes";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmAlterarHospedes_FormClosing);
             this.Load += new System.EventHandler(this.frmAlterarHospedes_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -219,9 +244,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lbCPF;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbNomeAlt;
         private System.Windows.Forms.Button btEditar;
         private System.Windows.Forms.Button btExcluir;
         private System.Windows.Forms.ComboBox cbCPF;
+        private System.Windows.Forms.Button button1;
+        public System.Windows.Forms.ComboBox cbNomeAlt;
+        public System.Windows.Forms.Label label6;
     }
 }

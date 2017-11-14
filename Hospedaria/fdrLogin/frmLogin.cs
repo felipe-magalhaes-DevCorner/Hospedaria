@@ -119,10 +119,10 @@ namespace Hospedaria.fdrLogin
                 }
                 else
                 {
+                    MessageBox.Show("Favor preencher uma senha.");
                     return false;
-                }
-                MessageBox.Show("Favor preencher uma senha.");
-                return false;
+                }                
+                
             }
             MessageBox.Show("Favor preencher uma usuario.");
 

@@ -19,7 +19,7 @@ namespace Hospedaria.fdrQuartos
         private static int selectedrow; //VARIAVEL GLOBAL PARA SEMPRE TER O VALOR DO ID SQL DO QUE ESTIVER SELECIONADO NA COMBOBOX
         private static int selectedrowhospedagem;    //VARIAVEL GLOBAL PARA SEMPRE TER O VALOR DO ID SQL DO QUE ESTIVER SELECIONADO NA COMBOBOX DA HOSPEDAGEM   
         List<string> listNames = new List<string>();// LISTAS COM OS NOMES
-        DateTime someDate = new DateTime(); //VARIAVEL TESTES
+        
         public frmReservas()
         {
             InitializeComponent();

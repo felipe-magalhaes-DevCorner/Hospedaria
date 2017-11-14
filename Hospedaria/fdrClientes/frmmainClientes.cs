@@ -15,7 +15,9 @@ namespace Hospedaria.Clientes
         public Form RefToMenu { get; set; }
         public frmmainClientes()
         {
+
             InitializeComponent();
+            //RefToMenu.Hide();
         }
 
         private void BtClientes_Click(object sender, EventArgs e)
@@ -28,15 +30,22 @@ namespace Hospedaria.Clientes
 
         private void button1_Click(object sender, EventArgs e)
         {
-            fdrClientes.frmAlterarHospedes objAltera = new fdrClientes.frmAlterarHospedes();            
+            fdrClientes.frmAlterarHospedes objAltera = new fdrClientes.frmAlterarHospedes();
+            objAltera.RefToMenu = RefToMenu;
             this.Hide();
             objAltera.ShowDialog();
+            
 
         }
 
         private void frmmainClientes_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.RefToMenu.Show();
+            //fdrClientes.frmAlterarHospedes objAlt = new fdrClientes.frmAlterarHospedes();
+            //objAlt.RefToMenu = this.RefToMenu;
+            //objAlt.RefToMenu.Visible = true;
+            //Form1 objMain = new Form1();
+            //objMain.ShowDialog();
+            
         }
     }
 }

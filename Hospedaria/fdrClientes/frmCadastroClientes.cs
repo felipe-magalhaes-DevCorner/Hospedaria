@@ -37,6 +37,7 @@ namespace Hospedaria.fdrClientes
                         //---------------------- CHAMA CLASSE(METODO) DE CADASTRAR CLIENTES----------------------
                         cd.cadastraCliente(mskCPF.Text.Trim(), txtName.Text.Trim(), mskTelefone.Text.Trim(), mskCelular.Text.Trim(), txtEmail.Text.Trim().ToLower(), txtCidade.Text.Trim());
                         MessageBox.Show("Cliente cadastrado com sucesso!");
+                        clearitems();
 
                     }
                     else
@@ -62,10 +63,24 @@ namespace Hospedaria.fdrClientes
 
 
         }
-
-        private void frmCadastroClientes_Load(object sender, EventArgs e)
+        private void clearitems()
         {
+            txtCidade.Clear();
+            txtEmail.Clear();
+            txtName.Clear();
+            mskCelular.Clear();
+            mskCPF.Clear();
+            mskTelefone.Clear();
 
+               
+        }
+
+        private void frmCadastroClientes_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Form1 objPrin = new Form1();
+            this.Hide();
+            objPrin.ShowDialog();
+            
         }
     }
 }

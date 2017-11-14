@@ -62,6 +62,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.BtClientes);
             this.Name = "frmmainClientes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "cadastro";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmmainClientes_FormClosing);
             this.ResumeLayout(false);

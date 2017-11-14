@@ -13,19 +13,36 @@ namespace Hospedaria.fdrClientes
 {
     public partial class frmAlterarHospedes : Form
     {
+        public string nome { get; set; }
+        public Form RefToMenu { get; set; }
+        private static bool exitend;
         //---------------------------------DEFINE O OBJETO DA CONEXAO SQL
         private ConnectionClass db = new ConnectionClass();
+        public static string nameListAll; 
 
         
         private static int selectedrow;
-        public frmAlterarHospedes()
+        public frmAlterarHospedes(string Value = "", bool exit = false)
         {
             InitializeComponent();
             cbNomeAlt.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cbNomeAlt.AutoCompleteSource = AutoCompleteSource.ListItems;
             cbCPF.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cbCPF.AutoCompleteSource = AutoCompleteSource.ListItems;
+            if (Value != "")
+            {
+                
+                nameListAll = Value.Trim();
+
+            }
+            exitend = exit;
+            //RefToMenu.Hide();
+
+
+
+
         }
+
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -83,8 +100,13 @@ namespace Hospedaria.fdrClientes
 
             }
             db.closeConnection();
-            cbNomeAlt.SelectedIndex = 0;
-            cbCPF.SelectedIndex = 0;
+            if (cbNomeAlt.Items.Count > 0)
+            {
+                cbNomeAlt.SelectedIndex = 0;
+                cbCPF.SelectedIndex = 0;
+            }
+
+            
         }
 
         private void btExcluir_Click(object sender, EventArgs e)
@@ -99,7 +121,7 @@ namespace Hospedaria.fdrClientes
 
         private void btEditar_Click(object sender, EventArgs e)
         {
-            string query = "update clientes set  where clientes.idCLIENTES = '" + selectedrow + "'";
+            string query = "update clientes set nome = '"+cbNomeAlt.Text.Trim()+"', cpf = '"+cbCPF.Text.Trim()+ "', telefone = '" + mskTelefone.Text.Trim() + "', celular = '" + mskCelular.Text.Trim() + "', cidade = '" + txtCidade.Text.Trim() + "', email = '" + txtEMAIL.Text.Trim().ToLower() + "' where clientes.idCLIENTES = '" + selectedrow + "'";
             db.SqlConnection();
             db.SqlQuery(query);
             db.closeConnection();
@@ -157,6 +179,36 @@ namespace Hospedaria.fdrClientes
             }
 
             db.closeConnection();//FECHA CONEXCAO
+            if (nameListAll != null)
+            {
+                cbNomeAlt.SelectedIndex = cbNomeAlt.Items.IndexOf(nameListAll);
+
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmListAll objList = new frmListAll();
+            this.Hide();
+            objList.ShowDialog();
+            
+
+
+        }
+
+        private void frmAlterarHospedes_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Form1 objPrin = new Form1();
+            if (exitend)
+            {
+                
+            }
+            else
+            {
+                objPrin.Visible = true;
+            }
+            
+
         }
     }
 }

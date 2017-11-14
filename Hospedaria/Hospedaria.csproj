@@ -82,6 +82,12 @@
     <Compile Include="fdrClientes\frmCadastroClientes.Designer.cs">
       <DependentUpon>frmCadastroClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="fdrClientes\frmListAll.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fdrClientes\frmListAll.Designer.cs">
+      <DependentUpon>frmListAll.cs</DependentUpon>
+    </Compile>
     <Compile Include="fdrClientes\frmmainClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +151,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fdrClientes\frmCadastroClientes.resx">
       <DependentUpon>frmCadastroClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fdrClientes\frmListAll.resx">
+      <DependentUpon>frmListAll.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fdrClientes\frmmainClientes.resx">
       <DependentUpon>frmmainClientes.cs</DependentUpon>

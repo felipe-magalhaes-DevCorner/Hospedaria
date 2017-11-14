@@ -184,8 +184,9 @@
             this.Controls.Add(this.lbCPF);
             this.Controls.Add(this.label1);
             this.Name = "frmCadastroClientes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmCadastroClientes";
-            this.Load += new System.EventHandler(this.frmCadastroClientes_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmCadastroClientes_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
