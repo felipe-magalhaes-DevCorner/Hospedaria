@@ -33,7 +33,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.mskTelefone = new System.Windows.Forms.MaskedTextBox();
             this.txtCidade = new System.Windows.Forms.TextBox();
-            this.mskCPF = new System.Windows.Forms.MaskedTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -42,6 +41,7 @@
             this.cbNomeAlt = new System.Windows.Forms.ComboBox();
             this.btEditar = new System.Windows.Forms.Button();
             this.btExcluir = new System.Windows.Forms.Button();
+            this.cbCPF = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // txtEMAIL
@@ -50,7 +50,7 @@
             this.txtEMAIL.Location = new System.Drawing.Point(93, 185);
             this.txtEMAIL.Name = "txtEMAIL";
             this.txtEMAIL.Size = new System.Drawing.Size(272, 26);
-            this.txtEMAIL.TabIndex = 24;
+            this.txtEMAIL.TabIndex = 6;
             // 
             // mskCelular
             // 
@@ -59,7 +59,7 @@
             this.mskCelular.Mask = "(99) 99999-9999";
             this.mskCelular.Name = "mskCelular";
             this.mskCelular.Size = new System.Drawing.Size(140, 26);
-            this.mskCelular.TabIndex = 23;
+            this.mskCelular.TabIndex = 4;
             // 
             // label5
             // 
@@ -78,7 +78,7 @@
             this.mskTelefone.Mask = "(99) 9999-9999";
             this.mskTelefone.Name = "mskTelefone";
             this.mskTelefone.Size = new System.Drawing.Size(140, 26);
-            this.mskTelefone.TabIndex = 21;
+            this.mskTelefone.TabIndex = 3;
             // 
             // txtCidade
             // 
@@ -86,17 +86,7 @@
             this.txtCidade.Location = new System.Drawing.Point(93, 150);
             this.txtCidade.Name = "txtCidade";
             this.txtCidade.Size = new System.Drawing.Size(272, 26);
-            this.txtCidade.TabIndex = 20;
-            // 
-            // mskCPF
-            // 
-            this.mskCPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mskCPF.Location = new System.Drawing.Point(93, 45);
-            this.mskCPF.Mask = "999.999.999-99";
-            this.mskCPF.Name = "mskCPF";
-            this.mskCPF.ReadOnly = true;
-            this.mskCPF.Size = new System.Drawing.Size(140, 26);
-            this.mskCPF.TabIndex = 19;
+            this.txtCidade.TabIndex = 5;
             // 
             // label4
             // 
@@ -155,7 +145,7 @@
             this.cbNomeAlt.Location = new System.Drawing.Point(93, 6);
             this.cbNomeAlt.Name = "cbNomeAlt";
             this.cbNomeAlt.Size = new System.Drawing.Size(434, 28);
-            this.cbNomeAlt.TabIndex = 25;
+            this.cbNomeAlt.TabIndex = 1;
             this.cbNomeAlt.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // btEditar
@@ -164,7 +154,7 @@
             this.btEditar.Location = new System.Drawing.Point(447, 239);
             this.btEditar.Name = "btEditar";
             this.btEditar.Size = new System.Drawing.Size(80, 80);
-            this.btEditar.TabIndex = 26;
+            this.btEditar.TabIndex = 8;
             this.btEditar.Text = "Editar";
             this.btEditar.UseVisualStyleBackColor = true;
             this.btEditar.Click += new System.EventHandler(this.btEditar_Click);
@@ -175,16 +165,27 @@
             this.btExcluir.Location = new System.Drawing.Point(337, 239);
             this.btExcluir.Name = "btExcluir";
             this.btExcluir.Size = new System.Drawing.Size(80, 80);
-            this.btExcluir.TabIndex = 27;
+            this.btExcluir.TabIndex = 7;
             this.btExcluir.Text = "Excluir";
             this.btExcluir.UseVisualStyleBackColor = true;
             this.btExcluir.Click += new System.EventHandler(this.btExcluir_Click);
+            // 
+            // cbCPF
+            // 
+            this.cbCPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCPF.FormattingEnabled = true;
+            this.cbCPF.Location = new System.Drawing.Point(93, 40);
+            this.cbCPF.Name = "cbCPF";
+            this.cbCPF.Size = new System.Drawing.Size(140, 28);
+            this.cbCPF.TabIndex = 1;
+            this.cbCPF.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
             // 
             // frmAlterarHospedes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(542, 335);
+            this.Controls.Add(this.cbCPF);
             this.Controls.Add(this.btExcluir);
             this.Controls.Add(this.btEditar);
             this.Controls.Add(this.cbNomeAlt);
@@ -193,7 +194,6 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.mskTelefone);
             this.Controls.Add(this.txtCidade);
-            this.Controls.Add(this.mskCPF);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
@@ -214,7 +214,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.MaskedTextBox mskTelefone;
         private System.Windows.Forms.TextBox txtCidade;
-        private System.Windows.Forms.MaskedTextBox mskCPF;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -223,5 +222,6 @@
         private System.Windows.Forms.ComboBox cbNomeAlt;
         private System.Windows.Forms.Button btEditar;
         private System.Windows.Forms.Button btExcluir;
+        private System.Windows.Forms.ComboBox cbCPF;
     }
 }

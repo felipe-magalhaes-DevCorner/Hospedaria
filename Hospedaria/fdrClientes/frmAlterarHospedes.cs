@@ -21,6 +21,10 @@ namespace Hospedaria.fdrClientes
         public frmAlterarHospedes()
         {
             InitializeComponent();
+            cbNomeAlt.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cbNomeAlt.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cbCPF.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cbCPF.AutoCompleteSource = AutoCompleteSource.ListItems;
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -43,11 +47,11 @@ namespace Hospedaria.fdrClientes
                     //---------------------------------GRAVA O QUE FOR LIDO POR LINHA DE RESPOSTA DO SQL NAS VARIAVEIS DO C#
                     //---------------------------------GRAVA O QUE FOR LIDO POR LINHA DE RESPOSTA DO SQL NAS VARIAVEIS DO C#
                     selectedrow = Convert.ToInt32(_dr["idCLIENTES"].ToString().Trim());
-                    mskCPF.Text = _dr["CPF"].ToString();
-                    mskCelular.Text = _dr["CELULAR"].ToString();
-                    mskTelefone.Text = _dr["TELEFONE"].ToString();
-                    txtCidade.Text = _dr["CIDADE"].ToString();
-                    txtEMAIL.Text = _dr["EMAIL"].ToString();
+                    cbCPF.SelectedIndex = cbCPF.Items.IndexOf(_dr["CPF"].ToString().Trim());
+                    mskCelular.Text = _dr["CELULAR"].ToString().Trim();
+                    mskTelefone.Text = _dr["TELEFONE"].ToString().Trim();
+                    txtCidade.Text = _dr["CIDADE"].ToString().Trim();
+                    txtEMAIL.Text = _dr["EMAIL"].ToString().Trim();
                 }
             }
             
@@ -58,7 +62,7 @@ namespace Hospedaria.fdrClientes
         {
             bool RunOnce = true;
             //---------------------- POPULA COMBOBOX NOME----------------------
-            string query = "select clientes.nome, clientes.idclientes from clientes order by clientes.nome";
+            string query = "select clientes.nome, clientes.idclientes, clientes.cpf from clientes order by clientes.nome";
             db.SqlConnection();
             db.SqlQuery(query);
             
@@ -74,11 +78,13 @@ namespace Hospedaria.fdrClientes
                 }
 
                 cbNomeAlt.Items.Add(_dr["NOME"].ToString().Trim());
-                
+                cbCPF.Items.Add(_dr["CPF"].ToString().Trim());
+
 
             }
             db.closeConnection();
             cbNomeAlt.SelectedIndex = 0;
+            cbCPF.SelectedIndex = 0;
         }
 
         private void btExcluir_Click(object sender, EventArgs e)
@@ -115,6 +121,42 @@ namespace Hospedaria.fdrClientes
                 F();
                 hasRun = true;
             }
+        }
+
+        private void mskCPF_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            //---------------------- PEGA DADOS cpf SELECIONADO NA COMBOBOX----------------------
+            //string nameControl = cbNomeAlt.Text;
+            string query = "select * from clientes where clientes.cpf = '" + cbCPF.Text.Trim() + "'"; //<<<<<<<<QUERY
+            db.SqlConnection();
+            db.SqlQuery(query);
+
+            using (SqlDataReader _dr = db.QueryReader())
+            {
+                if (_dr.Read())
+                {
+                    //---------------------------------GRAVA O QUE FOR LIDO POR LINHA DE RESPOSTA DO SQL NAS VARIAVEIS DO C#
+                    //---------------------------------GRAVA O QUE FOR LIDO POR LINHA DE RESPOSTA DO SQL NAS VARIAVEIS DO C#
+                    //---------------------------------GRAVA O QUE FOR LIDO POR LINHA DE RESPOSTA DO SQL NAS VARIAVEIS DO C#
+                    //---------------------------------GRAVA O QUE FOR LIDO POR LINHA DE RESPOSTA DO SQL NAS VARIAVEIS DO C#
+                    //---------------------------------GRAVA O QUE FOR LIDO POR LINHA DE RESPOSTA DO SQL NAS VARIAVEIS DO C#
+                    //---------------------------------GRAVA O QUE FOR LIDO POR LINHA DE RESPOSTA DO SQL NAS VARIAVEIS DO C#
+                    selectedrow = Convert.ToInt32(_dr["idCLIENTES"].ToString().Trim());
+                    
+                    cbNomeAlt.SelectedIndex = cbNomeAlt.Items.IndexOf(_dr["NOME"].ToString().Trim());
+                    mskCelular.Text = _dr["CELULAR"].ToString();
+                    mskTelefone.Text = _dr["TELEFONE"].ToString();
+                    txtCidade.Text = _dr["CIDADE"].ToString();
+                    txtEMAIL.Text = _dr["EMAIL"].ToString();
+                }
+            }
+
+            db.closeConnection();//FECHA CONEXCAO
         }
     }
 }

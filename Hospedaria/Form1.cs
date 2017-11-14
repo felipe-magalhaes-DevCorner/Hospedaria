@@ -16,35 +16,35 @@ namespace Hospedaria
         public Form1()
         {
 
-            Thread t = new Thread(new ThreadStart(splash));
-            t.Start();
-            Thread.Sleep(1000);
-            t.Abort();
+            //Thread t = new Thread(new ThreadStart(splash));
+            //t.Start();
+            //Thread.Sleep(1000);
+            //t.Abort();
 
 
-            if (RunOnce == true)
-            {
-                this.Hide();
-                RunOnce = false;
-                fdrLogin.frmLogin objLogin = new fdrLogin.frmLogin();
-                objLogin.getform = this;
-                this.Hide();
-                //objLogin.Show();
-                //objLogin.Activate();
-                objLogin.ShowDialog();
-                //Application.Run(objLogin);
+            //if (RunOnce == true)
+            //{
+            //    this.Hide();
+            //    RunOnce = false;
+            //    fdrLogin.frmLogin objLogin = new fdrLogin.frmLogin();
+            //    objLogin.getform = this;
+            //    this.Hide();
+            //    //objLogin.Show();
+            //    //objLogin.Activate();
+            //    objLogin.ShowDialog();
+            //    //Application.Run(objLogin);
 
 
-                powerLvl = objLogin.powerlevel;
-                loggedname = objLogin.LoggedName;
+            //    powerLvl = objLogin.powerlevel;
+            //    loggedname = objLogin.LoggedName;
 
-            }
+            //}
 
 
             InitializeComponent();
 
-            PowerLevel(powerLvl);
-            lbLogged.Text = "Bem Vindo " + loggedname + "";
+            //PowerLevel(powerLvl);
+            //lbLogged.Text = "Bem Vindo " + loggedname + "";
 
 
 
