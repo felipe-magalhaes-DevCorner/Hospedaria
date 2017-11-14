@@ -201,11 +201,12 @@ namespace Hospedaria.fdrClientes
             Form1 objPrin = new Form1();
             if (exitend)
             {
-                
+                exitend = false;
             }
             else
             {
                 objPrin.Visible = true;
+                
             }
             
 
