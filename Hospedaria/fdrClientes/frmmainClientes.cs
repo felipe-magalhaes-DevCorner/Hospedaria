@@ -22,7 +22,8 @@ namespace Hospedaria.Clientes
 
         private void BtClientes_Click(object sender, EventArgs e)
         {
-            fdrClientes.frmCadastroClientes objCadastro = new fdrClientes.frmCadastroClientes();            
+            fdrClientes.frmCadastroClientes objCadastro = new fdrClientes.frmCadastroClientes();
+            objCadastro.RefToMenu = RefToMenu;
             this.Hide();
             objCadastro.ShowDialog();
             

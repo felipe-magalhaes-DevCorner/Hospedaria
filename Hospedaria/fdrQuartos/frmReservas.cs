@@ -23,6 +23,7 @@ namespace Hospedaria.fdrQuartos
         public frmReservas()
         {
             InitializeComponent();
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("pt-BR");
 
 
 
@@ -37,10 +38,10 @@ namespace Hospedaria.fdrQuartos
         {
             //EXECUTA AO ABRIR O FORMULARIO
             popComboBoxes();//CHAMA METODO PARA POPULAR COMBOBOX NO LOAD
-            datepicker1.Format = DateTimePickerFormat.Custom;
-            datepicker1.CustomFormat = "MM/dd/yyyy hh:mm:ss";
-            datepicker1.Value = Convert.ToDateTime(DateTime.Now.AddDays(1).ToLocalTime().ToString("MM/dd/yyyy 14:00:00"));
-            datepicker2.Value = Convert.ToDateTime(DateTime.Now.AddDays(2).ToLocalTime().ToString("MM/dd/yyyy 11:59:00"));
+            //datepicker1.Format = DateTimePickerFormat.Custom;
+           // datepicker1.CustomFormat = "MM/dd/yyyy hh:mm:ss";
+            datepicker1.Value = Convert.ToDateTime(DateTime.Now.AddDays(1).ToString("dd/MM/yyyy 14:00:00"));
+            datepicker2.Value = Convert.ToDateTime(DateTime.Now.AddDays(2).ToString("dd/MM/yyyy 11:59:00"));
         }
         
 

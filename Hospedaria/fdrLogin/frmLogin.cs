@@ -13,7 +13,7 @@ namespace Hospedaria.fdrLogin
 {
     public partial class frmLogin : Form
     {
-        private static int AuxCountLogin = 0;//mantem conta de numero de tentativas erradas
+        private static int AuxCountLogin = 1;//mantem conta de numero de tentativas erradas
         private ConnectionClass db = new ConnectionClass();
         public static string loginName;
         public Form getform { get; set; }
@@ -38,9 +38,17 @@ namespace Hospedaria.fdrLogin
 
             db.SqlQuery(query);             
             SqlDataReader _dr = db.QueryReader();
+            if (_dr.HasRows)
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("Usuario Inesistente.");
+            }
             while (_dr.Read())
             {
-                if (AuxCountLogin<=4)
+                if (AuxCountLogin<4)
                 {
 
                     if (LoginSQl(_dr["LOGIN"].ToString(), _dr["SENHA"].ToString(), Convert.ToInt32(_dr["BAN"]), Convert.ToInt32(_dr["logged"]))) //testa
@@ -50,8 +58,12 @@ namespace Hospedaria.fdrLogin
                         powerlevel = (Convert.ToInt32(_dr["powerlevel"]));
 
                         this.Close();
-                        AuxCountLogin = 0;
+                        AuxCountLogin = 1;
 
+                    }
+                    else
+                    {
+                        AuxCountLogin++;
                     }
 
                 }

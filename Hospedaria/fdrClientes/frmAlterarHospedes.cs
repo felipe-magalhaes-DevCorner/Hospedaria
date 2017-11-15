@@ -117,15 +117,23 @@ namespace Hospedaria.fdrClientes
             db.SqlQuery(query);
             db.QueryRun();
             db.closeConnection();
+            MessageBox.Show("Cliente excluido.");
+            this.Hide();
+            RefToMenu.Show();
+            
         }
 
         private void btEditar_Click(object sender, EventArgs e)
         {
+            //atualiza clientes
             string query = "update clientes set nome = '"+cbNomeAlt.Text.Trim()+"', cpf = '"+cbCPF.Text.Trim()+ "', telefone = '" + mskTelefone.Text.Trim() + "', celular = '" + mskCelular.Text.Trim() + "', cidade = '" + txtCidade.Text.Trim() + "', email = '" + txtEMAIL.Text.Trim().ToLower() + "' where clientes.idCLIENTES = '" + selectedrow + "'";
             db.SqlConnection();
             db.SqlQuery(query);
+            db.QueryRun();
             db.closeConnection();
-
+            MessageBox.Show("Cliente atualizado.");
+            this.Hide();
+            RefToMenu.Show();
         }
         public sealed class RunOnceAction
         {

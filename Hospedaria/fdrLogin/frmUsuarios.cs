@@ -13,6 +13,8 @@ namespace Hospedaria.fdrLogin
 {
     public partial class frmUsuarios : Form
     {
+        private List<int> idUsuarioCate = new List<int>();
+        private List<string> descricao = new List<string>();
         private ConnectionClass db = new ConnectionClass();
         public Form getform { get; set; }
         public frmUsuarios()
@@ -23,13 +25,24 @@ namespace Hospedaria.fdrLogin
         private void frmUsuarios_Load(object sender, EventArgs e)
         {
             db.SqlConnection();
-            string query = "select categoriausu.descricao from categoriausu where categoriausu.idcategoriausu <> 1";
+            string query = "select categoriausu.descricao,  categoriausu.idcategoriausu from categoriausu where categoriausu.idcategoriausu <> 1";
             db.SqlQuery(query);
             SqlDataReader _dr =  db.QueryReader();
             while (_dr.Read())
             {
-                comboBox1.Items.Add(_dr["descricao"]);
+                idUsuarioCate.Add(Convert.ToInt32( _dr["idcategoriausu"]));
+                descricao.Add(_dr["descricao"].ToString());
+
+
             }
+            
+            foreach (string item in descricao)
+            {
+                comboBox1.Items.Add(item);
+
+            }
+            
+
             comboBox1.SelectedIndex = 0;
         }
 
@@ -37,5 +50,43 @@ namespace Hospedaria.fdrLogin
         {
             getform.Show();
         }
+
+        private void btGravar_Click(object sender, EventArgs e)
+        {
+
+            if (txtSenha.Text == txtConfirmaSenha.Text)
+            {
+                string query = "insert into usuarios values ('" + idUsuarioCate[comboBox1.SelectedIndex] + "', '" + txtNome.Text.Trim() + "', '" + txtLogin.Text.Trim() + "', '" + txtSenha.Text.Trim() + "', '12345', '0', '0')";
+                db.SqlConnection();
+                db.SqlQuery(query);
+                db.QueryRun();
+                db.closeConnection();
+
+                DialogResult dialogResult = MessageBox.Show("Novo usuario cadastrado com sucesso.", "Concluido", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    txtNome.Clear();
+                    txtLogin.Clear();
+                    txtSenha.Clear();
+                    txtConfirmaSenha.Clear();
+                    comboBox1.SelectedIndex = 0;
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    this.Close();
+                }
+
+            }
+            else
+            {
+                
+                MessageBox.Show("As senhas nao batem.");
+            }
+            
+
+
+
+        }
+        
     }
 }

@@ -96,6 +96,12 @@
     </Compile>
     <Compile Include="fdrClientes\ValidaCNPJ.cs" />
     <Compile Include="fdrClientes\ValidaCPF.cs" />
+    <Compile Include="fdrLogin\frmAlteraUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fdrLogin\frmAlteraUsuario.Designer.cs">
+      <DependentUpon>frmAlteraUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="fdrLogin\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +164,9 @@
     <EmbeddedResource Include="fdrClientes\frmmainClientes.resx">
       <DependentUpon>frmmainClientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="fdrLogin\frmAlteraUsuario.resx">
+      <DependentUpon>frmAlteraUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fdrLogin\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -166,6 +175,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fdrQuartos\frmAlteraReserva.resx">
       <DependentUpon>frmAlteraReserva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fdrQuartos\frmReservas.pt-BR.resx">
+      <DependentUpon>frmReservas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fdrQuartos\frmReservas.resx">
       <DependentUpon>frmReservas.cs</DependentUpon>
@@ -216,6 +228,7 @@
     <None Include="Resources\red_circle.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\searchicon.jpg" />
     <Content Include="SQL Script\script.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -16,35 +16,30 @@ namespace Hospedaria
         public Form1()
         {
 
-            //Thread t = new Thread(new ThreadStart(splash));
-            //t.Start();
-            //Thread.Sleep(1000);
-            //t.Abort();
 
 
-            //if (RunOnce == true)
-            //{
-            //    this.Hide();
-            //    RunOnce = false;
-            //    fdrLogin.frmLogin objLogin = new fdrLogin.frmLogin();
-            //    objLogin.getform = this;
-            //    this.Hide();
-            //    //objLogin.Show();
-            //    //objLogin.Activate();
-            //    objLogin.ShowDialog();
-            //    //Application.Run(objLogin);
 
+            if (RunOnce == true)
+            {
+                Thread t = new Thread(new ThreadStart(splash));
+                t.Start();
+                Thread.Sleep(1000);
+                t.Abort();
 
-            //    powerLvl = objLogin.powerlevel;
-            //    loggedname = objLogin.LoggedName;
+                this.Hide();
+                RunOnce = false;
+                fdrLogin.frmLogin objLogin = new fdrLogin.frmLogin();
+                objLogin.getform = this;
+                this.Hide();
+                objLogin.ShowDialog();
 
-            //}
+            }
 
 
             InitializeComponent();
 
-            //PowerLevel(powerLvl);
-            //lbLogged.Text = "Bem Vindo " + loggedname + "";
+            PowerLevel(powerLvl);
+            lbLogged.Text = "Bem Vindo " + loggedname + "";
 
 
 
@@ -57,42 +52,36 @@ namespace Hospedaria
             switch (_powerLvl)
             {
 
-                case 0:
-                    {
-                        financeiroToolStripMenuItem1.Visible = false;
-                        usuariosToolStripMenuItem.Visible = false;
-                        manutençãoToolStripMenuItem.Visible = false;
-
-                    }
-                    break;
+                
 
                 case 1:
                     {
-                        financeiroToolStripMenuItem1.Visible = false;
-                        usuariosToolStripMenuItem.Visible = false;
-                        manutençãoToolStripMenuItem.Visible = false;
-                        estoqueToolStripMenuItem.Visible = false;
+                        
                         
                     }
                     break;
                 case 2:
                     {
                         
-                        usuariosToolStripMenuItem.Visible = false;
-                        financeiroToolStripMenuItem1.Visible = false;
-                        estoqueToolStripMenuItem.Visible = false;
+                       
 
                     }
                     break;
                 case 3:
                     {
-                        
+                        usuariosToolStripMenuItem.Visible = false;
+                        financeiroToolStripMenuItem1.Visible = false;
+                        estoqueToolStripMenuItem.Visible = false;
+
 
                     }
                     break;
                 case 4:
                     {
-                        
+
+                        financeiroToolStripMenuItem1.Visible = false;
+                        usuariosToolStripMenuItem.Visible = false;
+                        manutençãoToolStripMenuItem.Visible = false;
 
 
                     }
@@ -483,15 +472,23 @@ namespace Hospedaria
             frmUnidadesmain.ShowDialog();
         }
 
-        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        private void cadastrarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             fdrLogin.frmUsuarios objUsu = new fdrLogin.frmUsuarios();
             objUsu.getform = this;
             this.Hide();
             objUsu.ShowDialog();
-            
-                   
         }
+
+        private void alterarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fdrLogin.frmAlteraUsuario objUsu = new fdrLogin.frmAlteraUsuario();
+            objUsu.getform = this;
+            this.Hide();
+            objUsu.ShowDialog();
+        }
+
+
 
 
 
