@@ -147,9 +147,6 @@
   <data name="datepicker1.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="button2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>225, 231</value>
-  </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 5, 4, 5</value>
   </data>
@@ -270,8 +267,8 @@
   <data name="label4.Text" xml:space="preserve">
     <value>Data Prevista:</value>
   </data>
-  <data name="&gt;&gt;datepicker1.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;cbNomeRes.Name" xml:space="preserve">
+    <value>cbNomeRes</value>
   </data>
   <data name="label3.Text" xml:space="preserve">
     <value>Quarto:</value>
@@ -287,6 +284,9 @@
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
     <value>3</value>
+  </data>
+  <data name="cbQuarto.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 5, 4, 5</value>
   </data>
   <data name="&gt;&gt;button2.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -330,11 +330,11 @@
   <data name="cbNomeRes.Size" type="System.Drawing.Size, System.Drawing">
     <value>553, 37</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="cbQuarto.Size" type="System.Drawing.Size, System.Drawing">
     <value>361, 37</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>frmReservas</value>
   </data>
   <data name="datepicker2.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -369,8 +369,8 @@
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>160, 29</value>
   </data>
-  <data name="&gt;&gt;cbNomeRes.Name" xml:space="preserve">
-    <value>cbNomeRes</value>
+  <data name="&gt;&gt;datepicker1.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="datepicker2.Location" type="System.Drawing.Point, System.Drawing">
     <value>166, 220</value>
@@ -387,11 +387,11 @@
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>744, 420</value>
   </data>
-  <data name="cbQuarto.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 5, 4, 5</value>
+  <data name="button2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>225, 231</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>frmReservas</value>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="datepicker1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 5, 4, 5</value>

@@ -12,6 +12,7 @@ namespace Hospedaria.fdrQuartos
 {
     public partial class frmUnidadesmain : Form
     {
+        public Form getform { get; set; }
         public frmUnidadesmain()
         {
             InitializeComponent();
@@ -20,7 +21,16 @@ namespace Hospedaria.fdrQuartos
         private void button2_Click(object sender, EventArgs e)
         {
             fdrQuartos.frmReservas frmReservas = new frmReservas();
+            frmReservas.getform = getform;
             frmReservas.ShowDialog();
+        }
+
+        private void btVenda_Click(object sender, EventArgs e)
+        {
+            fdrQuartos.CheckIn objCheckIn = new CheckIn();
+            objCheckIn.getform = getform;
+            this.Hide();
+            objCheckIn.Show();
         }
     }
 }

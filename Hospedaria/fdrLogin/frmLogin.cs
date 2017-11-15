@@ -16,9 +16,10 @@ namespace Hospedaria.fdrLogin
         private static int AuxCountLogin = 1;//mantem conta de numero de tentativas erradas
         private ConnectionClass db = new ConnectionClass();
         public static string loginName;
+        public static string loggedName;
         public Form getform { get; set; }
         public int powerlevel { get; set; }
-        public string LoggedName { get; set; }
+        
         public frmLogin()
         {
             
@@ -54,11 +55,14 @@ namespace Hospedaria.fdrLogin
                     if (LoginSQl(_dr["LOGIN"].ToString(), _dr["SENHA"].ToString(), Convert.ToInt32(_dr["BAN"]), Convert.ToInt32(_dr["logged"]))) //testa
                     {
                         loginName = _dr["LOGIN"].ToString();
-                        LoggedName = _dr["NOME"].ToString();
+                        loggedName = _dr["NOME"].ToString();
                         powerlevel = (Convert.ToInt32(_dr["powerlevel"]));
+                        Form1 objFrm1 = new Form1();
+                        objFrm1.LoggedName = loggedName;
 
                         this.Close();
                         AuxCountLogin = 1;
+
 
                     }
                     else

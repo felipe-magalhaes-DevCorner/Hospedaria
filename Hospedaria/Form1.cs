@@ -10,36 +10,32 @@ namespace Hospedaria
         private ConnectionClass db = new ConnectionClass();
         //private bool RunOnce = true;
         static bool RunOnce = true;
-        static string loggedname;
-        
+        public string LoggedName { get; set; }
+
         public static int powerLvl;
         public Form1()
         {
+            //if (RunOnce == true)
+            //{
+            //    Thread t = new Thread(new ThreadStart(splash));
+            //    t.Start();
+            //    Thread.Sleep(1000);
+            //    t.Abort();
 
+            //    this.Hide();
+            //    RunOnce = false;
+            //    fdrLogin.frmLogin objLogin = new fdrLogin.frmLogin();
+            //    objLogin.getform = this;
+            //    this.Hide();
+            //    objLogin.ShowDialog();
 
-
-
-            if (RunOnce == true)
-            {
-                Thread t = new Thread(new ThreadStart(splash));
-                t.Start();
-                Thread.Sleep(1000);
-                t.Abort();
-
-                this.Hide();
-                RunOnce = false;
-                fdrLogin.frmLogin objLogin = new fdrLogin.frmLogin();
-                objLogin.getform = this;
-                this.Hide();
-                objLogin.ShowDialog();
-
-            }
+            //}
 
 
             InitializeComponent();
 
-            PowerLevel(powerLvl);
-            lbLogged.Text = "Bem Vindo " + loggedname + "";
+            //PowerLevel(powerLvl);
+            lbLogged.Text = "Bem Vindo " + LoggedName + "";
 
 
 
@@ -469,6 +465,8 @@ namespace Hospedaria
         private void btMove_Click(object sender, EventArgs e)
         {
             fdrQuartos.frmUnidadesmain frmUnidadesmain = new fdrQuartos.frmUnidadesmain();
+            frmUnidadesmain.getform = this;
+            this.Hide();
             frmUnidadesmain.ShowDialog();
         }
 
