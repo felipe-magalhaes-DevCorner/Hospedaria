@@ -4,13 +4,16 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Hospedaria.fdrQuartos
 {
+    
     public partial class CheckIn : Form
     {
         private ConnectionClass db = new ConnectionClass();
@@ -20,15 +23,18 @@ namespace Hospedaria.fdrQuartos
         List<string> nomeQuarto = new List<string>();
         List<string> nomepensao = new List<string>();
         List<int> idpensao = new List<int>();
+        DateTime dataProximaReserva;
+        
 
         public Form getform { get; set; }
         public CheckIn()
         {
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("pt-BR");
             InitializeComponent();
         }
         private void popComboBoxes()
         {
-            bool RunOnce = true;
+            //bool RunOnce = true;
             //---------------------- POPULA COMBOBOX NOME----------------------
             string query = "select clientes.nome, clientes.idclientes from clientes order by clientes.nome";
             db.SqlConnection();
@@ -93,24 +99,245 @@ namespace Hospedaria.fdrQuartos
             cbPensao.SelectedIndex = 0;
             cbQuarto.SelectedIndex = 0;
             cbNomeCheckIn.SelectedIndex = 0;//SELECIONA O PRIMEIRO INDEX PARA SER MOSTRADO LOGO NO INICIO
+            DateTime dateini = DateTime.Now;
+            datepicker1.Value = dateini;
+            datepicker2.Value = Convert.ToDateTime(dateini.AddDays(1).ToString("dd/MM/yyyy 11:59"));
         }
 
         private void CheckIn_Load(object sender, EventArgs e)
         {
             popComboBoxes();
         }
+        public void ChecaReserva()
+        {
+            Form1 objprin = new Form1();
+            switch (idQuarto[ cbQuarto.SelectedIndex])
+            {
+                case 1:
+                    {
+                        if (objprin.pbFloyd.Image == Hospedaria.Properties.Resources.green_circle)
+                        {
+                            QuartoLivreContinuaCheckin();
+                        }
+                        else if (objprin.pbFloyd.Image == Hospedaria.Properties.Resources.orange_circle)
+                        {
+                            MessageBox.Show("O quarto esta em manutencao.");
+                        }
+                        else
+                        {
+                            MessageBox.Show("O quarto esta ocupado.");
+                        }
+
+                    }
+                    break;
+                case 2:
+                    {
+                        if (objprin.label9.Text == "Livre")
+                        {
+                            QuartoLivreContinuaCheckin();
+                        }
+                        else if (objprin.pbStones.Image == Hospedaria.Properties.Resources.orange_circle)
+                        {
+                            MessageBox.Show("O quarto esta em manutencao.");
+                        }
+                        else
+                        {
+                            MessageBox.Show("O quarto esta ocupado.");
+                        }
+
+                    }
+                    break;
+                case 3:
+                    {
+                        if (objprin.pbDave.Image == Hospedaria.Properties.Resources.green_circle)
+                        {
+                            QuartoLivreContinuaCheckin();
+                        }
+                        else if (objprin.pbDave.Image == Hospedaria.Properties.Resources.orange_circle)
+                        {
+                            MessageBox.Show("O quarto esta em manutencao.");
+                        }
+                        else
+                        {
+                            MessageBox.Show("O quarto esta ocupado.");
+                        }
+
+                    }
+                    break;
+                case 4:
+                    {
+                        if (objprin.pbDylan.Image == Hospedaria.Properties.Resources.green_circle)
+                        {
+                            QuartoLivreContinuaCheckin();
+                        }
+                        else if (objprin.pbDylan.Image == Hospedaria.Properties.Resources.orange_circle)
+                        {
+                            MessageBox.Show("O quarto esta em manutencao.");
+                        }
+                        else
+                        {
+                            MessageBox.Show("O quarto esta ocupado.");
+                        }
+
+                    }
+                    break;
+                case 5:
+                    {
+                        if (objprin.pbJanes.Image == Hospedaria.Properties.Resources.green_circle)
+                        {
+                            QuartoLivreContinuaCheckin();
+                        }
+                        else if (objprin.pbJanes.Image == Hospedaria.Properties.Resources.orange_circle)
+                        {
+                            MessageBox.Show("O quarto esta em manutencao.");
+                        }
+                        else
+                        {
+                            MessageBox.Show("O quarto esta ocupado.");
+                        }
+
+                    }
+                    break;
+
+            }
+
+
+
+            
+        }
+
+        private void QuartoLivreContinuaCheckin()
+        {
+            //checa se
+            //dataentrade é maior q data saida
+            //se dataentrada esta em branco
+            //se data entrada é maior q o tempo agora.
+            if (datepicker1.Value >= datepicker2.Value || datepicker1.Value.ToString() == "" || datepicker1.Value > DateTime.Now)
+            {
+                MessageBox.Show("A data de entrada e saida nao conferem.");
+            }
+            else
+            //passou pelos filtros anteriores
+            {
+                string query;
+                db.SqlConnection();
+                bool validaHospedagem = false;
+                //CHECA SE TEM ALGUMA RESERVA PARA AQUELE QUARTO
+                int quarto = idQuarto[cbQuarto.SelectedIndex];
+                //query = "select datareserva from reservas where idhospedagem = '" + idQuarto + "' order by datareserva limit 1";
+                query = "select idhospedagem, DATARESERVA from RESERVAS where idHOSPEDAGEM = '" + idQuarto[cbQuarto.SelectedIndex] + "' and ((DATARESERVA between '" + datepicker1.Value.ToString("MM/dd/yyyy hh:mm") + "' and '" + datepicker2.Value.ToString("MM/dd/yyyy hh:mm") + "') or (DATASAIDA between '" + datepicker1.Value.ToString("MM/dd/yyyy hh:mm") + "' and '" + datepicker1.Value.ToString("MM/dd/yyyy hh:mm") + "' ))";
+                Clipboard.SetText(query);
+                db.SqlQuery(query);
+                SqlDataReader _dr = db.QueryReader();
+                bool QuartoLivre = true;
+                ////////////--------- chega reservas------------//////////
+                if (_dr.HasRows)//se retornar alguma reserva
+                {
+                    //---------------- tem alguma reserva -----
+
+                    while (_dr.Read())//pega a data da proxima reserva
+                    {
+                        if (QuartoLivre)
+                        {
+                            dataProximaReserva = Convert.ToDateTime(_dr["datareserva"]);
+                            QuartoLivre = false;//existe alguma reserva para aquela data
+                        }
+
+                    }
+
+
+                }
+                db.closeConnection();
+                db.SqlConnection();
+
+
+                //------------------------------------------------------------------------
+                if (QuartoLivre)//nao existe reservas para aquele quarto
+                {
+                    //vamos inserir reserva tudo certo aki
+                    // ------------------- sem data de saida e sem reserva marcada
+                    if (datepicker2.Value.ToString() == "")//sem reserva porem data final sem saida
+                    {
+                        //CASO NAO HAJA DATA DE SAIDA, VAI PRO SQL DATASAIDA NULL
+                        query = "insert into situacao values ('" + idQuarto[cbQuarto.SelectedIndex] + "','" + idCliente[cbNomeCheckIn.SelectedIndex] + "','" + idpensao[cbPensao.SelectedIndex] + "','" + datepicker1.Value + "',NULL, 'Ocupado' )";
+                        db.SqlQuery(query);
+                        db.QueryRun();
+
+                    }
+                    else
+                    {
+                        //existe data de saida, e nao existe reserva naquelas datas
+                        //insere perfeito o q ta escrito
+                        DateTime date1 = Convert.ToDateTime(datepicker1.Value);
+                        query = "insert into situacao values ('" + idQuarto[cbQuarto.SelectedIndex] + "','" + idCliente[cbNomeCheckIn.SelectedIndex] + "','" + idpensao[cbPensao.SelectedIndex] + "','" + datepicker1.Value.ToString("MM/dd/yyyy hh:mm") + "','" + datepicker2.Value.ToString("MM/dd/yyyy hh:mm") + "', 'Ocupado' )";
+                        db.SqlQuery(query);
+                        db.QueryRun();
+                    }
+                    validaHospedagem = true;
+
+                }
+                else//CASO O SQL TENHA RETORNADO ALGUMA RESERVA PARA AQUELE QUARTO ALGUM DIA
+                {
+                    //-----------------ja existe uma reserva algum dia
+                    //checa se alguma data esta em branco
+                    //data inicial nao pode ser em branco
+                    //data final pode ser em branco ou ate a data da proxima reserva naquele quarto
+                    if (datepicker2.Value.ToString() == "")//caso a data saida esteja em branco
+                    {
+                        DialogResult dialogResult = MessageBox.Show(string.Format("Existe uma reserva para o dia {0}, agendar Data Saída para esse dia?", dataProximaReserva.ToString("dd/MM/yyyy 11:59")), "Cadastrado", MessageBoxButtons.YesNo);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            //INSERE COM DATA SAIDA IGUAL AS 11:59 DO DIA DO INICIO DA PROXIMA RESERVA PARA AQUELE QUARTO
+                            query = "insert into situacao values ('" + idQuarto[cbQuarto.SelectedIndex] + "','" + idCliente[cbNomeCheckIn.SelectedIndex] + "','" + idpensao[cbPensao.SelectedIndex] + "','" + datepicker1.Value + "', '" + dataProximaReserva.ToString("dd/MM/yyyy 11:59") + "', 'Ocupado' )";
+                            db.SqlQuery(query);
+                            db.QueryRun();
+                            validaHospedagem = true;
+
+                        }
+                        else if (dialogResult == DialogResult.No)
+                        {
+                            MessageBox.Show("Não cadastrado. É preciso a concordancia da saida ate a data limite.");
+
+                        }
+
+                    }
+
+
+                }
+                if (validaHospedagem)
+                {
+
+                    query = "update hospedagem set idcondicao = '2' where idhospedagem = '" + idQuarto[cbQuarto.SelectedIndex] + "'";
+                    db.SqlQuery(query);
+                    db.QueryRun();
+                    db.closeConnection();
+                    MessageBox.Show("CheckIn Efetuado com sucesso!");
+                }
+            }
+        }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string query = "insert into situacao values('" + idQuarto[cbQuarto.SelectedIndex] + "', '" + idCliente[cbNomeCheckIn.SelectedIndex] + "', '" + idpensao[cbPensao.SelectedIndex] + "', '" + datepicker1.Value + "', '" + datepicker2.Value + "', 'Ocupado')";
+            ChecaReserva();
 
-            db.SqlConnection();
-            db.SqlQuery(query);
-            db.QueryRun();
-            query = "Update hospedagem set idcondicao = '2' where idhospedagem = '" + idpensao[cbPensao.SelectedIndex] + "'";
-            db.SqlQuery(query);
-            db.QueryRun();
-            db.closeConnection();
+
+
+
+
+
+
+
+
+
+            //string query = "insert into situacao values('" + idQuarto[cbQuarto.SelectedIndex] + "', '" + idCliente[cbNomeCheckIn.SelectedIndex] + "', '" + idpensao[cbPensao.SelectedIndex] + "', '" + datepicker1.Value + "', '" + datepicker2.Value + "', 'Ocupado')";
+
+            //db.SqlConnection();
+            //db.SqlQuery(query);
+            //db.QueryRun();
+            //query = "Update hospedagem set idcondicao = '2' where idhospedagem = '" + idpensao[cbPensao.SelectedIndex] + "'";
+            //db.SqlQuery(query);
+            //db.QueryRun();
+            //db.closeConnection();
 
         }
 

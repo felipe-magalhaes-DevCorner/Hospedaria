@@ -74,10 +74,9 @@
             // BtClientes
             // 
             this.BtClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtClientes.Location = new System.Drawing.Point(63, 75);
-            this.BtClientes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.BtClientes.Location = new System.Drawing.Point(42, 49);
             this.BtClientes.Name = "BtClientes";
-            this.BtClientes.Size = new System.Drawing.Size(225, 231);
+            this.BtClientes.Size = new System.Drawing.Size(150, 150);
             this.BtClientes.TabIndex = 0;
             this.BtClientes.Text = "Hóspedes";
             this.BtClientes.UseVisualStyleBackColor = true;
@@ -86,10 +85,9 @@
             // btMove
             // 
             this.btMove.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btMove.Location = new System.Drawing.Point(63, 343);
-            this.btMove.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btMove.Location = new System.Drawing.Point(42, 223);
             this.btMove.Name = "btMove";
-            this.btMove.Size = new System.Drawing.Size(225, 231);
+            this.btMove.Size = new System.Drawing.Size(150, 150);
             this.btMove.TabIndex = 2;
             this.btMove.Text = "Movimentação";
             this.btMove.UseVisualStyleBackColor = true;
@@ -103,15 +101,14 @@
             this.financeiroToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
-            this.menuStrip1.Size = new System.Drawing.Size(868, 35);
+            this.menuStrip1.Size = new System.Drawing.Size(579, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(85, 29);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.clientesToolStripMenuItem.Text = "Clientes";
             // 
             // financeiroToolStripMenuItem
@@ -122,7 +119,7 @@
             this.estoqueToolStripMenuItem,
             this.manutençãoToolStripMenuItem});
             this.financeiroToolStripMenuItem.Name = "financeiroToolStripMenuItem";
-            this.financeiroToolStripMenuItem.Size = new System.Drawing.Size(91, 29);
+            this.financeiroToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.financeiroToolStripMenuItem.Text = "Gerencia";
             // 
             // usuariosToolStripMenuItem
@@ -131,20 +128,20 @@
             this.cadastrarUsuarioToolStripMenuItem,
             this.alterarUsuarioToolStripMenuItem});
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             // 
             // cadastrarUsuarioToolStripMenuItem
             // 
             this.cadastrarUsuarioToolStripMenuItem.Name = "cadastrarUsuarioToolStripMenuItem";
-            this.cadastrarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(236, 30);
+            this.cadastrarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.cadastrarUsuarioToolStripMenuItem.Text = "Cadastrar Usuario";
             this.cadastrarUsuarioToolStripMenuItem.Click += new System.EventHandler(this.cadastrarUsuarioToolStripMenuItem_Click);
             // 
             // alterarUsuarioToolStripMenuItem
             // 
             this.alterarUsuarioToolStripMenuItem.Name = "alterarUsuarioToolStripMenuItem";
-            this.alterarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(236, 30);
+            this.alterarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.alterarUsuarioToolStripMenuItem.Text = "Alterar Usuario";
             this.alterarUsuarioToolStripMenuItem.Click += new System.EventHandler(this.alterarUsuarioToolStripMenuItem_Click);
             // 
@@ -154,25 +151,25 @@
             this.relatorioDiarioToolStripMenuItem,
             this.relatorioMensalToolStripMenuItem});
             this.financeiroToolStripMenuItem1.Name = "financeiroToolStripMenuItem1";
-            this.financeiroToolStripMenuItem1.Size = new System.Drawing.Size(210, 30);
+            this.financeiroToolStripMenuItem1.Size = new System.Drawing.Size(141, 22);
             this.financeiroToolStripMenuItem1.Text = "Financeiro";
             // 
             // relatorioDiarioToolStripMenuItem
             // 
             this.relatorioDiarioToolStripMenuItem.Name = "relatorioDiarioToolStripMenuItem";
-            this.relatorioDiarioToolStripMenuItem.Size = new System.Drawing.Size(227, 30);
+            this.relatorioDiarioToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.relatorioDiarioToolStripMenuItem.Text = "Relatorio Diario";
             // 
             // relatorioMensalToolStripMenuItem
             // 
             this.relatorioMensalToolStripMenuItem.Name = "relatorioMensalToolStripMenuItem";
-            this.relatorioMensalToolStripMenuItem.Size = new System.Drawing.Size(227, 30);
+            this.relatorioMensalToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.relatorioMensalToolStripMenuItem.Text = "Relatorio Mensal";
             // 
             // estoqueToolStripMenuItem
             // 
             this.estoqueToolStripMenuItem.Name = "estoqueToolStripMenuItem";
-            this.estoqueToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
+            this.estoqueToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.estoqueToolStripMenuItem.Text = "Estoque";
             // 
             // manutençãoToolStripMenuItem
@@ -184,14 +181,14 @@
             this.quartoBobDylanToolStripMenuItem,
             this.quartoJanesToolStripMenuItem});
             this.manutençãoToolStripMenuItem.Name = "manutençãoToolStripMenuItem";
-            this.manutençãoToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
+            this.manutençãoToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.manutençãoToolStripMenuItem.Text = "Manutenção";
             // 
             // suitePresidenciaslToolStripMenuItem
             // 
             this.suitePresidenciaslToolStripMenuItem.CheckOnClick = true;
             this.suitePresidenciaslToolStripMenuItem.Name = "suitePresidenciaslToolStripMenuItem";
-            this.suitePresidenciaslToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
+            this.suitePresidenciaslToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.suitePresidenciaslToolStripMenuItem.Text = "Suite Pink Floyd";
             this.suitePresidenciaslToolStripMenuItem.CheckedChanged += new System.EventHandler(this.suitePresidenciaslToolStripMenuItem_CheckedChanged);
             // 
@@ -199,7 +196,7 @@
             // 
             this.suiteMasterToolStripMenuItem.CheckOnClick = true;
             this.suiteMasterToolStripMenuItem.Name = "suiteMasterToolStripMenuItem";
-            this.suiteMasterToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
+            this.suiteMasterToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.suiteMasterToolStripMenuItem.Text = "Suite Rolling Stones";
             this.suiteMasterToolStripMenuItem.CheckedChanged += new System.EventHandler(this.suiteMasterToolStripMenuItem_CheckedChanged);
             // 
@@ -207,7 +204,7 @@
             // 
             this.suiteJaguaçãoToolStripMenuItem.CheckOnClick = true;
             this.suiteJaguaçãoToolStripMenuItem.Name = "suiteJaguaçãoToolStripMenuItem";
-            this.suiteJaguaçãoToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
+            this.suiteJaguaçãoToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.suiteJaguaçãoToolStripMenuItem.Text = "Suite Dave Grohl";
             this.suiteJaguaçãoToolStripMenuItem.CheckedChanged += new System.EventHandler(this.suiteJaguaçãoToolStripMenuItem_CheckedChanged);
             // 
@@ -215,7 +212,7 @@
             // 
             this.quartoBobDylanToolStripMenuItem.CheckOnClick = true;
             this.quartoBobDylanToolStripMenuItem.Name = "quartoBobDylanToolStripMenuItem";
-            this.quartoBobDylanToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
+            this.quartoBobDylanToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.quartoBobDylanToolStripMenuItem.Text = "Quarto Bob Dylan";
             this.quartoBobDylanToolStripMenuItem.CheckedChanged += new System.EventHandler(this.quartoBobDylanToolStripMenuItem_CheckedChanged);
             // 
@@ -223,17 +220,16 @@
             // 
             this.quartoJanesToolStripMenuItem.CheckOnClick = true;
             this.quartoJanesToolStripMenuItem.Name = "quartoJanesToolStripMenuItem";
-            this.quartoJanesToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
+            this.quartoJanesToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.quartoJanesToolStripMenuItem.Text = "Quarto Janes";
             this.quartoJanesToolStripMenuItem.CheckedChanged += new System.EventHandler(this.quartoJanesToolStripMenuItem_CheckedChanged);
             // 
             // btVenda
             // 
             this.btVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btVenda.Location = new System.Drawing.Point(345, 343);
-            this.btVenda.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btVenda.Location = new System.Drawing.Point(230, 223);
             this.btVenda.Name = "btVenda";
-            this.btVenda.Size = new System.Drawing.Size(225, 231);
+            this.btVenda.Size = new System.Drawing.Size(150, 150);
             this.btVenda.TabIndex = 5;
             this.btVenda.Text = "Venda";
             this.btVenda.UseVisualStyleBackColor = true;
@@ -241,163 +237,147 @@
             // 
             // pbFloyd
             // 
-            this.pbFloyd.Location = new System.Drawing.Point(345, 75);
-            this.pbFloyd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pbFloyd.Location = new System.Drawing.Point(230, 49);
             this.pbFloyd.Name = "pbFloyd";
-            this.pbFloyd.Size = new System.Drawing.Size(38, 38);
+            this.pbFloyd.Size = new System.Drawing.Size(25, 25);
             this.pbFloyd.TabIndex = 6;
             this.pbFloyd.TabStop = false;
             // 
             // pbStones
             // 
-            this.pbStones.Location = new System.Drawing.Point(345, 108);
-            this.pbStones.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pbStones.Location = new System.Drawing.Point(230, 70);
             this.pbStones.Name = "pbStones";
-            this.pbStones.Size = new System.Drawing.Size(38, 38);
+            this.pbStones.Size = new System.Drawing.Size(25, 25);
             this.pbStones.TabIndex = 7;
             this.pbStones.TabStop = false;
             // 
             // pbDave
             // 
-            this.pbDave.Location = new System.Drawing.Point(345, 140);
-            this.pbDave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pbDave.Location = new System.Drawing.Point(230, 91);
             this.pbDave.Name = "pbDave";
-            this.pbDave.Size = new System.Drawing.Size(38, 38);
+            this.pbDave.Size = new System.Drawing.Size(25, 25);
             this.pbDave.TabIndex = 8;
             this.pbDave.TabStop = false;
             // 
             // pbDylan
             // 
-            this.pbDylan.Location = new System.Drawing.Point(345, 172);
-            this.pbDylan.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pbDylan.Location = new System.Drawing.Point(230, 112);
             this.pbDylan.Name = "pbDylan";
-            this.pbDylan.Size = new System.Drawing.Size(38, 38);
+            this.pbDylan.Size = new System.Drawing.Size(25, 25);
             this.pbDylan.TabIndex = 9;
             this.pbDylan.TabStop = false;
             // 
             // pbJanes
             // 
-            this.pbJanes.Location = new System.Drawing.Point(345, 205);
-            this.pbJanes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pbJanes.Location = new System.Drawing.Point(230, 133);
             this.pbJanes.Name = "pbJanes";
-            this.pbJanes.Size = new System.Drawing.Size(38, 38);
+            this.pbJanes.Size = new System.Drawing.Size(25, 25);
             this.pbJanes.TabIndex = 10;
             this.pbJanes.TabStop = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(392, 80);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(261, 52);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 20);
+            this.label1.Size = new System.Drawing.Size(83, 13);
             this.label1.TabIndex = 11;
             this.label1.Text = "Suite Pink Floyd";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(392, 112);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(261, 73);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(153, 20);
+            this.label2.Size = new System.Drawing.Size(102, 13);
             this.label2.TabIndex = 12;
             this.label2.Text = "Suite Rolling Stones";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(392, 146);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(261, 95);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(130, 20);
+            this.label3.Size = new System.Drawing.Size(88, 13);
             this.label3.TabIndex = 13;
             this.label3.Text = "Suite Dave Grohl";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(392, 178);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(261, 116);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(135, 20);
+            this.label4.Size = new System.Drawing.Size(91, 13);
             this.label4.TabIndex = 14;
             this.label4.Text = "Quarto Bob Dylan";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(392, 215);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(261, 140);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(105, 20);
+            this.label5.Size = new System.Drawing.Size(70, 13);
             this.label5.TabIndex = 15;
             this.label5.Text = "Quarto Janes";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(555, 215);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(370, 140);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(51, 20);
+            this.label6.Size = new System.Drawing.Size(35, 13);
             this.label6.TabIndex = 20;
             this.label6.Text = "label6";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(555, 178);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(370, 116);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(51, 20);
+            this.label7.Size = new System.Drawing.Size(35, 13);
             this.label7.TabIndex = 19;
             this.label7.Text = "label7";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(555, 146);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Location = new System.Drawing.Point(370, 95);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(51, 20);
+            this.label8.Size = new System.Drawing.Size(35, 13);
             this.label8.TabIndex = 18;
             this.label8.Text = "label8";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(555, 112);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Location = new System.Drawing.Point(370, 73);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(51, 20);
+            this.label9.Size = new System.Drawing.Size(35, 13);
             this.label9.TabIndex = 17;
             this.label9.Text = "label9";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(555, 80);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Location = new System.Drawing.Point(370, 52);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(60, 20);
+            this.label10.Size = new System.Drawing.Size(41, 13);
             this.label10.TabIndex = 16;
             this.label10.Text = "label10";
             // 
             // lbLogged
             // 
             this.lbLogged.AutoSize = true;
-            this.lbLogged.Location = new System.Drawing.Point(678, 552);
-            this.lbLogged.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbLogged.Location = new System.Drawing.Point(452, 359);
             this.lbLogged.Name = "lbLogged";
-            this.lbLogged.Size = new System.Drawing.Size(0, 20);
+            this.lbLogged.Size = new System.Drawing.Size(0, 13);
             this.lbLogged.TabIndex = 21;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(868, 622);
+            this.ClientSize = new System.Drawing.Size(579, 404);
             this.Controls.Add(this.lbLogged);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
@@ -419,7 +399,6 @@
             this.Controls.Add(this.BtClientes);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
@@ -450,11 +429,6 @@
         private System.Windows.Forms.ToolStripMenuItem suiteJaguaçãoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quartoBobDylanToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quartoJanesToolStripMenuItem;
-        private System.Windows.Forms.PictureBox pbFloyd;
-        private System.Windows.Forms.PictureBox pbStones;
-        private System.Windows.Forms.PictureBox pbDave;
-        private System.Windows.Forms.PictureBox pbDylan;
-        private System.Windows.Forms.PictureBox pbJanes;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -463,7 +437,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         public System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem financeiroToolStripMenuItem1;
@@ -473,6 +446,12 @@
         private System.Windows.Forms.Label lbLogged;
         private System.Windows.Forms.ToolStripMenuItem cadastrarUsuarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem alterarUsuarioToolStripMenuItem;
+        public System.Windows.Forms.PictureBox pbFloyd;
+        public System.Windows.Forms.PictureBox pbStones;
+        public System.Windows.Forms.PictureBox pbDave;
+        public System.Windows.Forms.PictureBox pbDylan;
+        public System.Windows.Forms.PictureBox pbJanes;
+        public System.Windows.Forms.Label label9;
     }
 }
 
