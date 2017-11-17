@@ -110,94 +110,77 @@ namespace Hospedaria.fdrQuartos
         }
         public void ChecaReserva()
         {
-            Form1 objprin = new Form1();
-            switch (idQuarto[ cbQuarto.SelectedIndex])
+            db.SqlConnection();
+            string query = "select hospedagem.idcondicao from hospedagem where idhospedagem = '" + idQuarto[cbQuarto.SelectedIndex] + "'";
+            db.SqlQuery(query);
+            SqlDataReader _dr = db.QueryReader();
+            int condicao = 0;
+            while (_dr.Read())
+            {
+                condicao = Convert.ToInt32(_dr["idcondicao"]);
+            }
+            db.closeConnection();
+            switch (condicao)
             {
                 case 1:
                     {
-                        if (objprin.pbFloyd.Image == Hospedaria.Properties.Resources.green_circle)
-                        {
-                            QuartoLivreContinuaCheckin();
-                        }
-                        else if (objprin.pbFloyd.Image == Hospedaria.Properties.Resources.orange_circle)
-                        {
-                            MessageBox.Show("O quarto esta em manutencao.");
-                        }
-                        else
-                        {
-                            MessageBox.Show("O quarto esta ocupado.");
-                        }
 
+                        QuartoLivreContinuaCheckin();
                     }
                     break;
                 case 2:
                     {
-                        if (objprin.label9.Text == "Livre")
-                        {
-                            QuartoLivreContinuaCheckin();
-                        }
-                        else if (objprin.pbStones.Image == Hospedaria.Properties.Resources.orange_circle)
-                        {
-                            MessageBox.Show("O quarto esta em manutencao.");
-                        }
-                        else
-                        {
-                            MessageBox.Show("O quarto esta ocupado.");
-                        }
+
+                        MessageBox.Show("O quarto esta em ocupado.");
 
                     }
                     break;
                 case 3:
                     {
-                        if (objprin.pbDave.Image == Hospedaria.Properties.Resources.green_circle)
-                        {
-                            QuartoLivreContinuaCheckin();
-                        }
-                        else if (objprin.pbDave.Image == Hospedaria.Properties.Resources.orange_circle)
-                        {
-                            MessageBox.Show("O quarto esta em manutencao.");
-                        }
-                        else
-                        {
-                            MessageBox.Show("O quarto esta ocupado.");
-                        }
-
+                        MessageBox.Show("O quarto esta em manutencao.");
+                        
+                        
                     }
                     break;
                 case 4:
                     {
-                        if (objprin.pbDylan.Image == Hospedaria.Properties.Resources.green_circle)
+                        MessageBox.Show("Existe uma reserva para esse horario. Gostaria de carregala?");
+                        DialogResult dialogResult = MessageBox.Show(string.Format("Existe uma reserva para o dia {0}, agendar Data Saída para esse dia?", dataProximaReserva.ToString("dd/MM/yyyy 11:59")), "Cadastrado", MessageBoxButtons.YesNo);
+                        if (dialogResult == DialogResult.Yes)
                         {
-                            QuartoLivreContinuaCheckin();
+                            query = "select * from reservas where idhospedagem = '" + idQuarto[cbQuarto.SelectedIndex] + "'";
+                            db.SqlConnection();
+                            db.SqlQuery(query);
+                            SqlDataReader _dr2 = db.QueryReader();
+
+
+                            while (_dr2.Read())
+                            {
+                                cbNomeCheckIn.SelectedIndex = idCliente.IndexOf(Convert.ToInt32(_dr2["idcliente"]));
+                                cbQuarto.SelectedIndex = idQuarto.IndexOf(Convert.ToInt32(_dr2["idhospedagem"]));
+                                datepicker1.Value = Convert.ToDateTime(_dr2["datareserva"]);
+                                datepicker2.Value = Convert.ToDateTime(_dr2["datasaida"]);
+
+
+                            }
+                            db.closeConnection();
+                            if (cbPensao.Text != "")
+                            {
+
+                                QuartoLivreContinuaCheckin();
+                            }
+
                         }
-                        else if (objprin.pbDylan.Image == Hospedaria.Properties.Resources.orange_circle)
+                        else if (dialogResult == DialogResult.No)
                         {
-                            MessageBox.Show("O quarto esta em manutencao.");
+                            MessageBox.Show("Não cadastrado. É preciso a concordancia da saida ate a data limite.");
+
                         }
-                        else
-                        {
-                            MessageBox.Show("O quarto esta ocupado.");
-                        }
+                        
 
                     }
                     break;
-                case 5:
-                    {
-                        if (objprin.pbJanes.Image == Hospedaria.Properties.Resources.green_circle)
-                        {
-                            QuartoLivreContinuaCheckin();
-                        }
-                        else if (objprin.pbJanes.Image == Hospedaria.Properties.Resources.orange_circle)
-                        {
-                            MessageBox.Show("O quarto esta em manutencao.");
-                        }
-                        else
-                        {
-                            MessageBox.Show("O quarto esta ocupado.");
-                        }
 
-                    }
-                    break;
 
             }
 
