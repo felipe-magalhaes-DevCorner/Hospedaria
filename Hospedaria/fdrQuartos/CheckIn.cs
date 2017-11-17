@@ -301,7 +301,27 @@ namespace Hospedaria.fdrQuartos
 
         private void button2_Click(object sender, EventArgs e)
         {
-            ChecaReserva();
+            if (nomeCliente.Contains(cbNomeCheckIn.Text.Trim()))
+            {
+                ChecaReserva();
+            }
+            else
+            {
+                DialogResult dialogResult = MessageBox.Show("Cliente nao cadastrado. Gostaria de cadastrar?", "Cadastrado", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    //caso o cliente nao esteja cadastrado
+                    fdrClientes.frmCadastroClientes objCadastro = new fdrClientes.frmCadastroClientes();
+                    this.Hide();
+                    objCadastro.Show();
+
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    //faz nada
+                }
+            }
+            
 
 
 
