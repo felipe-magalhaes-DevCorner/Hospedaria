@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReservas));
             this.cbNomeRes = new System.Windows.Forms.ComboBox();
             this.datepicker1 = new System.Windows.Forms.DateTimePicker();
@@ -38,6 +39,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.datepicker2 = new System.Windows.Forms.DateTimePicker();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // cbNomeRes
@@ -55,11 +57,12 @@
             // 
             // cbQuarto
             // 
-            resources.ApplyResources(this.cbQuarto, "cbQuarto");
             this.cbQuarto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            resources.ApplyResources(this.cbQuarto, "cbQuarto");
             this.cbQuarto.FormattingEnabled = true;
             this.cbQuarto.Name = "cbQuarto";
             this.cbQuarto.SelectedIndexChanged += new System.EventHandler(this.cbQuarto_SelectedIndexChanged);
+            this.cbQuarto.MouseMove += new System.Windows.Forms.MouseEventHandler(this.cbQuarto_MouseMove);
             // 
             // label1
             // 
@@ -127,5 +130,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker datepicker2;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

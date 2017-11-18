@@ -194,6 +194,12 @@
     <EmbeddedResource Include="fdrQuartos\frmAlteraReserva.resx">
       <DependentUpon>frmAlteraReserva.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="fdrQuartos\frmReservas.en-GH.resx">
+      <DependentUpon>frmReservas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fdrQuartos\frmReservas.en-US.resx">
+      <DependentUpon>frmReservas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fdrQuartos\frmReservas.pt-BR.resx">
       <DependentUpon>frmReservas.cs</DependentUpon>
     </EmbeddedResource>

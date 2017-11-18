@@ -366,5 +366,33 @@ namespace Hospedaria.fdrQuartos
         {
 
         }
+
+        private void cbQuarto_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (cbQuarto.SelectedIndex == 0 || cbQuarto.SelectedIndex == 1)
+            {
+                toolTip1.SetToolTip(cbQuarto, "Suite Master. RS: 140,00");
+            }
+            else
+            {
+                toolTip1.SetToolTip(cbQuarto, "Suite Simples. RS: 100,00");
+            }
+        }
+
+        private void cbPensao_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (cbPensao.SelectedIndex == 0)
+            {
+                toolTip1.SetToolTip(cbPensao, "Sem alimentação. RS: 80,00");
+            }
+            else if (cbPensao.SelectedIndex == 1)
+            {
+                toolTip1.SetToolTip(cbPensao, "Inclui cafe da manha e jantar. RS: 120,00");
+            }
+            else
+            {
+                toolTip1.SetToolTip(cbPensao, "Inclui cafe da manha, almoco e jantar. RS: 180,00");
+            }
+        }
     }
 }

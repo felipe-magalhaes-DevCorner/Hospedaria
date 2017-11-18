@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cbQuarto = new System.Windows.Forms.ComboBox();
@@ -41,6 +42,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // label3
@@ -75,6 +77,7 @@
             this.cbQuarto.Size = new System.Drawing.Size(242, 28);
             this.cbQuarto.TabIndex = 9;
             this.cbQuarto.SelectedIndexChanged += new System.EventHandler(this.cbQuarto_SelectedIndexChanged);
+            this.cbQuarto.MouseMove += new System.Windows.Forms.MouseEventHandler(this.cbQuarto_MouseMove);
             // 
             // cbNomeCheckIn
             // 
@@ -105,6 +108,7 @@
             this.cbPensao.Name = "cbPensao";
             this.cbPensao.Size = new System.Drawing.Size(242, 28);
             this.cbPensao.TabIndex = 12;
+            this.cbPensao.MouseMove += new System.Windows.Forms.MouseEventHandler(this.cbPensao_MouseMove);
             // 
             // label4
             // 
@@ -223,5 +227,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

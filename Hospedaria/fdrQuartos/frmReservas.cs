@@ -315,5 +315,19 @@ namespace Hospedaria.fdrQuartos
             Form1 objPrincipal = new Form1();
             objPrincipal.Show();
         }
+
+        private void cbQuarto_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (cbQuarto.SelectedIndex == 0 || cbQuarto.SelectedIndex == 1)
+            {
+                toolTip1.SetToolTip(cbQuarto, "Suite Master. RS: 140,00");
+            }
+            else
+            {
+                toolTip1.SetToolTip(cbQuarto, "Suite Simples. RS: 100,00");
+            }
+        }
+
+
     }
 }
