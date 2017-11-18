@@ -52,7 +52,7 @@ namespace Hospedaria.fdrQuartos
 
             string query;
 
-            query = "select SITUACAO.idSITUACAO, SITUACAO.idHOSPEDAGEM , SITUACAO.idPENSAO , SITUACAO.DATACHECKIN , pensao.INCREMENTO , PENSAO.DESCRICAO , clientes.NOME as nomeCliente, HOSPEDAGEM.nome as nomeHospedagem, hospedagem.valor from SITUACAO inner join PENSAO on PENSAO.idPENSAO = SITUACAO.idPENSAO inner join CLIENTES on CLIENTES.idCLIENTES = SITUACAO.idCLIENTES inner join HOSPEDAGEM on HOSPEDAGEM.idHOSPEDAGEM = SITUACAO.idHOSPEDAGEM where SITUACAO.SITUACAO = 'Ocupado' order by SITUACAO.idSITUACAO";
+            query = "select SITUACAO.idSITUACAO, SITUACAO.idHOSPEDAGEM , SITUACAO.idPENSAO , SITUACAO.DATACHECKIN , pensao.INCREMENTO , PENSAO.DESCRICAO , clientes.NOME as nomeCliente, HOSPEDAGEM.nome as nomeHospedagem, categoria_quarto.valor as valor from SITUACAO inner join PENSAO on PENSAO.idPENSAO = SITUACAO.idPENSAO inner join CLIENTES on CLIENTES.idCLIENTES = SITUACAO.idCLIENTES inner join HOSPEDAGEM on HOSPEDAGEM.idHOSPEDAGEM = SITUACAO.idHOSPEDAGEM inner join categoria_quarto on categoria_quarto.idcategoria_quarto = hospedagem.idcategoria where SITUACAO.SITUACAO = 'Ocupado' order by SITUACAO.idSITUACAO";
             db.SqlConnection();
             db.SqlQuery(query);
             SqlDataReader _dr = db.QueryReader();
