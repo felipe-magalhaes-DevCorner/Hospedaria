@@ -120,6 +120,12 @@
     <Compile Include="fdrQuartos\CheckIn.Designer.cs">
       <DependentUpon>CheckIn.cs</DependentUpon>
     </Compile>
+    <Compile Include="fdrQuartos\CheckOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fdrQuartos\CheckOut.Designer.cs">
+      <DependentUpon>CheckOut.cs</DependentUpon>
+    </Compile>
     <Compile Include="fdrQuartos\frmAlteraReserva.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,6 +187,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fdrQuartos\CheckIn.resx">
       <DependentUpon>CheckIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fdrQuartos\CheckOut.resx">
+      <DependentUpon>CheckOut.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fdrQuartos\frmAlteraReserva.resx">
       <DependentUpon>frmAlteraReserva.cs</DependentUpon>

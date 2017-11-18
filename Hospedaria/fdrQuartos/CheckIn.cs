@@ -351,5 +351,10 @@ namespace Hospedaria.fdrQuartos
             getform.Visible = true;
 
         }
+
+        private void cbQuarto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

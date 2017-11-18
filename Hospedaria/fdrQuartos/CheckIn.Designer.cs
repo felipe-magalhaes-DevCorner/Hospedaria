@@ -73,6 +73,7 @@
             this.cbQuarto.Name = "cbQuarto";
             this.cbQuarto.Size = new System.Drawing.Size(242, 28);
             this.cbQuarto.TabIndex = 9;
+            this.cbQuarto.SelectedIndexChanged += new System.EventHandler(this.cbQuarto_SelectedIndexChanged);
             // 
             // cbNomeCheckIn
             // 
@@ -186,7 +187,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbQuarto);
             this.Controls.Add(this.cbNomeCheckIn);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "CheckIn";
             this.Text = "CheckIn";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CheckIn_FormClosing);

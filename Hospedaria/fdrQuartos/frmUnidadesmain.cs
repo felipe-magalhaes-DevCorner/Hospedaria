@@ -22,7 +22,9 @@ namespace Hospedaria.fdrQuartos
         {
             fdrQuartos.frmReservas frmReservas = new frmReservas();
             frmReservas.getform = getform;
+            this.Hide();
             frmReservas.ShowDialog();
+
         }
 
         private void btVenda_Click(object sender, EventArgs e)
@@ -31,6 +33,16 @@ namespace Hospedaria.fdrQuartos
             objCheckIn.getform = getform;
             this.Hide();
             objCheckIn.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            fdrQuartos.CheckOut objCheckOut = new CheckOut();
+           // objCheckOut.getform = getform;
+            this.Hide();
+            objCheckOut.Show();
+
+
         }
     }
 }
