@@ -25,6 +25,7 @@ namespace Hospedaria.fdrQuartos
         List<int> idpensao = new List<int>();
         DateTime dataProximaReserva;
         DateTime dataprosimaSaida;
+        private static int idreserva;
         private static int indexReserva;
 
 
@@ -223,12 +224,14 @@ namespace Hospedaria.fdrQuartos
                 string query;
                 db.SqlConnection();
                 bool validaHospedagem = false;
+                bool ValidaReserva = false;
+
                 //CHECA SE TEM ALGUMA RESERVA PARA AQUELE QUARTO
                 int quarto = idQuarto[cbQuarto.SelectedIndex];
                 //query = "select datareserva from reservas where idhospedagem = '" + idQuarto + "' order by datareserva limit 1";
                 //query = "select idhospedagem, DATARESERVA from RESERVAS where idHOSPEDAGEM = '" + idQuarto[cbQuarto.SelectedIndex] + "' and ((DATARESERVA between '" + datepicker1.Value.ToString("dd/MM/yyyy") + "' and '" + datepicker2.Value.ToString("dd/MM/yyyy HH:mm") + "') or (DATASAIDA between '" + datepicker1.Value.ToString("dd/MM/yyyy HH:mm") + "' and '" + datepicker1.Value.ToString("dd/MM/yyyy HH:mm") + "' ))";
                 //query = "select idhospedagem, DATARESERVA from RESERVAS where idHOSPEDAGEM = '" + idQuarto[cbQuarto.SelectedIndex] + "' and((DATARESERVA > '" + datepicker1.Value.ToString("dd/MM/yyyy") + "' AND DATARESERVA <= '" + datepicker2.Value.ToString("dd/MM/yyyy") + "' AND DATEPART(hh, datareserva) >= '" + datepicker1.Value.ToString("HH") + "' AND DATEPART(hh, datareserva) <= '" + datepicker2.Value.ToString("HH") + "') or ((DATASAIDA > '" + datepicker1.Value.ToString("dd/MM/yyyy") + "' AND DATASAIDA <= '" + datepicker2.Value.ToString("dd/MM/yyyy") + "' AND DATEPART(hh, DATASAIDA) >= '" + datepicker1.Value.ToString("HH") + "' AND DATEPART(hh, DATASAIDA) <= '" + datepicker2.Value.ToString("hh") + "')";
-                query = "select idhospedagem, DATARESERVA, datasaida, idclientes from RESERVAS where idHOSPEDAGEM = '"+ idQuarto[cbQuarto.SelectedIndex] + "' and((DATARESERVA > '" + datepicker1.Value.ToString("dd/MM/yyyy") + "' AND DATARESERVA <= '" + datepicker2.Value.ToString("dd/MM/yyyy") + "'  AND DATEPART(hh, datareserva) >= '" + datepicker1.Value.ToString("12") + "' )   or((DATASAIDA > '" + datepicker1.Value.ToString("dd/MM/yyyy") + "'    AND DATASAIDA <= '" + datepicker2.Value.ToString("dd/MM/yyyy") + "'     AND DATEPART(hh, DATASAIDA) <= '" + datepicker2.Value.ToString("hh") + "')))";
+                query = "select idhospedagem , DATARESERVA, datasaida, idclientes from RESERVAS where idHOSPEDAGEM = '"+ idQuarto[cbQuarto.SelectedIndex] + "' and((DATARESERVA > '" + datepicker1.Value.ToString("dd/MM/yyyy") + "' AND DATARESERVA <= '" + datepicker2.Value.ToString("dd/MM/yyyy") + "'  AND DATEPART(hh, datareserva) >= '" + datepicker1.Value.ToString("12") + "' )   or((DATASAIDA > '" + datepicker1.Value.ToString("dd/MM/yyyy") + "'    AND DATASAIDA <= '" + datepicker2.Value.ToString("dd/MM/yyyy") + "'     AND DATEPART(hh, DATASAIDA) <= '" + datepicker2.Value.ToString("hh") + "')))";
                 Clipboard.SetText(query);
                 db.SqlQuery(query); Clipboard.SetText(query);
                 SqlDataReader _dr = db.QueryReader();
@@ -245,6 +248,8 @@ namespace Hospedaria.fdrQuartos
                             dataProximaReserva = Convert.ToDateTime(_dr["datareserva"]);
                             dataprosimaSaida = Convert.ToDateTime(_dr["datasaida"]);
                             indexReserva = Convert.ToInt32(_dr["idclientes"]);
+                            idreserva = Convert.ToInt32(_dr["idreserva"]);
+
 
                             QuartoLivre = false;//existe alguma reserva para aquela data
                         }
@@ -302,10 +307,11 @@ namespace Hospedaria.fdrQuartos
                         }
                         else if (dialogResult == DialogResult.No)
                         {
-                            MessageBox.Show("Não cadastrado. Ja existe uma reserva de outro cliente para esses dias.");
+                            db.closeConnection();
                             DialogResult dialogResult2 = MessageBox.Show(string.Format("Não cadastrado. Ja existe uma reserva de outro cliente para esses dias. Gostaria de alterar a reserva?"),"ALERTA!", MessageBoxButtons.YesNo);
                             if (dialogResult2 == DialogResult.Yes)
                             {
+                                db.closeConnection();
                                 fdrQuartos.frmAlteraReserva objAlteraRes = new frmAlteraReserva();
                                 objAlteraRes.Show();
 
@@ -316,6 +322,7 @@ namespace Hospedaria.fdrQuartos
                                 MessageBox.Show("Não cadastrado. Ja existe uma reserva de outro cliente para esses dias.");
 
                             }
+                            
 
                         }
 
@@ -331,18 +338,20 @@ namespace Hospedaria.fdrQuartos
                             db.SqlQuery(query); Clipboard.SetText(query);
                             db.QueryRun();
                             validaHospedagem = true;
+                            
 
                         }
                         else if (dialogResult == DialogResult.No)
                         {
                             MessageBox.Show("Não cadastrado. Ja existe uma reserva de outro cliente para esses dias.");
-
+                            
                         }
 
                     }
                     else
                     {
                         MessageBox.Show(string.Format("Ja existe uma reserva para o periodo de tempo. De {0} as {1}", dataProximaReserva.ToString(), dataprosimaSaida.ToString()) );
+                       
                     }
 
 
@@ -359,6 +368,15 @@ namespace Hospedaria.fdrQuartos
                     Form1 form1 = new Form1(true);
                     
                 }
+                if (ValidaReserva)
+                {
+                    query = "delete  from reservas where reservas.idreservas = '"+idreserva+"'";
+                    db.SqlQuery(query); Clipboard.SetText(query);
+                    db.QueryRun();
+                    
+
+                }
+                db.closeConnection();
             }
         }
 
