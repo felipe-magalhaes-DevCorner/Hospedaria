@@ -355,6 +355,9 @@ namespace Hospedaria.fdrQuartos
                     db.QueryRun();
                     db.closeConnection();
                     MessageBox.Show("CheckIn Efetuado com sucesso!");
+                    this.Hide();
+                    Form1 form1 = new Form1(true);
+                    
                 }
             }
         }

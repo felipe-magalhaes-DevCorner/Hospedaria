@@ -57,8 +57,8 @@ namespace Hospedaria.fdrLogin
                         loginName = _dr["LOGIN"].ToString();
                         loggedName = _dr["NOME"].ToString();
                         powerlevel = (Convert.ToInt32(_dr["powerlevel"]));
-                        Form1 objFrm1 = new Form1();
-                        objFrm1.LoggedName = loggedName;
+                        Form1 objFrm1 = new Form1(false,loggedName, powerlevel, true);
+                        //objFrm1.LoggedName = loggedName;
 
                         this.Close();
                         AuxCountLogin = 1;

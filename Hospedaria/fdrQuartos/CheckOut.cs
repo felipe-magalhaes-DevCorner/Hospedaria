@@ -93,10 +93,15 @@ namespace Hospedaria.fdrQuartos
             db.SqlConnection();
             db.SqlQuery(query);
             db.QueryRun();
-            query = "update hospedagem set idcondicao = '3' from hospedagem where idhospedagem = '" + idQuarto[comboBox1.SelectedIndex] + "'";
+            query = "update hospedagem set idcondicao = '1' from hospedagem where idhospedagem = '" + idQuarto[comboBox1.SelectedIndex] + "'";
+            Clipboard.SetText(query);
+            db.SqlQuery(query);
             db.QueryRun();
             db.closeConnection();
             MessageBox.Show("Check out realizado.");
+            this.Hide();
+            Form1 form1 = new Form1(true);
+            form1.Visible = true;
 
 
         }

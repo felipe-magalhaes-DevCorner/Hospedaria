@@ -10,31 +10,42 @@ namespace Hospedaria
         private ConnectionClass db = new ConnectionClass();
         //private bool RunOnce = true;
         static bool RunOnce = true;
-        public string LoggedName { get; set; }
+        
+        public static string LoggedName;
 
         public static int powerLvl;
-        public Form1()
+        public Form1(bool checkStatus = false,string nomeUser = "",int _powerlevel = 6, bool control = false)
         {
-            //if (RunOnce == true)
-            //{
-            //    Thread t = new Thread(new ThreadStart(splash));
-            //    t.Start();
-            //    Thread.Sleep(1000);
-            //    t.Abort();
+            if (RunOnce == true)
+            {
+                Thread t = new Thread(new ThreadStart(splash));
+                t.Start();
+                Thread.Sleep(1000);
+                t.Abort();
 
-            //    this.Hide();
-            //    RunOnce = false;
-            //    fdrLogin.frmLogin objLogin = new fdrLogin.frmLogin();
-            //    objLogin.getform = this;
-            //    this.Hide();
-            //    objLogin.ShowDialog();
+                this.Hide();
+                RunOnce = false;
+                fdrLogin.frmLogin objLogin = new fdrLogin.frmLogin();
+                objLogin.getform = this;
+                this.Hide();
+                objLogin.ShowDialog();
 
-            //}
+            }
+            if (control)
+            {
 
+                LoggedName = nomeUser;
+                powerLvl = _powerlevel;
+            }
 
             InitializeComponent();
+            if (checkStatus)
+            {
+                CheckStatus();
+            }
 
-            //PowerLevel(powerLvl);
+            //LoggedName = nomeUser;
+            PowerLevel(powerLvl);
             lbLogged.Text = "Bem Vindo " + LoggedName + "";
 
 
@@ -47,23 +58,25 @@ namespace Hospedaria
         {
             switch (_powerLvl)
             {
+                case 0:
+                    {
+                        financeiroToolStripMenuItem1.Visible = false;
+                        usuariosToolStripMenuItem.Visible = false;
+                        manutençãoToolStripMenuItem.Visible = false;
 
-                
+                    }
+                    break;
+
 
                 case 1:
                     {
-                        
-                        
-                    }
-                    break;
-                case 2:
-                    {
-                        
-                       
+                        financeiroToolStripMenuItem1.Visible = false;
+                        usuariosToolStripMenuItem.Visible = false;
+                        manutençãoToolStripMenuItem.Visible = false;
 
                     }
                     break;
-                case 3:
+                case 2:
                     {
                         usuariosToolStripMenuItem.Visible = false;
                         financeiroToolStripMenuItem1.Visible = false;
@@ -72,12 +85,17 @@ namespace Hospedaria
 
                     }
                     break;
+                case 3:
+                    {
+                        
+
+
+                    }
+                    break;
                 case 4:
                     {
 
-                        financeiroToolStripMenuItem1.Visible = false;
-                        usuariosToolStripMenuItem.Visible = false;
-                        manutençãoToolStripMenuItem.Visible = false;
+                        
 
 
                     }
