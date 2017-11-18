@@ -24,7 +24,9 @@ namespace Hospedaria.fdrQuartos
         List<string> nomepensao = new List<string>();
         List<int> idpensao = new List<int>();
         DateTime dataProximaReserva;
-        
+        DateTime dataprosimaSaida;
+        private static int indexReserva;
+
 
         public Form getform { get; set; }
         public CheckIn()
@@ -213,7 +215,7 @@ namespace Hospedaria.fdrQuartos
                 //query = "select datareserva from reservas where idhospedagem = '" + idQuarto + "' order by datareserva limit 1";
                 //query = "select idhospedagem, DATARESERVA from RESERVAS where idHOSPEDAGEM = '" + idQuarto[cbQuarto.SelectedIndex] + "' and ((DATARESERVA between '" + datepicker1.Value.ToString("dd/MM/yyyy") + "' and '" + datepicker2.Value.ToString("dd/MM/yyyy HH:mm") + "') or (DATASAIDA between '" + datepicker1.Value.ToString("dd/MM/yyyy HH:mm") + "' and '" + datepicker1.Value.ToString("dd/MM/yyyy HH:mm") + "' ))";
                 //query = "select idhospedagem, DATARESERVA from RESERVAS where idHOSPEDAGEM = '" + idQuarto[cbQuarto.SelectedIndex] + "' and((DATARESERVA > '" + datepicker1.Value.ToString("dd/MM/yyyy") + "' AND DATARESERVA <= '" + datepicker2.Value.ToString("dd/MM/yyyy") + "' AND DATEPART(hh, datareserva) >= '" + datepicker1.Value.ToString("HH") + "' AND DATEPART(hh, datareserva) <= '" + datepicker2.Value.ToString("HH") + "') or ((DATASAIDA > '" + datepicker1.Value.ToString("dd/MM/yyyy") + "' AND DATASAIDA <= '" + datepicker2.Value.ToString("dd/MM/yyyy") + "' AND DATEPART(hh, DATASAIDA) >= '" + datepicker1.Value.ToString("HH") + "' AND DATEPART(hh, DATASAIDA) <= '" + datepicker2.Value.ToString("hh") + "')";
-                query = "select idhospedagem, DATARESERVA from RESERVAS where idHOSPEDAGEM = '"+ idQuarto[cbQuarto.SelectedIndex] + "' and((DATARESERVA > '" + datepicker1.Value.ToString("dd/MM/yyyy") + "' AND DATARESERVA <= '" + datepicker2.Value.ToString("dd/MM/yyyy") + "'  AND DATEPART(hh, datareserva) >= '" + datepicker1.Value.ToString("HH") + "'   AND DATEPART(hh, datareserva) <= '" + datepicker2.Value.ToString("HH") + "')   or((DATASAIDA > '" + datepicker1.Value.ToString("dd/MM/yyyy") + "'    AND DATASAIDA <= '" + datepicker2.Value.ToString("dd/MM/yyyy") + "'    AND DATEPART(hh, DATASAIDA) >= '" + datepicker1.Value.ToString("HH") + "'    AND DATEPART(hh, DATASAIDA) <= '" + datepicker2.Value.ToString("hh") + "')))";
+                query = "select idhospedagem, DATARESERVA, datasaida, idclientes from RESERVAS where idHOSPEDAGEM = '"+ idQuarto[cbQuarto.SelectedIndex] + "' and((DATARESERVA > '" + datepicker1.Value.ToString("dd/MM/yyyy") + "' AND DATARESERVA <= '" + datepicker2.Value.ToString("dd/MM/yyyy") + "'  AND DATEPART(hh, datareserva) >= '" + datepicker1.Value.ToString("12") + "' )   or((DATASAIDA > '" + datepicker1.Value.ToString("dd/MM/yyyy") + "'    AND DATASAIDA <= '" + datepicker2.Value.ToString("dd/MM/yyyy") + "'     AND DATEPART(hh, DATASAIDA) <= '" + datepicker2.Value.ToString("hh") + "')))";
                 Clipboard.SetText(query);
                 db.SqlQuery(query); Clipboard.SetText(query);
                 SqlDataReader _dr = db.QueryReader();
@@ -228,6 +230,9 @@ namespace Hospedaria.fdrQuartos
                         if (QuartoLivre)
                         {
                             dataProximaReserva = Convert.ToDateTime(_dr["datareserva"]);
+                            dataprosimaSaida = Convert.ToDateTime(_dr["datasaida"]);
+                            indexReserva = Convert.ToInt32(_dr["idclientes"]);
+
                             QuartoLivre = false;//existe alguma reserva para aquela data
                         }
 
@@ -270,9 +275,29 @@ namespace Hospedaria.fdrQuartos
                     //checa se alguma data esta em branco
                     //data inicial nao pode ser em branco
                     //data final pode ser em branco ou ate a data da proxima reserva naquele quarto
-                    if (datepicker2.Value.ToString() == "")//caso a data saida esteja em branco
+                    if (datepicker1.Value.ToString("dd/MM/yyyy 14:00") == dataProximaReserva.ToString("dd/MM/yyyy HH:mm"))//caso a data saida esteja em branco
                     {
-                        DialogResult dialogResult = MessageBox.Show(string.Format("Existe uma reserva para o dia {0}, agendar Data Saída para esse dia?", dataProximaReserva.ToString("dd/MM/yyyy 11:59")), "Cadastrado", MessageBoxButtons.YesNo);
+                        DialogResult dialogResult = MessageBox.Show(string.Format("Existe uma reserva para o dia {0} para o cliente {1}, Confirma ser essa reserva?", dataProximaReserva.ToString("dd/MM/yyyy HH:mm"), nomeCliente[idCliente.IndexOf(indexReserva)] ), "Cadastrado", MessageBoxButtons.YesNo);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            //INSERE COM DATA SAIDA IGUAL AS 11:59 DO DIA DO INICIO DA PROXIMA RESERVA PARA AQUELE QUARTO
+                            query = "insert into situacao values ('" + idQuarto[cbQuarto.SelectedIndex] + "','" + idCliente[cbNomeCheckIn.SelectedIndex] + "','" + idpensao[cbPensao.SelectedIndex] + "','" + datepicker1.Value.ToString("dd/MM/yyyy HH:mm") + "', '" + datepicker2.Value.ToString("dd/MM/yyyy 11:59") + "', 'Ocupado' )";
+                            db.SqlQuery(query); Clipboard.SetText(query);
+                            db.QueryRun();
+                            validaHospedagem = true;
+
+                        }
+                        else if (dialogResult == DialogResult.No)
+                        {
+                            MessageBox.Show("Não cadastrado. Ja existe uma reserva de outro cliente para esses dias.");
+
+                        }
+
+                    }
+                    else if (datepicker2.Value >= dataProximaReserva)
+                    {
+                        
+                        DialogResult dialogResult = MessageBox.Show(string.Format("Existe uma reserva para o dia {0}, CheckOut pode ser ate esta data?", dataProximaReserva.ToString("dd/MM/yyyy HH:mm")), "Cadastrado", MessageBoxButtons.YesNo);
                         if (dialogResult == DialogResult.Yes)
                         {
                             //INSERE COM DATA SAIDA IGUAL AS 11:59 DO DIA DO INICIO DA PROXIMA RESERVA PARA AQUELE QUARTO
@@ -284,14 +309,14 @@ namespace Hospedaria.fdrQuartos
                         }
                         else if (dialogResult == DialogResult.No)
                         {
-                            MessageBox.Show("Não cadastrado. É preciso a concordancia da saida ate a data limite.");
+                            MessageBox.Show("Não cadastrado. Ja existe uma reserva de outro cliente para esses dias.");
 
                         }
 
                     }
                     else
                     {
-                        MessageBox.Show("Ja existe uma reserva para esse periodo de tempo.");
+                        MessageBox.Show(string.Format("Ja existe uma reserva para o periodo de tempo. De {0} as {1}", dataProximaReserva.ToString(), dataprosimaSaida.ToString()) );
                     }
 
 
