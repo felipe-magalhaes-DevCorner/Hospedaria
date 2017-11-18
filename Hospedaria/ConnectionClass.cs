@@ -21,10 +21,10 @@ namespace Hospedaria
             /////------------------------- AKI DIZEMOS AONDE ESTA O SQL-------------------------------
             //A _CONN PRIMEIRA  e segunda É MINHA A terceira DE VOCES SE TIVER UM ERRO CHECAR AKI PRIMEIRO.
 
-            _conn = new SqlConnection("Data Source=(localdb)\\ProjectsV13;Initial Catalog=Hospedaria;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            //_conn = new SqlConnection("Data Source=(localdb)\\ProjectsV13;Initial Catalog=Hospedaria;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             //_conn = new SqlConnection("Data Source = ANDROIDK1; Initial Catalog = Hospedaria; Persist Security Info = True; User ID = sa; Password = root");
             //----------------- suas
-            //_conn = new SqlConnection("Data Source=localhost\\SQLEXPRESS;Initial Catalog=hospedaria;Integrated Security=True");
+            _conn = new SqlConnection("Data Source=localhost\\SQLEXPRESS;Initial Catalog=hospedaria;Integrated Security=True");
             /////------------------------- ABRO A CONEXAO-------------------------------
             _conn.Open();
 

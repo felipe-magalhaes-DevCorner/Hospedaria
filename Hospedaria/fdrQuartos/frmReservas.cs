@@ -43,8 +43,8 @@ namespace Hospedaria.fdrQuartos
            // datepicker1.CustomFormat = "MM/dd/yyyy HH:mm:ss";
             datepicker1.Value = Convert.ToDateTime(DateTime.Now.AddDays(1).ToString("dd/MM/yyyy 14:00:00"));
             datepicker2.Value = Convert.ToDateTime(DateTime.Now.AddDays(2).ToString("dd/MM/yyyy 11:59:00"));
-            datepicker1.CustomFormat = "dd/MM/yyyy HH:mm:ss";
-            datepicker2.CustomFormat = "dd/MM/yyyy HH:mm:ss";
+            datepicker1.CustomFormat = "dd/MM/yyyy HH:mm";
+            datepicker2.CustomFormat = "dd/MM/yyyy HH:mm";
             
         }
 
@@ -217,7 +217,7 @@ namespace Hospedaria.fdrQuartos
                 if (listNames.Contains(cbNomeRes.Text))
                 {
                     db.SqlConnection();
-                    string query = "INSERT INTO RESERVAS values ('" + selectedrowhospedagem + "','" + selectedrow + "','"+datepicker1.Value.ToString("yyyy - MM - dd HH:mm")+ "','"+datepicker2.Value.ToString("yyyy - MM - dd hh: mm")+"')";
+                    string query = "INSERT INTO RESERVAS values ('" + selectedrowhospedagem + "','" + selectedrow + "','"+datepicker1.Value.ToString("dd/MM/yyyy 14:00") + "','"+datepicker2.Value.ToString("dd/MM/yyyy 11:59") +"')";
                     db.SqlQuery(query);//COLA A QUERY
                     db.QueryRun();//EXECUTA A QUERY
                     db.closeConnection();//FECHA CONEXAO

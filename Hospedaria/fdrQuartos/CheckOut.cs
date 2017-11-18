@@ -88,7 +88,7 @@ namespace Hospedaria.fdrQuartos
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string query = "update situacao set situacao = 'Pago', datecheckout = '"+DateTime.Now.ToString("MM/dd/yyyy hh:mm") + "' from situacao where idsituacao = '" + idsituacao[comboBox1.SelectedIndex] + "'";
+            string query = "update situacao set situacao = 'Pago', datecheckout = '"+DateTime.Now.ToString("dd/MM/yyyy hh:mm") + "' from situacao where idsituacao = '" + idsituacao[comboBox1.SelectedIndex] + "'";
             
             db.SqlConnection();
             db.SqlQuery(query);
