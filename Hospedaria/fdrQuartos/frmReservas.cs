@@ -40,11 +40,14 @@ namespace Hospedaria.fdrQuartos
             //EXECUTA AO ABRIR O FORMULARIO
             popComboBoxes();//CHAMA METODO PARA POPULAR COMBOBOX NO LOAD
             //datepicker1.Format = DateTimePickerFormat.Custom;
-           // datepicker1.CustomFormat = "MM/dd/yyyy hh:mm:ss";
+           // datepicker1.CustomFormat = "MM/dd/yyyy HH:mm:ss";
             datepicker1.Value = Convert.ToDateTime(DateTime.Now.AddDays(1).ToString("dd/MM/yyyy 14:00:00"));
             datepicker2.Value = Convert.ToDateTime(DateTime.Now.AddDays(2).ToString("dd/MM/yyyy 11:59:00"));
+            datepicker1.CustomFormat = "dd/MM/yyyy HH:mm:ss";
+            datepicker2.CustomFormat = "dd/MM/yyyy HH:mm:ss";
+            
         }
-        
+
 
         private void popComboBoxes()
         {
@@ -96,6 +99,7 @@ namespace Hospedaria.fdrQuartos
 
             db.closeConnection();
             cbNomeRes.SelectedIndex = 0;//SELECIONA O PRIMEIRO INDEX PARA SER MOSTRADO LOGO NO INICIO
+            cbQuarto.SelectedIndex = 0;
         }
         private bool checkIfAlreadyReserved()
         {
@@ -213,7 +217,7 @@ namespace Hospedaria.fdrQuartos
                 if (listNames.Contains(cbNomeRes.Text))
                 {
                     db.SqlConnection();
-                    string query = "INSERT INTO RESERVAS values ('" + selectedrowhospedagem + "','" + selectedrow + "','" + datepicker1.Value.ToLocalTime() + "','" + datepicker2.Value.ToLocalTime() + "')";
+                    string query = "INSERT INTO RESERVAS values ('" + selectedrowhospedagem + "','" + selectedrow + "','"+datepicker1.Value.ToString("yyyy - MM - dd HH:mm")+ "','"+datepicker2.Value.ToString("yyyy - MM - dd hh: mm")+"')";
                     db.SqlQuery(query);//COLA A QUERY
                     db.QueryRun();//EXECUTA A QUERY
                     db.closeConnection();//FECHA CONEXAO
@@ -300,5 +304,16 @@ namespace Hospedaria.fdrQuartos
 
         }
 
+        private void frmReservas_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //Form1 objPrincipal = new Form1();
+            //objPrincipal.Show();
+        }
+
+        private void frmReservas_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Form1 objPrincipal = new Form1();
+            objPrincipal.Show();
+        }
     }
 }

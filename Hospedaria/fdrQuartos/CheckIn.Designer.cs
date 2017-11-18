@@ -40,6 +40,7 @@
             this.datepicker1 = new System.Windows.Forms.DateTimePicker();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label3
@@ -110,7 +111,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label4.Location = new System.Drawing.Point(7, 160);
+            this.label4.Location = new System.Drawing.Point(22, 159);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(93, 20);
             this.label4.TabIndex = 17;
@@ -139,7 +140,7 @@
             // 
             // datepicker1
             // 
-            this.datepicker1.CustomFormat = "dd/MM/yyyy 14:00";
+            this.datepicker1.CustomFormat = "dd/MM/yyyy HH:mm";
             this.datepicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.datepicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.datepicker1.Location = new System.Drawing.Point(119, 119);
@@ -170,11 +171,21 @@
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(11, 163);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(15, 14);
+            this.checkBox1.TabIndex = 25;
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
             // CheckIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(435, 188);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label4);
@@ -211,5 +222,6 @@
         private System.Windows.Forms.DateTimePicker datepicker1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

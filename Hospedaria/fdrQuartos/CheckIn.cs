@@ -99,7 +99,7 @@ namespace Hospedaria.fdrQuartos
             cbPensao.SelectedIndex = 0;
             cbQuarto.SelectedIndex = 0;
             cbNomeCheckIn.SelectedIndex = 0;//SELECIONA O PRIMEIRO INDEX PARA SER MOSTRADO LOGO NO INICIO
-            DateTime dateini = DateTime.Now;
+            DateTime dateini = DateTime.Now.AddMinutes(5);
             datepicker1.Value = dateini;
             datepicker2.Value = Convert.ToDateTime(dateini.AddDays(1).ToString("dd/MM/yyyy 11:59"));
         }
@@ -195,7 +195,7 @@ namespace Hospedaria.fdrQuartos
             //dataentrade é maior q data saida
             //se dataentrada esta em branco
             //se data entrada é maior q o tempo agora.
-            if (datepicker1.Value >= datepicker2.Value || datepicker1.Value.ToString() == "" || datepicker1.Value > DateTime.Now)
+            if ((datepicker1.Value >= datepicker2.Value || (checkBox1.Checked = false)) || datepicker1.Value.ToString() == "" || datepicker1.Value < DateTime.Now)
             {
                 MessageBox.Show("A data de entrada e saida nao conferem.");
             }
@@ -208,7 +208,9 @@ namespace Hospedaria.fdrQuartos
                 //CHECA SE TEM ALGUMA RESERVA PARA AQUELE QUARTO
                 int quarto = idQuarto[cbQuarto.SelectedIndex];
                 //query = "select datareserva from reservas where idhospedagem = '" + idQuarto + "' order by datareserva limit 1";
-                query = "select idhospedagem, DATARESERVA from RESERVAS where idHOSPEDAGEM = '" + idQuarto[cbQuarto.SelectedIndex] + "' and ((DATARESERVA between '" + datepicker1.Value.ToString("MM/dd/yyyy hh:mm") + "' and '" + datepicker2.Value.ToString("MM/dd/yyyy hh:mm") + "') or (DATASAIDA between '" + datepicker1.Value.ToString("MM/dd/yyyy hh:mm") + "' and '" + datepicker1.Value.ToString("MM/dd/yyyy hh:mm") + "' ))";
+                //query = "select idhospedagem, DATARESERVA from RESERVAS where idHOSPEDAGEM = '" + idQuarto[cbQuarto.SelectedIndex] + "' and ((DATARESERVA between '" + datepicker1.Value.ToString("yyyy/MM/dd") + "' and '" + datepicker2.Value.ToString("yyyy/MM/dd HH:mm") + "') or (DATASAIDA between '" + datepicker1.Value.ToString("yyyy/MM/dd HH:mm") + "' and '" + datepicker1.Value.ToString("yyyy/MM/dd HH:mm") + "' ))";
+                //query = "select idhospedagem, DATARESERVA from RESERVAS where idHOSPEDAGEM = '" + idQuarto[cbQuarto.SelectedIndex] + "' and((DATARESERVA > '" + datepicker1.Value.ToString("yyyy/MM/dd") + "' AND DATARESERVA <= '" + datepicker2.Value.ToString("yyyy/MM/dd") + "' AND DATEPART(hh, datareserva) >= '" + datepicker1.Value.ToString("HH") + "' AND DATEPART(hh, datareserva) <= '" + datepicker2.Value.ToString("HH") + "') or ((DATASAIDA > '" + datepicker1.Value.ToString("yyyy/MM/dd") + "' AND DATASAIDA <= '" + datepicker2.Value.ToString("yyyy/MM/dd") + "' AND DATEPART(hh, DATASAIDA) >= '" + datepicker1.Value.ToString("HH") + "' AND DATEPART(hh, DATASAIDA) <= '" + datepicker2.Value.ToString("hh") + "')";
+                query = "select idhospedagem, DATARESERVA from RESERVAS where idHOSPEDAGEM = '"+ idQuarto[cbQuarto.SelectedIndex] + "' and((DATARESERVA > '" + datepicker1.Value.ToString("yyyy/MM/dd") + "' AND DATARESERVA <= '" + datepicker2.Value.ToString("yyyy/MM/dd") + "'  AND DATEPART(hh, datareserva) >= '" + datepicker1.Value.ToString("HH") + "'   AND DATEPART(hh, datareserva) <= '" + datepicker2.Value.ToString("HH") + "')   or((DATASAIDA > '" + datepicker1.Value.ToString("yyyy/MM/dd") + "'    AND DATASAIDA <= '" + datepicker2.Value.ToString("yyyy/MM/dd") + "'    AND DATEPART(hh, DATASAIDA) >= '" + datepicker1.Value.ToString("HH") + "'    AND DATEPART(hh, DATASAIDA) <= '" + datepicker2.Value.ToString("hh") + "')))";
                 Clipboard.SetText(query);
                 db.SqlQuery(query);
                 SqlDataReader _dr = db.QueryReader();
@@ -239,7 +241,7 @@ namespace Hospedaria.fdrQuartos
                 {
                     //vamos inserir reserva tudo certo aki
                     // ------------------- sem data de saida e sem reserva marcada
-                    if (datepicker2.Value.ToString() == "")//sem reserva porem data final sem saida
+                    if (checkBox1.Checked)//sem reserva porem data final sem saida
                     {
                         //CASO NAO HAJA DATA DE SAIDA, VAI PRO SQL DATASAIDA NULL
                         query = "insert into situacao values ('" + idQuarto[cbQuarto.SelectedIndex] + "','" + idCliente[cbNomeCheckIn.SelectedIndex] + "','" + idpensao[cbPensao.SelectedIndex] + "','" + datepicker1.Value + "',NULL, 'Ocupado' )";
@@ -252,7 +254,7 @@ namespace Hospedaria.fdrQuartos
                         //existe data de saida, e nao existe reserva naquelas datas
                         //insere perfeito o q ta escrito
                         DateTime date1 = Convert.ToDateTime(datepicker1.Value);
-                        query = "insert into situacao values ('" + idQuarto[cbQuarto.SelectedIndex] + "','" + idCliente[cbNomeCheckIn.SelectedIndex] + "','" + idpensao[cbPensao.SelectedIndex] + "','" + datepicker1.Value.ToString("MM/dd/yyyy hh:mm") + "','" + datepicker2.Value.ToString("MM/dd/yyyy hh:mm") + "', 'Ocupado' )";
+                        query = "insert into situacao values ('" + idQuarto[cbQuarto.SelectedIndex] + "','" + idCliente[cbNomeCheckIn.SelectedIndex] + "','" + idpensao[cbPensao.SelectedIndex] + "','" + datepicker1.Value.ToString("MM/dd/yyyy HH:mm") + "','" + datepicker2.Value.ToString("MM/dd/yyyy HH:mm") + "', 'Ocupado' )";
                         db.SqlQuery(query);
                         db.QueryRun();
                     }
@@ -283,6 +285,10 @@ namespace Hospedaria.fdrQuartos
 
                         }
 
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ja existe uma reserva para esse periodo de tempo.");
                     }
 
 
@@ -321,6 +327,10 @@ namespace Hospedaria.fdrQuartos
                     //faz nada
                 }
             }
+            this.Hide();
+            Form1 objPrincipal = new Form1();
+            objPrincipal.ShowDialog();
+
             
 
 

@@ -109,6 +109,8 @@
             this.Controls.Add(this.cbNomeRes);
             this.DoubleBuffered = true;
             this.Name = "frmReservas";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmReservas_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmReservas_FormClosed);
             this.Load += new System.EventHandler(this.frmReservas_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

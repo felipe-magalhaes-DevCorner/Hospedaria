@@ -267,8 +267,8 @@
   <data name="label4.Text" xml:space="preserve">
     <value>Data Prevista:</value>
   </data>
-  <data name="&gt;&gt;cbNomeRes.Name" xml:space="preserve">
-    <value>cbNomeRes</value>
+  <data name="&gt;&gt;datepicker1.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="label3.Text" xml:space="preserve">
     <value>Quarto:</value>
@@ -369,8 +369,8 @@
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>160, 29</value>
   </data>
-  <data name="&gt;&gt;datepicker1.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;cbNomeRes.Name" xml:space="preserve">
+    <value>cbNomeRes</value>
   </data>
   <data name="datepicker2.Location" type="System.Drawing.Point, System.Drawing">
     <value>166, 220</value>
