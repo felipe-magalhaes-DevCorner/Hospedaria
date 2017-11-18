@@ -105,7 +105,7 @@
             // 
             this.mskCPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mskCPF.Location = new System.Drawing.Point(87, 45);
-            this.mskCPF.Mask = "999.999.999-99";
+            this.mskCPF.Mask = "999,999,999-99";
             this.mskCPF.Name = "mskCPF";
             this.mskCPF.Size = new System.Drawing.Size(140, 26);
             this.mskCPF.TabIndex = 2;

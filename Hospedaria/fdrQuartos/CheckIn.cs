@@ -29,10 +29,23 @@ namespace Hospedaria.fdrQuartos
 
 
         public Form getform { get; set; }
-        public CheckIn()
+        public CheckIn(string _pNomeSuite = "", string _pNomeCliente = "" , string _pDatareserva = "", string _pDataSaida = "",char reserva = 'c', bool exit = false)
         {
             Thread.CurrentThread.CurrentCulture = new CultureInfo("pt-BR");
             InitializeComponent();
+            if (reserva == 'd')
+            {
+                //pegar nome da suite, procurar qual index ele esta em nomes quartos. 
+                cbQuarto.SelectedIndex = nomeQuarto.IndexOf(_pNomeSuite);
+                cbNomeCheckIn.SelectedIndex = nomeCliente.IndexOf(_pNomeCliente);
+                DateTime dataentrada = Convert.ToDateTime( _pDatareserva);
+                DateTime datasaida = Convert.ToDateTime(_pDataSaida);
+                datepicker1.Value = dataentrada;
+                datepicker2.Value = datasaida;
+                this.Visible = true;
+                //
+
+            }
         }
         private void popComboBoxes()
         {
@@ -290,6 +303,19 @@ namespace Hospedaria.fdrQuartos
                         else if (dialogResult == DialogResult.No)
                         {
                             MessageBox.Show("Não cadastrado. Ja existe uma reserva de outro cliente para esses dias.");
+                            DialogResult dialogResult2 = MessageBox.Show(string.Format("Não cadastrado. Ja existe uma reserva de outro cliente para esses dias. Gostaria de alterar a reserva?"),"ALERTA!", MessageBoxButtons.YesNo);
+                            if (dialogResult2 == DialogResult.Yes)
+                            {
+                                fdrQuartos.frmAlteraReserva objAlteraRes = new frmAlteraReserva();
+                                objAlteraRes.Show();
+
+
+                            }
+                            else if (dialogResult2 == DialogResult.No)
+                            {
+                                MessageBox.Show("Não cadastrado. Ja existe uma reserva de outro cliente para esses dias.");
+
+                            }
 
                         }
 
@@ -400,6 +426,13 @@ namespace Hospedaria.fdrQuartos
             {
                 toolTip1.SetToolTip(cbPensao, "Inclui cafe da manha, almoco e jantar. RS: 180,00");
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmListReservas frmListReservas = new frmListReservas();
+            this.Hide();
+            frmListReservas.Show();
         }
     }
 }
