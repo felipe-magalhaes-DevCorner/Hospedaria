@@ -27,8 +27,10 @@ namespace Hospedaria
                 RunOnce = false;
                 fdrLogin.frmLogin objLogin = new fdrLogin.frmLogin();
                 objLogin.getform = this;
-                this.Hide();
+
                 objLogin.ShowDialog();
+                this.Hide();
+                objLogin.Focus();                
 
             }
             if (control)
@@ -61,7 +63,8 @@ namespace Hospedaria
                 case 0:
                     {
                         financeiroToolStripMenuItem1.Visible = false;
-                        usuariosToolStripMenuItem.Visible = false;
+                        cadastrarUsuarioToolStripMenuItem.Visible = false;
+                        alterarUsuarioToolStripMenuItem.Visible = false;
                         manutençãoToolStripMenuItem.Visible = false;
 
                     }
@@ -71,7 +74,8 @@ namespace Hospedaria
                 case 1:
                     {
                         financeiroToolStripMenuItem1.Visible = false;
-                        usuariosToolStripMenuItem.Visible = false;
+                        cadastrarUsuarioToolStripMenuItem.Visible = false;
+                        alterarUsuarioToolStripMenuItem.Visible = false;
                         manutençãoToolStripMenuItem.Visible = false;
 
                     }
@@ -502,6 +506,15 @@ namespace Hospedaria
             objUsu.getform = this;
             this.Hide();
             objUsu.ShowDialog();
+        }
+
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            fdrLogin.frmLogin objLogin = new fdrLogin.frmLogin(true);
+            objLogin.getform = this;
+            objLogin.ShowDialog();
+
         }
 
 

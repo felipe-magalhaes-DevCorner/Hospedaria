@@ -19,12 +19,14 @@ namespace Hospedaria.fdrLogin
         public static string loggedName;
         public Form getform { get; set; }
         public int powerlevel { get; set; }
+        private static bool control = false;
         
-        public frmLogin()
+        public frmLogin(bool _control = false)
         {
-            
+            control = _control;
             InitializeComponent();
-            this.Activate();
+
+
             
             
         }
@@ -87,6 +89,12 @@ namespace Hospedaria.fdrLogin
 
             }
             db.closeConnection();
+                        if (control)
+            {
+                Form1 objPrincipal = new Form1();
+                objPrincipal.ShowDialog();
+
+            }
 
 
 

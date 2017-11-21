@@ -63,6 +63,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.lbLogged = new System.Windows.Forms.Label();
+            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFloyd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStones)).BeginInit();
@@ -126,9 +127,10 @@
             // 
             this.usuariosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cadastrarUsuarioToolStripMenuItem,
-            this.alterarUsuarioToolStripMenuItem});
+            this.alterarUsuarioToolStripMenuItem,
+            this.logOutToolStripMenuItem});
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             // 
             // cadastrarUsuarioToolStripMenuItem
@@ -151,7 +153,7 @@
             this.relatorioDiarioToolStripMenuItem,
             this.relatorioMensalToolStripMenuItem});
             this.financeiroToolStripMenuItem1.Name = "financeiroToolStripMenuItem1";
-            this.financeiroToolStripMenuItem1.Size = new System.Drawing.Size(141, 22);
+            this.financeiroToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.financeiroToolStripMenuItem1.Text = "Financeiro";
             // 
             // relatorioDiarioToolStripMenuItem
@@ -169,7 +171,7 @@
             // estoqueToolStripMenuItem
             // 
             this.estoqueToolStripMenuItem.Name = "estoqueToolStripMenuItem";
-            this.estoqueToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.estoqueToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.estoqueToolStripMenuItem.Text = "Estoque";
             // 
             // manutençãoToolStripMenuItem
@@ -181,7 +183,7 @@
             this.quartoBobDylanToolStripMenuItem,
             this.quartoJanesToolStripMenuItem});
             this.manutençãoToolStripMenuItem.Name = "manutençãoToolStripMenuItem";
-            this.manutençãoToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.manutençãoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.manutençãoToolStripMenuItem.Text = "Manutenção";
             // 
             // suitePresidenciaslToolStripMenuItem
@@ -373,6 +375,13 @@
             this.lbLogged.Size = new System.Drawing.Size(0, 13);
             this.lbLogged.TabIndex = 21;
             // 
+            // logOutToolStripMenuItem
+            // 
+            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.logOutToolStripMenuItem.Text = "Log Out";
+            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -452,6 +461,7 @@
         public System.Windows.Forms.PictureBox pbDylan;
         public System.Windows.Forms.PictureBox pbJanes;
         public System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
     }
 }
 
