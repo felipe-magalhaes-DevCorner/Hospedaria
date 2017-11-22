@@ -47,7 +47,7 @@ namespace Hospedaria.fdrQuartos
                 //
 
             }
-            checkBox1.Checked = true;
+            
             if (checkBox1.Checked)
             {
                 datepicker2.Enabled = true;
@@ -223,7 +223,7 @@ namespace Hospedaria.fdrQuartos
             //dataentrade é maior q data saida
             //se dataentrada esta em branco
             //se data entrada é maior q o tempo agora.
-            if ((datepicker1.Value >= datepicker2.Value || (checkBox1.Checked = false)) || datepicker1.Value.ToString() == "" || datepicker1.Value < DateTime.Now)
+            if ((datepicker1.Value >= datepicker2.Value || (checkBox1.Checked == false)) || datepicker1.Value.ToString() == "" || datepicker1.Value < DateTime.Now)
             {
                 MessageBox.Show("A data de entrada e saida nao conferem.");
             }
@@ -240,13 +240,13 @@ namespace Hospedaria.fdrQuartos
                 //query = "select datareserva from reservas where idhospedagem = '" + idQuarto + "' order by datareserva limit 1";
                 //query = "select idhospedagem, DATARESERVA from RESERVAS where idHOSPEDAGEM = '" + idQuarto[cbQuarto.SelectedIndex] + "' and ((DATARESERVA between '" + datepicker1.Value.ToString("dd/MM/yyyy") + "' and '" + datepicker2.Value.ToString("dd/MM/yyyy HH:mm") + "') or (DATASAIDA between '" + datepicker1.Value.ToString("dd/MM/yyyy HH:mm") + "' and '" + datepicker1.Value.ToString("dd/MM/yyyy HH:mm") + "' ))";
                 //query = "select idhospedagem, DATARESERVA from RESERVAS where idHOSPEDAGEM = '" + idQuarto[cbQuarto.SelectedIndex] + "' and((DATARESERVA > '" + datepicker1.Value.ToString("dd/MM/yyyy") + "' AND DATARESERVA <= '" + datepicker2.Value.ToString("dd/MM/yyyy") + "' AND DATEPART(hh, datareserva) >= '" + datepicker1.Value.ToString("HH") + "' AND DATEPART(hh, datareserva) <= '" + datepicker2.Value.ToString("HH") + "') or ((DATASAIDA > '" + datepicker1.Value.ToString("dd/MM/yyyy") + "' AND DATASAIDA <= '" + datepicker2.Value.ToString("dd/MM/yyyy") + "' AND DATEPART(hh, DATASAIDA) >= '" + datepicker1.Value.ToString("HH") + "' AND DATEPART(hh, DATASAIDA) <= '" + datepicker2.Value.ToString("hh") + "')";
-                if (datepicker2.Enabled == false)
+                if (checkBox1.Checked)
                 {
-                    query = "select idhospedagem, DATARESERVA, datasaida, idclientes from RESERVAS where idHOSPEDAGEM = '" + idQuarto[cbQuarto.SelectedIndex] + "' and(DATARESERVA > '" + datepicker1.Value.ToString("dd/MM/yyyy") + "' AND DATARESERVA <= '" + datepicker2.Value.ToString("dd/MM/yyyy") + "'  AND DATEPART(hh, datareserva) >= '" + datepicker1.Value.ToString("12") + "')";
+                    query = "select idhospedagem, DATARESERVA, datasaida, idclientes, idreserva from RESERVAS where idHOSPEDAGEM = '" + idQuarto[cbQuarto.SelectedIndex] + "' and(DATARESERVA > '" + datepicker1.Value.ToString("dd/MM/yyyy") + "' AND DATARESERVA <= '" + datepicker2.Value.ToString("dd/MM/yyyy") + "'  AND DATEPART(hh, datareserva) >= '" + datepicker1.Value.ToString("12") + "')";
                 }
                 else
                 {
-                    query = "select idhospedagem , DATARESERVA, datasaida, idclientes from RESERVAS where idHOSPEDAGEM = '" + idQuarto[cbQuarto.SelectedIndex] + "' and((DATARESERVA > '" + datepicker1.Value.ToString("dd/MM/yyyy") + "') AND DATEPART(hh, datareserva) >= '" + datepicker1.Value.ToString("12") + "' )   or((DATASAIDA > '" + datepicker1.Value.ToString("dd/MM/yyyy") + "'    AND DATASAIDA <= '" + datepicker2.Value.ToString("dd/MM/yyyy") + "'     AND DATEPART(hh, DATASAIDA) <= '" + datepicker2.Value.ToString("hh") + "')))";
+                    query = "select idhospedagem , DATARESERVA, datasaida, idclientes, idreserva from RESERVAS where idHOSPEDAGEM = '" + idQuarto[cbQuarto.SelectedIndex] + "' and((DATARESERVA > '" + datepicker1.Value.ToString("dd/MM/yyyy") + "') AND DATEPART(hh, datareserva) >= '" + datepicker1.Value.ToString("12") + "' )   or((DATASAIDA > '" + datepicker1.Value.ToString("dd/MM/yyyy") + "'    AND DATASAIDA <= '" + datepicker2.Value.ToString("dd/MM/yyyy") + "'     AND DATEPART(hh, DATASAIDA) <= '" + datepicker2.Value.ToString("hh") + "')))";
                 }
                 
                 Clipboard.SetText(query);
@@ -392,6 +392,7 @@ namespace Hospedaria.fdrQuartos
                     MessageBox.Show("CheckIn Efetuado com sucesso!");
                     this.Hide();
                     Form1 form1 = new Form1(true);
+                    ValidaReserva = true;
                     
                 }
                 if (ValidaReserva)
@@ -484,7 +485,7 @@ namespace Hospedaria.fdrQuartos
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked)
+            if (checkBox1.Checked  )
             {
                 datepicker2.Enabled = true;
             }

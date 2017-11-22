@@ -16,6 +16,8 @@ namespace Hospedaria
         public static int powerLvl;
         public Form1(bool checkStatus = false,string nomeUser = "",int _powerlevel = 6, bool control = false)
         {
+            
+            
             //if (RunOnce == true)
             //{
             //    Thread t = new Thread(new ThreadStart(splash));
@@ -216,9 +218,24 @@ namespace Hospedaria
             }
 
         }
+        private void CheckTimeUpdateCondicao()
+        {
+            db.SqlConnection();
+            string query = "select * from reservas";
+            db.SqlQuery(query);
+            db.QueryReader();
+            while (true)
+            {
+
+            }
+
+
+
+        }
 
         private void CheckStatus()
         {
+
             string query = "select * from hospedagem"; //<<<<<<<<QUERY
             db.SqlConnection();
             db.SqlQuery(query);

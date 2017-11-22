@@ -144,7 +144,7 @@
     <value>8</value>
   </data>
   <data name="datepicker1.CustomFormat" xml:space="preserve">
-    <value>dd/MM/yyyy 14:00</value>
+    <value>dd/MM/yyyy hh:mm</value>
   </data>
   <data name="datepicker1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
@@ -342,7 +342,7 @@
     <value>0</value>
   </data>
   <data name="datepicker2.CustomFormat" xml:space="preserve">
-    <value>dd/MM/yyyy 11:59</value>
+    <value>dd/MM/yyyy hh:mm</value>
   </data>
   <data name="datepicker2.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>

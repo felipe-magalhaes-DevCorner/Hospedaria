@@ -37,18 +37,19 @@ namespace Hospedaria.fdrQuartos
             //EXECUTA AO ABRIR O FORMULARIO
             popComboBoxes();//CHAMA METODO PARA POPULAR COMBOBOX NO LOAD
             
+            
+            datepicker1.CustomFormat = "dd/MM/yyyy HH:mm";
+            datepicker2.CustomFormat = "dd/MM/yyyy HH:mm";
             datepicker1.Value = Convert.ToDateTime(DateTime.Now.AddDays(1).ToString("dd/MM/yyyy 14:00:00"));
             datepicker2.Value = Convert.ToDateTime(DateTime.Now.AddDays(2).ToString("dd/MM/yyyy 11:59:00"));
-            datepicker1.CustomFormat = "dd/MM/yyyy 14:00";
-            datepicker2.CustomFormat = "dd/MM/yyyy 11:59";
 
-            
+
         }
 
 
         private void popComboBoxes()
         {
-            bool RunOnce = true;
+            
             //---------------------- POPULA COMBOBOX NOME----------------------
             string query = "select clientes.nome, clientes.idclientes from clientes order by clientes.nome";
             db.SqlConnection();
@@ -249,12 +250,7 @@ namespace Hospedaria.fdrQuartos
 
         }
 
-        private void monthCalendar1_DateSelected_1(object sender, DateRangeEventArgs e)
-        {
-            //INUTIL POR ENQUANTO
 
-
-        }
 
         private void frmReservas_FormClosing(object sender, FormClosingEventArgs e)
         {
