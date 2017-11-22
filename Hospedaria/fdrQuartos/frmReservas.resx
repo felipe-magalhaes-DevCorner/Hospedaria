@@ -144,7 +144,7 @@
     <value>8</value>
   </data>
   <data name="datepicker1.CustomFormat" xml:space="preserve">
-    <value>dd/MM/yyyy hh:mm</value>
+    <value>dd/MM/yyyy 14:00</value>
   </data>
   <data name="datepicker1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
@@ -288,10 +288,10 @@
     <value>Microsoft Sans Serif, 12pt, style=Bold</value>
   </data>
   <data name="button2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>331, 112</value>
+    <value>375, 79</value>
   </data>
   <data name="button2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 150</value>
+    <value>90, 90</value>
   </data>
   <data name="button2.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -342,7 +342,7 @@
     <value>0</value>
   </data>
   <data name="datepicker2.CustomFormat" xml:space="preserve">
-    <value>dd/MM/yyyy hh:mm</value>
+    <value>dd/MM/yyyy 11:59</value>
   </data>
   <data name="datepicker2.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
@@ -378,7 +378,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>496, 273</value>
+    <value>494, 186</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>frmReservas</value>

@@ -16,29 +16,29 @@ namespace Hospedaria
         public static int powerLvl;
         public Form1(bool checkStatus = false,string nomeUser = "",int _powerlevel = 6, bool control = false)
         {
-            if (RunOnce == true)
-            {
-                Thread t = new Thread(new ThreadStart(splash));
-                t.Start();
-                Thread.Sleep(1000);
-                t.Abort();
+            //if (RunOnce == true)
+            //{
+            //    Thread t = new Thread(new ThreadStart(splash));
+            //    t.Start();
+            //    Thread.Sleep(1000);
+            //    t.Abort();
 
-                this.Hide();
-                RunOnce = false;
-                fdrLogin.frmLogin objLogin = new fdrLogin.frmLogin();
-                objLogin.getform = this;
+            //    this.Hide();
+            //    RunOnce = false;
+            //    fdrLogin.frmLogin objLogin = new fdrLogin.frmLogin();
+            //    objLogin.getform = this;
 
-                objLogin.ShowDialog();
-                this.Hide();
-                objLogin.Focus();                
+            //    objLogin.ShowDialog();
+            //    this.Hide();
+            //    objLogin.Focus();                
 
-            }
-            if (control)
-            {
+            //}
+            //if (control)
+            //{
 
-                LoggedName = nomeUser;
-                powerLvl = _powerlevel;
-            }
+            //    LoggedName = nomeUser;
+            //    powerLvl = _powerlevel;
+            //}
 
             InitializeComponent();
             if (checkStatus)
@@ -129,14 +129,10 @@ namespace Hospedaria
 
         private void btVenda_Click(object sender, EventArgs e)
         {
-            //cria um objeto contendo o form
-            fdrVendas.frmVendas objVenda = new fdrVendas.frmVendas();
-            //variavel no formulario frmmainClientes, referencio o form principal para ser chamado mais tarde no form frmmainClientes
-            objVenda.RefToMenu = this;
-            //esconde esse form
+            fdrQuartos.frmReservasMain frmReservasmain = new fdrQuartos.frmReservasMain();
+            frmReservasmain.getform = this;
             this.Hide();
-            //abre form venda de clientes
-            objVenda.ShowDialog();
+            frmReservasmain.ShowDialog();
 
         }
 

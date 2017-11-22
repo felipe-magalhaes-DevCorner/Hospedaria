@@ -18,14 +18,7 @@ namespace Hospedaria.fdrQuartos
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            fdrQuartos.frmReservas frmReservas = new frmReservas();
-            frmReservas.getform = getform;
-            this.Hide();
-            frmReservas.ShowDialog();
 
-        }
 
         private void btVenda_Click(object sender, EventArgs e)
         {

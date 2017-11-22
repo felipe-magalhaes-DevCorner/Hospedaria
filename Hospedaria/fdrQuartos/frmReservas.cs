@@ -16,20 +16,17 @@ namespace Hospedaria.fdrQuartos
     public partial class frmReservas : Form
     {
         private ConnectionClass db = new ConnectionClass();
-        private static int selectedrow; //VARIAVEL GLOBAL PARA SEMPRE TER O VALOR DO ID SQL DO QUE ESTIVER SELECIONADO NA COMBOBOX
-        private static int selectedrowhospedagem;    //VARIAVEL GLOBAL PARA SEMPRE TER O VALOR DO ID SQL DO QUE ESTIVER SELECIONADO NA COMBOBOX DA HOSPEDAGEM   
+        
         List<string> listNames = new List<string>();// LISTAS COM OS NOMES
+        List<int> idNames = new List<int>();// LISTAS COM OS NOMES
+        List<string> listHospedagem = new List<string>();// LISTAS COM OS NOMES
+        List<int> idHospedagem = new List<int>();// LISTAS COM OS NOMES
         public Form getform { get; set; }
 
         public frmReservas()
         {
             InitializeComponent();
             Thread.CurrentThread.CurrentCulture = new CultureInfo("pt-BR");
-
-
-
-
-
         }
         
 
@@ -39,12 +36,12 @@ namespace Hospedaria.fdrQuartos
         {
             //EXECUTA AO ABRIR O FORMULARIO
             popComboBoxes();//CHAMA METODO PARA POPULAR COMBOBOX NO LOAD
-            //datepicker1.Format = DateTimePickerFormat.Custom;
-           // datepicker1.CustomFormat = "MM/dd/yyyy HH:mm:ss";
+            
             datepicker1.Value = Convert.ToDateTime(DateTime.Now.AddDays(1).ToString("dd/MM/yyyy 14:00:00"));
             datepicker2.Value = Convert.ToDateTime(DateTime.Now.AddDays(2).ToString("dd/MM/yyyy 11:59:00"));
-            datepicker1.CustomFormat = "dd/MM/yyyy HH:mm";
-            datepicker2.CustomFormat = "dd/MM/yyyy HH:mm";
+            datepicker1.CustomFormat = "dd/MM/yyyy 14:00";
+            datepicker2.CustomFormat = "dd/MM/yyyy 11:59";
+
             
         }
 
@@ -64,12 +61,8 @@ namespace Hospedaria.fdrQuartos
 
             while (_dr.Read())
             {
-                if (RunOnce)
-                {
-                    //pega o index do primeiro item
-                    selectedrow = Convert.ToInt32(_dr["idCLIENTES"]);
-                    RunOnce = false;
-                }
+
+                idNames.Add(Convert.ToInt32(_dr["idCLIENTES"]));
                 listNames.Add(_dr["NOME"].ToString().Trim());//ADICIONA O QUE FOI LIDO NO SQL A LISTA NOME
                 cbNomeRes.Items.Add(_dr["NOME"].ToString().Trim());//ADICIONA O QUE FOI LIDO NO SQL Á COMBOBOX NOME
 
@@ -77,7 +70,6 @@ namespace Hospedaria.fdrQuartos
 
             }
             //FECHA CONEXCAO
-            db.closeConnection();//O READER PRECISA SER FECHADO, PARA SER ABERTO NOVO READER
             db.SqlConnection();
 
             //POPULA COMBOBOX HOSPEDAGEM
@@ -86,12 +78,9 @@ namespace Hospedaria.fdrQuartos
             SqlDataReader _dr2 = db.QueryReader();
             while (_dr2.Read())
             {
-                if (RunOnce)
-                {
-                    selectedrowhospedagem = Convert.ToInt32(_dr2["idhospedagem"]);
-                    RunOnce = false;
-                }
 
+                idHospedagem.Add(Convert.ToInt32(_dr2["idhospedagem"]));
+                listHospedagem.Add(_dr2["NOME"].ToString().Trim());
                 cbQuarto.Items.Add(_dr2["NOME"].ToString().Trim());
 
 
@@ -105,7 +94,7 @@ namespace Hospedaria.fdrQuartos
         {
             db.SqlConnection();
             //PEGO DO SQL TODAS AS RESERVAS DO HOTEL
-            string query = query = "select reservas.idhospedagem, reservas.datareserva, reservas.datasaida from reservas where reservas.idhospedagem = '"+selectedrowhospedagem+"'";
+            string query = query = "select reservas.idhospedagem, reservas.datareserva, reservas.datasaida from reservas where reservas.idhospedagem = '"+idHospedagem[listHospedagem.IndexOf(cbQuarto.Text.Trim())]+"'";
             db.SqlQuery(query);
             DateTime date = DateTime.Now;
             //ABRASILEIRO O PROGRAMA
@@ -159,53 +148,55 @@ namespace Hospedaria.fdrQuartos
         
         private void button2_Click(object sender, EventArgs e)
         {
-            //---------------------------------BOTAO GRAVAR//---------------------------------
-            List<string> _listaClientes = new List<string>();
-            db.SqlConnection();
-            //---------------------------------PEGA NOMES CLIENTES SQL PARA COMPARAÇÃO(REDUNDANTE POR ENQUANTO, SERA ALTERADO)
-            string query = "SELECT CLIENTES.NOME FROM CLIENTES";
-            db.SqlQuery(query);
-            SqlDataReader _dr = db.QueryReader();
-            while (_dr.Read())
+            if (datepicker1.Value > DateTime.Now && datepicker2.Value > DateTime.Now)
             {
-                _listaClientes.Add(_dr["NOME"].ToString().Trim());
-            }
-            if (cbNomeRes.Text != "")//CHEGA SE NOME ESTA EM BRANCO
-            {
-                if (_listaClientes.Contains(cbNomeRes.Text.Trim()))//CHEGA SE É UM CLIENTE CADASTRADO
+
+                //---------------------------------BOTAO GRAVAR//---------------------------------
+
+                if (cbNomeRes.Text != "")//CHEGA SE NOME ESTA EM BRANCO
                 {
-                    if (cbQuarto.Text.Trim() != "")//CHEGA SE UM QUARTO FOI SELECIONADO
+                    if (listNames.Contains(cbNomeRes.Text.Trim()))//CHEGA SE É UM CLIENTE CADASTRADO
                     {
-                        Inserecadastro();//PROCEDE COM O CADASTRO CHAMASNDO O METODO CADASTRO
+                        if (cbQuarto.Text.Trim() != "")//CHEGA SE UM QUARTO FOI SELECIONADO
+                        {
+                            Inserecadastro();//PROCEDE COM O CADASTRO CHAMASNDO O METODO CADASTRO
+                        }
+                        else
+                        {
+                            MessageBox.Show("Escolha um quarto!");//QUARTO EM BRANCO
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Escolha um quarto!");//QUARTO EM BRANCO
-                    }
-                }
-                else
-                {
-                    //CLIENTE NAO CADASTRADO! QUER CADASTRAR?
-                    DialogResult dialogResult = MessageBox.Show("Cliente nao cadastrado, gostaria de cadastrar agora?", "Some Title", MessageBoxButtons.YesNo);
-                    if (dialogResult == DialogResult.Yes)
-                    {
-                        //do something
-                        fdrClientes.frmCadastroClientes frmCadastroClientes = new fdrClientes.frmCadastroClientes();
-                        frmCadastroClientes.ShowDialog();
-                    }
-                    else if (dialogResult == DialogResult.No)
-                    {
-                        //SE CLICLOU EM NAO... FAZ NADA ELE QUER CORRIGIR
+                        //CLIENTE NAO CADASTRADO! QUER CADASTRAR?
+                        DialogResult dialogResult = MessageBox.Show("Cliente nao cadastrado, gostaria de cadastrar agora?", "Some Title", MessageBoxButtons.YesNo);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            //do something
+                            fdrClientes.frmCadastroClientes frmCadastroClientes = new fdrClientes.frmCadastroClientes();
+                            frmCadastroClientes.ShowDialog();
+                        }
+                        else if (dialogResult == DialogResult.No)
+                        {
+                            //SE CLICLOU EM NAO... FAZ NADA ELE QUER CORRIGIR
+                        }
+
                     }
 
                 }
+                else
+                {
+                    MessageBox.Show("Insira o nome do cliente!");//NOME EM BRANCO
+                }
+                ////---------------------------------TERMINA CADASTRO
 
             }
             else
             {
-                MessageBox.Show("Insira o nome do cliente!");//NOME EM BRANCO
+                MessageBox.Show("Essa data ja passou.");
             }
-            ////---------------------------------TERMINA CADASTRO
+
+
         }
 
         private void Inserecadastro()
@@ -217,7 +208,7 @@ namespace Hospedaria.fdrQuartos
                 if (listNames.Contains(cbNomeRes.Text))
                 {
                     db.SqlConnection();
-                    string query = "INSERT INTO RESERVAS values ('" + selectedrowhospedagem + "','" + selectedrow + "','"+datepicker1.Value.ToString("dd/MM/yyyy 14:00") + "','"+datepicker2.Value.ToString("dd/MM/yyyy 11:59") +"')";
+                    string query = "INSERT INTO RESERVAS values ('" + (cbQuarto.SelectedIndex + 1) + "','" +idNames[listNames.IndexOf(cbNomeRes.Text.Trim())]  + "','"+datepicker1.Value.ToString("dd/MM/yyyy 14:00") + "','"+datepicker2.Value.ToString("dd/MM/yyyy 11:59") +"')";
                     db.SqlQuery(query);//COLA A QUERY
                     db.QueryRun();//EXECUTA A QUERY
                     db.closeConnection();//FECHA CONEXAO
@@ -250,51 +241,12 @@ namespace Hospedaria.fdrQuartos
 
         private void cbNomeRes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //---------------------------------PEGA NO SQL O INDEX DO CLIENTE QUE FOI SELECIONADO, TAMBEM REDUNDANTE SERA MUDADO PARA LISTA GLOBAL
-            db.closeConnection();
-            db.SqlConnection();
-            string query = ("select clientes.idclientes from clientes where clientes.nome = '"+cbNomeRes.Text+"'");
-            db.SqlQuery(query);
-            SqlDataReader _dr = db.QueryReader();
-            while (_dr.Read())
-            {
-                selectedrow = Convert.ToInt32(_dr["idCLIENTES"]);//POPULA VARIAVEL GLOBAL COM VALOR SELECIONADO
-            }
 
-            db.closeConnection();//FECHA CONEXAO
         }
 
         private void cbQuarto_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //db.SqlConnection();
-            //string query = "select reservas.datareserva, reservas.datasaida from reservas where idquarto = '" + selectedrowhospedagem + "'";
-            //db.SqlQuery(query);
-            //SqlDataReader _dr = db.QueryReader();
-            //while (_dr.Read())
-            //{
-            //    //selectedrowhospedagem = Convert.ToInt32(_dr["idhospedagem"]);
 
-            //}
-            ////monthCalendar1.Select
-            //db.closeConnection();
-
-
-
-
-
-
-
-            //---------------------------------PEGA OS DADOS DO SQL DA HOSPEDAGEM SELECIONADA, REDUNDANTE MESMOS CASOS ANTERIORES
-            db.SqlConnection();
-            string query = ("select hospedagem.idhospedagem from hospedagem where hospedagem.NOME = '" + cbQuarto.Text + "'");
-            db.SqlQuery(query);
-            SqlDataReader _dr = db.QueryReader();
-            while (_dr.Read())
-            {
-                selectedrowhospedagem = Convert.ToInt32(_dr["idhospedagem"]);
-            }
-
-            db.closeConnection();
         }
 
         private void monthCalendar1_DateSelected_1(object sender, DateRangeEventArgs e)
@@ -306,8 +258,7 @@ namespace Hospedaria.fdrQuartos
 
         private void frmReservas_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //Form1 objPrincipal = new Form1();
-            //objPrincipal.Show();
+            
         }
 
         private void frmReservas_FormClosed(object sender, FormClosedEventArgs e)

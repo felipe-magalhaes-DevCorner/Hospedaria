@@ -13,15 +13,18 @@ namespace Hospedaria.fdrQuartos
     public partial class frmListReservas : Form
     {
         private ConnectionClass db = new ConnectionClass();
-        public frmListReservas()
+        string telaAnterior;
+        public frmListReservas(string _telaanterior = "Checkin")
         {
+            
             InitializeComponent();
+            telaAnterior = _telaanterior;
         }
 
         private void frmListReservas_Load(object sender, EventArgs e)
         {
             db.SqlConnection();
-            string query = "select hospedagem.nome, clientes.nome,reservas.datareserva, reservas.datasaida from hospedagem inner join reservas on reservas.idhospedagem = hospedagem.idhospedagem inner join clientes on clientes.idclientes = reservas.idclientes ";
+            string query = "select hospedagem.nome as NomeHospedagem, clientes.nome as NomeCliente ,reservas.datareserva, reservas.datasaida from hospedagem inner join reservas on reservas.idhospedagem = hospedagem.idhospedagem inner join clientes on clientes.idclientes = reservas.idclientes ";
             db.SqlQuery(query);
 
             db.QueryRun();
@@ -34,10 +37,20 @@ namespace Hospedaria.fdrQuartos
         {
             if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
             {
+                if (telaAnterior == "Checkin")
+                {
+                    fdrQuartos.CheckIn objAlt = new fdrQuartos.CheckIn(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(), dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString(), dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString(), dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString(), 'd');
 
-                fdrQuartos.CheckIn objAlt = new fdrQuartos.CheckIn(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(), dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString(), dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString(),dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString(),'d');
+                    objAlt.Show();
+                }
+                else
+                {
+                    fdrQuartos.frmAlteraReserva objAlt = new fdrQuartos.frmAlteraReserva(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(), dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString(), dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString(), dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString(), 'd');
 
-                objAlt.Show();
+                    objAlt.Show();
+                }
+
+                
 
 
                 this.Hide();
