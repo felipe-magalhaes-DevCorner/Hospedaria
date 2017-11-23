@@ -15,6 +15,7 @@ namespace Hospedaria.fdrQuartos
     {
         private ConnectionClass db = new ConnectionClass();
         public Form getform { get; set; }
+        
         List<string> listNames = new List<string>();// LISTAS COM OS NOMES
         List<int> idNames = new List<int>();// LISTAS COM OS NOMES
         List<string> listHospedagem = new List<string>();// LISTAS COM OS NOMES
@@ -26,6 +27,7 @@ namespace Hospedaria.fdrQuartos
         public frmAlteraReserva(string _pNomeSuite = "", string _pNomeCliente = "", string _pDatareserva = "", string _pDataSaida = "", char reserva = 'c', bool exit = false)
         {
             InitializeComponent();
+            
 
         }
         private void popComboBoxes()
@@ -87,6 +89,7 @@ namespace Hospedaria.fdrQuartos
             db.QueryRun();
             db.closeConnection();
             MessageBox.Show("Reserva cancelada.");
+            this.Close();
 
         }
 
@@ -105,6 +108,15 @@ namespace Hospedaria.fdrQuartos
         private void cbNomeCheckIn_SelectedIndexChanged(object sender, EventArgs e)
         {
            
+        }
+
+        private void frmAlteraReserva_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+                Form1 objPrincipal = new Form1(true);
+                objPrincipal.Show();
+                
+
         }
     }
 }

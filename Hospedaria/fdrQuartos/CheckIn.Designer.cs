@@ -166,7 +166,6 @@
             // 
             // button1
             // 
-            this.button1.BackgroundImage = global::Hospedaria.Properties.Resources.searchicon;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.Location = new System.Drawing.Point(396, 14);
             this.button1.Name = "button1";
@@ -208,6 +207,7 @@
             this.Controls.Add(this.cbNomeCheckIn);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "CheckIn";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CheckIn";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CheckIn_FormClosing);
             this.Load += new System.EventHandler(this.CheckIn_Load);

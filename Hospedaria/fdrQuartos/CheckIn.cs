@@ -13,6 +13,7 @@ using System.Windows.Forms;
 
 namespace Hospedaria.fdrQuartos
 {
+
     
     public partial class CheckIn : Form
     {
@@ -23,6 +24,7 @@ namespace Hospedaria.fdrQuartos
         List<string> nomeQuarto = new List<string>();
         List<string> nomepensao = new List<string>();
         List<int> idpensao = new List<int>();
+        private static bool exit = false;
         DateTime dataProximaReserva;
         DateTime dataprosimaSaida;
         private static int idreserva;
@@ -136,15 +138,18 @@ namespace Hospedaria.fdrQuartos
         public void ChecaReserva()
         {
             db.SqlConnection();
-            string query = "select hospedagem.idcondicao from hospedagem where idhospedagem = '" + idQuarto[cbQuarto.SelectedIndex] + "'";
+            string query = "select hospedagem.idcondicao from hospedagem where hospedagem.idhospedagem = '" + idQuarto[cbQuarto.SelectedIndex] + "' ";
             db.SqlQuery(query);
             Clipboard.SetText(query);
+            
 
             SqlDataReader _dr = db.QueryReader();
             int condicao = 0;
             while (_dr.Read())
             {
                 condicao = Convert.ToInt32(_dr["idcondicao"]);
+                //dataProximaReserva = Convert.ToDateTime(_dr["datareserva"]);
+
             }
             db.closeConnection();
             switch (condicao)
@@ -159,52 +164,38 @@ namespace Hospedaria.fdrQuartos
                     {
 
                         MessageBox.Show("O quarto esta em ocupado.");
+                        exit = true;
+                        
 
                     }
                     break;
                 case 3:
                     {
                         MessageBox.Show("O quarto esta em manutencao.");
-                        
-                        
+                        exit = true;
+
                     }
                     break;
                 case 4:
                     {
-                        MessageBox.Show("Existe uma reserva para esse horario. Gostaria de carregala?");
-                        DialogResult dialogResult = MessageBox.Show(string.Format("Existe uma reserva para o dia {0}, agendar Data Saída para esse dia?", dataProximaReserva.ToString("dd/MM/yyyy 11:59")), "Cadastrado", MessageBoxButtons.YesNo);
-                        if (dialogResult == DialogResult.Yes)
-                        {
-                            query = "select * from reservas where idhospedagem = '" + idQuarto[cbQuarto.SelectedIndex] + "'";
-                            db.SqlConnection();
-                            db.SqlQuery(query); Clipboard.SetText(query);
+                        db.SqlConnection();
+                         query = "select reservas.datareserva from reservas where reservas.idhospedagem = '" + idQuarto[cbQuarto.SelectedIndex] + "' order by reservas.idreserva";
+                        db.SqlQuery(query);
+                        Clipboard.SetText(query);
 
-                            SqlDataReader _dr2 = db.QueryReader();
-
-
-                            while (_dr2.Read())
-                            {
-                                cbNomeCheckIn.SelectedIndex = idCliente.IndexOf(Convert.ToInt32(_dr2["idcliente"]));
-                                cbQuarto.SelectedIndex = idQuarto.IndexOf(Convert.ToInt32(_dr2["idhospedagem"]));
-                                datepicker1.Value = Convert.ToDateTime(_dr2["datareserva"]);
-                                datepicker2.Value = Convert.ToDateTime(_dr2["datasaida"]);
-
-
-                            }
-                            db.closeConnection();
-                            if (cbPensao.Text != "")
-                            {
-
-                                QuartoLivreContinuaCheckin();
-                            }
-
-                        }
-                        else if (dialogResult == DialogResult.No)
-                        {
-                            MessageBox.Show("Não cadastrado. É preciso a concordancia da saida ate a data limite.");
-
-                        }
+                        SqlDataReader _dr2 = db.QueryReader();
                         
+                        while (_dr2.Read())
+                        {
+                            
+                            dataProximaReserva = Convert.ToDateTime(_dr2["datareserva"]);
+
+                        }
+                        db.closeConnection();
+
+                        QuartoLivreContinuaCheckin();
+
+
 
                     }
                     break;
@@ -339,6 +330,7 @@ namespace Hospedaria.fdrQuartos
                             if (dialogResult2 == DialogResult.Yes)
                             {
                                 db.closeConnection();
+                                exit = false;
                                 fdrQuartos.frmAlteraReserva objAlteraRes = new frmAlteraReserva();
                                 objAlteraRes.Show();
                                
@@ -384,6 +376,16 @@ namespace Hospedaria.fdrQuartos
 
 
                 }
+                if (ValidaReserva)
+                {
+                    query = "delete  from reservas where reservas.idreserva = '" + idreserva + "'";
+                    db.SqlQuery(query); Clipboard.SetText(query);
+                    db.QueryRun();
+                    db.closeConnection();
+                    
+
+
+                }
                 if (validaHospedagem)
                 {
 
@@ -391,24 +393,21 @@ namespace Hospedaria.fdrQuartos
                     query = "update hospedagem set idcondicao = '2' where idhospedagem = '" + idQuarto[cbQuarto.SelectedIndex] + "'";
                     db.SqlQuery(query); Clipboard.SetText(query);
                     db.QueryRun();
-                    
-                    
-                    
-                    
-                }
-                if (ValidaReserva)
-                {
-                    query = "delete  from reservas where reservas.idreserva = '"+idreserva+"'";
-                    db.SqlQuery(query); Clipboard.SetText(query);
-                    db.QueryRun();
-                    db.closeConnection();
                     MessageBox.Show("CheckIn Efetuado com sucesso!");
                     this.Hide();
+                    exit = false;
                     Form1 form1 = new Form1(true);
-                    ValidaReserva = true;
+
+                    form1.Show();
+                    
+                    
+                    
+
+
 
 
                 }
+
                 db.closeConnection();
             }
         }
@@ -435,17 +434,23 @@ namespace Hospedaria.fdrQuartos
                     //faz nada
                 }
             }
-            this.Hide();
-            Form1 objPrincipal = new Form1();
-            objPrincipal.ShowDialog();
+
+            
+            
 
         }
 
         private void CheckIn_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Form1 objPrin = new Form1();
-            this.Hide();
-            getform.Visible = true;
+
+                Form1 objPrin = new Form1();
+
+
+                this.Hide();
+                getform.Visible = true;
+                
+
+            
 
         }
 

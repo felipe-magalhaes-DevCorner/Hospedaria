@@ -139,7 +139,6 @@
             // 
             // button1
             // 
-            this.button1.BackgroundImage = global::Hospedaria.Properties.Resources.searchicon;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.Location = new System.Drawing.Point(417, 6);
             this.button1.Name = "button1";
@@ -178,7 +177,9 @@
             this.Controls.Add(this.cbQuarto);
             this.Controls.Add(this.cbNomeCheckIn);
             this.Name = "frmAlteraReserva";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmAlteraReserva";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmAlteraReserva_FormClosing);
             this.Load += new System.EventHandler(this.frmAlteraReserva_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

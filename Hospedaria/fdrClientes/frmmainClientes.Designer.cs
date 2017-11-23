@@ -35,7 +35,7 @@
             // BtClientes
             // 
             this.BtClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtClientes.Location = new System.Drawing.Point(12, 34);
+            this.BtClientes.Location = new System.Drawing.Point(16, 12);
             this.BtClientes.Name = "BtClientes";
             this.BtClientes.Size = new System.Drawing.Size(150, 150);
             this.BtClientes.TabIndex = 1;
@@ -46,7 +46,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(184, 34);
+            this.button1.Location = new System.Drawing.Point(188, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(150, 150);
             this.button1.TabIndex = 2;
@@ -58,9 +58,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(350, 204);
+            this.ClientSize = new System.Drawing.Size(350, 173);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.BtClientes);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmmainClientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "cadastro";

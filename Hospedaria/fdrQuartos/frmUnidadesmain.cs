@@ -13,9 +13,11 @@ namespace Hospedaria.fdrQuartos
     public partial class frmUnidadesmain : Form
     {
         public Form getform { get; set; }
-        public frmUnidadesmain()
+        private static bool exitControl;
+        public frmUnidadesmain(bool exit = true)
         {
             InitializeComponent();
+            
         }
 
 
@@ -35,6 +37,11 @@ namespace Hospedaria.fdrQuartos
             this.Hide();
             objCheckOut.Show();
 
+
+        }
+
+        private void frmUnidadesmain_FormClosing(object sender, FormClosingEventArgs e)
+        {
 
         }
     }

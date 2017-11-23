@@ -102,7 +102,7 @@
             this.financeiroToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(579, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(438, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -246,6 +246,7 @@
             // 
             // pbFloyd
             // 
+            this.pbFloyd.ErrorImage = null;
             this.pbFloyd.Location = new System.Drawing.Point(230, 49);
             this.pbFloyd.Name = "pbFloyd";
             this.pbFloyd.Size = new System.Drawing.Size(25, 25);
@@ -386,7 +387,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(579, 404);
+            this.ClientSize = new System.Drawing.Size(438, 404);
             this.Controls.Add(this.lbLogged);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);

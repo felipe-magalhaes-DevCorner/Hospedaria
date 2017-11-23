@@ -56,28 +56,34 @@ namespace Hospedaria.fdrQuartos
             db.SqlConnection();
             db.SqlQuery(query);
             SqlDataReader _dr = db.QueryReader();
-            while (_dr.Read())
+            if (_dr.HasRows)
             {
-                nomeQuarto.Add(_dr["nomeHospedagem"].ToString().Trim());
-                idQuarto.Add(Convert.ToInt32(_dr["idHOSPEDAGEM"]));
-                idsituacao.Add(Convert.ToInt32(_dr["idsituacao"]));
-                nomeCliente.Add(_dr["nomeCliente"].ToString().Trim());
-                idpensao.Add(Convert.ToInt32(_dr["idPENSAO"]));
-                nomepensao.Add(_dr["DESCRICAO"].ToString().Trim());
-                dataCheckIn.Add(Convert.ToDateTime(_dr["DATACHECKIN"]));
-                valorQuarto.Add(Convert.ToDecimal(_dr["valor"]));
-                incrementoPensao.Add(Convert.ToDecimal(_dr["INCREMENTO"]));
-            }
-            db.closeConnection();
+                while (_dr.Read())
+                {
+                    nomeQuarto.Add(_dr["nomeHospedagem"].ToString().Trim());
+                    idQuarto.Add(Convert.ToInt32(_dr["idHOSPEDAGEM"]));
+                    idsituacao.Add(Convert.ToInt32(_dr["idsituacao"]));
+                    nomeCliente.Add(_dr["nomeCliente"].ToString().Trim());
+                    idpensao.Add(Convert.ToInt32(_dr["idPENSAO"]));
+                    nomepensao.Add(_dr["DESCRICAO"].ToString().Trim());
+                    dataCheckIn.Add(Convert.ToDateTime(_dr["DATACHECKIN"]));
+                    valorQuarto.Add(Convert.ToDecimal(_dr["valor"]));
+                    incrementoPensao.Add(Convert.ToDecimal(_dr["INCREMENTO"]));
 
-            foreach (string item in nomeQuarto)
-            {
-                comboBox1.Items.Add(item);
+                }
+                db.closeConnection();
+
+                foreach (string item in nomeQuarto)
+                {
+                    comboBox1.Items.Add(item);
+                }
+                if (comboBox1.Items.Count > 0)
+                {
+                    comboBox1.SelectedIndex = 0;
+                }
+
             }
-            if (comboBox1.Items.Count > 0)
-            {
-                comboBox1.SelectedIndex = 0;
-            }
+            
 
 
         }
@@ -88,6 +94,7 @@ namespace Hospedaria.fdrQuartos
 
         private void button2_Click(object sender, EventArgs e)
         {
+
             string query = "update situacao set situacao = 'Pago', datecheckout = '"+DateTime.Now.ToString("dd/MM/yyyy hh:mm") + "' from situacao where idsituacao = '" + idsituacao[comboBox1.SelectedIndex] + "'";
             
             db.SqlConnection();
@@ -99,9 +106,9 @@ namespace Hospedaria.fdrQuartos
             db.QueryRun();
             db.closeConnection();
             MessageBox.Show("Check out realizado.");
-            this.Hide();
-            Form1 form1 = new Form1(true);
-            form1.Visible = true;
+            this.Close();
+            //Form1 form1 = new Form1(true);
+            //form1.Visible = true;
 
 
         }

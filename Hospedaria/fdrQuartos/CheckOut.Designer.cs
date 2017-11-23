@@ -194,6 +194,7 @@
             this.Controls.Add(this.lbQuarto);
             this.Controls.Add(this.comboBox1);
             this.Name = "CheckOut";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CheckOut";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CheckOut_FormClosing);
             this.Load += new System.EventHandler(this.CheckOut_Load);

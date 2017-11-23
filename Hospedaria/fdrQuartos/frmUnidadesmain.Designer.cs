@@ -58,11 +58,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(370, 181);
+            this.ClientSize = new System.Drawing.Size(356, 174);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btVenda);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmUnidadesmain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmUnidadesmain";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmUnidadesmain_FormClosing);
             this.ResumeLayout(false);
 
         }
