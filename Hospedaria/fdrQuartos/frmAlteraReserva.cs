@@ -36,29 +36,35 @@ namespace Hospedaria.fdrQuartos
             db.SqlQuery(query);
             Clipboard.SetText(query);
             SqlDataReader _dr = db.QueryReader();
-            
-            while (_dr.Read())
+            if (_dr.HasRows)
             {
-                listNames.Add(_dr["NomeCliente"].ToString().Trim());//ADICIONA O QUE FOI LIDO NO SQL A LISTA NOME
-                idNames.Add(Convert.ToInt32(_dr["idclientes"]));
-                idReserva.Add(Convert.ToInt32(_dr["idreserva"]));
-                idHospedagem.Add(Convert.ToInt32(_dr["idhospedagem"]));
-                listHospedagem.Add(_dr["NomeHospedagem"].ToString().Trim());
-                DataCheckin.Add(Convert.ToDateTime(_dr["datareserva"]));
-                DataCheckout.Add(Convert.ToDateTime(_dr["datareserva"]));
+                while (_dr.Read())
+                {
+                    listNames.Add(_dr["NomeCliente"].ToString().Trim());//ADICIONA O QUE FOI LIDO NO SQL A LISTA NOME
+                    idNames.Add(Convert.ToInt32(_dr["idclientes"]));
+                    idReserva.Add(Convert.ToInt32(_dr["idreserva"]));
+                    idHospedagem.Add(Convert.ToInt32(_dr["idhospedagem"]));
+                    listHospedagem.Add(_dr["NomeHospedagem"].ToString().Trim());
+                    DataCheckin.Add(Convert.ToDateTime(_dr["datareserva"]));
+                    DataCheckout.Add(Convert.ToDateTime(_dr["datareserva"]));
+
+                }
+                foreach (string item in listHospedagem)
+                {
+                    cbQuarto.Items.Add(item);
+                }
+                foreach (string item in listNames)
+                {
+                    cbNomeCheckIn.Items.Add(item);
+                }
+                db.closeConnection();
+                
+    
+                cbNomeCheckIn.SelectedIndex = 0;//SELECIONA O PRIMEIRO INDEX PARA SER MOSTRADO LOGO NO INICIO
+                cbQuarto.SelectedIndex = 0;
 
             }
-            foreach (string item in listHospedagem)
-            {
-                cbQuarto.Items.Add(item);
-            }
-            foreach (string item in listNames)
-            {
-                cbNomeCheckIn.Items.Add(item);
-            }
-            db.closeConnection();
-            cbNomeCheckIn.SelectedIndex = 0;//SELECIONA O PRIMEIRO INDEX PARA SER MOSTRADO LOGO NO INICIO
-            cbQuarto.SelectedIndex = 0;
+            
         }
 
         private void button1_Click(object sender, EventArgs e)

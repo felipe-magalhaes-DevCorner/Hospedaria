@@ -329,17 +329,19 @@ namespace Hospedaria.fdrQuartos
                             db.SqlQuery(query); Clipboard.SetText(query);
                             db.QueryRun();
                             validaHospedagem = true;
+                            ValidaReserva = true;
 
                         }
                         else if (dialogResult == DialogResult.No)
                         {
-                            db.closeConnection();
+                            
                             DialogResult dialogResult2 = MessageBox.Show(string.Format("Não cadastrado. Ja existe uma reserva de outro cliente para esses dias. Gostaria de alterar a reserva?"),"ALERTA!", MessageBoxButtons.YesNo);
                             if (dialogResult2 == DialogResult.Yes)
                             {
                                 db.closeConnection();
                                 fdrQuartos.frmAlteraReserva objAlteraRes = new frmAlteraReserva();
                                 objAlteraRes.Show();
+                               
 
 
                             }
@@ -385,7 +387,18 @@ namespace Hospedaria.fdrQuartos
                 if (validaHospedagem)
                 {
 
+
                     query = "update hospedagem set idcondicao = '2' where idhospedagem = '" + idQuarto[cbQuarto.SelectedIndex] + "'";
+                    db.SqlQuery(query); Clipboard.SetText(query);
+                    db.QueryRun();
+                    
+                    
+                    
+                    
+                }
+                if (ValidaReserva)
+                {
+                    query = "delete  from reservas where reservas.idreserva = '"+idreserva+"'";
                     db.SqlQuery(query); Clipboard.SetText(query);
                     db.QueryRun();
                     db.closeConnection();
@@ -393,14 +406,7 @@ namespace Hospedaria.fdrQuartos
                     this.Hide();
                     Form1 form1 = new Form1(true);
                     ValidaReserva = true;
-                    
-                }
-                if (ValidaReserva)
-                {
-                    query = "delete  from reservas where reservas.idreservas = '"+idreserva+"'";
-                    db.SqlQuery(query); Clipboard.SetText(query);
-                    db.QueryRun();
-                    
+
 
                 }
                 db.closeConnection();

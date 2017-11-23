@@ -97,6 +97,8 @@ namespace Hospedaria.fdrQuartos
             //PEGO DO SQL TODAS AS RESERVAS DO HOTEL
             string query = query = "select reservas.idhospedagem, reservas.datareserva, reservas.datasaida from reservas where reservas.idhospedagem = '"+idHospedagem[listHospedagem.IndexOf(cbQuarto.Text.Trim())]+"'";
             db.SqlQuery(query);
+
+            Clipboard.SetText(query);
             DateTime date = DateTime.Now;
             //ABRASILEIRO O PROGRAMA
             Thread.CurrentThread.CurrentCulture = new CultureInfo("pt-BR");
@@ -104,15 +106,17 @@ namespace Hospedaria.fdrQuartos
             DateTime dateReserva;
             bool termina = true;
             SqlDataReader _dr = db.QueryReader();
-            while (_dr.Read())//RODAR ENQUANTO TIVER CELULAS PARA LER
+            if (_dr.HasRows)
             {
-     
+                while (_dr.Read())//RODAR ENQUANTO TIVER CELULAS PARA LER
+                {
+
                     if (datepicker1.Value >= DateTime.Now) // A DATA DA RESERVA É MAIOR Q A DATA DE HOJE?
                     {
                         dateReserva = Convert.ToDateTime(_dr["datareserva"].ToString()).ToLocalTime();//PEGA DATAS DE RESERVAS DO SQL
                         datePrevistaSaida = Convert.ToDateTime(_dr["datasaida"].ToString()).ToLocalTime();
-                    // CONFERE SE JA NAO TEM RESERVAS
-                        if (datepicker1.Value.ToLocalTime() > dateReserva && datepicker1.Value.ToLocalTime() > datePrevistaSaida) 
+                        // CONFERE SE JA NAO TEM RESERVAS
+                        if (datepicker1.Value.ToLocalTime() > dateReserva && datepicker1.Value.ToLocalTime() > datePrevistaSaida)
                         {
 
                             termina = true; //NAO TEM DEIXA PASSAR                          
@@ -122,18 +126,21 @@ namespace Hospedaria.fdrQuartos
                         {
                             MessageBox.Show("Ja existe uma reserva para essa data");
                             return false;
-                            
-                        }                       
+
+                        }
 
                     }
                     else
                     {
                         MessageBox.Show("Data da reserva incorreta! Essa data ja passou.");
-                        
+
                         return false;//A DATA DA RESERVA JA PASSOU
-                        
+
                     }
+                }
+
             }
+            
             db.closeConnection(); // FECHA CONEXAO
             if (termina)
             {
