@@ -21,13 +21,18 @@ namespace Hospedaria.fdrQuartos
         List<int> idQuarto = new List<int>();
         List<decimal> incrementoPensao = new List<decimal>();
         List<decimal> valorQuarto = new List<decimal>();
-
         List<DateTime> dataCheckIn = new List<DateTime>();
+        List<DateTime> dataCheckOut = new List<DateTime>();
         List<string> nomeQuarto = new List<string>();
         List<string> nomepensao = new List<string>();
         List<int> idpensao = new List<int>();
         List<int> idsituacao = new List<int>();
+        private static double horas;
         public Form getform { get; set; }
+        private static decimal valorHospedagem;
+        private static decimal valorPensao;
+        private static decimal ValorTotal;
+
         public CheckOut()
         {
             InitializeComponent();
@@ -52,7 +57,7 @@ namespace Hospedaria.fdrQuartos
 
             string query;
 
-            query = "select SITUACAO.idSITUACAO, SITUACAO.idHOSPEDAGEM , SITUACAO.idPENSAO , SITUACAO.DATACHECKIN , pensao.INCREMENTO , PENSAO.DESCRICAO , clientes.NOME as nomeCliente, HOSPEDAGEM.nome as nomeHospedagem, categoria_quarto.valor as valor from SITUACAO inner join PENSAO on PENSAO.idPENSAO = SITUACAO.idPENSAO inner join CLIENTES on CLIENTES.idCLIENTES = SITUACAO.idCLIENTES inner join HOSPEDAGEM on HOSPEDAGEM.idHOSPEDAGEM = SITUACAO.idHOSPEDAGEM inner join categoria_quarto on categoria_quarto.idcategoria_quarto = hospedagem.idcategoria where SITUACAO.SITUACAO = 'Ocupado' order by SITUACAO.idSITUACAO";
+            query = "select SITUACAO.idSITUACAO, SITUACAO.idHOSPEDAGEM , SITUACAO.idPENSAO , SITUACAO.DATACHECKIN, situacao.DATeCHECKout , pensao.INCREMENTO , PENSAO.DESCRICAO , clientes.NOME as nomeCliente, HOSPEDAGEM.nome as nomeHospedagem, categoria_quarto.valor as valor from SITUACAO inner join PENSAO on PENSAO.idPENSAO = SITUACAO.idPENSAO inner join CLIENTES on CLIENTES.idCLIENTES = SITUACAO.idCLIENTES inner join HOSPEDAGEM on HOSPEDAGEM.idHOSPEDAGEM = SITUACAO.idHOSPEDAGEM inner join categoria_quarto on categoria_quarto.idcategoria_quarto = hospedagem.idcategoria where SITUACAO.SITUACAO = 'Ocupado' order by SITUACAO.idSITUACAO";
             db.SqlConnection();
             db.SqlQuery(query);
             SqlDataReader _dr = db.QueryReader();
@@ -69,6 +74,20 @@ namespace Hospedaria.fdrQuartos
                     dataCheckIn.Add(Convert.ToDateTime(_dr["DATACHECKIN"]));
                     valorQuarto.Add(Convert.ToDecimal(_dr["valor"]));
                     incrementoPensao.Add(Convert.ToDecimal(_dr["INCREMENTO"]));
+                    if (true)
+                    {
+                        if (!DBNull.Value.Equals(_dr["DATeCHECKOUT"]))
+                        {
+                            //not null
+                            dataCheckOut.Add(Convert.ToDateTime(_dr["DATeCHECKOUT"]));
+                        }
+                        else
+                        {
+                            //null
+                            dataCheckOut.Add(DateTime.Now);
+                        }
+
+                    }
 
                 }
                 db.closeConnection();
@@ -96,11 +115,17 @@ namespace Hospedaria.fdrQuartos
         {
 
             string query = "update situacao set situacao = 'Pago', datecheckout = '"+DateTime.Now.ToString("dd/MM/yyyy hh:mm") + "' from situacao where idsituacao = '" + idsituacao[comboBox1.SelectedIndex] + "'";
-            
+            Clipboard.SetText(query);
             db.SqlConnection();
             db.SqlQuery(query);
             db.QueryRun();
             query = "update hospedagem set idcondicao = '1' from hospedagem where idhospedagem = '" + idQuarto[comboBox1.SelectedIndex] + "'";
+            Clipboard.SetText(query);
+            db.SqlQuery(query);
+            db.QueryRun();
+            
+            
+            query = "insert into faturamento values ('" + idsituacao[comboBox1.SelectedIndex] + "',  '" +  horas + "', '" + valorHospedagem.ToString().Replace(",", ".") + "', '" + valorPensao.ToString().Replace(",", ".") + "','" + ValorTotal.ToString().Replace(",", ".") + "' )";
             Clipboard.SetText(query);
             db.SqlQuery(query);
             db.QueryRun();
@@ -118,9 +143,16 @@ namespace Hospedaria.fdrQuartos
             int index = comboBox1.SelectedIndex;
             txtNomeCliente.Text = nomeCliente[index];
             txtNomePensao.Text = nomepensao[index];
-            txtValorPensao.Text = incrementoPensao[index].ToString("C");
-            txtValorQuarto.Text = valorQuarto[index].ToString("C");
-            txtValorTotal.Text = (incrementoPensao[index] + valorQuarto[index]).ToString("C");
+            double dia = 24;
+            TimeSpan spamHoras = DateTime.Now - dataCheckIn[comboBox1.SelectedIndex];
+            horas = spamHoras.TotalHours / dia;
+            horas = Math.Ceiling(horas);
+            valorHospedagem = (Convert.ToDecimal( valorQuarto[index]) * Convert.ToDecimal(horas)) ;
+            valorPensao = (Convert.ToDecimal(incrementoPensao[index]) * Convert.ToDecimal(horas));
+            ValorTotal = (valorHospedagem + valorPensao) ; 
+            txtValorPensao.Text = valorPensao.ToString("C");
+            txtValorQuarto.Text = valorHospedagem.ToString("C");
+            txtValorTotal.Text = ValorTotal.ToString("C");
         }
 
         private void CheckOut_FormClosing(object sender, FormClosingEventArgs e)

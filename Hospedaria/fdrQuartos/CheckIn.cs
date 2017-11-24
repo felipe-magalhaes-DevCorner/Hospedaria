@@ -288,7 +288,7 @@ namespace Hospedaria.fdrQuartos
                         
                         //existe data de saida, e nao existe reserva naquelas datas
                         //insere perfeito o q ta escrito
-                        query = "insert into situacao values ('" + idQuarto[cbQuarto.SelectedIndex] + "','" + idCliente[cbNomeCheckIn.SelectedIndex] + "','" + idpensao[cbPensao.SelectedIndex] + "','" + datepicker1.Value + "','" + datepicker2.Value.ToString("dd/MM/yyyy HH:mm") + "', 'Ocupado' )";
+                        query = "insert into situacao values ('" + idQuarto[cbQuarto.SelectedIndex] + "','" + idCliente[cbNomeCheckIn.SelectedIndex] + "','" + idpensao[cbPensao.SelectedIndex] + "','" + datepicker1.Value.ToString("dd/MM/yyyy 14:mm") + "','" + datepicker2.Value.ToString("dd/MM/yyyy HH:mm") + "', 'Ocupado' )";
                         db.SqlQuery(query); Clipboard.SetText(query);
                         db.QueryRun();
 
@@ -297,7 +297,7 @@ namespace Hospedaria.fdrQuartos
                     {
                         //CASO NAO HAJA DATA DE SAIDA, VAI PRO SQL DATASAIDA NULL
                         DateTime date1 = Convert.ToDateTime(datepicker1.Value);
-                        query = "insert into situacao values ('" + idQuarto[cbQuarto.SelectedIndex] + "','" + idCliente[cbNomeCheckIn.SelectedIndex] + "','" + idpensao[cbPensao.SelectedIndex] + "','" + datepicker1.Value.ToString("dd/MM/yyyy HH:mm") + "',NULL, 'Ocupado' )";
+                        query = "insert into situacao values ('" + idQuarto[cbQuarto.SelectedIndex] + "','" + idCliente[cbNomeCheckIn.SelectedIndex] + "','" + idpensao[cbPensao.SelectedIndex] + "','" + datepicker1.Value.ToString("dd/MM/yyyy 14:mm") + "',NULL, 'Ocupado' )";
                         db.SqlQuery(query); Clipboard.SetText(query);
                         db.QueryRun();
                     }
