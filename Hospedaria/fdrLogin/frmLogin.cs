@@ -157,5 +157,11 @@ namespace Hospedaria.fdrLogin
         {
             Application.Exit();
         }
+
+        private void klbRecuperar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+
+        }
     }
 }

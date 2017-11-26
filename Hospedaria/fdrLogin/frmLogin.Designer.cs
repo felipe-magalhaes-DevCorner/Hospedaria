@@ -37,36 +37,34 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.audaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.klbRecuperar = new System.Windows.Forms.LinkLabel();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtPassword
             // 
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(146, 97);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtPassword.Location = new System.Drawing.Point(97, 63);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(247, 35);
+            this.txtPassword.Size = new System.Drawing.Size(166, 26);
             this.txtPassword.TabIndex = 2;
             this.txtPassword.UseSystemPasswordChar = true;
             // 
             // txtUsername
             // 
             this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsername.Location = new System.Drawing.Point(146, 45);
-            this.txtUsername.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtUsername.Location = new System.Drawing.Point(97, 29);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(247, 35);
+            this.txtUsername.Size = new System.Drawing.Size(166, 26);
             this.txtUsername.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(46, 106);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(31, 69);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(88, 29);
+            this.label2.Size = new System.Drawing.Size(60, 20);
             this.label2.TabIndex = 19;
             this.label2.Text = "Senha:";
             // 
@@ -74,20 +72,18 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(34, 54);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(23, 35);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(102, 29);
+            this.label1.Size = new System.Drawing.Size(68, 20);
             this.label1.TabIndex = 18;
             this.label1.Text = "Usuario:";
             // 
             // btnExit
             // 
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(266, 166);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnExit.Location = new System.Drawing.Point(177, 108);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(156, 58);
+            this.btnExit.Size = new System.Drawing.Size(104, 38);
             this.btnExit.TabIndex = 4;
             this.btnExit.Text = "Sair";
             this.btnExit.UseVisualStyleBackColor = true;
@@ -96,10 +92,9 @@
             // btnLogin
             // 
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.Location = new System.Drawing.Point(40, 166);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnLogin.Location = new System.Drawing.Point(27, 108);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(156, 58);
+            this.btnLogin.Size = new System.Drawing.Size(104, 38);
             this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
@@ -112,8 +107,7 @@
             this.ajudaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
-            this.menuStrip1.Size = new System.Drawing.Size(500, 35);
+            this.menuStrip1.Size = new System.Drawing.Size(333, 24);
             this.menuStrip1.TabIndex = 22;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -122,20 +116,32 @@
             this.ajudaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.audaToolStripMenuItem});
             this.ajudaToolStripMenuItem.Name = "ajudaToolStripMenuItem";
-            this.ajudaToolStripMenuItem.Size = new System.Drawing.Size(70, 29);
+            this.ajudaToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.ajudaToolStripMenuItem.Text = "Ajuda";
             // 
             // audaToolStripMenuItem
             // 
             this.audaToolStripMenuItem.Name = "audaToolStripMenuItem";
-            this.audaToolStripMenuItem.Size = new System.Drawing.Size(138, 30);
+            this.audaToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
             this.audaToolStripMenuItem.Text = "Auda";
+            // 
+            // klbRecuperar
+            // 
+            this.klbRecuperar.AutoSize = true;
+            this.klbRecuperar.Location = new System.Drawing.Point(230, 156);
+            this.klbRecuperar.Name = "klbRecuperar";
+            this.klbRecuperar.Size = new System.Drawing.Size(91, 13);
+            this.klbRecuperar.TabIndex = 23;
+            this.klbRecuperar.TabStop = true;
+            this.klbRecuperar.Text = "Recuperar Senha";
+            this.klbRecuperar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.klbRecuperar_LinkClicked);
             // 
             // frmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(500, 274);
+            this.ClientSize = new System.Drawing.Size(333, 178);
+            this.Controls.Add(this.klbRecuperar);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.label2);
@@ -144,7 +150,6 @@
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLogin";
@@ -165,5 +170,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem ajudaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem audaToolStripMenuItem;
+        private System.Windows.Forms.LinkLabel klbRecuperar;
     }
 }

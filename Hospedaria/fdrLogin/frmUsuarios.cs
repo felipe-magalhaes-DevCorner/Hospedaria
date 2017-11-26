@@ -56,7 +56,7 @@ namespace Hospedaria.fdrLogin
 
             if (txtSenha.Text == txtConfirmaSenha.Text)
             {
-                string query = "insert into usuarios values ('" + idUsuarioCate[comboBox1.SelectedIndex] + "', '" + txtNome.Text.Trim() + "', '" + txtLogin.Text.Trim() + "', '" + txtSenha.Text.Trim() + "', '12345', '0', '0')";
+                string query = "insert into usuarios values ('" + idUsuarioCate[comboBox1.SelectedIndex] + "', '" + txtNome.Text.Trim() + "', '" + txtLogin.Text.Trim() + "', '" + txtSenha.Text.Trim() + "', '" + txtMestre.Text.Trim() + "', '0', '0')";
                 db.SqlConnection();
                 db.SqlQuery(query);
                 db.QueryRun();
