@@ -99,6 +99,12 @@
     </Compile>
     <Compile Include="fdrClientes\ValidaCNPJ.cs" />
     <Compile Include="fdrClientes\ValidaCPF.cs" />
+    <Compile Include="fdrFinanceiro\frmFinanceiro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fdrFinanceiro\frmFinanceiro.Designer.cs">
+      <DependentUpon>frmFinanceiro.cs</DependentUpon>
+    </Compile>
     <Compile Include="fdrLogin\frmAlteraUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -191,6 +197,9 @@
     <EmbeddedResource Include="fdrClientes\frmmainClientes.resx">
       <DependentUpon>frmmainClientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="fdrFinanceiro\frmFinanceiro.resx">
+      <DependentUpon>frmFinanceiro.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fdrLogin\frmAlteraUsuario.resx">
       <DependentUpon>frmAlteraUsuario.cs</DependentUpon>
     </EmbeddedResource>
@@ -264,7 +273,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="fdrFinanceiro\" />
     <Folder Include="fdrImagens\" />
   </ItemGroup>
   <ItemGroup>

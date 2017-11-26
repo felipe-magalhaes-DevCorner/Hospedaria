@@ -43,16 +43,31 @@
             this.estoqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manutençãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.suitePresidenciaslToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.livreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ocupadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manutençãoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.reservadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.suiteMasterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.suiteJaguaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
             this.quartoBobDylanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
             this.quartoJanesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem13 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem14 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem15 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem16 = new System.Windows.Forms.ToolStripMenuItem();
             this.btVenda = new System.Windows.Forms.Button();
-            this.pbFloyd = new System.Windows.Forms.PictureBox();
-            this.pbStones = new System.Windows.Forms.PictureBox();
-            this.pbDave = new System.Windows.Forms.PictureBox();
-            this.pbDylan = new System.Windows.Forms.PictureBox();
-            this.pbJanes = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -64,32 +79,17 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.lbLogged = new System.Windows.Forms.Label();
-            this.livreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ocupadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.manutençãoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.reservadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem13 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem14 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem15 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem16 = new System.Windows.Forms.ToolStripMenuItem();
+            this.pbJanes = new System.Windows.Forms.PictureBox();
+            this.pbDylan = new System.Windows.Forms.PictureBox();
+            this.pbDave = new System.Windows.Forms.PictureBox();
+            this.pbStones = new System.Windows.Forms.PictureBox();
+            this.pbFloyd = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFloyd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStones)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbDave)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbDylan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbJanes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDylan)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDave)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStones)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFloyd)).BeginInit();
             this.SuspendLayout();
             // 
             // BtClientes
@@ -182,12 +182,14 @@
             this.financeiroToolStripMenuItem1.Name = "financeiroToolStripMenuItem1";
             this.financeiroToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.financeiroToolStripMenuItem1.Text = "Financeiro";
+            this.financeiroToolStripMenuItem1.Click += new System.EventHandler(this.financeiroToolStripMenuItem1_Click);
             // 
             // relatorioDiarioToolStripMenuItem
             // 
             this.relatorioDiarioToolStripMenuItem.Name = "relatorioDiarioToolStripMenuItem";
             this.relatorioDiarioToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.relatorioDiarioToolStripMenuItem.Text = "Relatorio Diario";
+            this.relatorioDiarioToolStripMenuItem.Click += new System.EventHandler(this.relatorioDiarioToolStripMenuItem_Click);
             // 
             // relatorioMensalToolStripMenuItem
             // 
@@ -226,6 +228,30 @@
             this.suitePresidenciaslToolStripMenuItem.Text = "Suite Pink Floyd";
             this.suitePresidenciaslToolStripMenuItem.CheckedChanged += new System.EventHandler(this.suitePresidenciaslToolStripMenuItem_CheckedChanged);
             // 
+            // livreToolStripMenuItem
+            // 
+            this.livreToolStripMenuItem.Name = "livreToolStripMenuItem";
+            this.livreToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.livreToolStripMenuItem.Text = "Livre";
+            // 
+            // ocupadoToolStripMenuItem
+            // 
+            this.ocupadoToolStripMenuItem.Name = "ocupadoToolStripMenuItem";
+            this.ocupadoToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.ocupadoToolStripMenuItem.Text = "Ocupado";
+            // 
+            // manutençãoToolStripMenuItem1
+            // 
+            this.manutençãoToolStripMenuItem1.Name = "manutençãoToolStripMenuItem1";
+            this.manutençãoToolStripMenuItem1.Size = new System.Drawing.Size(141, 22);
+            this.manutençãoToolStripMenuItem1.Text = "Manutenção";
+            // 
+            // reservadoToolStripMenuItem
+            // 
+            this.reservadoToolStripMenuItem.Name = "reservadoToolStripMenuItem";
+            this.reservadoToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.reservadoToolStripMenuItem.Text = "Reservado";
+            // 
             // suiteMasterToolStripMenuItem
             // 
             this.suiteMasterToolStripMenuItem.CheckOnClick = true;
@@ -238,6 +264,30 @@
             this.suiteMasterToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.suiteMasterToolStripMenuItem.Text = "Suite Rolling Stones";
             this.suiteMasterToolStripMenuItem.CheckedChanged += new System.EventHandler(this.suiteMasterToolStripMenuItem_CheckedChanged);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(141, 22);
+            this.toolStripMenuItem1.Text = "Livre";
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(141, 22);
+            this.toolStripMenuItem2.Text = "Ocupado";
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(141, 22);
+            this.toolStripMenuItem3.Text = "Manutenção";
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(141, 22);
+            this.toolStripMenuItem4.Text = "Reservado";
             // 
             // suiteJaguaçãoToolStripMenuItem
             // 
@@ -252,6 +302,30 @@
             this.suiteJaguaçãoToolStripMenuItem.Text = "Suite Dave Grohl";
             this.suiteJaguaçãoToolStripMenuItem.CheckedChanged += new System.EventHandler(this.suiteJaguaçãoToolStripMenuItem_CheckedChanged);
             // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(141, 22);
+            this.toolStripMenuItem5.Text = "Livre";
+            // 
+            // toolStripMenuItem6
+            // 
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(141, 22);
+            this.toolStripMenuItem6.Text = "Ocupado";
+            // 
+            // toolStripMenuItem7
+            // 
+            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(141, 22);
+            this.toolStripMenuItem7.Text = "Manutenção";
+            // 
+            // toolStripMenuItem8
+            // 
+            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(141, 22);
+            this.toolStripMenuItem8.Text = "Reservado";
+            // 
             // quartoBobDylanToolStripMenuItem
             // 
             this.quartoBobDylanToolStripMenuItem.CheckOnClick = true;
@@ -264,6 +338,30 @@
             this.quartoBobDylanToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.quartoBobDylanToolStripMenuItem.Text = "Quarto Bob Dylan";
             this.quartoBobDylanToolStripMenuItem.CheckedChanged += new System.EventHandler(this.quartoBobDylanToolStripMenuItem_CheckedChanged);
+            // 
+            // toolStripMenuItem9
+            // 
+            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(141, 22);
+            this.toolStripMenuItem9.Text = "Livre";
+            // 
+            // toolStripMenuItem10
+            // 
+            this.toolStripMenuItem10.Name = "toolStripMenuItem10";
+            this.toolStripMenuItem10.Size = new System.Drawing.Size(141, 22);
+            this.toolStripMenuItem10.Text = "Ocupado";
+            // 
+            // toolStripMenuItem11
+            // 
+            this.toolStripMenuItem11.Name = "toolStripMenuItem11";
+            this.toolStripMenuItem11.Size = new System.Drawing.Size(141, 22);
+            this.toolStripMenuItem11.Text = "Manutenção";
+            // 
+            // toolStripMenuItem12
+            // 
+            this.toolStripMenuItem12.Name = "toolStripMenuItem12";
+            this.toolStripMenuItem12.Size = new System.Drawing.Size(141, 22);
+            this.toolStripMenuItem12.Text = "Reservado";
             // 
             // quartoJanesToolStripMenuItem
             // 
@@ -278,6 +376,30 @@
             this.quartoJanesToolStripMenuItem.Text = "Quarto Janes";
             this.quartoJanesToolStripMenuItem.CheckedChanged += new System.EventHandler(this.quartoJanesToolStripMenuItem_CheckedChanged);
             // 
+            // toolStripMenuItem13
+            // 
+            this.toolStripMenuItem13.Name = "toolStripMenuItem13";
+            this.toolStripMenuItem13.Size = new System.Drawing.Size(141, 22);
+            this.toolStripMenuItem13.Text = "Livre";
+            // 
+            // toolStripMenuItem14
+            // 
+            this.toolStripMenuItem14.Name = "toolStripMenuItem14";
+            this.toolStripMenuItem14.Size = new System.Drawing.Size(141, 22);
+            this.toolStripMenuItem14.Text = "Ocupado";
+            // 
+            // toolStripMenuItem15
+            // 
+            this.toolStripMenuItem15.Name = "toolStripMenuItem15";
+            this.toolStripMenuItem15.Size = new System.Drawing.Size(141, 22);
+            this.toolStripMenuItem15.Text = "Manutenção";
+            // 
+            // toolStripMenuItem16
+            // 
+            this.toolStripMenuItem16.Name = "toolStripMenuItem16";
+            this.toolStripMenuItem16.Size = new System.Drawing.Size(141, 22);
+            this.toolStripMenuItem16.Text = "Reservado";
+            // 
             // btVenda
             // 
             this.btVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -288,47 +410,6 @@
             this.btVenda.Text = "Reservas";
             this.btVenda.UseVisualStyleBackColor = true;
             this.btVenda.Click += new System.EventHandler(this.btVenda_Click);
-            // 
-            // pbFloyd
-            // 
-            this.pbFloyd.ErrorImage = null;
-            this.pbFloyd.Location = new System.Drawing.Point(230, 49);
-            this.pbFloyd.Name = "pbFloyd";
-            this.pbFloyd.Size = new System.Drawing.Size(25, 25);
-            this.pbFloyd.TabIndex = 6;
-            this.pbFloyd.TabStop = false;
-            // 
-            // pbStones
-            // 
-            this.pbStones.Location = new System.Drawing.Point(230, 70);
-            this.pbStones.Name = "pbStones";
-            this.pbStones.Size = new System.Drawing.Size(25, 25);
-            this.pbStones.TabIndex = 7;
-            this.pbStones.TabStop = false;
-            // 
-            // pbDave
-            // 
-            this.pbDave.Location = new System.Drawing.Point(230, 91);
-            this.pbDave.Name = "pbDave";
-            this.pbDave.Size = new System.Drawing.Size(25, 25);
-            this.pbDave.TabIndex = 8;
-            this.pbDave.TabStop = false;
-            // 
-            // pbDylan
-            // 
-            this.pbDylan.Location = new System.Drawing.Point(230, 112);
-            this.pbDylan.Name = "pbDylan";
-            this.pbDylan.Size = new System.Drawing.Size(25, 25);
-            this.pbDylan.TabIndex = 9;
-            this.pbDylan.TabStop = false;
-            // 
-            // pbJanes
-            // 
-            this.pbJanes.Location = new System.Drawing.Point(230, 133);
-            this.pbJanes.Name = "pbJanes";
-            this.pbJanes.Size = new System.Drawing.Size(25, 25);
-            this.pbJanes.TabIndex = 10;
-            this.pbJanes.TabStop = false;
             // 
             // label1
             // 
@@ -428,125 +509,46 @@
             this.lbLogged.Size = new System.Drawing.Size(0, 13);
             this.lbLogged.TabIndex = 21;
             // 
-            // livreToolStripMenuItem
+            // pbJanes
             // 
-            this.livreToolStripMenuItem.Name = "livreToolStripMenuItem";
-            this.livreToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.livreToolStripMenuItem.Text = "Livre";
+            this.pbJanes.Location = new System.Drawing.Point(230, 133);
+            this.pbJanes.Name = "pbJanes";
+            this.pbJanes.Size = new System.Drawing.Size(25, 25);
+            this.pbJanes.TabIndex = 10;
+            this.pbJanes.TabStop = false;
             // 
-            // ocupadoToolStripMenuItem
+            // pbDylan
             // 
-            this.ocupadoToolStripMenuItem.Name = "ocupadoToolStripMenuItem";
-            this.ocupadoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.ocupadoToolStripMenuItem.Text = "Ocupado";
+            this.pbDylan.Location = new System.Drawing.Point(230, 112);
+            this.pbDylan.Name = "pbDylan";
+            this.pbDylan.Size = new System.Drawing.Size(25, 25);
+            this.pbDylan.TabIndex = 9;
+            this.pbDylan.TabStop = false;
             // 
-            // manutençãoToolStripMenuItem1
+            // pbDave
             // 
-            this.manutençãoToolStripMenuItem1.Name = "manutençãoToolStripMenuItem1";
-            this.manutençãoToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.manutençãoToolStripMenuItem1.Text = "Manutenção";
+            this.pbDave.Location = new System.Drawing.Point(230, 91);
+            this.pbDave.Name = "pbDave";
+            this.pbDave.Size = new System.Drawing.Size(25, 25);
+            this.pbDave.TabIndex = 8;
+            this.pbDave.TabStop = false;
             // 
-            // reservadoToolStripMenuItem
+            // pbStones
             // 
-            this.reservadoToolStripMenuItem.Name = "reservadoToolStripMenuItem";
-            this.reservadoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.reservadoToolStripMenuItem.Text = "Reservado";
+            this.pbStones.Location = new System.Drawing.Point(230, 70);
+            this.pbStones.Name = "pbStones";
+            this.pbStones.Size = new System.Drawing.Size(25, 25);
+            this.pbStones.TabIndex = 7;
+            this.pbStones.TabStop = false;
             // 
-            // toolStripMenuItem1
+            // pbFloyd
             // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItem1.Text = "Livre";
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItem2.Text = "Ocupado";
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItem3.Text = "Manutenção";
-            // 
-            // toolStripMenuItem4
-            // 
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItem4.Text = "Reservado";
-            // 
-            // toolStripMenuItem5
-            // 
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItem5.Text = "Livre";
-            // 
-            // toolStripMenuItem6
-            // 
-            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItem6.Text = "Ocupado";
-            // 
-            // toolStripMenuItem7
-            // 
-            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItem7.Text = "Manutenção";
-            // 
-            // toolStripMenuItem8
-            // 
-            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            this.toolStripMenuItem8.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItem8.Text = "Reservado";
-            // 
-            // toolStripMenuItem9
-            // 
-            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            this.toolStripMenuItem9.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItem9.Text = "Livre";
-            // 
-            // toolStripMenuItem10
-            // 
-            this.toolStripMenuItem10.Name = "toolStripMenuItem10";
-            this.toolStripMenuItem10.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItem10.Text = "Ocupado";
-            // 
-            // toolStripMenuItem11
-            // 
-            this.toolStripMenuItem11.Name = "toolStripMenuItem11";
-            this.toolStripMenuItem11.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItem11.Text = "Manutenção";
-            // 
-            // toolStripMenuItem12
-            // 
-            this.toolStripMenuItem12.Name = "toolStripMenuItem12";
-            this.toolStripMenuItem12.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItem12.Text = "Reservado";
-            // 
-            // toolStripMenuItem13
-            // 
-            this.toolStripMenuItem13.Name = "toolStripMenuItem13";
-            this.toolStripMenuItem13.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItem13.Text = "Livre";
-            // 
-            // toolStripMenuItem14
-            // 
-            this.toolStripMenuItem14.Name = "toolStripMenuItem14";
-            this.toolStripMenuItem14.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItem14.Text = "Ocupado";
-            // 
-            // toolStripMenuItem15
-            // 
-            this.toolStripMenuItem15.Name = "toolStripMenuItem15";
-            this.toolStripMenuItem15.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItem15.Text = "Manutenção";
-            // 
-            // toolStripMenuItem16
-            // 
-            this.toolStripMenuItem16.Name = "toolStripMenuItem16";
-            this.toolStripMenuItem16.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItem16.Text = "Reservado";
+            this.pbFloyd.ErrorImage = null;
+            this.pbFloyd.Location = new System.Drawing.Point(230, 49);
+            this.pbFloyd.Name = "pbFloyd";
+            this.pbFloyd.Size = new System.Drawing.Size(25, 25);
+            this.pbFloyd.TabIndex = 6;
+            this.pbFloyd.TabStop = false;
             // 
             // Form1
             // 
@@ -580,11 +582,11 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFloyd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStones)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbDave)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbDylan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbJanes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDylan)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDave)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStones)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFloyd)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

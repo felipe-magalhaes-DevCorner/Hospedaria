@@ -14,6 +14,7 @@ namespace Hospedaria.fdrLogin
     public partial class frmRecuperaSenha : Form
     {
         private ConnectionClass db = new ConnectionClass();
+        public Form getform { get; set; }
         public frmRecuperaSenha()
         {
             InitializeComponent();
@@ -30,8 +31,7 @@ namespace Hospedaria.fdrLogin
                 db.closeConnection();
                 MessageBox.Show("Senha Alterada");
                 this.Hide();
-                fdrLogin.frmLogin objLogin = new fdrLogin.frmLogin();
-                objLogin.ShowDialog();
+                getform.Visible = true;
 
 
             }
@@ -44,7 +44,8 @@ namespace Hospedaria.fdrLogin
 
         private void btnSair_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Hide();
+            getform.Visible = true;
         }
     }
 }

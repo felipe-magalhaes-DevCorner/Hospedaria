@@ -160,7 +160,11 @@ namespace Hospedaria.fdrLogin
 
         private void klbRecuperar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            fdrLogin.frmRecuperaSenha objSenha = new frmRecuperaSenha();
+            objSenha.getform = this;
             this.Hide();
+
+            objSenha.ShowDialog();
 
         }
     }

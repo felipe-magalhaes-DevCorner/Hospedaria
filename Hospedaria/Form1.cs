@@ -32,8 +32,10 @@ namespace Hospedaria
                 objLogin.getform = this;
 
                 objLogin.ShowDialog();
-                this.Hide();
-                objLogin.Focus();
+                
+
+                //this.Hide();
+                //objLogin.Focus();
 
             }
             if (control)
@@ -594,7 +596,17 @@ namespace Hospedaria
 
         }
 
+        private void relatorioDiarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void financeiroToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            fdrFinanceiro.frmFinanceiro objFin = new fdrFinanceiro.frmFinanceiro();
+            objFin.ShowDialog();
+            this.Hide();
+        }
     }
 }
 
