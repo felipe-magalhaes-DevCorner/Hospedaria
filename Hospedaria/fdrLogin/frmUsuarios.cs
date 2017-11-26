@@ -62,13 +62,14 @@ namespace Hospedaria.fdrLogin
                 db.QueryRun();
                 db.closeConnection();
 
-                DialogResult dialogResult = MessageBox.Show("Novo usuario cadastrado com sucesso.", "Concluido", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("Novo usuario cadastrado com sucesso. Gostaria de cadastrar outro usuario?", "Concluido", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     txtNome.Clear();
                     txtLogin.Clear();
                     txtSenha.Clear();
                     txtConfirmaSenha.Clear();
+                    txtMestre.Clear();
                     comboBox1.SelectedIndex = 0;
                 }
                 else if (dialogResult == DialogResult.No)
