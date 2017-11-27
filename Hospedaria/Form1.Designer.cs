@@ -317,6 +317,7 @@
             // 
             // toolStripMenuItem5
             // 
+            this.toolStripMenuItem5.CheckOnClick = true;
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
             this.toolStripMenuItem5.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItem5.Text = "Livre";
@@ -324,6 +325,7 @@
             // 
             // toolStripMenuItem6
             // 
+            this.toolStripMenuItem6.CheckOnClick = true;
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
             this.toolStripMenuItem6.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItem6.Text = "Ocupado";
@@ -331,6 +333,7 @@
             // 
             // toolStripMenuItem7
             // 
+            this.toolStripMenuItem7.CheckOnClick = true;
             this.toolStripMenuItem7.Name = "toolStripMenuItem7";
             this.toolStripMenuItem7.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItem7.Text = "Manutenção";
@@ -338,6 +341,7 @@
             // 
             // toolStripMenuItem8
             // 
+            this.toolStripMenuItem8.CheckOnClick = true;
             this.toolStripMenuItem8.Name = "toolStripMenuItem8";
             this.toolStripMenuItem8.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItem8.Text = "Reservado";

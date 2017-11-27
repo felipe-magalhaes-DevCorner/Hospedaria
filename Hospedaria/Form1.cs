@@ -420,7 +420,7 @@ namespace Hospedaria
                                 toolStripMenuItem10.Checked = false;
                                 toolStripMenuItem11.Checked = false;
                                 toolStripMenuItem12.Checked = true;
-
+                                pbDylan.Image = Hospedaria.Properties.Resources.bluecircle;
                                 pbDylan.SizeMode = PictureBoxSizeMode.StretchImage;
                                 label7.Text = "Reservado";
                                 
