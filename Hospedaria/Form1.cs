@@ -224,11 +224,11 @@ namespace Hospedaria
                             break;
                         case 5:
                             {
-                                toolStripMenuItem12.Checked = true;
-                                toolStripMenuItem13.Checked = false;
+                                toolStripMenuItem13.Checked = true;
                                 toolStripMenuItem14.Checked = false;
                                 toolStripMenuItem15.Checked = false;
-                                
+                                toolStripMenuItem16.Checked = false;
+
                                 pbJanes.Image = Hospedaria.Properties.Resources.green_circle;
                                 pbJanes.SizeMode = PictureBoxSizeMode.StretchImage;
                                 label6.Text = "Livre";
@@ -293,10 +293,10 @@ namespace Hospedaria
                             break;
                         case 5:
                             {
-                                toolStripMenuItem12.Checked = false;
-                                toolStripMenuItem13.Checked = true;
-                                toolStripMenuItem14.Checked = false;
+                                toolStripMenuItem13.Checked = false;
+                                toolStripMenuItem14.Checked = true;
                                 toolStripMenuItem15.Checked = false;
+                                toolStripMenuItem16.Checked = false;
                                 pbJanes.Image = Hospedaria.Properties.Resources.red_circle;
                                 pbJanes.SizeMode = PictureBoxSizeMode.StretchImage;
                                 label6.Text = "Ocupado";
@@ -357,10 +357,10 @@ namespace Hospedaria
                             break;
                         case 5:
                             {
-                                toolStripMenuItem12.Checked = false;
                                 toolStripMenuItem13.Checked = false;
-                                toolStripMenuItem14.Checked = true;
-                                toolStripMenuItem15.Checked = false;
+                                toolStripMenuItem14.Checked = false;
+                                toolStripMenuItem15.Checked = true;
+                                toolStripMenuItem16.Checked = false;
                                 
                                 pbJanes.Image = Hospedaria.Properties.Resources.orange_circle;
                                 pbJanes.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -428,10 +428,10 @@ namespace Hospedaria
                             break;
                         case 5:
                             {
-                                toolStripMenuItem12.Checked = false;
                                 toolStripMenuItem13.Checked = false;
                                 toolStripMenuItem14.Checked = false;
-                                toolStripMenuItem15.Checked = true;
+                                toolStripMenuItem15.Checked = false;
+                                toolStripMenuItem16.Checked = true;
                                 pbJanes.Image = Hospedaria.Properties.Resources.bluecircle;
                                 pbJanes.SizeMode = PictureBoxSizeMode.StretchImage;
                                 label6.Text = "Reservado";
@@ -698,21 +698,292 @@ namespace Hospedaria
 
         }
 
-        private void ocupadoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
 
+
+        private void CheckBoxUpdate(int Hospedagem, int condicao)
+        {
             db.SqlConnection();
-            if (livreToolStripMenuItem.Checked)
-            {
-                db.SqlQuery("update hospedagem set idcondicao = '2' where idhospedagem = '5'");
-            }
-            else
-            {
-                db.SqlQuery("update hospedagem set idcondicao = '1' where idhospedagem = '5'");
-            }
+
+                db.SqlQuery("update hospedagem set idcondicao = '"+condicao+"' where idhospedagem = '"+ Hospedagem + "'");
+
+                
+
             db.QueryRun();
             db.closeConnection();
             CheckStatus();
+        }
+
+        private void livreToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            if (livreToolStripMenuItem.Checked)
+            {
+                CheckBoxUpdate(1, 1);
+
+            }
+            else
+            {
+                livreToolStripMenuItem.Checked = true;
+            }
+
+        }
+
+        private void manutençãoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (manutençãoToolStripMenuItem1.Checked)
+            {
+                CheckBoxUpdate(1, 3);
+
+            }
+            else
+            {
+                manutençãoToolStripMenuItem1.Checked = true;
+            }
+
+        }
+
+        private void reservadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (reservadoToolStripMenuItem.Checked)
+            {
+                CheckBoxUpdate(1, 4);
+
+            }
+            else
+            {
+                reservadoToolStripMenuItem.Checked = true;
+            }
+
+        }
+
+        private void ocupadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (ocupadoToolStripMenuItem.Checked)
+            {
+                CheckBoxUpdate(1, 2);
+
+            }
+            else
+            {
+                ocupadoToolStripMenuItem.Checked = true;
+            }
+
+
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (toolStripMenuItem1.Checked)
+            {
+                CheckBoxUpdate(2, 1);
+
+            }
+            else
+            {
+                toolStripMenuItem1.Checked = true;
+            }
+
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            if (toolStripMenuItem2.Checked)
+            {
+                CheckBoxUpdate(2, 2);
+
+            }
+            else
+            {
+                toolStripMenuItem2.Checked = true;
+            }
+
+        }
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            if (toolStripMenuItem3.Checked)
+            {
+                CheckBoxUpdate(2, 3);
+
+            }
+            else
+            {
+                toolStripMenuItem3.Checked = true;
+            }
+
+        }
+
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            if (toolStripMenuItem4.Checked)
+            {
+                CheckBoxUpdate(2, 4);
+
+            }
+            else
+            {
+                toolStripMenuItem4.Checked = true;
+            }
+
+        }
+
+        private void toolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+            if (toolStripMenuItem5.Checked)
+            {
+                CheckBoxUpdate(3, 1);
+
+            }
+            else
+            {
+                toolStripMenuItem5.Checked = true;
+            }
+
+
+        }
+
+        private void toolStripMenuItem6_Click(object sender, EventArgs e)
+        {
+            if (toolStripMenuItem6.Checked)
+            {
+                CheckBoxUpdate(3, 2);
+
+            }
+            else
+            {
+                toolStripMenuItem6.Checked = true;
+            }
+        }
+
+        private void toolStripMenuItem7_Click(object sender, EventArgs e)
+        {
+            if (toolStripMenuItem7.Checked)
+            {
+                CheckBoxUpdate(3, 3);
+
+            }
+            else
+            {
+                toolStripMenuItem7.Checked = true;
+            }
+
+        }
+
+        private void toolStripMenuItem8_Click(object sender, EventArgs e)
+        {
+            if (toolStripMenuItem8.Checked)
+            {
+                CheckBoxUpdate(3, 4);
+
+            }
+            else
+            {
+                toolStripMenuItem8.Checked = true;
+            }
+
+        }
+
+        private void toolStripMenuItem9_Click(object sender, EventArgs e)
+        {
+            if (toolStripMenuItem9.Checked)
+            {
+                CheckBoxUpdate(4, 1);
+
+            }
+            else
+            {
+                toolStripMenuItem9.Checked = true;
+            }
+        }
+
+        private void toolStripMenuItem10_Click(object sender, EventArgs e)
+        {
+            if (toolStripMenuItem10.Checked)
+            {
+                CheckBoxUpdate(4, 2);
+
+            }
+            else
+            {
+                toolStripMenuItem10.Checked = true;
+            }
+        }
+
+        private void toolStripMenuItem11_Click(object sender, EventArgs e)
+        {
+            if (toolStripMenuItem11.Checked)
+            {
+                CheckBoxUpdate(4, 3);
+
+            }
+            else
+            {
+                toolStripMenuItem11.Checked = true;
+            }
+        }
+
+        private void toolStripMenuItem12_Click(object sender, EventArgs e)
+        {
+            if (toolStripMenuItem12.Checked)
+            {
+                CheckBoxUpdate(4, 4);
+
+            }
+            else
+            {
+                toolStripMenuItem12.Checked = true;
+            }
+        }
+
+        private void toolStripMenuItem13_Click(object sender, EventArgs e)
+        {
+            if (toolStripMenuItem13.Checked)
+            {
+                CheckBoxUpdate(5, 1);
+
+            }
+            else
+            {
+                toolStripMenuItem13.Checked = true;
+            }
+        }
+
+        private void toolStripMenuItem14_Click(object sender, EventArgs e)
+        {
+            if (toolStripMenuItem14.Checked)
+            {
+                CheckBoxUpdate(5, 2);
+
+            }
+            else
+            {
+                toolStripMenuItem14.Checked = true;
+            }
+        }
+
+        private void toolStripMenuItem15_Click(object sender, EventArgs e)
+        {
+            if (toolStripMenuItem15.Checked)
+            {
+                CheckBoxUpdate(5, 3);
+
+            }
+            else
+            {
+                toolStripMenuItem15.Checked = true;
+            }
+        }
+
+        private void toolStripMenuItem16_Click(object sender, EventArgs e)
+        {
+            if (toolStripMenuItem16.Checked)
+            {
+                CheckBoxUpdate(5, 4);
+
+            }
+            else
+            {
+                toolStripMenuItem16.Checked = true;
+            }
         }
     }
 }
