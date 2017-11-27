@@ -227,10 +227,11 @@ namespace Hospedaria
                     {
                         case 1:
                             {
-                                suitePresidenciaslToolStripMenuItem.Checked = false;
+                                ocupadoToolStripMenuItem.Checked = true;
                                 pbFloyd.Image = Hospedaria.Properties.Resources.red_circle;
                                 pbFloyd.SizeMode = PictureBoxSizeMode.StretchImage;
                                 label10.Text = "Ocupado";
+                                
                                 //db.SqlQuery("update hospedagem set idcondicao = '"+ idCONDICAO + "' where idhospedagem = '"+idHOSPEDAGM+"'");
                                 //db.QueryRun();
 
@@ -238,7 +239,7 @@ namespace Hospedaria
                             break;
                         case 2:
                             {
-                                suiteMasterToolStripMenuItem.Checked = false;
+                                toolStripMenuItem2.Checked = true;
                                 pbStones.Image = Hospedaria.Properties.Resources.red_circle;
                                 pbStones.SizeMode = PictureBoxSizeMode.StretchImage;
                                 label9.Text = "Ocupado";
@@ -246,7 +247,7 @@ namespace Hospedaria
                             break;
                         case 3:
                             {
-                                suiteJaguaçãoToolStripMenuItem.Checked = false;
+                                toolStripMenuItem6.Checked = true;
                                 pbDave.Image = Hospedaria.Properties.Resources.red_circle;
                                 pbDave.SizeMode = PictureBoxSizeMode.StretchImage;
                                 label8.Text = "Ocupado";
@@ -254,7 +255,7 @@ namespace Hospedaria
                             break;
                         case 4:
                             {
-                                quartoBobDylanToolStripMenuItem.Checked = false;
+                                toolStripMenuItem10.Checked = false;
                                 pbDylan.Image = Hospedaria.Properties.Resources.red_circle;
                                 pbDylan.SizeMode = PictureBoxSizeMode.StretchImage;
                                 label7.Text = "Ocupado";
@@ -262,7 +263,7 @@ namespace Hospedaria
                             break;
                         case 5:
                             {
-                                quartoJanesToolStripMenuItem.Checked = false;
+                                toolStripMenuItem14.Checked = false;
                                 pbJanes.Image = Hospedaria.Properties.Resources.red_circle;
                                 pbJanes.SizeMode = PictureBoxSizeMode.StretchImage;
                                 label6.Text = "Ocupado";
@@ -329,7 +330,7 @@ namespace Hospedaria
                                 pbFloyd.Image = Hospedaria.Properties.Resources.bluecircle;
                                 pbFloyd.SizeMode = PictureBoxSizeMode.StretchImage;
                                 label10.Text = "Reservado";
-                                suitePresidenciaslToolStripMenuItem.Checked = false;
+                                reservadoToolStripMenuItem.Checked = false;
 
                             }
                             break;
@@ -339,7 +340,7 @@ namespace Hospedaria
                                 pbStones.Image = Hospedaria.Properties.Resources.bluecircle; 
                                 pbStones.SizeMode = PictureBoxSizeMode.StretchImage;
                                 label9.Text = "Reservado";
-                                suiteMasterToolStripMenuItem.Checked = false;
+                                toolStripMenuItem4.Checked = false;
                             }
                             break;
                         case 3:
@@ -348,7 +349,7 @@ namespace Hospedaria
                                 pbDave.Image = Hospedaria.Properties.Resources.bluecircle; 
                                 pbDave.SizeMode = PictureBoxSizeMode.StretchImage;
                                 label8.Text = "Reservado";
-                                suiteJaguaçãoToolStripMenuItem.Checked = false;
+                                toolStripMenuItem8.Checked = false;
                             }
                             break;
                         case 4:
@@ -357,7 +358,7 @@ namespace Hospedaria
                                 pbDylan.Image = Hospedaria.Properties.Resources.bluecircle;
                                 pbDylan.SizeMode = PictureBoxSizeMode.StretchImage;
                                 label7.Text = "Reservado";
-                                quartoBobDylanToolStripMenuItem.Checked = false;
+                                toolStripMenuItem12.Checked = false;
                             }
                             break;
                         case 5:
@@ -366,7 +367,7 @@ namespace Hospedaria
                                 pbJanes.Image = Hospedaria.Properties.Resources.bluecircle;
                                 pbJanes.SizeMode = PictureBoxSizeMode.StretchImage;
                                 label6.Text = "Reservado";
-                                quartoJanesToolStripMenuItem.Checked = false;
+                                toolStripMenuItem16.Checked = false;
                             }
                             break;
                     }
@@ -377,6 +378,10 @@ namespace Hospedaria
 
             }
             db.closeConnection();
+        }
+        private void updateCheckBoxes()
+        {
+
         }
         int auxCount = 1;
         private void suitePresidenciaslToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
@@ -408,10 +413,10 @@ namespace Hospedaria
                 }
                 db.QueryRun();
                 db.closeConnection();
-                CheckStatus();
+                
 
             }
-
+            CheckStatus();
 
 
 
@@ -606,6 +611,40 @@ namespace Hospedaria
             fdrFinanceiro.frmFinanceiro objFin = new fdrFinanceiro.frmFinanceiro();
             objFin.ShowDialog();
             this.Hide();
+        }
+
+        private void livreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            db.SqlConnection();
+            if (livreToolStripMenuItem.Checked)
+            {
+                db.SqlQuery("update hospedagem set idcondicao = '3' where idhospedagem = '5'");
+            }
+            else
+            {
+                db.SqlQuery("update hospedagem set idcondicao = '1' where idhospedagem = '5'");
+            }
+            db.QueryRun();
+            db.closeConnection();
+            CheckStatus();
+
+        }
+
+        private void ocupadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            db.SqlConnection();
+            if (livreToolStripMenuItem.Checked)
+            {
+                db.SqlQuery("update hospedagem set idcondicao = '2' where idhospedagem = '5'");
+            }
+            else
+            {
+                db.SqlQuery("update hospedagem set idcondicao = '1' where idhospedagem = '5'");
+            }
+            db.QueryRun();
+            db.closeConnection();
+            CheckStatus();
         }
     }
 }
