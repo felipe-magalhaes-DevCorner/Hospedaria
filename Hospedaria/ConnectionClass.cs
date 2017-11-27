@@ -18,17 +18,30 @@ namespace Hospedaria
         private DataTable _dt;
         public void SqlConnection()
         {
-            _conn = new SqlConnection("Data Source=DESKTOP-UIFLJV2\\SQLEXPRESS;Initial Catalog=Hospedaria;Integrated Security=True");
-            
+            /////------------------------- AKI DIZEMOS AONDE ESTA O SQL-------------------------------
+            //A _CONN PRIMEIRA  e segunda É MINHA A terceira DE VOCES SE TIVER UM ERRO CHECAR AKI PRIMEIRO.
+
+            //_conn = new SqlConnection("Data Source=(localdb)\\ProjectsV13;Initial Catalog=Hospedaria;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            //_conn = new SqlConnection("Data Source = ANDROIDK1; Initial Catalog = Hospedaria; Persist Security Info = True; User ID = sa; Password = root");
+            //----------------- suas
+            //_conn = new SqlConnection("Data Source=DESKTOP - NGUFCEO\\SQLEXPRESS;Initial Catalog=hospedaria;Integrated Security=True");
+
+            _conn = new SqlConnection("Data Source = localhost\\SQLEXPRESS; Initial Catalog = Hospedaria; Integrated Security = True");
+            //_conn = new SqlConnection("Data Source=localhost\\SQLEXPRESS;Initial Catalog=hospedaria;Integrated Security=True");
+            /////------------------------- ABRO A CONEXAO-------------------------------
+            _conn.Open();
 
         }
         public void SqlQuery(string pQueryText)
+        ////
         {
+            /////------------------------- DOU COLAR NA QUERO NO SQL E DIGO AONDE COLAR-------------------------------
             _cmd = new SqlCommand(pQueryText, _conn);
         }
         public DataTable QueryDT()
         {
-            _conn.Open();
+
+            /////------------------------- ME RETORNA UMA TABELA COM O RESULTADO-------------------------------
             _datadapter = new SqlDataAdapter(_cmd);
             _dt = new DataTable();
             _datadapter.Fill(_dt);
@@ -38,25 +51,27 @@ namespace Hospedaria
         }
         public SqlDataReader QueryReader()
         {
-            _conn.Open();
+            /////------------------------- EXECUTA A QUERY E -------------------------------
+            /////------------------------- ME RETORNA UM LEITOR, PARA LER AS CELULAS DO RESULTADO DA QUERY-------------------------------
             _datareader = _cmd.ExecuteReader();
-            
-            
+
+
             return _datareader;
 
-            
+
 
 
 
         }
         public void QueryRun()
         {
-            _conn.Open();
+            /////------------------------- EXECUTA A QUERY(COMANDOS ---INSERT / UPDATE AKI-------------------------------
             _cmd.ExecuteNonQuery();
 
         }
         public void closeConnection()
         {
+            /////------------------------- FECHO A CONEXAO-------------------------------
             _conn.Close();
             _conn.Dispose();
         }
