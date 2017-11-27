@@ -73,6 +73,16 @@ namespace Hospedaria.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap branco {
+            get {
+                object obj = ResourceManager.GetObject("branco", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap green_circle {
             get {
                 object obj = ResourceManager.GetObject("green_circle", resourceCulture);
@@ -106,6 +116,16 @@ namespace Hospedaria.Properties {
         internal static System.Drawing.Bitmap searchicon {
             get {
                 object obj = ResourceManager.GetObject("searchicon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap test1 {
+            get {
+                object obj = ResourceManager.GetObject("test1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

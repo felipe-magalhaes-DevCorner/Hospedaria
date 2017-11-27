@@ -284,6 +284,8 @@
     <None Include="Resources\searchicon.jpg" />
     <None Include="Resources\bluecircle.png" />
     <Content Include="Resources\blue_circle.png" />
+    <None Include="Resources\test1.png" />
+    <None Include="Resources\branco.png" />
     <Content Include="SQL Script\script.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
