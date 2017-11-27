@@ -23,8 +23,11 @@ namespace Hospedaria.fdrLogin
         
         public frmLogin(bool _control = false)
         {
+
             control = _control;
             InitializeComponent();
+            txtPassword.Clear();
+            txtUsername.Clear();
 
 
             
@@ -59,17 +62,21 @@ namespace Hospedaria.fdrLogin
                         loginName = _dr["LOGIN"].ToString();
                         loggedName = _dr["NOME"].ToString();
                         powerlevel = (Convert.ToInt32(_dr["powerlevel"]));
+                        control = true;
+                        this.Hide();
                         Form1 objFrm1 = new Form1(false,loggedName, powerlevel, true);
                         //objFrm1.LoggedName = loggedName;
-
-                        this.Close();
+                        
                         AuxCountLogin = 1;
+                        
+                        
 
 
                     }
                     else
                     {
                         AuxCountLogin++;
+                        control = false;
                     }
 
                 }
@@ -83,18 +90,23 @@ namespace Hospedaria.fdrLogin
                     MessageBox.Show("Conta banida, o programa ira encessar agora. Contate o seu gerente para liberar seu usuario.");
                     db2.closeConnection();
                     Application.Exit();
+                    control = false;
 
                 }
 
 
             }
             db.closeConnection();
-                        if (control)
+            if (control)
             {
-                Form1 objPrincipal = new Form1();
-                objPrincipal.ShowDialog();
+                //Form1 objPrincipal = new Form1(false, loggedName, powerlevel, true);
+                //objPrincipal.ShowDialog();
+                
 
             }
+            control = false;
+            this.Close();
+
 
 
 
@@ -137,6 +149,7 @@ namespace Hospedaria.fdrLogin
                     {
                         MessageBox.Show("Usuario banido.");
                         return false;
+                        control = false;
                     }
 
                     

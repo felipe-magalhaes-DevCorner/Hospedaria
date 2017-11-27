@@ -96,9 +96,11 @@ namespace Hospedaria
                     break;
                 case 2:
                     {
-                        usuariosToolStripMenuItem.Visible = false;
+
+                        cadastrarUsuarioToolStripMenuItem.Visible = false;
+                        alterarUsuarioToolStripMenuItem.Visible = false;
                         financeiroToolStripMenuItem1.Visible = false;
-                        estoqueToolStripMenuItem.Visible = false;
+                        
 
 
                     }
@@ -623,6 +625,8 @@ namespace Hospedaria
             fdrLogin.frmLogin objLogin = new fdrLogin.frmLogin(true);
             objLogin.getform = this;
             objLogin.ShowDialog();
+            this.Visible = true;
+
 
         }
         private void TimerUpdated()
