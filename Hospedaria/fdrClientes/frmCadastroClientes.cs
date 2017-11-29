@@ -95,8 +95,9 @@ namespace Hospedaria.fdrClientes
         {
             Form1 objPrin = new Form1();
             this.Hide();
-            objPrin.ShowDialog();
-            
+            RefToMenu.Visible = true;
+
+
         }
     }
 }

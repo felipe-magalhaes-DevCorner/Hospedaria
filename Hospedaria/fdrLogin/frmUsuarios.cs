@@ -48,7 +48,7 @@ namespace Hospedaria.fdrLogin
 
         private void frmUsuarios_FormClosing(object sender, FormClosingEventArgs e)
         {
-            getform.Show();
+            getform.Visible = true;
         }
 
         private void btGravar_Click(object sender, EventArgs e)

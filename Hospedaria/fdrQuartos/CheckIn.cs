@@ -178,6 +178,7 @@ namespace Hospedaria.fdrQuartos
                     break;
                 case 4:
                     {
+
                         db.SqlConnection();
                          query = "select reservas.datareserva from reservas where reservas.idhospedagem = '" + idQuarto[cbQuarto.SelectedIndex] + "' order by reservas.idreserva";
                         db.SqlQuery(query);
@@ -312,6 +313,7 @@ namespace Hospedaria.fdrQuartos
                     //data final pode ser em branco ou ate a data da proxima reserva naquele quarto
                     if (datepicker1.Value.ToString("dd/MM/yyyy 14:00") == dataProximaReserva.ToString("dd/MM/yyyy HH:mm"))//caso a data saida esteja em branco
                     {
+
                         DialogResult dialogResult = MessageBox.Show(string.Format("Existe uma reserva para o dia {0} para o cliente {1}, Confirma ser essa reserva?", dataProximaReserva.ToString("dd/MM/yyyy HH:mm"), nomeCliente[idCliente.IndexOf(indexReserva)] ), "Cadastrado", MessageBoxButtons.YesNo);
                         if (dialogResult == DialogResult.Yes)
                         {
@@ -420,6 +422,7 @@ namespace Hospedaria.fdrQuartos
             }
             else
             {
+
                 DialogResult dialogResult = MessageBox.Show("Cliente nao cadastrado. Gostaria de cadastrar?", "Cadastrado", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
@@ -443,7 +446,7 @@ namespace Hospedaria.fdrQuartos
         private void CheckIn_FormClosing(object sender, FormClosingEventArgs e)
         {
 
-                Form1 objPrin = new Form1();
+                
 
 
                 this.Hide();
