@@ -23,7 +23,7 @@ namespace Hospedaria
             {
                 Thread t = new Thread(new ThreadStart(splash));
                 t.Start();
-                Thread.Sleep(1000);
+                Thread.Sleep(5000);
                 t.Abort();
 
                 this.Hide();
