@@ -122,10 +122,14 @@
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="cbNomeRes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>111, 26</value>
+    <value>166, 48</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="cbNomeRes.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 5, 4, 5</value>
   </data>
   <data name="cbNomeRes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>370, 28</value>
+    <value>553, 37</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="cbNomeRes.TabIndex" type="System.Int32, mscorlib">
@@ -150,10 +154,13 @@
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="datepicker1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>111, 107</value>
+    <value>166, 165</value>
+  </data>
+  <data name="datepicker1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 5, 4, 5</value>
   </data>
   <data name="datepicker1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>196, 26</value>
+    <value>292, 35</value>
   </data>
   <data name="datepicker1.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -174,10 +181,13 @@
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="cbQuarto.Location" type="System.Drawing.Point, System.Drawing">
-    <value>111, 63</value>
+    <value>166, 102</value>
+  </data>
+  <data name="cbQuarto.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 5, 4, 5</value>
   </data>
   <data name="cbQuarto.Size" type="System.Drawing.Size, System.Drawing">
-    <value>242, 28</value>
+    <value>361, 37</value>
   </data>
   <data name="cbQuarto.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -201,16 +211,19 @@
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>28, 33</value>
+    <value>39, 51</value>
+  </data>
+  <data name="label1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>78, 20</value>
+    <value>118, 29</value>
   </data>
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
-    <value>Hospede:</value>
+    <value>Hóspede:</value>
   </data>
   <data name="&gt;&gt;label1.Name" xml:space="preserve">
     <value>label1</value>
@@ -231,10 +244,13 @@
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>44, 66</value>
+    <value>65, 110</value>
+  </data>
+  <data name="label3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>62, 20</value>
+    <value>92, 29</value>
   </data>
   <data name="label3.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -261,10 +277,13 @@
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-2, 112</value>
+    <value>-2, 165</value>
+  </data>
+  <data name="label4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 20</value>
+    <value>160, 29</value>
   </data>
   <data name="label4.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -288,10 +307,13 @@
     <value>Microsoft Sans Serif, 12pt, style=Bold</value>
   </data>
   <data name="button2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>375, 79</value>
+    <value>562, 122</value>
+  </data>
+  <data name="button2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 5, 4, 5</value>
   </data>
   <data name="button2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 90</value>
+    <value>135, 138</value>
   </data>
   <data name="button2.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -318,16 +340,19 @@
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-2, 148</value>
+    <value>13, 220</value>
+  </data>
+  <data name="label2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 20</value>
+    <value>136, 29</value>
   </data>
   <data name="label2.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
-    <value>Data Saida:</value>
+    <value>Data Saída:</value>
   </data>
   <data name="&gt;&gt;label2.Name" xml:space="preserve">
     <value>label2</value>
@@ -348,10 +373,13 @@
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="datepicker2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>111, 143</value>
+    <value>166, 220</value>
+  </data>
+  <data name="datepicker2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 5, 4, 5</value>
   </data>
   <data name="datepicker2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>196, 26</value>
+    <value>292, 35</value>
   </data>
   <data name="datepicker2.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -375,10 +403,13 @@
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+    <value>9, 20</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>494, 186</value>
+    <value>741, 286</value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 5, 4, 5</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>frmReservas</value>

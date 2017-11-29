@@ -111,7 +111,7 @@
             // 
             // btGravar
             // 
-            this.btGravar.BackgroundImage = global::Hospedaria.Properties.Resources.branco;
+            this.btGravar.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btGravar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btGravar.Location = new System.Drawing.Point(320, 215);
             this.btGravar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -119,12 +119,12 @@
             this.btGravar.Size = new System.Drawing.Size(120, 123);
             this.btGravar.TabIndex = 9;
             this.btGravar.Text = "Alterar";
-            this.btGravar.UseVisualStyleBackColor = true;
+            this.btGravar.UseVisualStyleBackColor = false;
             this.btGravar.Click += new System.EventHandler(this.btGravar_Click);
             // 
             // button1
             // 
-            this.button1.BackgroundImage = global::Hospedaria.Properties.Resources.branco;
+            this.button1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(192, 215);
             this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -132,7 +132,7 @@
             this.button1.Size = new System.Drawing.Size(120, 123);
             this.button1.TabIndex = 10;
             this.button1.Text = "Excluir";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label4
@@ -175,7 +175,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Hospedaria.Properties.Resources.branco;
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(452, 351);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cbCargo);

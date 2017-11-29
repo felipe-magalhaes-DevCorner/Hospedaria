@@ -89,8 +89,7 @@
             // 
             // bAlterar
             // 
-            this.bAlterar.BackColor = System.Drawing.Color.Transparent;
-            this.bAlterar.BackgroundImage = global::Hospedaria.Properties.Resources.branco;
+            this.bAlterar.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.bAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bAlterar.Location = new System.Drawing.Point(357, 20);
             this.bAlterar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -103,7 +102,7 @@
             // 
             // btnSair
             // 
-            this.btnSair.BackgroundImage = global::Hospedaria.Properties.Resources.branco;
+            this.btnSair.BackColor = System.Drawing.Color.White;
             this.btnSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSair.Location = new System.Drawing.Point(357, 125);
             this.btnSair.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -111,7 +110,7 @@
             this.btnSair.Size = new System.Drawing.Size(156, 58);
             this.btnSair.TabIndex = 33;
             this.btnSair.Text = "Sair";
-            this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.UseVisualStyleBackColor = false;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // txtRecu
@@ -154,7 +153,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Hospedaria.Properties.Resources.branco;
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(531, 214);
             this.Controls.Add(this.txtPass);
             this.Controls.Add(label1);

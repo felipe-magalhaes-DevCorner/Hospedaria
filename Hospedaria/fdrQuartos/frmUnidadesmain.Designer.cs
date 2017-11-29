@@ -34,34 +34,40 @@
             // 
             // btVenda
             // 
+            this.btVenda.BackColor = System.Drawing.Color.White;
             this.btVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btVenda.Location = new System.Drawing.Point(12, 12);
+            this.btVenda.Location = new System.Drawing.Point(18, 18);
+            this.btVenda.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btVenda.Name = "btVenda";
-            this.btVenda.Size = new System.Drawing.Size(150, 150);
+            this.btVenda.Size = new System.Drawing.Size(225, 231);
             this.btVenda.TabIndex = 6;
             this.btVenda.Text = "Check In";
-            this.btVenda.UseVisualStyleBackColor = true;
+            this.btVenda.UseVisualStyleBackColor = false;
             this.btVenda.Click += new System.EventHandler(this.btVenda_Click);
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.White;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(195, 12);
+            this.button1.Location = new System.Drawing.Point(292, 18);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(150, 150);
+            this.button1.Size = new System.Drawing.Size(225, 231);
             this.button1.TabIndex = 7;
             this.button1.Text = "Check Out";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmUnidadesmain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(356, 174);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(534, 268);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btVenda);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmUnidadesmain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmUnidadesmain";

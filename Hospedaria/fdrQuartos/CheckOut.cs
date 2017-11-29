@@ -161,5 +161,10 @@ namespace Hospedaria.fdrQuartos
             this.Hide();
             objPrincipal.Show();
         }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -162,6 +162,7 @@
             // 
             // btEditar
             // 
+            this.btEditar.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btEditar.Location = new System.Drawing.Point(670, 368);
             this.btEditar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -169,11 +170,12 @@
             this.btEditar.Size = new System.Drawing.Size(120, 123);
             this.btEditar.TabIndex = 8;
             this.btEditar.Text = "Editar";
-            this.btEditar.UseVisualStyleBackColor = true;
+            this.btEditar.UseVisualStyleBackColor = false;
             this.btEditar.Click += new System.EventHandler(this.btEditar_Click);
             // 
             // btExcluir
             // 
+            this.btExcluir.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btExcluir.Location = new System.Drawing.Point(506, 368);
             this.btExcluir.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -181,7 +183,7 @@
             this.btExcluir.Size = new System.Drawing.Size(120, 123);
             this.btExcluir.TabIndex = 7;
             this.btExcluir.Text = "Excluir";
-            this.btExcluir.UseVisualStyleBackColor = true;
+            this.btExcluir.UseVisualStyleBackColor = false;
             this.btExcluir.Click += new System.EventHandler(this.btExcluir_Click);
             // 
             // cbCPF
@@ -212,6 +214,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(813, 515);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.cbCPF);
