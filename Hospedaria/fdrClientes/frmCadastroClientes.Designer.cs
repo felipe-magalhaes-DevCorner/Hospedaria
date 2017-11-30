@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCadastroClientes));
             this.label1 = new System.Windows.Forms.Label();
             this.lbCPF = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -168,7 +169,7 @@
             // 
             // btGravar
             // 
-            this.btGravar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btGravar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btGravar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btGravar.Location = new System.Drawing.Point(488, 348);
             this.btGravar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -198,10 +199,11 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lbCPF);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmCadastroClientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "frmCadastroClientes";
+            this.Text = "CadastroClientes";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmCadastroClientes_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();

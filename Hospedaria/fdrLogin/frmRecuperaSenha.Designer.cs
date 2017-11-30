@@ -31,6 +31,7 @@
             System.Windows.Forms.Label label1;
             System.Windows.Forms.Label idrecuperaLabel;
             System.Windows.Forms.Label usernameLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRecuperaSenha));
             this.txtPass = new System.Windows.Forms.TextBox();
             this.bAlterar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
@@ -89,7 +90,7 @@
             // 
             // bAlterar
             // 
-            this.bAlterar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.bAlterar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.bAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bAlterar.Location = new System.Drawing.Point(357, 20);
             this.bAlterar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -102,7 +103,7 @@
             // 
             // btnSair
             // 
-            this.btnSair.BackColor = System.Drawing.Color.White;
+            this.btnSair.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSair.Location = new System.Drawing.Point(357, 125);
             this.btnSair.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -166,6 +167,7 @@
             this.Controls.Add(this.lbrecu);
             this.Controls.Add(this.lbUser);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmRecuperaSenha";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

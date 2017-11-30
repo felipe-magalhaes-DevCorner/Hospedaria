@@ -33,5 +33,10 @@ namespace Hospedaria.fdrQuartos
             this.Hide();
             frmAlteraReservas.ShowDialog();
         }
+
+        private void frmReservasMain_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAlterarHospedes));
             this.txtEMAIL = new System.Windows.Forms.TextBox();
             this.mskCelular = new System.Windows.Forms.MaskedTextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -162,7 +163,7 @@
             // 
             // btEditar
             // 
-            this.btEditar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btEditar.Location = new System.Drawing.Point(670, 368);
             this.btEditar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -175,7 +176,7 @@
             // 
             // btExcluir
             // 
-            this.btExcluir.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btExcluir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btExcluir.Location = new System.Drawing.Point(506, 368);
             this.btExcluir.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -215,7 +216,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(813, 515);
+            this.ClientSize = new System.Drawing.Size(816, 517);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.cbCPF);
             this.Controls.Add(this.btExcluir);
@@ -231,10 +232,11 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lbCPF);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmAlterarHospedes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmAlterarHospedes";
+            this.Text = "AlterarHóspedes";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmAlterarHospedes_FormClosing);
             this.Load += new System.EventHandler(this.frmAlterarHospedes_Load);
             this.ResumeLayout(false);

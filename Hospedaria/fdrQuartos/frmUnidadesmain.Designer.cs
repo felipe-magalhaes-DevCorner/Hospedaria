@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUnidadesmain));
             this.btVenda = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btVenda
             // 
-            this.btVenda.BackColor = System.Drawing.Color.White;
+            this.btVenda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btVenda.Location = new System.Drawing.Point(18, 18);
             this.btVenda.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -47,7 +48,7 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(292, 18);
             this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -67,10 +68,11 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btVenda);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmUnidadesmain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "frmUnidadesmain";
+            this.Text = "ControleQuartos";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmUnidadesmain_FormClosing);
             this.ResumeLayout(false);
 

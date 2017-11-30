@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAlteraUsuario));
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.chekBan = new System.Windows.Forms.CheckBox();
@@ -111,7 +112,7 @@
             // 
             // btGravar
             // 
-            this.btGravar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btGravar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btGravar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btGravar.Location = new System.Drawing.Point(320, 215);
             this.btGravar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -124,7 +125,7 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(192, 215);
             this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -190,8 +191,9 @@
             this.Controls.Add(this.chekBan);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmAlteraUsuario";
-            this.Text = "frmAlteraUsuario";
+            this.Text = "AlterarUsuário";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmAlteraUsuario_FormClosing);
             this.Load += new System.EventHandler(this.frmAlteraUsuario_Load);
             this.ResumeLayout(false);

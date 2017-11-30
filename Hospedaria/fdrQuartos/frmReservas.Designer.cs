@@ -81,9 +81,10 @@
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             resources.ApplyResources(this.button2, "button2");
             this.button2.Name = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label2
@@ -101,6 +102,7 @@
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.label2);
             this.Controls.Add(this.datepicker2);
             this.Controls.Add(this.button2);
@@ -110,7 +112,6 @@
             this.Controls.Add(this.cbQuarto);
             this.Controls.Add(this.datepicker1);
             this.Controls.Add(this.cbNomeRes);
-            this.DoubleBuffered = true;
             this.Name = "frmReservas";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmReservas_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmReservas_FormClosed);

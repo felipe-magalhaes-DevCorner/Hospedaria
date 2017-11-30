@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CheckIn));
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cbQuarto = new System.Windows.Forms.ComboBox();
@@ -164,7 +165,7 @@
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.White;
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.button2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.button2.Location = new System.Drawing.Point(519, 172);
@@ -220,6 +221,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbQuarto);
             this.Controls.Add(this.cbNomeCheckIn);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CheckIn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CheckIn";

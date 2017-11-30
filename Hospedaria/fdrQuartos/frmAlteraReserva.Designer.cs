@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAlteraReserva));
             this.button2 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.datepicker2 = new System.Windows.Forms.DateTimePicker();
@@ -43,7 +44,7 @@
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.button2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.button2.Location = new System.Drawing.Point(429, 89);
@@ -161,7 +162,7 @@
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.button3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.button3.Location = new System.Drawing.Point(558, 89);
@@ -190,10 +191,11 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbQuarto);
             this.Controls.Add(this.cbNomeCheckIn);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmAlteraReserva";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "frmAlteraReserva";
+            this.Text = "AlterarReserva";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmAlteraReserva_FormClosing);
             this.Load += new System.EventHandler(this.frmAlteraReserva_Load);
             this.ResumeLayout(false);

@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmmainClientes));
             this.BtClientes = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BtClientes
             // 
-            this.BtClientes.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.BtClientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.BtClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtClientes.Location = new System.Drawing.Point(24, 18);
             this.BtClientes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -47,7 +48,7 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(282, 18);
             this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -67,6 +68,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.BtClientes);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmmainClientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

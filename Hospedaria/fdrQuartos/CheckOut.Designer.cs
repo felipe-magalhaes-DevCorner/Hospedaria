@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CheckOut));
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.lbQuarto = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
@@ -67,6 +68,7 @@
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.button2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.button2.Location = new System.Drawing.Point(340, 168);
@@ -75,7 +77,7 @@
             this.button2.Size = new System.Drawing.Size(120, 106);
             this.button2.TabIndex = 19;
             this.button2.Text = "Check Out";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label2
@@ -193,6 +195,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(483, 291);
             this.Controls.Add(this.txtNomePensao);
             this.Controls.Add(this.label5);
@@ -207,6 +210,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.lbQuarto);
             this.Controls.Add(this.comboBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "CheckOut";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
