@@ -151,7 +151,7 @@
             this.alterarUsuarioToolStripMenuItem,
             this.logOutToolStripMenuItem});
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             // 
             // cadastrarUsuarioToolStripMenuItem
@@ -178,7 +178,7 @@
             // financeiroToolStripMenuItem1
             // 
             this.financeiroToolStripMenuItem1.Name = "financeiroToolStripMenuItem1";
-            this.financeiroToolStripMenuItem1.Size = new System.Drawing.Size(145, 22);
+            this.financeiroToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.financeiroToolStripMenuItem1.Text = "Financeiro";
             this.financeiroToolStripMenuItem1.Click += new System.EventHandler(this.financeiroToolStripMenuItem1_Click);
             // 
@@ -191,7 +191,7 @@
             this.quartoBobDylanToolStripMenuItem,
             this.quartoJanesToolStripMenuItem});
             this.manutençãoToolStripMenuItem.Name = "manutençãoToolStripMenuItem";
-            this.manutençãoToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.manutençãoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.manutençãoToolStripMenuItem.Text = "Hospedagem";
             // 
             // suitePresidenciaslToolStripMenuItem
@@ -610,6 +610,7 @@
             this.Text = "Menu";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing_1);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
+            this.VisibleChanged += new System.EventHandler(this.Form1_VisibleChanged);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbJanes)).EndInit();

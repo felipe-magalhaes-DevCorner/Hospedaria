@@ -690,8 +690,9 @@ namespace Hospedaria
         {
             fdrFinanceiro.frmFinanceiro objFin = new fdrFinanceiro.frmFinanceiro();
             objFin.getform = this;
-            objFin.ShowDialog();
             this.Hide();
+            objFin.ShowDialog();
+            
         }
 
         private void livreToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1013,6 +1014,17 @@ namespace Hospedaria
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             Console.WriteLine("teste");
+        }
+
+        private void Form1_VisibleChanged(object sender, EventArgs e)
+        {
+            if (Visible)
+            {
+                CheckStatus();
+            }
+
+
+            
         }
     }
 }
