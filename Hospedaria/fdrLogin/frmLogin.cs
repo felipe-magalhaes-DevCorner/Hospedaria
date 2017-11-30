@@ -66,7 +66,7 @@ namespace Hospedaria.fdrLogin
                         this.Hide();
                         Form1 objFrm1 = new Form1(false,loggedName, powerlevel, true);
                         //objFrm1.LoggedName = loggedName;
-                        
+                        //objFrm1.ShowDialog();
                         AuxCountLogin = 1;
                         
                         

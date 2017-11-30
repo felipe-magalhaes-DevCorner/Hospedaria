@@ -206,14 +206,14 @@ namespace Hospedaria.fdrClientes
 
         private void frmAlterarHospedes_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Form1 objPrin = new Form1();
+            //Form1 objPrin = new Form1();
             if (exitend)
             {
                 exitend = false;
             }
             else
             {
-                objPrin.Visible = true;
+                RefToMenu.Visible = true;
                 
             }
             

@@ -12,6 +12,7 @@ namespace Hospedaria.fdrFinanceiro
 {
     public partial class frmFinanceiro : Form
     {
+        public Form getform { get; set; }
         private ConnectionClass db = new ConnectionClass();
         public frmFinanceiro()
         {
@@ -54,8 +55,8 @@ namespace Hospedaria.fdrFinanceiro
 
         private void frmFinanceiro_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Form1 objPrin = new Form1();
-            objPrin.Visible = true;
+            
+            getform.Visible = true;
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)

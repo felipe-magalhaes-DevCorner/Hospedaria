@@ -20,15 +20,19 @@ namespace Hospedaria.fdrLogin
         List<int> idUsuarioCate = new List<int>();
         List<string> descricao = new List<string>();
         List<int> BanBool = new List<int>();
+        private static int powerlevel;
 
         public Form getform { get; set; }
 
 
 
-        public frmAlteraUsuario()
+        public frmAlteraUsuario(int _powerlevel = 9)
         {
             InitializeComponent();
-           
+            powerlevel = _powerlevel;
+
+
+
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -38,7 +42,9 @@ namespace Hospedaria.fdrLogin
 
         private void frmAlteraUsuario_Load(object sender, EventArgs e)
         {
-            string query = "select * from usuarios where usuarios.idcategoriausu <> 1 order by usuarios.nome";
+
+            string query = "select * from usuarios where usuarios.idcategoriausu >= '"+powerlevel+"' order  by usuarios.nome";
+            query = "select usuarios.idUSUARIOS, usuarios.nome, usuarios.login,usuarios.ban,CATEGORIAUSU.powerlevel from usuarios inner join CATEGORIAUSU on CATEGORIAUSU.idCATEGORIAUSU = USUARIOS.idCATEGORIAUSU where CATEGORIAUSU.powerlevel < = '" + powerlevel + "' order by usuarios.nome";
             db.SqlConnection();
             db.SqlQuery(query);
             SqlDataReader _dt = db.QueryReader();
@@ -60,7 +66,7 @@ namespace Hospedaria.fdrLogin
             db.closeConnection();
             /////--------------------------------------
             db.SqlConnection();
-            query = "select * from categoriausu where categoriausu.idcategoriausu <> 1";
+            query = "select * from categoriausu where categoriausu.idcategoriausu <> 1 ";
             db.SqlQuery(query);
             SqlDataReader _dr = db.QueryReader();
             while (_dr.Read())
