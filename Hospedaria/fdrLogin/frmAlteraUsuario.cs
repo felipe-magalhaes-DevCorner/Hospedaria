@@ -66,7 +66,21 @@ namespace Hospedaria.fdrLogin
             db.closeConnection();
             /////--------------------------------------
             db.SqlConnection();
-            query = "select * from categoriausu where categoriausu.idcategoriausu <> 1 ";
+            if (powerlevel <= 2)
+            {
+                query = "select * from categoriausu where categoriausu.powerlevel = '" + powerlevel + "' ";
+                cbCargo.Visible = false;
+                chekBan.Visible = false;
+                label5.Visible = false;
+            }
+            else
+            {
+                query = "select * from categoriausu where categoriausu.idcategoriausu <> 1 ";
+                cbCargo.Visible = true;
+                chekBan.Visible = true;
+                label5.Visible = true;
+            }
+            
             db.SqlQuery(query);
             SqlDataReader _dr = db.QueryReader();
             while (_dr.Read())
@@ -113,14 +127,30 @@ namespace Hospedaria.fdrLogin
             if (txtconfsenha.Text == txtnovasenha.Text)
             {
                 string query;
-                int Intban = chekBan.Checked ? 0 : 1;
+                int Intban = chekBan.Checked ? 1 : 0;
                 if (txtnovasenha.Text=="")
                 {
-                    query = "update usuarios set idcategoriausu = '" + idUsuarioCate[cbCargo.SelectedIndex] + "' , nome = '" + comboBox1.Text.Trim() + "', ban = '" + Intban + "' where usuarios.login = '" + txtlogin.Text + "'";
+                    if (powerlevel <=2)
+                    {
+                        query = "update usuarios set nome = '" + comboBox1.Text.Trim() + "' where usuarios.login = '" + txtlogin.Text + "'";
+                    }
+                    else
+                    {
+                        query = "update usuarios set idcategoriausu = '" + idUsuarioCate[cbCargo.SelectedIndex] + "' , nome = '" + comboBox1.Text.Trim() + "', ban = '" + Intban + "' where usuarios.login = '" + txtlogin.Text + "'";
+                    }
+                   
                 }
                 else
                 {
-                    query = "update usuarios set senha = '" + txtnovasenha.Text.Trim() + "', idcategoriausu = '" + idUsuarioCate[cbCargo.SelectedIndex] + "' , nome = '" + comboBox1.Text.Trim() + "', ban = '" + Intban + "' where usuarios.login = '" + txtlogin.Text + "'";
+                   
+                    if (powerlevel <= 2)
+                    {
+                        query = "update usuarios set senha = '" + txtnovasenha.Text.Trim() + "', nome = '" + comboBox1.Text.Trim() + "' where usuarios.login = '" + txtlogin.Text + "'";
+                    }
+                    else
+                    {
+                        query = "update usuarios set senha = '" + txtnovasenha.Text.Trim() + "', idcategoriausu = '" + idUsuarioCate[cbCargo.SelectedIndex] + "' , nome = '" + comboBox1.Text.Trim() + "', ban = '" + Intban + "' where usuarios.login = '" + txtlogin.Text + "'";
+                    }
                 }
                 
                 
@@ -148,6 +178,10 @@ namespace Hospedaria.fdrLogin
             txtlogin.Text = login[comboBox1.SelectedIndex];
             cbCargo.SelectedIndex = comboBox1.SelectedIndex;
             if (BanBool[comboBox1.SelectedIndex] == 1)
+            {
+                chekBan.Checked = false;
+            }
+            else
             {
                 chekBan.Checked = true;
             }

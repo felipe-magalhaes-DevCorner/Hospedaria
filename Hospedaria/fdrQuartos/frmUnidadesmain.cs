@@ -33,7 +33,7 @@ namespace Hospedaria.fdrQuartos
         private void button1_Click(object sender, EventArgs e)
         {
             fdrQuartos.CheckOut objCheckOut = new CheckOut();
-           // objCheckOut.getform = getform;
+            objCheckOut.getform = getform;
             this.Hide();
             objCheckOut.Show();
 

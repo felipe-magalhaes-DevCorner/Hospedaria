@@ -63,13 +63,19 @@ namespace Hospedaria.fdrLogin
                         loggedName = _dr["NOME"].ToString();
                         powerlevel = (Convert.ToInt32(_dr["powerlevel"]));
                         control = true;
-                        this.Hide();
+                        //getform.Close();
                         Form1 objFrm1 = new Form1(false,loggedName, powerlevel, true);
+                        
+
+
                         //objFrm1.LoggedName = loggedName;
-                        //objFrm1.ShowDialog();
+
                         AuxCountLogin = 1;
-                        
-                        
+                        this.Hide();
+                        objFrm1.ShowDialog();
+
+
+
 
 
                     }
@@ -105,7 +111,7 @@ namespace Hospedaria.fdrLogin
 
             }
             control = false;
-            this.Close();
+            //this.Close();
 
 
 
@@ -179,6 +185,11 @@ namespace Hospedaria.fdrLogin
 
             objSenha.ShowDialog();
 
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            this.BringToFront();
         }
     }
 }

@@ -19,33 +19,35 @@ namespace Hospedaria
         {
 
 
-            if (RunOnce == true)
-            {
-                Thread t = new Thread(new ThreadStart(splash));
-                t.Start();
-                Thread.Sleep(5000);
-                t.Abort();
 
-                this.Hide();
-                RunOnce = false;
-                fdrLogin.frmLogin objLogin = new fdrLogin.frmLogin();
-                objLogin.getform = this;
 
-                objLogin.ShowDialog();
-                
+            InitializeComponent();
+            //this.Hide();
+            //if (RunOnce == true)
+            //{
+            //    Thread t = new Thread(new ThreadStart(splash));
+            //    t.Start();
+            //    Thread.Sleep(1000);
+            //    t.Abort();
 
-                //this.Hide();
-                //objLogin.Focus();
+            //    this.Hide();
+            //    RunOnce = false;
+            //    fdrLogin.frmLogin objlogin = new fdrLogin.frmLogin();
+            //    objlogin.getform = this;
 
-            }
+            //    objlogin.ShowDialog();
+
+
+            //    //this.hide();
+            //    //objlogin.focus();
+
+            //}
             if (control)
             {
 
                 LoggedName = nomeUser;
                 powerLvl = _powerlevel;
             }
-
-            InitializeComponent();
             TimerUpdated();
             //if (checkStatus)
             //{
@@ -60,14 +62,14 @@ namespace Hospedaria
             //    TimerUpdated();
             //}, null, startTimeSpan, periodTimeSpan);
 
-            //LoggedName = nomeUser;
+            LoggedName = nomeUser;
             PowerLevel(powerLvl);
             lbLogged.Text = "Bem Vindo " + LoggedName + "";
 
 
 
-
-            this.BringToFront();
+            CheckStatus();
+            
 
         }
         private void PowerLevel(int _powerLvl)
@@ -159,10 +161,7 @@ namespace Hospedaria
 
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            CheckStatus();
-        }
+
         
 
 
@@ -620,19 +619,21 @@ namespace Hospedaria
 
         private void alterarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Hide();
             fdrLogin.frmAlteraUsuario objUsu = new fdrLogin.frmAlteraUsuario(powerLvl);
             objUsu.getform = this;
-            this.Hide();
+            
             objUsu.ShowDialog();
         }
 
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            
             fdrLogin.frmLogin objLogin = new fdrLogin.frmLogin(true);
-            objLogin.getform = this;
+            this.Hide();
+            //objLogin.getform = this;
             objLogin.ShowDialog();
-            this.Visible = true;
+            
 
 
         }
@@ -1002,6 +1003,16 @@ namespace Hospedaria
         {
             db.closeConnection();
 
+        }
+
+        private void Form1_FormClosing_1(object sender, FormClosingEventArgs e)
+        {
+            db.closeConnection();
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Console.WriteLine("teste");
         }
     }
 }

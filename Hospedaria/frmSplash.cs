@@ -21,7 +21,14 @@ namespace Hospedaria
         private void timer1_Tick(object sender, EventArgs e)
         {
             progressBar1.Increment(3);
-            if (progressBar1.Value == 100) timer1.Stop();
+            if (progressBar1.Value == 100)
+            {
+                timer1.Stop();
+                fdrLogin.frmLogin objLogin = new fdrLogin.frmLogin();
+                this.Hide();
+                objLogin.Show();
+
+            }
             if (progressBar1.Value > 90)
             {
                 lbLoad.Text = "Quase la";

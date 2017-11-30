@@ -43,20 +43,18 @@
             // txtPassword
             // 
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(192, 345);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtPassword.Location = new System.Drawing.Point(128, 224);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(247, 35);
+            this.txtPassword.Size = new System.Drawing.Size(166, 26);
             this.txtPassword.TabIndex = 2;
             this.txtPassword.UseSystemPasswordChar = true;
             // 
             // txtUsername
             // 
             this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsername.Location = new System.Drawing.Point(192, 298);
-            this.txtUsername.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtUsername.Location = new System.Drawing.Point(128, 194);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(247, 35);
+            this.txtUsername.Size = new System.Drawing.Size(166, 26);
             this.txtUsername.TabIndex = 1;
             // 
             // label2
@@ -64,10 +62,9 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(92, 360);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(61, 234);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(88, 29);
+            this.label2.Size = new System.Drawing.Size(60, 20);
             this.label2.TabIndex = 19;
             this.label2.Text = "Senha:";
             // 
@@ -76,10 +73,9 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(80, 308);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(53, 200);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(102, 29);
+            this.label1.Size = new System.Drawing.Size(68, 20);
             this.label1.TabIndex = 18;
             this.label1.Text = "Usuário:";
             // 
@@ -87,10 +83,9 @@
             // 
             this.klbRecuperar.AutoSize = true;
             this.klbRecuperar.BackColor = System.Drawing.Color.Transparent;
-            this.klbRecuperar.Location = new System.Drawing.Point(392, 494);
-            this.klbRecuperar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.klbRecuperar.Location = new System.Drawing.Point(261, 321);
             this.klbRecuperar.Name = "klbRecuperar";
-            this.klbRecuperar.Size = new System.Drawing.Size(135, 20);
+            this.klbRecuperar.Size = new System.Drawing.Size(91, 13);
             this.klbRecuperar.TabIndex = 23;
             this.klbRecuperar.TabStop = true;
             this.klbRecuperar.Text = "Recuperar Senha";
@@ -100,10 +95,9 @@
             // 
             this.btnExit.BackgroundImage = global::Hospedaria.Properties.Resources.branco;
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(312, 420);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnExit.Location = new System.Drawing.Point(208, 273);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(156, 58);
+            this.btnExit.Size = new System.Drawing.Size(104, 38);
             this.btnExit.TabIndex = 4;
             this.btnExit.Text = "Sair";
             this.btnExit.UseVisualStyleBackColor = true;
@@ -113,10 +107,9 @@
             // 
             this.btnLogin.BackgroundImage = global::Hospedaria.Properties.Resources.branco;
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.Location = new System.Drawing.Point(86, 420);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnLogin.Location = new System.Drawing.Point(57, 273);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(156, 58);
+            this.btnLogin.Size = new System.Drawing.Size(104, 38);
             this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
@@ -125,19 +118,20 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Hospedaria.Properties.Resources.test12;
-            this.pictureBox1.Location = new System.Drawing.Point(86, 52);
+            this.pictureBox1.Location = new System.Drawing.Point(57, 34);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(393, 228);
+            this.pictureBox1.Size = new System.Drawing.Size(262, 148);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 24;
             this.pictureBox1.TabStop = false;
             // 
             // frmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(600, 528);
+            this.ClientSize = new System.Drawing.Size(400, 343);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.klbRecuperar);
             this.Controls.Add(this.txtPassword);
@@ -148,10 +142,10 @@
             this.Controls.Add(this.btnLogin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLogin";
+            this.Load += new System.EventHandler(this.frmLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
