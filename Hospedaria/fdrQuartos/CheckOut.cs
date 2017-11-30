@@ -157,9 +157,9 @@ namespace Hospedaria.fdrQuartos
 
         private void CheckOut_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Form1 objPrincipal = new Form1();
+            
             this.Hide();
-            objPrincipal.Show();
+            getform.Visible = true;
         }
 
         private void label5_Click(object sender, EventArgs e)

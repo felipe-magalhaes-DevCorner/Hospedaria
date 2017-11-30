@@ -78,7 +78,7 @@ namespace Hospedaria
                     {
                         financeiroToolStripMenuItem1.Visible = false;
                         cadastrarUsuarioToolStripMenuItem.Visible = false;
-                        alterarUsuarioToolStripMenuItem.Visible = false;
+                        alterarUsuarioToolStripMenuItem.Visible = true;
                         manutençãoToolStripMenuItem.Visible = false;
 
                     }
@@ -89,7 +89,7 @@ namespace Hospedaria
                     {
                         financeiroToolStripMenuItem1.Visible = false;
                         cadastrarUsuarioToolStripMenuItem.Visible = false;
-                        alterarUsuarioToolStripMenuItem.Visible = false;
+                        alterarUsuarioToolStripMenuItem.Visible = true;
                         manutençãoToolStripMenuItem.Visible = false;
 
                     }
@@ -98,7 +98,7 @@ namespace Hospedaria
                     {
 
                         cadastrarUsuarioToolStripMenuItem.Visible = false;
-                        alterarUsuarioToolStripMenuItem.Visible = false;
+                        alterarUsuarioToolStripMenuItem.Visible = true;
                         financeiroToolStripMenuItem1.Visible = false;
                         
 
@@ -107,15 +107,22 @@ namespace Hospedaria
                     break;
                 case 3:
                     {
-                        
 
+                        financeiroToolStripMenuItem1.Visible = true;
+                        cadastrarUsuarioToolStripMenuItem.Visible = true;
+                        alterarUsuarioToolStripMenuItem.Visible = true;
+                        manutençãoToolStripMenuItem.Visible = true;
 
                     }
                     break;
                 case 4:
                     {
+                        financeiroToolStripMenuItem1.Visible = true;
+                        cadastrarUsuarioToolStripMenuItem.Visible = true;
+                        alterarUsuarioToolStripMenuItem.Visible = true;
+                        manutençãoToolStripMenuItem.Visible = true;
 
-                        
+
 
 
                     }
@@ -613,7 +620,7 @@ namespace Hospedaria
 
         private void alterarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            fdrLogin.frmAlteraUsuario objUsu = new fdrLogin.frmAlteraUsuario();
+            fdrLogin.frmAlteraUsuario objUsu = new fdrLogin.frmAlteraUsuario(powerLvl);
             objUsu.getform = this;
             this.Hide();
             objUsu.ShowDialog();
@@ -681,6 +688,7 @@ namespace Hospedaria
         private void financeiroToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             fdrFinanceiro.frmFinanceiro objFin = new fdrFinanceiro.frmFinanceiro();
+            objFin.getform = this;
             objFin.ShowDialog();
             this.Hide();
         }
@@ -988,6 +996,12 @@ namespace Hospedaria
             {
                 toolStripMenuItem16.Checked = true;
             }
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            db.closeConnection();
+
         }
     }
 }
