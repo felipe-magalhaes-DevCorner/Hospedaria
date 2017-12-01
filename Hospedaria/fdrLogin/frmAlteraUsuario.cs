@@ -176,7 +176,11 @@ namespace Hospedaria.fdrLogin
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtlogin.Text = login[comboBox1.SelectedIndex];
-            cbCargo.SelectedIndex = comboBox1.SelectedIndex;
+            if (cbCargo.Visible == true)
+            {
+                cbCargo.SelectedIndex = comboBox1.SelectedIndex;
+            }
+            
             if (BanBool[comboBox1.SelectedIndex] == 1)
             {
                 chekBan.Checked = false;
