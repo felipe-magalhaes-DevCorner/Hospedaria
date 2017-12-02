@@ -67,7 +67,7 @@ namespace Hospedaria.fdrQuartos
             //---------------------- POPULA COMBOBOX NOME----------------------
             string query = "select clientes.nome, clientes.idclientes from clientes order by clientes.nome";
             db.SqlConnection();
-            db.SqlQuery(query); Clipboard.SetText(query);
+            db.SqlQuery(query);  Clipboard.SetText(query); 
 
 
             //POPULA LEITOR DADOS (VARIOS DADOS)DE SQL, LEITOR DE TABELA DIGAMOS ASSIM
@@ -86,7 +86,7 @@ namespace Hospedaria.fdrQuartos
 
             //POPULA COMBOBOX HOSPEDAGEM
             query = "select hospedagem.idHOSPEDAGEM , hospedagem.NOME  from HOSPEDAGEM order by hospedagem.idhospedagem";
-            db.SqlQuery(query); Clipboard.SetText(query);
+            db.SqlQuery(query);  Clipboard.SetText(query); 
             SqlDataReader _dr2 = db.QueryReader();
             while (_dr2.Read())
             {
@@ -100,7 +100,7 @@ namespace Hospedaria.fdrQuartos
             db.closeConnection();
             db.SqlConnection();
             query = "select * from pensao order by pensao.descricao";
-            db.SqlQuery(query); Clipboard.SetText(query);
+            db.SqlQuery(query);  Clipboard.SetText(query); 
             SqlDataReader _dr3 = db.QueryReader();
             while (_dr3.Read())
             {
@@ -141,8 +141,8 @@ namespace Hospedaria.fdrQuartos
         {
             db.SqlConnection();
             string query = "select hospedagem.idcondicao from hospedagem where hospedagem.idhospedagem = '" + idQuarto[cbQuarto.SelectedIndex] + "' ";
-            db.SqlQuery(query);
-            Clipboard.SetText(query);
+            db.SqlQuery(query);  Clipboard.SetText(query);
+            
             
 
             SqlDataReader _dr = db.QueryReader();
@@ -183,8 +183,8 @@ namespace Hospedaria.fdrQuartos
 
                         db.SqlConnection();
                          query = "select reservas.datareserva from reservas where reservas.idhospedagem = '" + idQuarto[cbQuarto.SelectedIndex] + "' order by reservas.idreserva";
-                        db.SqlQuery(query);
-                        Clipboard.SetText(query);
+                        db.SqlQuery(query);  Clipboard.SetText(query);
+                        
 
                         SqlDataReader _dr2 = db.QueryReader();
                         
@@ -243,8 +243,8 @@ namespace Hospedaria.fdrQuartos
                     query = "select idhospedagem , DATARESERVA, datasaida, idclientes, idreserva from RESERVAS where idHOSPEDAGEM = '" + idQuarto[cbQuarto.SelectedIndex] + "' and((DATARESERVA > '" + datepicker1.Value.ToString("dd/MM/yyyy") + "') AND DATEPART(hh, datareserva) >= '" + datepicker1.Value.ToString("12") + "' )   or((DATASAIDA > '" + datepicker1.Value.ToString("dd/MM/yyyy") + "'    AND DATASAIDA <= '" + datepicker2.Value.ToString("dd/MM/yyyy") + "'     AND DATEPART(hh, DATASAIDA) <= '" + datepicker2.Value.ToString("hh") + "'))";
                 }
                 
-                Clipboard.SetText(query);
-                db.SqlQuery(query); Clipboard.SetText(query);
+                
+                db.SqlQuery(query);  Clipboard.SetText(query); 
                 SqlDataReader _dr = db.QueryReader();
                 bool QuartoLivre = true;
                 ////////////--------- chega reservas------------//////////
@@ -292,7 +292,7 @@ namespace Hospedaria.fdrQuartos
                         //existe data de saida, e nao existe reserva naquelas datas
                         //insere perfeito o q ta escrito
                         query = "insert into situacao values ('" + idQuarto[cbQuarto.SelectedIndex] + "','" + idCliente[cbNomeCheckIn.SelectedIndex] + "','" + idpensao[cbPensao.SelectedIndex] + "','" + datepicker1.Value.ToString("dd/MM/yyyy 14:mm") + "','" + datepicker2.Value.ToString("dd/MM/yyyy HH:mm") + "', 'Ocupado' )";
-                        db.SqlQuery(query); Clipboard.SetText(query);
+                        db.SqlQuery(query);  Clipboard.SetText(query); 
                         db.QueryRun();
 
                     }
@@ -301,7 +301,7 @@ namespace Hospedaria.fdrQuartos
                         //CASO NAO HAJA DATA DE SAIDA, VAI PRO SQL DATASAIDA NULL
                         DateTime date1 = Convert.ToDateTime(datepicker1.Value);
                         query = "insert into situacao values ('" + idQuarto[cbQuarto.SelectedIndex] + "','" + idCliente[cbNomeCheckIn.SelectedIndex] + "','" + idpensao[cbPensao.SelectedIndex] + "','" + datepicker1.Value.ToString("dd/MM/yyyy 14:mm") + "',NULL, 'Ocupado' )";
-                        db.SqlQuery(query); Clipboard.SetText(query);
+                        db.SqlQuery(query);  Clipboard.SetText(query); 
                         db.QueryRun();
                     }
                     validaHospedagem = true;
@@ -321,7 +321,7 @@ namespace Hospedaria.fdrQuartos
                         {
                             //INSERE COM DATA SAIDA IGUAL AS 11:59 DO DIA DO INICIO DA PROXIMA RESERVA PARA AQUELE QUARTO
                             query = "insert into situacao values ('" + idQuarto[cbQuarto.SelectedIndex] + "','" + idCliente[cbNomeCheckIn.SelectedIndex] + "','" + idpensao[cbPensao.SelectedIndex] + "','" + datepicker1.Value.ToString("dd/MM/yyyy HH:mm") + "', '" + datepicker2.Value.ToString("dd/MM/yyyy 11:59") + "', 'Ocupado' )";
-                            db.SqlQuery(query); Clipboard.SetText(query);
+                            db.SqlQuery(query);  Clipboard.SetText(query); 
                             db.QueryRun();
                             validaHospedagem = true;
                             ValidaReserva = true;
@@ -359,7 +359,7 @@ namespace Hospedaria.fdrQuartos
                         {
                             //INSERE COM DATA SAIDA IGUAL AS 11:59 DO DIA DO INICIO DA PROXIMA RESERVA PARA AQUELE QUARTO
                             query = "insert into situacao values ('" + idQuarto[cbQuarto.SelectedIndex] + "','" + idCliente[cbNomeCheckIn.SelectedIndex] + "','" + idpensao[cbPensao.SelectedIndex] + "','" + datepicker1.Value.ToString("dd/MM/yyyy HH:mm") + "', '" + dataProximaReserva.ToString("dd/MM/yyyy 11:59") + "', 'Ocupado' )";
-                            db.SqlQuery(query); Clipboard.SetText(query);
+                            db.SqlQuery(query);  Clipboard.SetText(query); 
                             db.QueryRun();
                             validaHospedagem = true;
                             
@@ -383,7 +383,7 @@ namespace Hospedaria.fdrQuartos
                 if (ValidaReserva)
                 {
                     query = "delete  from reservas where reservas.idreserva = '" + idreserva + "'";
-                    db.SqlQuery(query); Clipboard.SetText(query);
+                    db.SqlQuery(query);  Clipboard.SetText(query); 
                     db.QueryRun();
                     db.closeConnection();
                     
@@ -395,7 +395,7 @@ namespace Hospedaria.fdrQuartos
 
 
                     query = "update hospedagem set idcondicao = '2' where idhospedagem = '" + idQuarto[cbQuarto.SelectedIndex] + "'";
-                    db.SqlQuery(query); Clipboard.SetText(query);
+                    db.SqlQuery(query);  Clipboard.SetText(query); 
                     db.QueryRun();
                     MessageBox.Show("CheckIn Efetuado com sucesso!");
                     this.Hide();

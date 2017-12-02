@@ -28,7 +28,7 @@ namespace Hospedaria.fdrQuartos
         {
             db.SqlConnection();
             string query = "select hospedagem.nome as NomeHospedagem, clientes.nome as NomeCliente ,reservas.datareserva, reservas.datasaida from hospedagem inner join reservas on reservas.idhospedagem = hospedagem.idhospedagem inner join clientes on clientes.idclientes = reservas.idclientes ";
-            db.SqlQuery(query);
+            db.SqlQuery(query);  Clipboard.SetText(query);
 
             db.QueryRun();
             DataTable _dt = db.QueryDT();

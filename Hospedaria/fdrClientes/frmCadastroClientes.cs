@@ -21,34 +21,40 @@ namespace Hospedaria.fdrClientes
         {
             InitializeComponent();
         }
-        //private  bool ChechaCPF()
-        //{
-        //    List<string> listaCPF = new List<string>();
-        //    bool unico;
-        //    db.SqlConnection();
-        //    string query = "Select clientes.cpf from clientes";
-        //    db.SqlQuery(query);
-        //    SqlDataReader _dr = db.QueryReader();
-        //    while (_dr.Read())
-        //    {
+        private bool ChechaCPF(string mskCPF)
+        {
+            List<string> listaCPF = new List<string>();
+            bool unico;
+            db.SqlConnection();
+            string query = "Select clientes.cpf from clientes";
+            db.SqlQuery(query);  Clipboard.SetText(query);
+            SqlDataReader _dr = db.QueryReader();
+            while (_dr.Read())
+            {
+
+                listaCPF.Add((_dr["CPF"].ToString().Replace(".", "").Replace("-", "").Replace(",", "").Replace("/", "").Trim()));
+
+            }
+            if (listaCPF.Contains(mskCPF.Replace(".", "").Replace("-", "").Replace(",", "").Replace("/", "").Trim()))
+            {
+                unico = false;
+            }
+            else
+            {
+                unico = true;
+            }
+
+            return unico;
+        }
 
 
 
-        //    }
-        //    return unico;
-
-            
-
-        //}
 
 
         private void button1_Click(object sender, EventArgs e)
         /////botao GRAVAR----------------------------------------------------------------------------------------
         {
-            if (true)
-            {
 
-            }
             //botao salvar
             //---------------------- VERIFICA SE CAMPO CPF É VALIDO(OU EM BRANCO)----------------------
             if (fdrClientes.ValidaCPF.IsCpf(mskCPF.Text))
@@ -57,37 +63,49 @@ namespace Hospedaria.fdrClientes
                 //---------------------- VERIFICA SE CAMPO NOME ESTA EM BRANCO----------------------
                 if (txtName.Text != "")
                 {
-                    if (txtCidade.Text != "")
+                    //---------------------- VERIFICA SE O CPF JA ESTA CADASTRADO----------------------
+                    if (ChechaCPF(mskCPF.Text))
                     {
                         //---------------------- VERIFICA SE CAMPO CIDADE ESTA EM BRANCO----------------------
-                        clienteSQL cd = new clienteSQL();
+                        if (txtCidade.Text != "")
+                        {
 
-                        //---------------------- CHAMA CLASSE(METODO) DE CADASTRAR CLIENTES----------------------
-                        cd.cadastraCliente(mskCPF.Text.Trim(), txtName.Text.Trim(), mskTelefone.Text.Trim(), mskCelular.Text.Trim(), txtEmail.Text.Trim().ToLower(), txtCidade.Text.Trim());
-                        MessageBox.Show("Cliente cadastrado com sucesso!", "Cadastrado");
-                        this.Close();
-                        //DialogResult dialogResult = MessageBox.Show("Cliente cadastrado com sucesso!", "Cadastrado", MessageBoxButtons.YesNo);
-                        //if (dialogResult == DialogResult.Yes)
-                        //{
-                        //    txtCidade.Clear();
-                        //    txtEmail.Clear();
-                        //    txtName.Clear();
-                        //    mskCelular.Clear();
-                        //    mskCPF.Clear();
-                        //    mskTelefone.Clear();
+                            
+                            clienteSQL cd = new clienteSQL();
 
-                        //}
-                        //else if (dialogResult == DialogResult.No)
-                        //{
-                        //    
-                        //}
+                            //---------------------- CHAMA CLASSE(METODO) DE CADASTRAR CLIENTES----------------------
+                            cd.cadastraCliente(mskCPF.Text.Trim(), txtName.Text.Trim(), mskTelefone.Text.Trim(), mskCelular.Text.Trim(), txtEmail.Text.Trim().ToLower(), txtCidade.Text.Trim());
+                            MessageBox.Show("Cliente cadastrado com sucesso!", "Cadastrado");
+                            this.Close();
+                            //DialogResult dialogResult = MessageBox.Show("Cliente cadastrado com sucesso!", "Cadastrado", MessageBoxButtons.YesNo);
+                            //if (dialogResult == DialogResult.Yes)
+                            //{
+                            //    txtCidade.Clear();
+                            //    txtEmail.Clear();
+                            //    txtName.Clear();
+                            //    mskCelular.Clear();
+                            //    mskCPF.Clear();
+                            //    mskTelefone.Clear();
 
+                            //}
+                            //else if (dialogResult == DialogResult.No)
+                            //{
+                            //    
+                            //}
+
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("O campo Cidade é obrigatorio");//CIDADE EM BRANCO
+                        }
 
                     }
                     else
                     {
-                        MessageBox.Show("O campo Cidade é obrigatorio");//CIDADE EM BRANCO
+                        MessageBox.Show("CPF ja cadastrado. Revise informações.");
                     }
+                    
 
 
                 }

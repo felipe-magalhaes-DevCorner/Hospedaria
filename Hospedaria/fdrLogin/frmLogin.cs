@@ -42,7 +42,7 @@ namespace Hospedaria.fdrLogin
             db.SqlConnection();
             string query = "select USUARIOS.NOME, USUARIOS.LOGIN, USUARIOS.SENHA,USUARIOS.BAN,USUARIOS.logged, CATEGORIAUSU.powerlevel from USUARIOS inner join CATEGORIAUSU on CATEGORIAUSU.idCATEGORIAUSU = USUARIOS.idCATEGORIAUSU where USUARIOS.login = '" + txtUsername.Text + "'";
 
-            db.SqlQuery(query);             
+            db.SqlQuery(query);  Clipboard.SetText(query);             
             SqlDataReader _dr = db.QueryReader();
             if (_dr.HasRows)
             {

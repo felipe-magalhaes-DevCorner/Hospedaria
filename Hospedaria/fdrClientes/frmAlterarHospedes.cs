@@ -51,7 +51,7 @@ namespace Hospedaria.fdrClientes
             //string nameControl = cbNomeAlt.Text;
             string query = "select * from clientes where clientes.nome = '"+ cbNomeAlt.Text.Trim() + "'"; //<<<<<<<<QUERY
             db.SqlConnection();
-            db.SqlQuery(query);
+            db.SqlQuery(query);  Clipboard.SetText(query);
             
             using (SqlDataReader _dr = db.QueryReader())
             {
@@ -81,7 +81,7 @@ namespace Hospedaria.fdrClientes
             //---------------------- POPULA COMBOBOX NOME----------------------
             string query = "select clientes.nome, clientes.idclientes, clientes.cpf from clientes order by clientes.nome";
             db.SqlConnection();
-            db.SqlQuery(query);
+            db.SqlQuery(query);  Clipboard.SetText(query);
             
 
             //POPULA LEITOR DADOS (VARIOS DADOS)DE SQL, LEITOR DE TABELA DIGAMOS ASSIM
@@ -114,7 +114,7 @@ namespace Hospedaria.fdrClientes
             //---------------------- DELETE CLIENTE----------------------
             string query = "delete from clientes where clientes.idCLIENTES = '" + selectedrow + "'";
             db.SqlConnection();
-            db.SqlQuery(query);
+            db.SqlQuery(query);  Clipboard.SetText(query);
             db.QueryRun();
             db.closeConnection();
             MessageBox.Show("Cliente excluido.");
@@ -128,7 +128,7 @@ namespace Hospedaria.fdrClientes
             //atualiza clientes
             string query = "update clientes set nome = '"+cbNomeAlt.Text.Trim()+"', cpf = '"+cbCPF.Text.Trim()+ "', telefone = '" + mskTelefone.Text.Trim() + "', celular = '" + mskCelular.Text.Trim() + "', cidade = '" + txtCidade.Text.Trim() + "', email = '" + txtEMAIL.Text.Trim().ToLower() + "' where clientes.idCLIENTES = '" + selectedrow + "'";
             db.SqlConnection();
-            db.SqlQuery(query);
+            db.SqlQuery(query);  Clipboard.SetText(query);
             db.QueryRun();
             db.closeConnection();
             MessageBox.Show("Cliente atualizado.");
@@ -164,7 +164,7 @@ namespace Hospedaria.fdrClientes
             //string nameControl = cbNomeAlt.Text;
             string query = "select * from clientes where clientes.cpf = '" + cbCPF.Text.Trim() + "'"; //<<<<<<<<QUERY
             db.SqlConnection();
-            db.SqlQuery(query);
+            db.SqlQuery(query);  Clipboard.SetText(query);
 
             using (SqlDataReader _dr = db.QueryReader())
             {

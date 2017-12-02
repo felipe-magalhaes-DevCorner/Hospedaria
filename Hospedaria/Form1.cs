@@ -14,7 +14,7 @@ namespace Hospedaria
         
         public static string LoggedName;
 
-        public static int powerLvl;
+        public static int powerLvl = 4;//DEVE FICAR EM BRANCO define as funcoes do login(nivel de poder) ;
         public Form1(bool checkStatus = false,string nomeUser = "",int _powerlevel = 6, bool control = false)
         {
 
@@ -170,7 +170,7 @@ namespace Hospedaria
 
             string query = "select * from hospedagem"; //<<<<<<<<QUERY
             db.SqlConnection();
-            db.SqlQuery(query);
+            db.SqlQuery(query);  Clipboard.SetText(query);
             SqlDataReader _dr = db.QueryReader();
             while (_dr.Read())
             {
@@ -1026,6 +1026,8 @@ namespace Hospedaria
 
             
         }
+
+
     }
 }
 

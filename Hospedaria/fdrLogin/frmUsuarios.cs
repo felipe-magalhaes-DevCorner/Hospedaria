@@ -26,7 +26,7 @@ namespace Hospedaria.fdrLogin
         {
             db.SqlConnection();
             string query = "select categoriausu.descricao,  categoriausu.idcategoriausu from categoriausu where categoriausu.idcategoriausu <> 1";
-            db.SqlQuery(query);
+            db.SqlQuery(query);  Clipboard.SetText(query);
             SqlDataReader _dr =  db.QueryReader();
             while (_dr.Read())
             {
@@ -58,7 +58,7 @@ namespace Hospedaria.fdrLogin
             {
                 string query = "insert into usuarios values ('" + idUsuarioCate[comboBox1.SelectedIndex] + "', '" + txtNome.Text.Trim() + "', '" + txtLogin.Text.Trim() + "', '" + txtSenha.Text.Trim() + "', '" + txtMestre.Text.Trim() + "', '0', '0')";
                 db.SqlConnection();
-                db.SqlQuery(query);
+                db.SqlQuery(query);  Clipboard.SetText(query);
                 db.QueryRun();
                 db.closeConnection();
 

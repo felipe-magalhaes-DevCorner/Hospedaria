@@ -42,8 +42,8 @@ namespace Hospedaria.fdrFinanceiro
             }
 
             db.SqlConnection();
-            Clipboard.SetText(query);
-            db.SqlQuery(query);
+            
+            db.SqlQuery(query);  Clipboard.SetText(query);
 
             db.QueryRun();
             DataTable _dt = db.QueryDT();

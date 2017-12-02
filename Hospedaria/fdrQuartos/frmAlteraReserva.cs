@@ -35,8 +35,8 @@ namespace Hospedaria.fdrQuartos
 
             db.SqlConnection();
             string query = "select hospedagem.nome  as NomeHospedagem, hospedagem.idhospedagem, clientes.nome as NomeCliente , clientes.idclientes,reservas.datareserva, reservas.datasaida, reservas.idreserva from hospedagem inner join reservas on reservas.idhospedagem = hospedagem.idhospedagem inner join clientes on clientes.idclientes = reservas.idclientes  order by reservas.idreserva";
-            db.SqlQuery(query);
-            Clipboard.SetText(query);
+            db.SqlQuery(query);  Clipboard.SetText(query);
+            
             SqlDataReader _dr = db.QueryReader();
             if (_dr.HasRows)
             {
@@ -86,7 +86,7 @@ namespace Hospedaria.fdrQuartos
         {
             string query = "delete from reservas where idreserva = '"+idReserva[cbNomeCheckIn.SelectedIndex]+"'";
             db.SqlConnection();
-            db.SqlQuery(query);
+            db.SqlQuery(query);  Clipboard.SetText(query);
             db.QueryRun();
             db.closeConnection();
             MessageBox.Show("Reserva cancelada.");
@@ -98,9 +98,9 @@ namespace Hospedaria.fdrQuartos
         {
 
             string query = "update reservas set idhospedagem = '"+(cbQuarto.SelectedIndex + 1)+ "', idclientes = '"+idNames[cbNomeCheckIn.SelectedIndex]+ "',datareserva = '" + datepicker1.Value.ToString("dd/MM/yyyy HH:mm") + "',datasaida = '" + datepicker2.Value.ToString("dd/MM/yyyy HH:mm") + "'  ";
-            Clipboard.SetText(query);
+            
             db.SqlConnection();
-            db.SqlQuery(query);
+            db.SqlQuery(query);  Clipboard.SetText(query);
             db.QueryRun();
             db.closeConnection();
             MessageBox.Show("Reserva alterada.");

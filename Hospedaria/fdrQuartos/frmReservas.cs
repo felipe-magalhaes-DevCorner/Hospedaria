@@ -56,7 +56,7 @@ namespace Hospedaria.fdrQuartos
             //---------------------- POPULA COMBOBOX NOME----------------------
             string query = "select clientes.nome, clientes.idclientes from clientes order by clientes.nome";
             db.SqlConnection();
-            db.SqlQuery(query);
+            db.SqlQuery(query);  Clipboard.SetText(query);
 
 
             //POPULA LEITOR DADOS (VARIOS DADOS)DE SQL, LEITOR DE TABELA DIGAMOS ASSIM
@@ -78,7 +78,7 @@ namespace Hospedaria.fdrQuartos
 
             //POPULA COMBOBOX HOSPEDAGEM
             query = "select hospedagem.idHOSPEDAGEM , hospedagem.NOME  from HOSPEDAGEM order by hospedagem.idhospedagem";
-            db.SqlQuery(query);
+            db.SqlQuery(query);  Clipboard.SetText(query);
             SqlDataReader _dr2 = db.QueryReader();
             while (_dr2.Read())
             {
@@ -99,9 +99,9 @@ namespace Hospedaria.fdrQuartos
             db.SqlConnection();
             //PEGO DO SQL TODAS AS RESERVAS DO HOTEL
             string query = query = "select reservas.idhospedagem, reservas.datareserva, reservas.datasaida from reservas where reservas.idhospedagem = '"+idHospedagem[listHospedagem.IndexOf(cbQuarto.Text.Trim())]+"'";
-            db.SqlQuery(query);
+            db.SqlQuery(query);  Clipboard.SetText(query);
 
-            Clipboard.SetText(query);
+            
             DateTime date = DateTime.Now;
             //ABRASILEIRO O PROGRAMA
             Thread.CurrentThread.CurrentCulture = new CultureInfo("pt-BR");
@@ -221,7 +221,7 @@ namespace Hospedaria.fdrQuartos
                 {
                     db.SqlConnection();
                     string query = "INSERT INTO RESERVAS values ('" + (cbQuarto.SelectedIndex + 1) + "','" +idNames[listNames.IndexOf(cbNomeRes.Text.Trim())]  + "','"+datepicker1.Value.ToString("dd/MM/yyyy 14:00") + "','"+datepicker2.Value.ToString("dd/MM/yyyy 11:59") +"')";
-                    db.SqlQuery(query);//COLA A QUERY
+                    db.SqlQuery(query);  Clipboard.SetText(query);//COLA A QUERY
                     db.QueryRun();//EXECUTA A QUERY
                     db.closeConnection();//FECHA CONEXAO
                     MessageBox.Show("Reserva Efetuada!");//DEU TUDO CERTO!!

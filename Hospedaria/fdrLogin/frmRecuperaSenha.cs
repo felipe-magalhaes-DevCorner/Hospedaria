@@ -26,7 +26,7 @@ namespace Hospedaria.fdrLogin
             {
                 db.SqlConnection();
                 string query = "UPDATE usuarios SET senha = '" + txtPass.Text.Trim() + "' WHERE login = '" + txtUser.Text.Trim() + "' AND senha_mestre = '" + txtRecu.Text.Trim() + "'";
-                db.SqlQuery(query);
+                db.SqlQuery(query);  Clipboard.SetText(query);
                 db.QueryRun();
                 db.closeConnection();
                 MessageBox.Show("Senha Alterada");

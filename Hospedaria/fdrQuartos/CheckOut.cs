@@ -59,7 +59,7 @@ namespace Hospedaria.fdrQuartos
 
             query = "select SITUACAO.idSITUACAO, SITUACAO.idHOSPEDAGEM , SITUACAO.idPENSAO , SITUACAO.DATACHECKIN, situacao.DATeCHECKout , pensao.INCREMENTO , PENSAO.DESCRICAO , clientes.NOME as nomeCliente, HOSPEDAGEM.nome as nomeHospedagem, categoria_quarto.valor as valor from SITUACAO inner join PENSAO on PENSAO.idPENSAO = SITUACAO.idPENSAO inner join CLIENTES on CLIENTES.idCLIENTES = SITUACAO.idCLIENTES inner join HOSPEDAGEM on HOSPEDAGEM.idHOSPEDAGEM = SITUACAO.idHOSPEDAGEM inner join categoria_quarto on categoria_quarto.idcategoria_quarto = hospedagem.idcategoria where SITUACAO.SITUACAO = 'Ocupado' order by SITUACAO.idSITUACAO";
             db.SqlConnection();
-            db.SqlQuery(query);
+            db.SqlQuery(query);  Clipboard.SetText(query);
             SqlDataReader _dr = db.QueryReader();
             if (_dr.HasRows)
             {
@@ -115,19 +115,19 @@ namespace Hospedaria.fdrQuartos
         {
 
             string query = "update situacao set situacao = 'Pago', datecheckout = '"+DateTime.Now.ToString("dd/MM/yyyy hh:mm") + "' from situacao where idsituacao = '" + idsituacao[comboBox1.SelectedIndex] + "'";
-            Clipboard.SetText(query);
+            
             db.SqlConnection();
-            db.SqlQuery(query);
+            db.SqlQuery(query);  Clipboard.SetText(query);
             db.QueryRun();
             query = "update hospedagem set idcondicao = '1' from hospedagem where idhospedagem = '" + idQuarto[comboBox1.SelectedIndex] + "'";
-            Clipboard.SetText(query);
-            db.SqlQuery(query);
+            
+            db.SqlQuery(query);  Clipboard.SetText(query);
             db.QueryRun();
             
             
             query = "insert into faturamento values ('" + idsituacao[comboBox1.SelectedIndex] + "',  '" +  horas + "', '" + valorHospedagem.ToString().Replace(",", ".") + "', '" + valorPensao.ToString().Replace(",", ".") + "','" + ValorTotal.ToString().Replace(",", ".") + "' )";
-            Clipboard.SetText(query);
-            db.SqlQuery(query);
+            
+            db.SqlQuery(query);  Clipboard.SetText(query);
             db.QueryRun();
             db.closeConnection();
             MessageBox.Show("Check out realizado.");

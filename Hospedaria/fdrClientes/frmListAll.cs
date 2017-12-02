@@ -26,7 +26,7 @@ namespace Hospedaria.fdrClientes
         {
             db.SqlConnection();
             string query = "select clientes.nome, clientes.cpf, clientes.telefone, clientes.celular, clientes.email, clientes.cidade from clientes";
-            db.SqlQuery(query);
+            db.SqlQuery(query);  Clipboard.SetText(query);
             db.QueryRun();
             DataTable _dt = db.QueryDT();
             dataGridView1.DataSource = _dt;

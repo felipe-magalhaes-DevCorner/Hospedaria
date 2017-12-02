@@ -18,6 +18,7 @@ namespace Hospedaria.fdrLogin
         List<string> login = new List<string>();
         List<string> nomeUsu = new List<string>();
         List<int> idUsuarioCate = new List<int>();
+        List<int> idCategoria = new List<int>();
         List<string> descricao = new List<string>();
         List<int> BanBool = new List<int>();
         private static int powerlevel;
@@ -45,16 +46,17 @@ namespace Hospedaria.fdrLogin
         private void frmAlteraUsuario_Load(object sender, EventArgs e)
         {
 
-            string query = "select * from usuarios where usuarios.idcategoriausu >= '"+powerlevel+"' order  by usuarios.nome";
-            query = "select usuarios.idUSUARIOS, usuarios.nome, usuarios.login,usuarios.ban,CATEGORIAUSU.powerlevel from usuarios inner join CATEGORIAUSU on CATEGORIAUSU.idCATEGORIAUSU = USUARIOS.idCATEGORIAUSU where CATEGORIAUSU.powerlevel < = '" + powerlevel + "' order by usuarios.nome";
+            string query; //"select * from usuarios where usuarios.idcategoriausu >= '"+powerlevel+"' order  by usuarios.nome";
+            query = "select usuarios.idUSUARIOS, usuarios.nome, usuarios.login,usuarios.idcategoriausu, usuarios.ban,CATEGORIAUSU.powerlevel from usuarios inner join CATEGORIAUSU on CATEGORIAUSU.idCATEGORIAUSU = USUARIOS.idCATEGORIAUSU where CATEGORIAUSU.powerlevel < = '" + powerlevel + "' order by usuarios.nome";
             db.SqlConnection();
-            db.SqlQuery(query);
+            db.SqlQuery(query);  Clipboard.SetText(query);
             SqlDataReader _dt = db.QueryReader();
             while (_dt.Read())
             {
                 idUsuario.Add(Convert.ToInt32(_dt["idUsuarios"]));
                 nomeUsu.Add(_dt["nome"].ToString());
                 login.Add(_dt["login"].ToString());
+                idUsuarioCate.Add(Convert.ToInt32(_dt["idcategoriausu"]));
                 BanBool.Add(Convert.ToInt32(_dt["ban"]));
 
 
@@ -77,17 +79,17 @@ namespace Hospedaria.fdrLogin
             }
             else
             {
-                query = "select * from categoriausu where categoriausu.idcategoriausu <> 1 ";
+                query = "select * from categoriausu";
                 cbCargo.Visible = true;
                 chekBan.Visible = true;
                 label5.Visible = true;
             }
             
-            db.SqlQuery(query);
+            db.SqlQuery(query);  Clipboard.SetText(query);
             SqlDataReader _dr = db.QueryReader();
             while (_dr.Read())
             {
-                idUsuarioCate.Add(Convert.ToInt32(_dr["idcategoriausu"]));
+                idCategoria.Add(Convert.ToInt32(_dr["idcategoriausu"]));
                 descricao.Add(_dr["descricao"].ToString());
 
 
@@ -112,9 +114,9 @@ namespace Hospedaria.fdrLogin
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string query = "delete from usuarios where usuarios.idusuarios = '"+idUsuario[nomeUsu.IndexOf(chekBan.Text)]+"'";
+            string query = "delete from usuarios where usuarios.idusuarios = '"+idUsuario[login.IndexOf( txtlogin.Text) ]+"'";
             db.SqlConnection();
-            db.SqlQuery(query);
+            db.SqlQuery(query);  Clipboard.SetText(query);  
             db.QueryRun();
             db.closeConnection();
 
@@ -157,7 +159,7 @@ namespace Hospedaria.fdrLogin
                 
                 
                 db.SqlConnection();
-                db.SqlQuery(query);
+                db.SqlQuery(query);  Clipboard.SetText(query);
                 db.QueryRun();
                 db.closeConnection();
                 MessageBox.Show("Usuario Atualizado.");
@@ -180,16 +182,16 @@ namespace Hospedaria.fdrLogin
             txtlogin.Text = login[comboBox1.SelectedIndex];
             if (cbCargo.Visible == true)
             {
-                cbCargo.SelectedIndex = comboBox1.SelectedIndex;
+                cbCargo.SelectedIndex = idCategoria.IndexOf(idUsuarioCate[login.IndexOf(txtlogin.Text)]);
             }
             
-            if (BanBool[comboBox1.SelectedIndex] == 1)
+            if (BanBool[login.IndexOf(txtlogin.Text)] == 1)
             {
-                chekBan.Checked = false;
+                chekBan.Checked = true;
             }
             else
             {
-                chekBan.Checked = true;
+                chekBan.Checked =  false;
             }
         }
 
