@@ -36,6 +36,8 @@ namespace Hospedaria.fdrQuartos
         {
             Thread.CurrentThread.CurrentCulture = new CultureInfo("pt-BR");
             InitializeComponent();
+            cbNomeCheckIn.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cbNomeCheckIn.AutoCompleteSource = AutoCompleteSource.ListItems;
             if (reserva == 'd')
             {
                 //pegar nome da suite, procurar qual index ele esta em nomes quartos. 
@@ -215,7 +217,7 @@ namespace Hospedaria.fdrQuartos
             //dataentrade é maior q data saida
             //se dataentrada esta em branco
             //se data entrada é maior q o tempo agora.
-            if ((datepicker1.Value >= datepicker2.Value || (checkBox1.Checked == false)) || datepicker1.Value.ToString() == "" || datepicker1.Value < DateTime.Now)
+            if (datepicker1.Value >= datepicker2.Value || datepicker1.Value.ToString() == "" || datepicker1.Value < DateTime.Now)
             {
                 MessageBox.Show("A data de entrada e saida nao conferem.");
             }
@@ -238,7 +240,7 @@ namespace Hospedaria.fdrQuartos
                 }
                 else
                 {
-                    query = "select idhospedagem , DATARESERVA, datasaida, idclientes, idreserva from RESERVAS where idHOSPEDAGEM = '" + idQuarto[cbQuarto.SelectedIndex] + "' and((DATARESERVA > '" + datepicker1.Value.ToString("dd/MM/yyyy") + "') AND DATEPART(hh, datareserva) >= '" + datepicker1.Value.ToString("12") + "' )   or((DATASAIDA > '" + datepicker1.Value.ToString("dd/MM/yyyy") + "'    AND DATASAIDA <= '" + datepicker2.Value.ToString("dd/MM/yyyy") + "'     AND DATEPART(hh, DATASAIDA) <= '" + datepicker2.Value.ToString("hh") + "')))";
+                    query = "select idhospedagem , DATARESERVA, datasaida, idclientes, idreserva from RESERVAS where idHOSPEDAGEM = '" + idQuarto[cbQuarto.SelectedIndex] + "' and((DATARESERVA > '" + datepicker1.Value.ToString("dd/MM/yyyy") + "') AND DATEPART(hh, datareserva) >= '" + datepicker1.Value.ToString("12") + "' )   or((DATASAIDA > '" + datepicker1.Value.ToString("dd/MM/yyyy") + "'    AND DATASAIDA <= '" + datepicker2.Value.ToString("dd/MM/yyyy") + "'     AND DATEPART(hh, DATASAIDA) <= '" + datepicker2.Value.ToString("hh") + "'))";
                 }
                 
                 Clipboard.SetText(query);

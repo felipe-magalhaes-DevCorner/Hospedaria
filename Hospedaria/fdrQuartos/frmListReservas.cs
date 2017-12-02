@@ -13,12 +13,15 @@ namespace Hospedaria.fdrQuartos
     public partial class frmListReservas : Form
     {
         private ConnectionClass db = new ConnectionClass();
-        string telaAnterior;
-        public frmListReservas(string _telaanterior = "Checkin")
+        public Form getform { get; set; }
+        static string  telaAnterior;
+        public frmListReservas(string _telaanterior = "")
         {
             
             InitializeComponent();
-            telaAnterior = _telaanterior;
+            //getform.Visible = true;
+
+
         }
 
         private void frmListReservas_Load(object sender, EventArgs e)
@@ -37,17 +40,18 @@ namespace Hospedaria.fdrQuartos
         {
             if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
             {
-                if (telaAnterior == "Checkin")
+                if (telaAnterior == "altera")
                 {
-                    fdrQuartos.CheckIn objAlt = new fdrQuartos.CheckIn(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(), dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString(), dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString(), dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString(), 'd');
+                    fdrQuartos.frmAlteraReserva objAlt = new fdrQuartos.frmAlteraReserva(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(), dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString(), dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString(), dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString(), 'd');
 
                     objAlt.Show();
                 }
                 else
                 {
-                    fdrQuartos.frmAlteraReserva objAlt = new fdrQuartos.frmAlteraReserva(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(), dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString(), dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString(), dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString(), 'd');
+                    fdrQuartos.CheckIn objAlt = new fdrQuartos.CheckIn(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(), dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString(), dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString(), dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString(), 'd');
 
                     objAlt.Show();
+                    
                 }
 
                 

@@ -29,6 +29,8 @@ namespace Hospedaria.fdrLogin
         public frmAlteraUsuario(int _powerlevel = 9)
         {
             InitializeComponent();
+            comboBox1.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            comboBox1.AutoCompleteSource = AutoCompleteSource.ListItems;
             powerlevel = _powerlevel;
 
 

@@ -79,7 +79,7 @@
             this.cbQuarto.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbQuarto.Name = "cbQuarto";
             this.cbQuarto.Size = new System.Drawing.Size(361, 37);
-            this.cbQuarto.TabIndex = 9;
+            this.cbQuarto.TabIndex = 2;
             this.cbQuarto.SelectedIndexChanged += new System.EventHandler(this.cbQuarto_SelectedIndexChanged);
             this.cbQuarto.MouseMove += new System.Windows.Forms.MouseEventHandler(this.cbQuarto_MouseMove);
             // 
@@ -91,7 +91,7 @@
             this.cbNomeCheckIn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbNomeCheckIn.Name = "cbNomeCheckIn";
             this.cbNomeCheckIn.Size = new System.Drawing.Size(440, 37);
-            this.cbNomeCheckIn.TabIndex = 8;
+            this.cbNomeCheckIn.TabIndex = 1;
             // 
             // label2
             // 
@@ -114,7 +114,7 @@
             this.cbPensao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbPensao.Name = "cbPensao";
             this.cbPensao.Size = new System.Drawing.Size(361, 37);
-            this.cbPensao.TabIndex = 12;
+            this.cbPensao.TabIndex = 3;
             this.cbPensao.MouseMove += new System.Windows.Forms.MouseEventHandler(this.cbPensao_MouseMove);
             // 
             // label4
@@ -138,7 +138,7 @@
             this.datepicker2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.datepicker2.Name = "datepicker2";
             this.datepicker2.Size = new System.Drawing.Size(242, 35);
-            this.datepicker2.TabIndex = 15;
+            this.datepicker2.TabIndex = 5;
             // 
             // label5
             // 
@@ -161,7 +161,7 @@
             this.datepicker1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.datepicker1.Name = "datepicker1";
             this.datepicker1.Size = new System.Drawing.Size(242, 35);
-            this.datepicker1.TabIndex = 14;
+            this.datepicker1.TabIndex = 4;
             // 
             // button2
             // 
@@ -172,7 +172,7 @@
             this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(120, 106);
-            this.button2.TabIndex = 18;
+            this.button2.TabIndex = 6;
             this.button2.Text = "Gravar";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);

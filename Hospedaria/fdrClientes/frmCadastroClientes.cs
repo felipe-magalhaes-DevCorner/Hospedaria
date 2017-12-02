@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,15 +14,41 @@ namespace Hospedaria.fdrClientes
     public partial class frmCadastroClientes : Form
     {
         public Form RefToMenu { get; set; }
+        private ConnectionClass db = new ConnectionClass();
+
 
         public frmCadastroClientes()
         {
             InitializeComponent();
         }
+        //private  bool ChechaCPF()
+        //{
+        //    List<string> listaCPF = new List<string>();
+        //    bool unico;
+        //    db.SqlConnection();
+        //    string query = "Select clientes.cpf from clientes";
+        //    db.SqlQuery(query);
+        //    SqlDataReader _dr = db.QueryReader();
+        //    while (_dr.Read())
+        //    {
+
+
+
+        //    }
+        //    return unico;
+
+            
+
+        //}
+
 
         private void button1_Click(object sender, EventArgs e)
         /////botao GRAVAR----------------------------------------------------------------------------------------
         {
+            if (true)
+            {
+
+            }
             //botao salvar
             //---------------------- VERIFICA SE CAMPO CPF É VALIDO(OU EM BRANCO)----------------------
             if (fdrClientes.ValidaCPF.IsCpf(mskCPF.Text))
@@ -37,23 +64,24 @@ namespace Hospedaria.fdrClientes
 
                         //---------------------- CHAMA CLASSE(METODO) DE CADASTRAR CLIENTES----------------------
                         cd.cadastraCliente(mskCPF.Text.Trim(), txtName.Text.Trim(), mskTelefone.Text.Trim(), mskCelular.Text.Trim(), txtEmail.Text.Trim().ToLower(), txtCidade.Text.Trim());
-                        
-                        DialogResult dialogResult = MessageBox.Show("Cliente cadastrado com sucesso!", "Cadastrado", MessageBoxButtons.YesNo);
-                        if (dialogResult == DialogResult.Yes)
-                        {
-                            txtCidade.Clear();
-                            txtEmail.Clear();
-                            txtName.Clear();
-                            mskCelular.Clear();
-                            mskCPF.Clear();
-                            mskTelefone.Clear();
-                            
-                        }
-                        else if (dialogResult == DialogResult.No)
-                        {
-                            this.Close();
-                        }
-                        
+                        MessageBox.Show("Cliente cadastrado com sucesso!", "Cadastrado");
+                        this.Close();
+                        //DialogResult dialogResult = MessageBox.Show("Cliente cadastrado com sucesso!", "Cadastrado", MessageBoxButtons.YesNo);
+                        //if (dialogResult == DialogResult.Yes)
+                        //{
+                        //    txtCidade.Clear();
+                        //    txtEmail.Clear();
+                        //    txtName.Clear();
+                        //    mskCelular.Clear();
+                        //    mskCPF.Clear();
+                        //    mskTelefone.Clear();
+
+                        //}
+                        //else if (dialogResult == DialogResult.No)
+                        //{
+                        //    
+                        //}
+
 
                     }
                     else
@@ -74,7 +102,7 @@ namespace Hospedaria.fdrClientes
             {
                 MessageBox.Show("O CPF informado é inválido!");//CPF INVALIDO
             }
-            
+
 
 
 
@@ -88,7 +116,7 @@ namespace Hospedaria.fdrClientes
             mskCPF.Clear();
             mskTelefone.Clear();
 
-               
+
         }
 
         private void frmCadastroClientes_FormClosing(object sender, FormClosingEventArgs e)

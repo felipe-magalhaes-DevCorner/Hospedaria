@@ -21,12 +21,15 @@ namespace Hospedaria.fdrQuartos
         List<int> idNames = new List<int>();// LISTAS COM OS NOMES
         List<string> listHospedagem = new List<string>();// LISTAS COM OS NOMES
         List<int> idHospedagem = new List<int>();// LISTAS COM OS NOMES
-        public Form getform { get; set; }
+        public static Form getform { get; set; }
 
         public frmReservas()
         {
             InitializeComponent();
             Thread.CurrentThread.CurrentCulture = new CultureInfo("pt-BR");
+            cbNomeRes.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cbNomeRes.AutoCompleteSource = AutoCompleteSource.ListItems;
+            
         }
         
 
@@ -212,6 +215,7 @@ namespace Hospedaria.fdrQuartos
             //---------------------------------CHAMA O METODO QUE CONFERE SE JA ESTA RESERVADO//---------------------------------
             if (checkIfAlreadyReserved())
             {
+
                 //---------------------------------CHEGA NOME CLIENTE NOVAMENTE ANTES DA INSERCAO
                 if (listNames.Contains(cbNomeRes.Text))
                 {

@@ -72,6 +72,7 @@ namespace Hospedaria.fdrQuartos
         private void button1_Click(object sender, EventArgs e)
         {
             frmListReservas frmListReservas = new frmListReservas("altera");
+            frmListReservas.getform = this;
             this.Hide();
             frmListReservas.Show();
         }
@@ -112,9 +113,9 @@ namespace Hospedaria.fdrQuartos
 
         private void frmAlteraReserva_FormClosing(object sender, FormClosingEventArgs e)
         {
-
-                Form1 objPrincipal = new Form1(true);
-                objPrincipal.Show();
+            //Form1 objPrm1 = new Form1();
+            //objPrm1.Show();
+                
                 
 
         }
