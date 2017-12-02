@@ -14,6 +14,7 @@ namespace Hospedaria.fdrFinanceiro
     {
         public Form getform { get; set; }
         private ConnectionClass db = new ConnectionClass();
+        private DataTable _dt;
         public frmFinanceiro()
         {
             InitializeComponent();
@@ -46,11 +47,13 @@ namespace Hospedaria.fdrFinanceiro
             db.SqlQuery(query);  Clipboard.SetText(query);
 
             db.QueryRun();
-            DataTable _dt = db.QueryDT();
+            _dt = db.QueryDT();
 
             dataGridView2.DataSource = _dt;
             dataGridView2.AutoResizeColumns();
             db.closeConnection();
+            comboBox1.SelectedIndex = 0;
+            CBTotalChange();
         }
 
         private void frmFinanceiro_FormClosing(object sender, FormClosingEventArgs e)
@@ -73,8 +76,10 @@ namespace Hospedaria.fdrFinanceiro
                 datepicker1.Value = firstDayOfMonth;
                 var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
                 datepicker2.Value = lastDayOfMonth;
+                comboBox1.SelectedIndex = 0;
             }
             CarregaDados();
+            CBTotalChange();
 
         }
 
@@ -89,6 +94,7 @@ namespace Hospedaria.fdrFinanceiro
 
             }
             CarregaDados();
+            CBTotalChange();
 
 
         }
@@ -96,11 +102,50 @@ namespace Hospedaria.fdrFinanceiro
         private void datepicker1_ValueChanged(object sender, EventArgs e)
         {
             CarregaDados();
+            CBTotalChange();
+
         }
 
         private void datepicker2_ValueChanged(object sender, EventArgs e)
         {
             CarregaDados();
+            CBTotalChange();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CBTotalChange();
+
+        }
+
+        private void CBTotalChange()
+        {
+            switch (comboBox1.SelectedIndex)
+            {
+                case 0:
+                    {
+                        var Total = _dt.AsEnumerable().Select(r => r.Field<decimal>("Total")).ToList();
+                        label3.Text = (String.Format("Valor Total: {0}", Total.Sum()));
+                    }
+                    break;
+                case 1:
+                    {
+                        var ValorPensao = _dt.AsEnumerable().Select(r => r.Field<decimal>("ValorPensao")).ToList();
+                        label3.Text = (String.Format("Valor Total: {0}", ValorPensao.Sum()));
+                    }
+                    break;
+                case 2:
+                    {
+                        var ValorQuarto = _dt.AsEnumerable().Select(r => r.Field<decimal>("ValorQuarto")).ToList();
+                        label3.Text = (String.Format("Valor Total: {0}", ValorQuarto.Sum()));
+                    }
+                    break;
+
+
+
+                default:
+                    break;
+            }
         }
     }
 }
