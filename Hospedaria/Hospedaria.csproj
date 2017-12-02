@@ -185,6 +185,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="splashEnceramento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="splashEnceramento.Designer.cs">
+      <DependentUpon>splashEnceramento.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="fdrClientes\frmAlterarHospedes.resx">
       <DependentUpon>frmAlterarHospedes.cs</DependentUpon>
     </EmbeddedResource>
@@ -258,6 +264,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="splashEnceramento.resx">
+      <DependentUpon>splashEnceramento.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -291,6 +300,7 @@
     <None Include="Resources\test12.png" />
     <None Include="Resources\loading.gif" />
     <None Include="Resources\loading1.gif" />
+    <None Include="Resources\roadtrip.gif" />
     <Content Include="SQL Script\script.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

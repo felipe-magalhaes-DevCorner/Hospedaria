@@ -1009,6 +1009,11 @@ namespace Hospedaria
         private void Form1_FormClosing_1(object sender, FormClosingEventArgs e)
         {
             db.closeConnection();
+            splashEnceramento objSplash = new splashEnceramento();
+            this.Hide();
+            objSplash.ShowDialog();
+            
+
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)

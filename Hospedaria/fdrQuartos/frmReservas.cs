@@ -159,47 +159,56 @@ namespace Hospedaria.fdrQuartos
         
         private void button2_Click(object sender, EventArgs e)
         {
-            if (datepicker1.Value > DateTime.Now && datepicker2.Value > DateTime.Now)
+            if (datepicker1.Value > DateTime.Now)
             {
-
-                //---------------------------------BOTAO GRAVAR//---------------------------------
-
-                if (cbNomeRes.Text != "")//CHEGA SE NOME ESTA EM BRANCO
+                if (datepicker2.Value > datepicker1.Value)
                 {
-                    if (listNames.Contains(cbNomeRes.Text.Trim()))//CHEGA SE É UM CLIENTE CADASTRADO
+                    //---------------------------------BOTAO GRAVAR//---------------------------------
+
+                    if (cbNomeRes.Text != "")//CHEGA SE NOME ESTA EM BRANCO
                     {
-                        if (cbQuarto.Text.Trim() != "")//CHEGA SE UM QUARTO FOI SELECIONADO
+                        if (listNames.Contains(cbNomeRes.Text.Trim()))//CHEGA SE É UM CLIENTE CADASTRADO
                         {
-                            Inserecadastro();//PROCEDE COM O CADASTRO CHAMASNDO O METODO CADASTRO
+                            if (cbQuarto.Text.Trim() != "")//CHEGA SE UM QUARTO FOI SELECIONADO
+                            {
+                                Inserecadastro();//PROCEDE COM O CADASTRO CHAMASNDO O METODO CADASTRO
+                            }
+                            else
+                            {
+                                MessageBox.Show("Escolha um quarto!");//QUARTO EM BRANCO
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("Escolha um quarto!");//QUARTO EM BRANCO
-                        }
-                    }
-                    else
-                    {
-                        //CLIENTE NAO CADASTRADO! QUER CADASTRAR?
-                        DialogResult dialogResult = MessageBox.Show("Cliente nao cadastrado, gostaria de cadastrar agora?", "Some Title", MessageBoxButtons.YesNo);
-                        if (dialogResult == DialogResult.Yes)
-                        {
-                            //do something
-                            fdrClientes.frmCadastroClientes frmCadastroClientes = new fdrClientes.frmCadastroClientes();
-                            frmCadastroClientes.ShowDialog();
-                        }
-                        else if (dialogResult == DialogResult.No)
-                        {
-                            //SE CLICLOU EM NAO... FAZ NADA ELE QUER CORRIGIR
+                            //CLIENTE NAO CADASTRADO! QUER CADASTRAR?
+                            DialogResult dialogResult = MessageBox.Show("Cliente nao cadastrado, gostaria de cadastrar agora?", "Some Title", MessageBoxButtons.YesNo);
+                            if (dialogResult == DialogResult.Yes)
+                            {
+                                //do something
+                                fdrClientes.frmCadastroClientes frmCadastroClientes = new fdrClientes.frmCadastroClientes();
+                                frmCadastroClientes.ShowDialog();
+                            }
+                            else if (dialogResult == DialogResult.No)
+                            {
+                                //SE CLICLOU EM NAO... FAZ NADA ELE QUER CORRIGIR
+                            }
+
                         }
 
                     }
+                    else
+                    {
+                        MessageBox.Show("Insira o nome do cliente!");//NOME EM BRANCO
+                    }
+                    ////---------------------------------TERMINA CADASTRO
 
                 }
                 else
                 {
-                    MessageBox.Show("Insira o nome do cliente!");//NOME EM BRANCO
+                    MessageBox.Show("A data de saida é menor que a data de entrada.");
                 }
-                ////---------------------------------TERMINA CADASTRO
+
+
 
             }
             else
