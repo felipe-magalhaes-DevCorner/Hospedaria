@@ -621,7 +621,7 @@ namespace Hospedaria
         private void alterarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-            fdrLogin.frmAlteraUsuario objUsu = new fdrLogin.frmAlteraUsuario(powerLvl);
+            fdrLogin.frmAlteraUsuario objUsu = new fdrLogin.frmAlteraUsuario(powerLvl, LoggedName);
             objUsu.getform = this;
             
             objUsu.ShowDialog();

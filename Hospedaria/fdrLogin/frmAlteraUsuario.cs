@@ -22,17 +22,24 @@ namespace Hospedaria.fdrLogin
         List<string> descricao = new List<string>();
         List<int> BanBool = new List<int>();
         private static int powerlevel;
+        private static int logado;
 
         public Form getform { get; set; }
 
 
 
-        public frmAlteraUsuario(int _powerlevel = 9)
+        public frmAlteraUsuario(int _powerlevel = 9, string nome = "")
         {
             InitializeComponent();
+            powerlevel = _powerlevel;
+            if (nome != "")
+            {
+                logado = nome;
+            }
+            
             comboBox1.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             comboBox1.AutoCompleteSource = AutoCompleteSource.ListItems;
-            powerlevel = _powerlevel;
+            
 
 
 
@@ -45,9 +52,48 @@ namespace Hospedaria.fdrLogin
 
         private void frmAlteraUsuario_Load(object sender, EventArgs e)
         {
-
+            bool control;
             string query; //"select * from usuarios where usuarios.idcategoriausu >= '"+powerlevel+"' order  by usuarios.nome";
-            query = "select usuarios.idUSUARIOS, usuarios.nome, usuarios.login,usuarios.idcategoriausu, usuarios.ban,CATEGORIAUSU.powerlevel from usuarios inner join CATEGORIAUSU on CATEGORIAUSU.idCATEGORIAUSU = USUARIOS.idCATEGORIAUSU where CATEGORIAUSU.powerlevel < = '" + powerlevel + "' order by usuarios.nome";
+            db.SqlConnection();
+            if (powerlevel <= 2)
+            {
+                query = "select * from categoriausu where categoriausu.powerlevel = '" + powerlevel + "' ";
+                cbCargo.Visible = false;
+                chekBan.Visible = false;
+                label5.Visible = false;
+                control = false;
+            }
+            else
+            {
+                query = "select * from categoriausu";
+                cbCargo.Visible = true;
+                chekBan.Visible = true;
+                label5.Visible = true;
+                control = true;
+            }
+
+            db.SqlQuery(query); Clipboard.SetText(query);
+            SqlDataReader _dr = db.QueryReader();
+            while (_dr.Read())
+            {
+                idCategoria.Add(Convert.ToInt32(_dr["idcategoriausu"]));
+                descricao.Add(_dr["descricao"].ToString());
+
+
+
+            }
+            db.closeConnection();
+
+
+            if (control)
+            {
+                query = "select usuarios.idUSUARIOS, usuarios.nome, usuarios.login,usuarios.idcategoriausu, usuarios.ban,CATEGORIAUSU.powerlevel from usuarios inner join CATEGORIAUSU on CATEGORIAUSU.idCATEGORIAUSU = USUARIOS.idCATEGORIAUSU where CATEGORIAUSU.powerlevel < = '" + powerlevel + "' order by usuarios.nome";
+            }
+            else
+            {
+                query = "select usuarios.idUSUARIOS, usuarios.nome, usuarios.login,usuarios.idcategoriausu, usuarios.ban,CATEGORIAUSU.powerlevel from usuarios inner join CATEGORIAUSU on CATEGORIAUSU.idCATEGORIAUSU = USUARIOS.idCATEGORIAUSU where usuarios.nome = '" + logado + "' order by usuarios.nome";
+            }
+            
             db.SqlConnection();
             db.SqlQuery(query);  Clipboard.SetText(query);
             SqlDataReader _dt = db.QueryReader();
@@ -67,35 +113,8 @@ namespace Hospedaria.fdrLogin
                 comboBox1.Items.Add(nomeUsu[i]);
             }
 
-            db.closeConnection();
-            /////--------------------------------------
-            db.SqlConnection();
-            if (powerlevel <= 2)
-            {
-                query = "select * from categoriausu where categoriausu.powerlevel = '" + powerlevel + "' ";
-                cbCargo.Visible = false;
-                chekBan.Visible = false;
-                label5.Visible = false;
-            }
-            else
-            {
-                query = "select * from categoriausu";
-                cbCargo.Visible = true;
-                chekBan.Visible = true;
-                label5.Visible = true;
-            }
             
-            db.SqlQuery(query);  Clipboard.SetText(query);
-            SqlDataReader _dr = db.QueryReader();
-            while (_dr.Read())
-            {
-                idCategoria.Add(Convert.ToInt32(_dr["idcategoriausu"]));
-                descricao.Add(_dr["descricao"].ToString());
-
-
-
-            }
-
+            /////--------------------------------------
             foreach (string item in descricao)
             {
                 cbCargo.Items.Add(item);
@@ -109,6 +128,7 @@ namespace Hospedaria.fdrLogin
             {
                 chekBan.Checked = true;
             }
+
 
         }
 
