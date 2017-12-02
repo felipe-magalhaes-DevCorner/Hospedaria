@@ -22,7 +22,7 @@ namespace Hospedaria.fdrLogin
         List<string> descricao = new List<string>();
         List<int> BanBool = new List<int>();
         private static int powerlevel;
-        private static int logado;
+        private static string logado;
 
         public Form getform { get; set; }
 
