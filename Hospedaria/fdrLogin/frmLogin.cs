@@ -44,14 +44,14 @@ namespace Hospedaria.fdrLogin
 
             db.SqlQuery(query);  Clipboard.SetText(query);             
             SqlDataReader _dr = db.QueryReader();
-            if (_dr.HasRows)
-            {
-
-            }
-            else
+            if (!_dr.HasRows)
             {
                 MessageBox.Show("Usuario Inesistente.");
             }
+            //else
+            //{
+                
+            //}
             while (_dr.Read())
             {
                 if (AuxCountLogin<4)
@@ -64,6 +64,8 @@ namespace Hospedaria.fdrLogin
                         powerlevel = (Convert.ToInt32(_dr["powerlevel"]));
                         control = true;
                         //getform.Close();
+
+
                         Form1 objFrm1 = new Form1(false,loggedName, powerlevel, true);
                         
 

@@ -22,8 +22,10 @@ namespace Hospedaria.fdrQuartos
         {
             fdrQuartos.frmReservas frmReservas = new frmReservas();
             frmReservas.getform = getform;
+            
             this.Hide();
             frmReservas.ShowDialog();
+            
         }
 
         private void button3_Click(object sender, EventArgs e)

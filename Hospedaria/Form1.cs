@@ -22,6 +22,7 @@ namespace Hospedaria
 
 
             InitializeComponent();
+
             //this.Hide();
             //if (RunOnce == true)
             //{

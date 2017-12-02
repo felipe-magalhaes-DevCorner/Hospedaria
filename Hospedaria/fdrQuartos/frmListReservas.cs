@@ -14,8 +14,9 @@ namespace Hospedaria.fdrQuartos
     {
         private ConnectionClass db = new ConnectionClass();
         public Form getform { get; set; }
-        static string  telaAnterior;
-        public frmListReservas(string _telaanterior = "")
+        public string TelaAnterior { get; set; }
+        
+        public frmListReservas()
         {
             
             InitializeComponent();
@@ -40,18 +41,25 @@ namespace Hospedaria.fdrQuartos
         {
             if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
             {
-                if (telaAnterior == "altera")
+                if (TelaAnterior == "altera")
                 {
                     fdrQuartos.frmAlteraReserva objAlt = new fdrQuartos.frmAlteraReserva(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(), dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString(), dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString(), dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString(), 'd');
 
                     objAlt.Show();
                 }
-                else
+                else if (TelaAnterior == "CheckIn")
                 {
                     fdrQuartos.CheckIn objAlt = new fdrQuartos.CheckIn(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(), dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString(), dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString(), dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString(), 'd');
 
                     objAlt.Show();
                     
+                }
+                else
+                {
+                    Form1 obj = new Form1
+                    {
+                        Visible = true
+                    };
                 }
 
                 
@@ -66,5 +74,11 @@ namespace Hospedaria.fdrQuartos
                 MessageBox.Show("Selecione um cliente");
             }
         }
+
+        private void frmListReservas_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            TelaAnterior = "";
+        }
+        
     }
 }

@@ -40,14 +40,19 @@ namespace Hospedaria.fdrQuartos
             cbNomeCheckIn.AutoCompleteSource = AutoCompleteSource.ListItems;
             if (reserva == 'd')
             {
-                //pegar nome da suite, procurar qual index ele esta em nomes quartos. 
-                cbQuarto.SelectedIndex = nomeQuarto.IndexOf(_pNomeSuite);
-                cbNomeCheckIn.SelectedIndex = nomeCliente.IndexOf(_pNomeCliente);
-                DateTime dataentrada = Convert.ToDateTime( _pDatareserva);
-                DateTime datasaida = Convert.ToDateTime(_pDataSaida);
-                datepicker1.Value = dataentrada;
-                datepicker2.Value = datasaida;
-                this.Visible = true;
+                if (_pNomeCliente != "" && _pDataSaida != "" && _pDatareserva != "")
+                {   
+                    //pegar nome da suite, procurar qual index ele esta em nomes quartos. 
+                    cbQuarto.SelectedIndex = nomeQuarto.IndexOf(_pNomeSuite);
+                    cbNomeCheckIn.SelectedIndex = nomeCliente.IndexOf(_pNomeCliente);
+                    DateTime dataentrada = Convert.ToDateTime(_pDatareserva);
+                    DateTime datasaida = Convert.ToDateTime(_pDataSaida);
+                    datepicker1.Value = dataentrada;
+                    datepicker2.Value = datasaida;
+                    this.Visible = true;
+
+                }
+
                 //
 
             }
@@ -452,6 +457,8 @@ namespace Hospedaria.fdrQuartos
 
 
                 this.Hide();
+            //controllers objControl = new controllers();
+            //objControl.CallMenu();
                 getform.Visible = true;
                 
 
@@ -495,6 +502,8 @@ namespace Hospedaria.fdrQuartos
         private void button1_Click(object sender, EventArgs e)
         {
             frmListReservas frmListReservas = new frmListReservas();
+            frmListReservas.getform = this;
+            frmListReservas.TelaAnterior = "CheckIn";
             this.Hide();
             frmListReservas.Show();
         }

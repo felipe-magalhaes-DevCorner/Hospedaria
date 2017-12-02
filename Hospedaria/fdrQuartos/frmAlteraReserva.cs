@@ -14,7 +14,8 @@ namespace Hospedaria.fdrQuartos
     public partial class frmAlteraReserva : Form
     {
         private ConnectionClass db = new ConnectionClass();
-        public Form getform { get; set; }
+        public  Form getform { get; set; }
+        private bool control = true;
 
         List<string> listNames = new List<string>();// LISTAS COM OS NOMES
         List<int> idNames = new List<int>();// LISTAS COM OS NOMES
@@ -27,6 +28,7 @@ namespace Hospedaria.fdrQuartos
         public frmAlteraReserva(string _pNomeSuite = "", string _pNomeCliente = "", string _pDatareserva = "", string _pDataSaida = "", char reserva = 'c', bool exit = false)
         {
             InitializeComponent();
+            control = true;
 
 
         }
@@ -90,8 +92,10 @@ namespace Hospedaria.fdrQuartos
 
         private void button1_Click(object sender, EventArgs e)
         {
-            frmListReservas frmListReservas = new frmListReservas("altera");
+            frmListReservas frmListReservas = new frmListReservas();
             frmListReservas.getform = this;
+            frmListReservas.TelaAnterior = "altera";
+            control = false;
             this.Hide();
             frmListReservas.Show();
         }
@@ -142,8 +146,14 @@ namespace Hospedaria.fdrQuartos
 
         private void frmAlteraReserva_FormClosing(object sender, FormClosingEventArgs e)
         {
-
-            getform.Visible = true;
+            if (control)
+            {
+                Form1 form1 = new Form1
+                {
+                    Visible = true
+                };
+            }
+            
 
 
 
