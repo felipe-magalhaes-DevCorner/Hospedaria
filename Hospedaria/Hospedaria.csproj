@@ -70,6 +70,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ajuda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ajuda.Designer.cs">
+      <DependentUpon>Ajuda.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConnectionClass.cs" />
     <Compile Include="fdrClientes\clienteSQL.cs" />
     <Compile Include="fdrClientes\frmAlterarHospedes.cs">
@@ -190,6 +196,9 @@
     <Compile Include="splashEnceramento.Designer.cs">
       <DependentUpon>splashEnceramento.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Ajuda.resx">
+      <DependentUpon>Ajuda.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fdrClientes\frmAlterarHospedes.resx">
       <DependentUpon>frmAlterarHospedes.cs</DependentUpon>
     </EmbeddedResource>
@@ -291,6 +300,7 @@
   <ItemGroup>
     <None Include="Resources\searchicon.jpg" />
     <None Include="Resources\bluecircle.png" />
+    <None Include="Resources\ajuda_html" />
     <Content Include="Resources\blue_circle.png" />
     <None Include="Resources\test1.png" />
     <None Include="Resources\branco.png" />

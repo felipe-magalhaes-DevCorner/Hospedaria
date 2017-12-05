@@ -199,7 +199,7 @@ namespace Hospedaria.fdrQuartos
                             dataProximaReserva = Convert.ToDateTime(_dr2["datareserva"]);
 
                         }
-                        db.closeConnection();
+                        
                         if (_dr2.HasRows )
                         {
                             QuartoLivreContinuaCheckin();
@@ -208,8 +208,9 @@ namespace Hospedaria.fdrQuartos
                         {
                             MessageBox.Show("Quarto em reserva.");
                         }
+                        db.closeConnection();
 
-                        
+
 
 
 

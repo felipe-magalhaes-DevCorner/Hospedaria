@@ -23,26 +23,7 @@ namespace Hospedaria
 
             InitializeComponent();
 
-            //this.Hide();
-            //if (RunOnce == true)
-            //{
-            //    Thread t = new Thread(new ThreadStart(splash));
-            //    t.Start();
-            //    Thread.Sleep(1000);
-            //    t.Abort();
 
-            //    this.Hide();
-            //    RunOnce = false;
-            //    fdrLogin.frmLogin objlogin = new fdrLogin.frmLogin();
-            //    objlogin.getform = this;
-
-            //    objlogin.ShowDialog();
-
-
-            //    //this.hide();
-            //    //objlogin.focus();
-
-            //}
             if (control)
             {
 
@@ -50,18 +31,7 @@ namespace Hospedaria
                 powerLvl = _powerlevel;
             }
             TimerUpdated();
-            //if (checkStatus)
-            //{
-            //    CheckStatus();
-                
-            //}
-            //var startTimeSpan = TimeSpan.Zero;
-            //var periodTimeSpan = TimeSpan.FromMinutes(5);
 
-            //var timer = new System.Threading.Timer((e) =>
-            //{
-            //    TimerUpdated();
-            //}, null, startTimeSpan, periodTimeSpan);
 
             LoggedName = nomeUser;
             PowerLevel(powerLvl);
@@ -1010,9 +980,14 @@ namespace Hospedaria
         private void Form1_FormClosing_1(object sender, FormClosingEventArgs e)
         {
             db.closeConnection();
-            splashEnceramento objSplash = new splashEnceramento();
-            this.Hide();
-            objSplash.ShowDialog();
+            if (this.Visible)
+            {
+                splashEnceramento objSplash = new splashEnceramento();
+                this.Hide();
+                objSplash.ShowDialog();
+
+            }
+
             
 
         }
@@ -1033,7 +1008,11 @@ namespace Hospedaria
             
         }
 
-
+        private void ajudaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Ajuda objAjuda = new Ajuda();
+            objAjuda.ShowDialog();
+        }
     }
 }
 
