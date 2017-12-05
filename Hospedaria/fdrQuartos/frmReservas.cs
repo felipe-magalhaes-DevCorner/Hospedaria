@@ -234,6 +234,8 @@ namespace Hospedaria.fdrQuartos
                     db.QueryRun();//EXECUTA A QUERY
                     db.closeConnection();//FECHA CONEXAO
                     MessageBox.Show("Reserva Efetuada!");//DEU TUDO CERTO!!
+                    this.Hide();
+                    getform.Visible = true;
 
                 }
                 else
@@ -279,8 +281,7 @@ namespace Hospedaria.fdrQuartos
 
         private void frmReservas_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Form1 objPrincipal = new Form1();
-            objPrincipal.Show();
+            getform.Visible = true;
         }
 
         private void cbQuarto_MouseMove(object sender, MouseEventArgs e)

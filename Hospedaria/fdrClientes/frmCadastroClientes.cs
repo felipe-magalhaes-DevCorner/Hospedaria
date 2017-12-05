@@ -77,21 +77,7 @@ namespace Hospedaria.fdrClientes
                             cd.cadastraCliente(mskCPF.Text.Trim(), txtName.Text.Trim(), mskTelefone.Text.Trim(), mskCelular.Text.Trim(), txtEmail.Text.Trim().ToLower(), txtCidade.Text.Trim());
                             MessageBox.Show("Cliente cadastrado com sucesso!", "Cadastrado");
                             this.Close();
-                            //DialogResult dialogResult = MessageBox.Show("Cliente cadastrado com sucesso!", "Cadastrado", MessageBoxButtons.YesNo);
-                            //if (dialogResult == DialogResult.Yes)
-                            //{
-                            //    txtCidade.Clear();
-                            //    txtEmail.Clear();
-                            //    txtName.Clear();
-                            //    mskCelular.Clear();
-                            //    mskCPF.Clear();
-                            //    mskTelefone.Clear();
 
-                            //}
-                            //else if (dialogResult == DialogResult.No)
-                            //{
-                            //    
-                            //}
 
 
                         }

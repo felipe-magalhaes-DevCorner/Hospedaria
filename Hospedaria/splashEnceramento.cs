@@ -23,13 +23,14 @@ namespace Hospedaria
             timer.Interval = 3000;
             timer.Tick += new EventHandler(timer_Tick);
             timer.Start();
+            
 
 
 
         }
         void timer_Tick(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
     }
 }

@@ -176,7 +176,9 @@ namespace Hospedaria.fdrLogin
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            splashEnceramento objEnc = new splashEnceramento();
+            objEnc.Show();
+            
         }
 
         private void klbRecuperar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

@@ -84,7 +84,7 @@ namespace Hospedaria.fdrQuartos
                 button3.Visible = false;
                 button2.Visible = false;
                 MessageBox.Show("Nao existem reservas.");
-                this.Close();
+                this.Hide();
 
             }
 
@@ -116,13 +116,13 @@ namespace Hospedaria.fdrQuartos
                 db.QueryRun();
                 db.closeConnection();
                 MessageBox.Show("Reserva cancelada.");
-                this.Close();
+                this.Hide();
                 getform.Visible = true;
             }
             else
             {
 
-                MessageBox.Show("Reserva cancelada.");
+                MessageBox.Show("Reserva nao excluida.");
             }
 
         }
@@ -137,6 +137,8 @@ namespace Hospedaria.fdrQuartos
             db.QueryRun();
             db.closeConnection();
             MessageBox.Show("Reserva alterada.");
+            this.Close();
+            getform.Visible = true;
         }
 
         private void cbNomeCheckIn_SelectedIndexChanged(object sender, EventArgs e)
@@ -148,10 +150,11 @@ namespace Hospedaria.fdrQuartos
         {
             if (control)
             {
-                Form1 form1 = new Form1
-                {
-                    Visible = true
-                };
+                //Form1 form1 = new Form1
+                //{
+                //    Visible = true
+                //};
+                getform.Visible = true;
             }
             
 

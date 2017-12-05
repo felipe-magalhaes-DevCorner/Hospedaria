@@ -22,24 +22,33 @@ namespace Hospedaria.fdrLogin
 
         private void bAlterar_Click(object sender, EventArgs e)
         {
-            try
+            if (txtPass.Text == txtConfPass.Text)
             {
-                db.SqlConnection();
-                string query = "UPDATE usuarios SET senha = '" + txtPass.Text.Trim() + "' WHERE login = '" + txtUser.Text.Trim() + "' AND senha_mestre = '" + txtRecu.Text.Trim() + "'";
-                db.SqlQuery(query);  Clipboard.SetText(query);
-                db.QueryRun();
-                db.closeConnection();
-                MessageBox.Show("Senha Alterada");
-                this.Hide();
-                getform.Visible = true;
+                try
+                {
+                    db.SqlConnection();
+                    string query = "UPDATE usuarios SET senha = '" + txtPass.Text.Trim() + "' WHERE login = '" + txtUser.Text.Trim() + "' AND senha_mestre = '" + txtRecu.Text.Trim() + "'";
+                    db.SqlQuery(query); Clipboard.SetText(query);
+                    db.QueryRun();
+                    db.closeConnection();
+                    MessageBox.Show("Senha Alterada");
+                    this.Hide();
+                    getform.Visible = true;
 
 
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Username ou ID errados");
+                    throw;
+                }
+
             }
-            catch (Exception)
+            else
             {
-                MessageBox.Show("Username ou ID errados");
-                throw;
+                MessageBox.Show("A nova senhas nao confere");
             }
+            
         }
 
         private void btnSair_Click(object sender, EventArgs e)

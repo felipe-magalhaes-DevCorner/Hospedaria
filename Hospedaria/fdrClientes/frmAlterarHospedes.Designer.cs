@@ -43,7 +43,6 @@
             this.btEditar = new System.Windows.Forms.Button();
             this.btExcluir = new System.Windows.Forms.Button();
             this.cbCPF = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtEMAIL
@@ -154,7 +153,7 @@
             // 
             this.btEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btEditar.Location = new System.Drawing.Point(447, 239);
+            this.btEditar.Location = new System.Drawing.Point(413, 233);
             this.btEditar.Name = "btEditar";
             this.btEditar.Size = new System.Drawing.Size(80, 80);
             this.btEditar.TabIndex = 8;
@@ -166,7 +165,7 @@
             // 
             this.btExcluir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btExcluir.Location = new System.Drawing.Point(337, 239);
+            this.btExcluir.Location = new System.Drawing.Point(303, 233);
             this.btExcluir.Name = "btExcluir";
             this.btExcluir.Size = new System.Drawing.Size(80, 80);
             this.btExcluir.TabIndex = 7;
@@ -184,26 +183,12 @@
             this.cbCPF.TabIndex = 2;
             this.cbCPF.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
             // 
-            // button1
-            // 
-            this.button1.BackgroundImage = global::Hospedaria.Properties.Resources.searchicon;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(500, 6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(30, 28);
-            this.button1.TabIndex = 23;
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // frmAlterarHospedes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(544, 336);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(500, 321);
             this.Controls.Add(this.cbCPF);
             this.Controls.Add(this.btExcluir);
             this.Controls.Add(this.btEditar);
@@ -244,7 +229,6 @@
         private System.Windows.Forms.Button btEditar;
         private System.Windows.Forms.Button btExcluir;
         private System.Windows.Forms.ComboBox cbCPF;
-        private System.Windows.Forms.Button button1;
         public System.Windows.Forms.ComboBox cbNomeAlt;
     }
 }

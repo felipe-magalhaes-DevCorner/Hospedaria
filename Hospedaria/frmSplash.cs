@@ -20,7 +20,7 @@ namespace Hospedaria
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            progressBar1.Increment(3);
+            progressBar1.Increment(2);
             if (progressBar1.Value == 100)
             {
                 timer1.Stop();

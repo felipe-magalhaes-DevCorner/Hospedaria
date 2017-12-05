@@ -54,35 +54,105 @@ namespace Hospedaria.fdrLogin
         private void btGravar_Click(object sender, EventArgs e)
         {
 
-            if (txtSenha.Text == txtConfirmaSenha.Text)
+            if (txtConfirmaSenha.Text != "")
             {
-                string query = "insert into usuarios values ('" + idUsuarioCate[comboBox1.SelectedIndex] + "', '" + txtNome.Text.Trim() + "', '" + txtLogin.Text.Trim() + "', '" + txtSenha.Text.Trim() + "', '" + txtMestre.Text.Trim() + "', '0', '0')";
-                db.SqlConnection();
-                db.SqlQuery(query);  Clipboard.SetText(query);
-                db.QueryRun();
-                db.closeConnection();
 
-                DialogResult dialogResult = MessageBox.Show("Novo usuario cadastrado com sucesso. Gostaria de cadastrar outro usuario?", "Concluido", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
+                if (txtLogin.Text != "")
                 {
-                    txtNome.Clear();
-                    txtLogin.Clear();
-                    txtSenha.Clear();
-                    txtConfirmaSenha.Clear();
-                    txtMestre.Clear();
-                    comboBox1.SelectedIndex = 0;
-                }
-                else if (dialogResult == DialogResult.No)
-                {
-                    this.Close();
-                }
+                    if (txtMestre.Text != "")
+                    {
+                        if (txtNome.Text != "")
+                        {
+                            if (txtSenha.Text != "")
+                            {
+                                if (txtSenha.Text == txtConfirmaSenha.Text)
+                                {
+                                    string query = "insert into usuarios values ('" + idUsuarioCate[comboBox1.SelectedIndex] + "', '" + txtNome.Text.Trim() + "', '" + txtLogin.Text.Trim() + "', '" + txtSenha.Text.Trim() + "', '" + txtMestre.Text.Trim() + "', '0', '0')";
+                                    db.SqlConnection();
+                                    db.SqlQuery(query); Clipboard.SetText(query);
+                                    db.QueryRun();
+                                    db.closeConnection();
 
+                                    DialogResult dialogResult = MessageBox.Show("Novo usuario cadastrado com sucesso. Gostaria de cadastrar outro usuario?", "Concluido", MessageBoxButtons.YesNo);
+                                    if (dialogResult == DialogResult.Yes)
+                                    {
+                                        txtNome.Clear();
+                                        txtLogin.Clear();
+                                        txtSenha.Clear();
+                                        txtConfirmaSenha.Clear();
+                                        txtMestre.Clear();
+                                        comboBox1.SelectedIndex = 0;
+                                    }
+                                    else if (dialogResult == DialogResult.No)
+                                    {
+                                        this.Close();
+                                    }
+
+                                }
+                                else
+                                {
+
+                                    MessageBox.Show("As senhas nao batem.");
+                                }
+
+
+
+
+
+
+
+
+
+
+
+
+                            }
+                            else
+                            {
+                                MessageBox.Show("Nao sera dessa vez marlon");
+                            }
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Nao sera dessa vez marlon");
+                        }
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nao sera dessa vez marlon");
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Nao sera dessa vez marlon");
+                }
             }
             else
             {
-                
-                MessageBox.Show("As senhas nao batem.");
+                MessageBox.Show("Nao sera dessa vez marlon");
             }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
             
 
 

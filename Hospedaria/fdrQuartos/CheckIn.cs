@@ -258,7 +258,8 @@ namespace Hospedaria.fdrQuartos
                 }
                 
                 
-                db.SqlQuery(query);  Clipboard.SetText(query); 
+                db.SqlQuery(query);
+                Clipboard.SetText(query); 
                 SqlDataReader _dr = db.QueryReader();
                 bool QuartoLivre = true;
                 ////////////--------- chega reservas------------//////////
@@ -414,14 +415,7 @@ namespace Hospedaria.fdrQuartos
                     MessageBox.Show("CheckIn Efetuado com sucesso!");
                     this.Hide();
                     exit = false;
-                    Form1 form1 = new Form1(true);
-
-                    form1.Show();
-                    
-                    
-                    
-
-
+                    getform.Visible = true;
 
 
                 }
@@ -435,6 +429,8 @@ namespace Hospedaria.fdrQuartos
             if (nomeCliente.Contains(cbNomeCheckIn.Text.Trim()))
             {
                 ChecaReserva();
+                this.Hide();
+                getform.Visible = true;
             }
             else
             {
@@ -444,8 +440,7 @@ namespace Hospedaria.fdrQuartos
                 {
                     //caso o cliente nao esteja cadastrado
                     fdrClientes.frmCadastroClientes objCadastro = new fdrClientes.frmCadastroClientes();
-                    this.Hide();
-                    objCadastro.Show();
+                    
 
                 }
                 else if (dialogResult == DialogResult.No)
