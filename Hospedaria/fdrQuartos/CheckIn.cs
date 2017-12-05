@@ -200,8 +200,16 @@ namespace Hospedaria.fdrQuartos
 
                         }
                         db.closeConnection();
+                        if (_dr2.HasRows )
+                        {
+                            QuartoLivreContinuaCheckin();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Quarto em reserva.");
+                        }
 
-                        QuartoLivreContinuaCheckin();
+                        
 
 
 
